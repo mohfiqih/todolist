@@ -24,14 +24,9 @@
                                     <label>Pekerjaan</label>
                                 </div>
                                 <div class="form-floating mb-3">
-                                    <input type="text" class="form-control" name="user_namalengkap"
-                                        placeholder="Nama Lengkap" autocomplete="off" required>
-                                    <label>Jam Mulai</label>
-                                </div>
-                                <div class="form-floating mb-3">
-                                    <input type="text" class="form-control" name="user_namalengkap"
-                                        placeholder="Nama Lengkap" autocomplete="off" required>
-                                    <label>Jam Selesai</label>
+                                    <input type="text" id="basic-datepicker" class="form-control flatpickr-input active"
+                                        placeholder="Tanggal" readonly="readonly">
+                                    <label class="form-label">Tanggal</label>
                                 </div>
                                 <div class="text-center">
                                     <button type="submit" class="btn btn-primary">Tambah</button>
@@ -49,6 +44,16 @@
 
                             <form action="<?php echo uri(2) == "edit" ? url(1, "update") : url(1, "tambah"); ?>"
                                 method="POST">
+                                <div class="form-floating mb-3">
+                                    <input type="text" class="form-control" name="user_namalengkap"
+                                        placeholder="Nama Lengkap" autocomplete="off" required>
+                                    <label>Jam Mulai</label>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <input type="text" class="form-control" name="user_namalengkap"
+                                        placeholder="Nama Lengkap" autocomplete="off" required>
+                                    <label>Jam Selesai</label>
+                                </div>
 
                                 <div class="form-floating mb-3">
                                     <select class="form-select" name="user_level"
@@ -66,6 +71,18 @@
                                     </select>
                                     <label for="example-select-floating">Level</label>
                                 </div>
+
+                                <div class="col-md-6">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h4 class="header-title">Square skin</h4>
+                                            <p class="sub-header">
+                                                Example of square skin
+                                            </p>
+                                            <input type="text" id="range_16">
+                                        </div>
+                                    </div> <!-- end card-->
+                                </div> <!-- end col -->
                             </form>
                         </div>
                     </div>

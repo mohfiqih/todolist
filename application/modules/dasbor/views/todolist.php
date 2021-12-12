@@ -41,6 +41,7 @@
                                         <th scope="col">No</th>
                                         <th scope="col">Nama</th>
                                         <th scope="col">Pekerjaan</th>
+                                        <th scope="col">Tanggal</th>
                                         <th scope="col">Jam Mulai</th>
                                         <th scope="col">Jam Selesai</th>
                                         <th scope="col">Level</th>
@@ -59,6 +60,7 @@
                                         <td class="align-middle">
                                             <span>Call Sam For payments</span>
                                         </td>
+                                        <td class="align-middle"></td>
                                         <td class="align-middle">9.00 WIB</td>
                                         <td class="align-middle">17.00 WIB</td>
                                         <td class="align-middle">
@@ -80,6 +82,7 @@
                                             Yuda
                                         </th>
                                         <td class="align-middle">Make payment to Bluedart</td>
+                                        <td class="align-middle"></td>
                                         <td class="align-middle">9.00 WIB</td>
                                         <td class="align-middle">17.00 WIB</td>
                                         <td class="align-middle">
