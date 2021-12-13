@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>Politeknik Harapan Bersama</title>
+    <title>Todo-List</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="description" content="Politeknik Harapan Bersama">
@@ -17,6 +17,11 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="">
     <meta property="og:image" content="">
+
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
     <!-- App favicon -->
     <link rel="shortcut icon" href="<?php echo base_url('assets/backend'); ?>/images/phb.png">
@@ -39,6 +44,21 @@
         type="text/css" id="bs-dark-stylesheet" disabled="disabled" />
     <link href="<?php echo base_url('assets/backend'); ?>/css/config/default/app-dark.min.css" rel="stylesheet"
         type="text/css" id="app-dark-stylesheet" disabled="disabled" />
+
+    <!-- datepicker -->
+    <link href="<?php echo base_url('assets/backend'); ?>/libs/bootstrap-datepicker/css/bootstrap-datepicker.min.css"
+        rel="stylesheet" type="text/css" />
+    <link href="<?php echo base_url('assets/backend'); ?>/libs/flatpickr/flatpickr.min.css" rel="stylesheet"
+        type="text/css" />
+    <link href="<?php echo base_url('assets/backend'); ?>/libs/clockpicker/bootstrap-clockpicker.min.css"
+        rel="stylesheet" type="text/css" />
+    <link
+        href="<?php echo base_url('assets/backend'); ?>/libs/bootstrap-datepicker/css/bootstrap-datepicker.standalone.min.css"
+        rel="stylesheet" type="text/css" />
+    <link href="<?php echo base_url('assets/backend'); ?>/libs/bootstrap-datepicker/css/bootstrap-datepicker3.min.css"
+        rel="stylesheet" type="text/css" />
+    <link href="<?php echo base_url('assets/backend'); ?>/libs/spectrum-colorpicker2/spectrum.min.css" rel="stylesheet"
+        type="text/css" />
 
     <!-- Notification css (Toastr) -->
     <link href="<?php echo base_url('assets/backend'); ?>/libs/toastr/build/toastr.min.css" rel="stylesheet"
@@ -352,7 +372,7 @@
                     <div class="col-md-6">
                         <script>
                         document.write(new Date().getFullYear())
-                        </script> &copy; Adminto theme by <a href="">Coderthemes</a>
+                        </script> &copy; Todo-List by<a href=""> Sisfo 360</a>
                     </div>
                     <div class="col-md-6">
                         <div class="text-md-end footer-links d-none d-sm-block">
@@ -378,8 +398,33 @@
     <script src="<?php echo base_url('assets/backend'); ?>/libs/morris.js06/morris.min.js"></script>
     <script src="<?php echo base_url('assets/backend'); ?>/libs/raphael/raphael.min.js"></script>
 
-    <!-- Toastr js -->
-    <script src="<?php echo base_url('assets/backend'); ?>/libs/toastr/build/toastr.min.js"></script>
+    <!-- datepicker -->
+
+    <!-- Plugins js-->
+    <script src="<?php echo base_url('assets/backend'); ?>/libs/flatpickr/flatpickr.min.js"></script>
+    <script src="<?php echo base_url('assets/backend'); ?>/libs/spectrum-colorpicker2/spectrum.min.js"></script>
+    <script src="<?php echo base_url('assets/backend'); ?>/libs/clockpicker/bootstrap-clockpicker.min.js"></script>
+    <script src="<?php echo base_url('assets/backend'); ?>/libs/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
+
+    <!-- Init js-->
+    <script src="<?php echo base_url('assets/backend'); ?>/js/pages/form-pickers.init.js"></script>
+
+    <!-- App js -->
+    <script src="<?php echo base_url('assets/backend'); ?>/js/app.min.js"></script>
+
+
+
+    <!-- </script>
+    <script src="<?php echo base_url('assets/backend'); ?>/js/clockpicker/bootstrap-clockpicker.min.js ">
+    </script>
+    <script src="<?php echo base_url('assets/backend'); ?>/libs/js/bootstrap-datepicker/js/bootstrap-datepicker.min.js">
+    </script>
+    <script src="<?php echo base_url('assets/backend'); ?>/js/pages/form-pickers.init.js">
+    </script>
+    clockpicker/bootstrap-clockpicker.min.js
+    <script src="<?php echo base_url('assets/backend'); ?>/libs/flatpickr/flatpickr.min.js">
+    </script> -->
+
     <script>
     toastr.options = {
         "newestOnTop": true,
@@ -388,21 +433,14 @@
     }
     </script>
 
-        <!-- App js-->
-        <script src="<?php echo base_url('assets/backend'); ?>/js/app.min.js"></script>
+    <script>
+    $(function() {
+        $("#date").datepicker();
+    });
+    </script>
 
-        <!-- Vendor js -->
-        <script src="<?php echo base_url('assets/backend'); ?>/js/vendor.min.js"></script>
-
-        <!-- Plugins js-->
-        <script src="<?php echo base_url('assets/backend'); ?>/libs/flatpickr/flatpickr.min.js"></script>
-        <script src="<?php echo base_url('assets/backend'); ?>/libs/spectrum-colorpicker2/spectrum.min.js"></script>
-        <script src="<?php echo base_url('assets/backend'); ?>/libs/clockpicker/bootstrap-clockpicker.min.js"></script>
-        <script src="<?php echo base_url('assets/backend'); ?>/libs/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
-
-        <!-- Init js-->
-        <script src="<?php echo base_url('assets/backend'); ?>/js/pages/form-pickers.init.js"></script>
-
+    <!-- App js-->
+    <script src="<?php echo base_url('assets/backend'); ?>/js/app.min.js"></script>
 
     <?php echo $this->session->flashdata('notifikasi'); ?>
 </body>
