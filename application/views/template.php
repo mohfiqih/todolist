@@ -26,6 +26,14 @@
     <!-- App favicon -->
     <link rel="shortcut icon" href="<?php echo base_url('assets/backend'); ?>/images/phb.png">
 
+    <!-- Plugins css -->
+    <link href="<?php echo base_url('assets/backend'); ?>/libs/spectrum-colorpicker2/spectrum.min.css" rel="stylesheet" type="text/css">
+    <link href="<?php echo base_url('assets/backend'); ?>/libs/flatpickr/flatpickr.min.css" rel="stylesheet" type="text/css" />
+    <link href="<?php echo base_url('assets/backend'); ?>/libs/clockpicker/bootstrap-clockpicker.min.css" rel="stylesheet" type="text/css" />
+    <link href="<?php echo base_url('assets/backend'); ?>/libs/bootstrap-datepicker/css/bootstrap-datepicker.min.css" rel="stylesheet" type="text/css" />
+    <link href="<?php echo base_url('assets/backend'); ?>/libs/bootstrap-datepicker/css/bootstrap-datepicker.min.css" rel="stylesheet" type="text/css" />
+
+
     <!-- App css -->
     <link href="<?php echo base_url('assets/backend'); ?>/css/config/default/bootstrap.min.css" rel="stylesheet"
         type="text/css" id="bs-default-stylesheet" />
@@ -391,7 +399,22 @@
     <script src="<?php echo base_url('assets/backend'); ?>/libs/raphael/raphael.min.js"></script>
 
     <!-- datepicker -->
-    </script>
+
+    <!-- Plugins js-->
+    <script src="<?php echo base_url('assets/backend'); ?>/libs/flatpickr/flatpickr.min.js"></script>
+    <script src="<?php echo base_url('assets/backend'); ?>/libs/spectrum-colorpicker2/spectrum.min.js"></script>
+    <script src="<?php echo base_url('assets/backend'); ?>/libs/clockpicker/bootstrap-clockpicker.min.js"></script>
+    <script src="<?php echo base_url('assets/backend'); ?>/libs/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
+
+    <!-- Init js-->
+    <script src="<?php echo base_url('assets/backend'); ?>/js/pages/form-pickers.init.js"></script>
+
+    <!-- App js -->
+    <script src="<?php echo base_url('assets/backend'); ?>/js/app.min.js"></script>
+
+
+
+    <!-- </script>
     <script src="<?php echo base_url('assets/backend'); ?>/js/clockpicker/bootstrap-clockpicker.min.js ">
     </script>
     <script src="<?php echo base_url('assets/backend'); ?>/libs/js/bootstrap-datepicker/js/bootstrap-datepicker.min.js">
@@ -400,7 +423,7 @@
     </script>
     clockpicker/bootstrap-clockpicker.min.js
     <script src="<?php echo base_url('assets/backend'); ?>/libs/flatpickr/flatpickr.min.js">
-    </script>
+    </script> -->
 
     <script>
     toastr.options = {
