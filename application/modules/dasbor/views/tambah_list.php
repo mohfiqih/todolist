@@ -19,14 +19,14 @@
                                     <label>Nama Lengkap</label>
                                 </div>
                                 <div class="form-floating mb-3">
-                                    <input type="text" class="form-control" name="user_password"
-                                        placeholder="Password Pengguna" autocomplete="off" required>
+                                    <input type="text" class="form-control" name="user_password" placeholder="Pekerjaan"
+                                        autocomplete="off" required>
                                     <label>Pekerjaan</label>
                                 </div>
                                 <div class="form-floating mb-3">
                                     <input type="text" id="basic-datepicker" class="form-control flatpickr-input active"
-                                        placeholder="Tanggal" readonly="readonly">
-                                    <label class="form-label">Tanggal</label>
+                                        readonly="readonly" placeholder="Tanggal" autocomplete="off">
+                                    <label>Tanggal</label>
                                 </div>
 
                                 <!-- <div class="form-floating mb-3">
@@ -50,14 +50,16 @@
 
                             <form action="<?php echo uri(2) == "edit" ? url(1, "update") : url(1, "tambah"); ?>"
                                 method="POST">
-                                <div class="mb-3">
-                                    <input type="text" class="clockpicker form-control" placeholder="Jam Mulai">
+                                <div class="form-floating mb-3">
+                                    <input type="text" class="form-control clockpicker" name="jam_selesai"
+                                        readonly="readonly" placeholder="Jam Mulai" autocomplete="off">
+                                    <label>Jam Mulai</label>
                                 </div>
-                                <div class="mb-3">
-                                    <input type="text" class="clockpicker form-control" name="jam_selesai"
-                                        placeholder="Jam Selesai" required>
+                                <div class="form-floating mb-3">
+                                    <input type="text" class="form-control clockpicker" name="jam_selesai"
+                                        readonly="readonly" placeholder="Jam Selesai" autocomplete="off">
+                                    <label>Jam Selesai</label>
                                 </div>
-
                                 <div class="form-floating mb-3">
                                     <select class="form-select" name="user_level"
                                         aria-label="Floating label select example" required>
@@ -73,26 +75,21 @@
                                             Low</option>
                                     </select>
                                     <label for="example-select-floating">Level</label>
-                                </div>
-
-                                <div class="col-md-6">
-                                    <div class="card">
-                                        <div class="card-body">
-                                            <h4 class="header-title">Square skin</h4>
-                                            <p class="sub-header">
-                                                Example of square skin
-                                            </p>
-                                            <input type="text" id="range_01">
-                                        </div>
-                                    </div> <!-- end card-->
-                                </div> <!-- end col -->
-                            </form>
-                        </div>
+                                    <br />
+                                    <div class="col-md-12">
+                                        <h4 class="header-title">Progress</h4>
+                                        <input type="text" id="range_01">
+                                    </div>
+                                </div> <!-- end card-->
+                        </div> <!-- end col -->
                     </div>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
+</div>
+</div>
 </div>
 </div>
 </div>
