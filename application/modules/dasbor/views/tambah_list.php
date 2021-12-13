@@ -44,6 +44,11 @@
 
                             <form action="<?php echo uri(2) == "edit" ? url(1, "update") : url(1, "tambah"); ?>"
                                 method="POST">
+                                <div class="mb-3">
+                                    <label class="form-label">Basic</label>
+                                    <input type="text" id="basic-timepicker" class="form-control"
+                                        placeholder="Basic timepicker">
+                                </div>
                                 <div class="form-floating mb-3">
                                     <input type="text" class="form-control" name="user_namalengkap"
                                         placeholder="Nama Lengkap" autocomplete="off" required>
