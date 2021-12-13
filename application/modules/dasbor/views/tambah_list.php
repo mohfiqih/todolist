@@ -82,7 +82,7 @@
                                             <p class="sub-header">
                                                 Example of square skin
                                             </p>
-                                            <input type="text" id="range_16">
+                                            <input type="text" id="range_01">
                                         </div>
                                     </div> <!-- end card-->
                                 </div> <!-- end col -->

@@ -45,6 +45,7 @@
     <link href="<?php echo base_url('assets/backend'); ?>/css/config/default/app.min.css" rel="stylesheet"
         type="text/css" id="app-default-stylesheet" />
 
+    <!-- slider -->
     <link href="<?php echo base_url('assets/backend'); ?>/css/config/default/bootstrap-dark.min.css" rel="stylesheet"
         type="text/css" id="bs-dark-stylesheet" disabled="disabled" />
     <link href="<?php echo base_url('assets/backend'); ?>/css/config/default/app-dark.min.css" rel="stylesheet"
@@ -64,6 +65,10 @@
         rel="stylesheet" type="text/css" />
     <link href="<?php echo base_url('assets/backend'); ?>/libs/spectrum-colorpicker2/spectrum.min.css" rel="stylesheet"
         type="text/css" />
+
+    <!-- ION Slider -->
+    <link href="<?php echo base_url('assets/backend'); ?>/libs/ion-rangeslider/css/ion.rangeSlider.min.css"
+        rel="stylesheet" type="text/css" />
 
     <!-- Notification css (Toastr) -->
     <link href="<?php echo base_url('assets/backend'); ?>/libs/toastr/build/toastr.min.css" rel="stylesheet"
@@ -418,6 +423,14 @@
     <!-- App js -->
     <script src="<?php echo base_url('assets/backend'); ?>/js/app.min.js"></script>
 
+
+    <!-- ION Sider JS -->
+
+    <!-- Ion Range Slider-->
+    <script src="<?php echo base_url('assets/backend'); ?>/libs/ion-rangeslider/js/ion.rangeSlider.min.js"></script>
+
+    <!-- Range slider init js-->
+    <script src="<?php echo base_url('assets/backend'); ?>/js/pages/range-sliders.init.js"></script>
 
 
     <!-- </script>
