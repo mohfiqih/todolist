@@ -19,20 +19,25 @@
                                     <label>Nama Lengkap</label>
                                 </div>
                                 <div class="form-floating mb-3">
-                                    <input type="password" class="form-control" name="user_password"
+                                    <input type="text" class="form-control" name="user_password"
                                         placeholder="Password Pengguna" autocomplete="off" required>
                                     <label>Pekerjaan</label>
                                 </div>
                                 <div class="form-floating mb-3">
-                                    <input type="text" class="form-control" name="user_namalengkap"
-                                        placeholder="Nama Lengkap" autocomplete="off" required>
+                                    <input type="text" id="datetime-datepicker" class="form-control" placeholder="Date and Time" required>
                                     <label>Jam Mulai</label>
                                 </div>
+
                                 <div class="form-floating mb-3">
-                                    <input type="text" class="form-control" name="user_namalengkap"
-                                        placeholder="Nama Lengkap" autocomplete="off" required>
+                                    <input type="text" id="datetime-datepicker" class="form-control" placeholder="Date and Time" required>
                                     <label>Jam Selesai</label>
                                 </div>
+
+                                <!-- <div class="form-floating mb-3">
+                                    <input type="text" class="form-control" name="user_namalengkap"
+                                    autocomplete="off" required>
+                                    <label>Jam Selesai</label>
+                                </div> -->
                                 <div class="text-center">
                                     <button type="submit" class="btn btn-primary">Tambah</button>
                                     <button type="button" class="btn btn-danger">Batal</button>

@@ -21,6 +21,14 @@
     <!-- App favicon -->
     <link rel="shortcut icon" href="<?php echo base_url('assets/backend'); ?>/images/phb.png">
 
+    <!-- Plugins css -->
+    <link href="<?php echo base_url('assets/backend'); ?>/libs/spectrum-colorpicker2/spectrum.min.css" rel="stylesheet" type="text/css">
+    <link href="<?php echo base_url('assets/backend'); ?>/libs/flatpickr/flatpickr.min.css" rel="stylesheet" type="text/css" />
+    <link href="<?php echo base_url('assets/backend'); ?>/libs/clockpicker/bootstrap-clockpicker.min.css" rel="stylesheet" type="text/css" />
+    <link href="<?php echo base_url('assets/backend'); ?>/libs/bootstrap-datepicker/css/bootstrap-datepicker.min.css" rel="stylesheet" type="text/css" />
+    <link href="<?php echo base_url('assets/backend'); ?>/libs/bootstrap-datepicker/css/bootstrap-datepicker.min.css" rel="stylesheet" type="text/css" />
+
+
     <!-- App css -->
     <link href="<?php echo base_url('assets/backend'); ?>/css/config/default/bootstrap.min.css" rel="stylesheet"
         type="text/css" id="bs-default-stylesheet" />
@@ -380,8 +388,21 @@
     }
     </script>
 
-    <!-- App js-->
-    <script src="<?php echo base_url('assets/backend'); ?>/js/app.min.js"></script>
+        <!-- App js-->
+        <script src="<?php echo base_url('assets/backend'); ?>/js/app.min.js"></script>
+
+        <!-- Vendor js -->
+        <script src="<?php echo base_url('assets/backend'); ?>/js/vendor.min.js"></script>
+
+        <!-- Plugins js-->
+        <script src="<?php echo base_url('assets/backend'); ?>/libs/flatpickr/flatpickr.min.js"></script>
+        <script src="<?php echo base_url('assets/backend'); ?>/libs/spectrum-colorpicker2/spectrum.min.js"></script>
+        <script src="<?php echo base_url('assets/backend'); ?>/libs/clockpicker/bootstrap-clockpicker.min.js"></script>
+        <script src="<?php echo base_url('assets/backend'); ?>/libs/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
+
+        <!-- Init js-->
+        <script src="<?php echo base_url('assets/backend'); ?>/js/pages/form-pickers.init.js"></script>
+
 
     <?php echo $this->session->flashdata('notifikasi'); ?>
 </body>
