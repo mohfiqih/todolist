@@ -285,7 +285,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="<?php echo base_url('Dasbor/todolist'); ?>">
+                            <a href="<?php echo base_url('todo'); ?>">
                                 <i class="mdi mdi-clipboard-list"></i>
                                 <span>Todo-List</span>
                             </a>
