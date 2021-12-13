@@ -51,19 +51,11 @@
                             <form action="<?php echo uri(2) == "edit" ? url(1, "update") : url(1, "tambah"); ?>"
                                 method="POST">
                                 <div class="mb-3">
-                                    <label class="form-label">Basic</label>
-                                    <input type="text" id="basic-timepicker" class="form-control"
-                                        placeholder="Basic timepicker">
+                                    <input type="text" class="clockpicker form-control" placeholder="Jam Mulai">
                                 </div>
-                                <div class="form-floating mb-3">
-                                    <input type="text" class="form-control" name="jam_mulai"
-                                    id="basic-timepicker" required>
-                                    <label>Jam Mulai</label>
-                                </div>
-                                <div class="form-floating mb-3">
-                                    <input type="text" class="form-control" name="jam_selesai"
-                                    id="basic-timepicker" required>
-                                    <label>Jam Selesai</label>
+                                <div class="mb-3">
+                                    <input type="text" class="clockpicker form-control" name="jam_selesai"
+                                        placeholder="Jam Selesai" required>
                                 </div>
 
                                 <div class="form-floating mb-3">
