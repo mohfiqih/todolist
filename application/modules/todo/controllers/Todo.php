@@ -7,6 +7,7 @@ class Todo extends MY_Controller {
         // Load the constructer from MY_Controller
         parent::__construct();
 		$this->cek_login(1);
+
     }
 
     private function meta()
@@ -17,7 +18,7 @@ class Todo extends MY_Controller {
 			"halaman"		=> "user",
 			"breadcrumb"	=> "Master Data|User",
 			"view"			=> "todolist",
-			"data_user"		=> $this->M_Universal->getMulti(NULL, "user"),
+			"data_user"		=> $this->M_Universal->getMulti(NULL, "user")
 		);
 		
 		return $data;
@@ -47,8 +48,28 @@ class Todo extends MY_Controller {
 			"keterangan"	=> "Contoh Keterangan",
 			"halaman"		=> "tambah_list",
 			"view"			=> "tambah_list",
+			"data_user"		=> $this->M_Universal->getMulti(NULL, "user")
 		);
 				
 		$this->load->view('template', $data);
+	}
+
+	public function tambah()
+	{
+		$data = array(
+			//"user_id"			=> date("ymdHis"),
+			"user_nama"			=> $this->input->post("user_nama"),
+			"pekerjaan"			=> $this->input->post("task"),
+			"jam_mulai"	   		=> $this->input->post("start"),
+			"jam_selesai"		=> $this->input->post("end")
+		);
+		
+		$tambah = $this->M_Universal->insert($data, "user");
+		
+		if ($tambah){
+			notifikasi_redirect("success", "Tambah user berhasil", uri(1));
+		} else {
+			notifikasi_redirect("error", "Tambah user gagal", uri(1));
+		}
 	}
 }
