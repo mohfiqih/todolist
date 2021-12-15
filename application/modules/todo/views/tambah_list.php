@@ -59,11 +59,11 @@
                                     <input type="text" class="clockpicker form-control" name="jam_mulai"
                                     placeholder="Jam Mulai">
                                 </div>
-                                <div class="mb-3">
-                                    <input type="text" class="clockpicker form-control" name="jam_selesai"
-                                        placeholder="Jam Selesai" required>
+                                <div class="form-floating mb-3">
+                                    <input type="text" class="form-control clockpicker" name="jam_selesai"
+                                        readonly="readonly" placeholder="Jam Selesai" autocomplete="off">
+                                    <label>Jam Selesai</label>
                                 </div>
-
                                 <div class="form-floating mb-3">
                                     <select class="form-select" name="user_level"
                                         aria-label="Floating label select example" required>
@@ -96,10 +96,13 @@
                             </div>
                         </div>
                     </div>
+                    </form>
                 </div>
             </form>
         </div>
     </div>
+</div>
+</div>
 </div>
 </div>
 </div>

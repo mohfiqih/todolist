@@ -15,13 +15,13 @@
                                 <a href="#cart" class="breadcrumbs__item">Cart</a>
                                 <a href="#checkout" class="breadcrumbs__item is-active">Checkout</a>
                             </nav> -->
-                            <a href="#!" data-mdb-toggle="tooltip" title="Set due date"><i
+                            <!-- <a href="#!" data-mdb-toggle="tooltip" title="Set due date"><i
                                     class="fas fa-calendar-alt fa-lg me-3"
                                     style="float: right;padding-left: 25px;"></i></a>
-                            <div class="search-box">
+                            <!-- <div class="search-box">
                                 <button class="btn-search"><i class="fas fa-search"></i></button>
                                 <input type="text" class="input-search" placeholder="Type to Search...">
-                            </div>
+                            </div> -->
                             <div class=" align-right" style="float: right;">
                                 <a href="<?php echo base_url('Todo/tambah_list'); ?>">
                                     <button type="button" class="btn btn-primary" style="float: right;"><i
@@ -33,7 +33,7 @@
                         <!-- <hr class="my-4"> -->
                         <!-- Tabel -->
                         <div class="card-body" data-mdb-perfect-scrollbar="true"
-                            style="position: relative; height: 400px">
+                            style="position: relative; height: 400px; overflow-x: auto;">
 
                             <table class="table mb-0">
                                 <thead>
