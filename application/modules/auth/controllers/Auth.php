@@ -18,7 +18,7 @@ class Auth extends MY_Controller
         if ($this->session->userdata('log_admin')){
             redirect('.');
         } else {
-            $this->load->view('login-todo');
+            $this->load->view('login');
         }
     }
 

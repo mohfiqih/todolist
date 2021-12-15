@@ -23,7 +23,7 @@
                                 <input type="text" class="input-search" placeholder="Type to Search...">
                             </div> -->
                             <div class=" align-right" style="float: right;">
-                                <a href="<?php echo base_url('Todo/tambah_list'); ?>">
+                                <a href="<?php echo base_url('Todo/todolist'); ?>">
                                     <button type="button" class="btn btn-primary" style="float: right;"><i
                                             class="fas fa-plus"></i>
                                         Add List</button>

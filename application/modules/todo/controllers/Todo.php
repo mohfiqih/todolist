@@ -40,7 +40,7 @@ class Todo extends MY_Controller {
 	// 	$this->load->view('template', $data);
 	// }
 
-	public function tambah_list()
+	public function todolist()
 	{
         $data = array(
 			"judul"			=> "Halaman To-Do-List",

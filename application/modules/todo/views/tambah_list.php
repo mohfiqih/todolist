@@ -36,7 +36,6 @@
                                 </div> -->
                                 <div class="text-center">
                                     <button type="submit" class="btn btn-primary">Tambah</button>
-                                    <button type="button" class="btn btn-danger">Batal</button>
                                 </div>
                             </form>
                         </div>
