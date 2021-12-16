@@ -58,18 +58,20 @@ class Todo extends MY_Controller {
 	{
 		$data = array(
 			//"user_id"			=> date("ymdHis"),
-			"user_nama"			=> $this->input->post("user_nama"),
-			"pekerjaan"			=> $this->input->post("task"),
-			"jam_mulai"	   		=> $this->input->post("start"),
-			"jam_selesai"		=> $this->input->post("end")
+			"id_user"			=> dekrip($this->input->post("user_nama")),
+			"task"				=> $this->input->post("pekerjaan"),
+			"start"	   			=> $this->input->post("jam_mulai"),
+			"end"				=> $this->input->post("jam_selesai"),
+			"level"				=> $this->input->post("user_level"),
+			"status"		    => $this->input->post("progres")
 		);
 		
-		$tambah = $this->M_Universal->insert($data, "user");
+		$tambah = $this->M_Universal->insert($data, "todo");
 		
 		if ($tambah){
-			notifikasi_redirect("success", "Tambah user berhasil", uri(1));
+			notifikasi_redirect("success", "Tambah Pekerjaan berhasil", uri(1));
 		} else {
-			notifikasi_redirect("error", "Tambah user gagal", uri(1));
+			notifikasi_redirect("error", "Tambah Pekerjaan gagal", uri(1));
 		}
 	}
 }

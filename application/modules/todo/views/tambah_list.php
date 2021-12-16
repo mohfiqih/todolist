@@ -3,7 +3,8 @@
 
         <!-- Start Content-->
         <div class="container-fluid">
-            <form action="<?php echo uri(2) == "edit" ? url(1, "update") : url(1, "tambah"); ?>" method="POST">
+            <!-- <form action="<?php echo uri(2) == "edit" ? url(1, "update") : url(1, "tambah"); ?>" method="POST"> -->
+            <?php echo form_open(uri(2) == "edit" ? url(1, "update") : url(1, "tambah")); ?>
                 <div class="row">
                     <div class="col-md-4">
                         <div class="card">
@@ -18,7 +19,7 @@
                                             <?php 
                                                 foreach($data_user as $row)
                                                 { 
-                                                echo '<option value="'.$row->user_nama.'">'.$row->user_nama.'</option>';
+                                                echo '<option value="'.enkrip($row->user_id).'">'.$row->user_nama.'</option>';
                                                 }
                                                 ?>
                                         </select>
@@ -96,9 +97,9 @@
                             </div>
                         </div>
                     </div>
-                    </form>
+                    
                 </div>
-            </form>
+            <?php echo form_close() ?>
         </div>
     </div>
 </div>
