@@ -433,17 +433,6 @@
     <script src="<?php echo base_url('assets/backend'); ?>/js/pages/range-sliders.init.js"></script>
 
 
-    <!-- </script>
-    <script src="<?php echo base_url('assets/backend'); ?>/js/clockpicker/bootstrap-clockpicker.min.js ">
-    </script>
-    <script src="<?php echo base_url('assets/backend'); ?>/libs/js/bootstrap-datepicker/js/bootstrap-datepicker.min.js">
-    </script>
-    <script src="<?php echo base_url('assets/backend'); ?>/js/pages/form-pickers.init.js">
-    </script>
-    clockpicker/bootstrap-clockpicker.min.js
-    <script src="<?php echo base_url('assets/backend'); ?>/libs/flatpickr/flatpickr.min.js">
-    </script> -->
-
     <script>
     toastr.options = {
         "newestOnTop": true,
