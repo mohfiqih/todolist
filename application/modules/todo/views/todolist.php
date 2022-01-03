@@ -9,19 +9,6 @@
                          <div class="row">
 
                               <div class="d-flex flex-row align-items-center">
-                                   <!-- <nav class="breadcrumbs">
-                                <a href="#home" class="breadcrumbs__item"><i class="fas fa-home"></i></a>
-                                <a href="#shop" class="breadcrumbs__item">Shop</a>
-                                <a href="#cart" class="breadcrumbs__item">Cart</a>
-                                <a href="#checkout" class="breadcrumbs__item is-active">Checkout</a>
-                            </nav> -->
-                                   <!-- <a href="#!" data-mdb-toggle="tooltip" title="Set due date"><i
-                                    class="fas fa-calendar-alt fa-lg me-3"
-                                    style="float: right;padding-left: 25px;"></i></a>
-                            <!-- <div class="search-box">
-                                <button class="btn-search"><i class="fas fa-search"></i></button>
-                                <input type="text" class="input-search" placeholder="Type to Search...">
-                            </div> -->
                                    <div class=" align-right" style="float: right;">
                                         <a href="<?php echo base_url('Todo/add'); ?>">
                                              <button type="button" class="btn btn-primary" style="float: right;"><i
@@ -51,12 +38,13 @@
                                                   <th scope="col">Jam Selesai</th>
                                                   <th scope="col">Level</th>
                                                   <th scope="col">Progres</th>
-                                                  <th scope="col">Actions</th>
+                                                  <th scope="col" style="text-align: center">
+                                                       Actions</th>
                                              </tr>
 
                                         </thead>
                                         <?php
-                                    $no=0+1;
+                                        $no=0+1;
 									if ($data_todo){
 									foreach ($data_todo as $d){ 
 									?>
@@ -93,6 +81,10 @@
                                                   <a href="<?php echo url(1) .'/check/'. enkrip($d->checked); ?>"
                                                        data-mdb-toggle="tooltip" title="Done"><i
                                                             class="fas fa-check text-success me-3"></i></a>
+
+                                                  <a href="<?php echo url(1) .'/edit/'. enkrip($d->id); ?>"
+                                                       data-mdb-toggle="tooltip" title="Done"><i
+                                                            class="fas fa-edit text-warning me-3"></i></a>
 
                                                   <a href="<?php echo url(1) .'/hapus/'. enkrip($d->id_user); ?>"
                                                        data-mdb-toggle="tooltip" title="Remove"
