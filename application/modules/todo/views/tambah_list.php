@@ -18,7 +18,7 @@
                                              <?php 
                                                 foreach($data_user as $d) : ?>
                                              <option value="<?php echo enkrip($d->user_id) ?>">
-                                                  <?php echo $d->user_nama; ?>
+                                                  <?php echo $d->user_namalengkap; ?>
                                              </option>
                                              <?php endforeach; ?>
                                         </select>

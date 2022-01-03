@@ -76,7 +76,6 @@ class Todo extends MY_Controller {
 		$data = array(
 			//"user_id"			=> date("ymdHis"),
 			"id_user"			=> dekrip($this->input->post("id_user")),
-			"nama"			=> $this->input->post("nama_user"),
 			"task"			=> $this->input->post("pekerjaan"),
 			"date_created"		=> $this->input->post("tanggal"),
 			"mulai"	   		=> $this->input->post("jam_mulai"),

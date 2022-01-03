@@ -65,7 +65,7 @@
                                                   <?php echo $no++; ?>
                                              </th>
                                              <th class="align-middle">
-                                                  <?php echo $d->user_nama; ?>
+                                                  <?php echo $d->user_namalengkap; ?>
                                              </th>
                                              <td class="align-middle">
                                                   <?php echo $d->task; ?>
