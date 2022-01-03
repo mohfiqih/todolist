@@ -6,19 +6,20 @@ class Todo extends MY_Controller {
     {
         // Load the constructer from MY_Controller
         parent::__construct();
-		$this->cek_login(1);
+	   $this->cek_login(1);
+	   $this->load->model('M_todo','todo');
 
     }
 
     private function meta()
 	{
         $data = array(
-			"judul"			=> "User",
+			"judul"		=> "Data Pekerjaan",
 			"keterangan"	=> "Manajemen Pengguna",
-			"halaman"		=> "user",
+			"halaman"		=> "data_kerjaan",
 			"breadcrumb"	=> "Master Data|User",
-			"view"			=> "todolist",
-			"data_user"		=> $this->M_Universal->getMulti(NULL, "user")
+			"view"		=> "todolist",
+			"data_todo"	=> $this->todo->get_todo(),
 		);
 		
 		return $data;
@@ -41,35 +42,67 @@ class Todo extends MY_Controller {
 	// 	$this->load->view('template', $data);
 	// }
 
-	public function todolist()
+	public function add()
 	{
         $data = array(
-			"judul"			=> "Halaman To-Do-List",
+			"judul"		=> "Halaman To-Do-List",
 			"keterangan"	=> "Contoh Keterangan",
 			"halaman"		=> "tambah_list",
-			"view"			=> "tambah_list",
-			"data_user"		=> $this->M_Universal->getMulti(NULL, "user")
+			"view"		=> "tambah_list",
+			"data_user"	=> $this->M_Universal->getMulti('', "user"),
 		);
+		
 				
 		$this->load->view('template', $data);
 	}
+
+	// public function check()
+	// {
+	// 	$data = array(
+	// 		"checked"		    	=> $this->input->post("cek"),
+	// 	);	
+
+	// 	$tambah = $this->M_Universal->insert($data, "todo");
+		
+	// 	if ($tambah){
+	// 		notifikasi_redirect("success", "Tambah Pekerjaan berhasil", uri(1));
+	// 	} else {
+	// 		notifikasi_redirect("error", "Tambah Pekerjaan gagal", uri(1));
+	// 	}
+	// }
 
 	public function tambah()
 	{
 		$data = array(
 			//"user_id"			=> date("ymdHis"),
-			"user_nama"			=> $this->input->post("user_nama"),
-			"pekerjaan"			=> $this->input->post("task"),
-			"jam_mulai"	   		=> $this->input->post("start"),
-			"jam_selesai"		=> $this->input->post("end")
+			"id_user"			=> dekrip($this->input->post("id_user")),
+			"nama"			=> $this->input->post("nama_user"),
+			"task"			=> $this->input->post("pekerjaan"),
+			"date_created"		=> $this->input->post("tanggal"),
+			"mulai"	   		=> $this->input->post("jam_mulai"),
+			"selesai"			=> $this->input->post("jam_selesai"),
+			"level"			=> $this->input->post("user_level"),
+			"status"		    	=> $this->input->post("progres"),
+			// "checked"		    	=> $this->input->post("cek"),
 		);
 		
-		$tambah = $this->M_Universal->insert($data, "user");
+		$tambah = $this->M_Universal->insert($data, "todo");
 		
 		if ($tambah){
-			notifikasi_redirect("success", "Tambah user berhasil", uri(1));
+			notifikasi_redirect("success", "Tambah Pekerjaan berhasil", uri(1));
 		} else {
-			notifikasi_redirect("error", "Tambah user gagal", uri(1));
+			notifikasi_redirect("error", "Tambah Pekerjaan gagal", uri(1));
+		}
+	}
+
+	public function hapus()
+	{
+		$hapus = $this->M_Universal->delete(["id_user" => dekrip(uri(3))], "todo");
+		
+		if ($hapus){
+			notifikasi_redirect("success", "Hapus data berhasil", redirect(base_url('Todo/index')));
+		} else {
+			notifikasi_redirect("error", "Hapus data gagal", uri(1));
 		}
 	}
 }
