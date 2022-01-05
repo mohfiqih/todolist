@@ -94,6 +94,40 @@ class Todo extends MY_Controller {
 		}
 	}
 
+	public function edit() 
+	{
+		$data = array(
+			"judul"			=> "Halaman Edit",
+			"halaman"			=> "edit_list",
+			"view"			=> "edit_list",
+			// "data_edit"		=> $this->todo->get_todo(dekrip(uri(3))),
+			"data_user"	=> $this->M_Universal->getMulti('', "user"),
+		);
+
+		$this->load->view('template', $data);
+	}
+
+	public function update()
+	{
+		$id_todo	= dekrip($this->input->post("id_todo"));
+		$data	= array(
+			"task"			=> $this->input->post("pekerjaan"),
+			"date_created"		=> $this->input->post("tanggal"),
+			"mulai"	   		=> $this->input->post("jam_mulai"),
+			"selesai"			=> $this->input->post("jam_selesai"),
+			"level"			=> $this->input->post("user_level"),
+			"status"		    	=> $this->input->post("progres"),
+		);
+		
+		$update = $this->M_Universal->update($data, ["id" => $id_todo], "todo");
+		
+		if ($update){
+			notifikasi_redirect("success", "Update user berhasil", redirect(base_url('todo')));
+		} else {
+			notifikasi_redirect("error", "Update user gagal", uri(1));
+		}
+	}
+
 	public function hapus()
 	{
 		$hapus = $this->M_Universal->delete(["id_user" => dekrip(uri(3))], "todo");
