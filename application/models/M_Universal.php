@@ -40,7 +40,7 @@ class M_universal extends CI_Model
     }
 
     public function insert($data, $tabel)
-    {
+    { 
         return ($this->db->insert($tabel, $data)) ? true : false;
     }
 
