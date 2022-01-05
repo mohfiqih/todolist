@@ -21,7 +21,7 @@ class Todo extends MY_Controller {
 			// "data_todo"	=> $this->todo->get_todo('','todo'),
 			// "data_user"	=> $this->M_Universal->getMulti('','user'),
 			// "data_todo"	=> $this->todo->get_todo('', "todo"),
-			"data_todo"	=> $this->M_todo->get_todo('','todo'),
+			"data_todo"	=> $this->M_Universal->getMulti('','todo'),
 		);
 		
 		return $data;
@@ -90,7 +90,7 @@ class Todo extends MY_Controller {
 			"halaman"			=> "edit_list",
 			"view"			=> "edit_list",
 			// "data_edit"		=> $this->todo->get_todo(dekrip(uri(2))),
-			"data_edit"	=> $this->M_Universal->getMulti('', "todo"),
+			"data_edit"	     => $this->M_Universal->getMulti('', "todo"),
 			// "data_user"	=> $this->M_Universal->getMulti('', "user"),
 		);
 
