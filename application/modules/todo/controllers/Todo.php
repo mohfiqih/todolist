@@ -75,16 +75,16 @@ class Todo extends MY_Controller {
 	{
 		$data = array(
 			//"user_id"			=> date("ymdHis"),
-			"id_user"			=> dekrip($this->input->post("id_user")),
+			"id_user"		=> dekrip($this->input->post("id_user")),
 			"task"			=> $this->input->post("pekerjaan"),
-			"date_created"		=> $this->input->post("tanggal"),
+			"date_created"	=> $this->input->post("tanggal"),
 			"mulai"	   		=> $this->input->post("jam_mulai"),
-			"selesai"			=> $this->input->post("jam_selesai"),
+			"selesai"		=> $this->input->post("jam_selesai"),
 			"level"			=> $this->input->post("user_level"),
-			"status"		    	=> $this->input->post("progres"),
+			"status"		=> $this->input->post("progres"),
 			// "checked"		    	=> $this->input->post("cek"),
 		);
-		
+
 		$tambah = $this->M_Universal->insert($data, "todo");
 		
 		if ($tambah){

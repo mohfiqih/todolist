@@ -11,5 +11,10 @@ class M_todo extends CI_Model
      $query = $this->db->get()->result();
      return $query;
     }
+
+    public function get_relasi()
+    {
+        # code...
+    }
 }
 ?>
