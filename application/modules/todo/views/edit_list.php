@@ -3,9 +3,10 @@
 
           <!-- Start Content-->
           <div class="container-fluid">
-               <?php echo form_open(uri(2) == "edit" ? url(1, "update") : url(1, "tambah")); ?>
-               <!-- <input type="hidden" value="<?php echo enkrip($data_edit->id) ?>" name="id_todo"> -->
-
+               <?php
+			if ($data_edit){
+			foreach ($data_edit as $d){ 
+			?>
                <div class="row">
                     <div class="col-md-4">
                          <div class="card">
@@ -16,15 +17,15 @@
                                    <div class="form-floating mb-3">
                                         <select type="option" class="form-select" name="id_user" placeholder="ID User"
                                              autocomplete="off" required>
-                                             <option value="">User</option>
+                                             <option value=""><?php echo $d->user_namalengkap; ?></option>
                                              <?php 
-                                                foreach($data_user as $e) : ?>
-                                             <option value="<?php echo uri(2) == "edit" ? enkrip($e->user_id) : ""; ?>">
-                                                  <?php echo $e->user_namalengkap; ?>
+                                                foreach($data_edit as $d) : ?>
+                                             <option value="<?php echo enkrip($d->id_user) ?>">
+                                                  <?php echo $d->user_namalengkap; ?>
                                              </option>
                                              <?php endforeach; ?>
                                         </select>
-                                        <label for="example-select-floating">ID User</label>
+                                        <label for="example-select-floating">Nama</label>
                                    </div>
                                    <div class="form-floating mb-3">
                                         <input value="<?php echo uri(2) == "edit" ? ($d->task) : ""; ?>" type="text"
@@ -46,7 +47,7 @@
                                     <label>Jam Selesai</label>
                                 </div> -->
                                    <div class="text-center">
-                                        <button type="submit" class="btn btn-primary">Edit</button>
+                                        <button type="submit" class="btn btn-primary">Update</button>
                                         <a href="<?php echo base_url("todo"); ?>">
                                              <button type="button" class="btn btn-danger">Batal</button>
                                         </a>
@@ -83,7 +84,7 @@
                                                   <?php if (uri(2) == "edit") echo $d->level == 'Medium' ? "selected" : ""; ?>>
                                                   Medium</option>==
                                              <option value="Low"
-                                                  <?php if (uri(2) == "edit") echo $dt->level == 'Low' ? "selected" : ""; ?>>
+                                                  <?php if (uri(2) == "edit") echo $d->level == 'Low' ? "selected" : ""; ?>>
                                                   Low</option>
                                         </select>
                                         <label for="example-select-floating">Level</label>
@@ -106,6 +107,9 @@
                          </div>
                     </div>
                </div>
+               <?php }} else { ?>
+               <td class="text-center" colspan="8">Tidak ada data</td>
+               <?php } ?>
           </div>
           </form>
      </div>

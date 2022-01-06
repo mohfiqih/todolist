@@ -25,7 +25,8 @@
                                         <label for="example-select-floating">Nama</label>
                                    </div>
                                    <div class="form-floating mb-3">
-                                        <input type="text" class="form-control" name="pekerjaan" placeholder="Pekerjaan"
+                                        <input value="<?php echo uri(2) == "edit" ? ($edit->task) : ""; ?>" type="text"
+                                             class="form-control" name="pekerjaan" placeholder="Pekerjaan"
                                              autocomplete="off" required>
                                         <label>Pekerjaan</label>
                                    </div>

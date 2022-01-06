@@ -53,7 +53,7 @@
                                                   <?php echo $no++; ?>
                                              </th>
                                              <th class="align-middle">
-                                                  <?php echo $d->id_user; ?>
+                                                  <?php echo $d->user_namalengkap; ?>
                                              </th>
                                              <td class="align-middle">
                                                   <?php echo $d->task; ?>
@@ -82,7 +82,7 @@
                                                        data-mdb-toggle="tooltip" title="Done"><i
                                                             class="fas fa-check text-success me-3"></i></a>
 
-                                                  <a href="<?php echo url(1) .'/edit/'. enkrip($d->id_user); ?>"
+                                                  <a href="<?php echo url(2) .'/edit/'. enkrip($d->id_user); ?>"
                                                        data-mdb-toggle="tooltip" title="Done"><i
                                                             class="fas fa-edit text-warning me-3"></i></a>
 
