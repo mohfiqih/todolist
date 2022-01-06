@@ -31,7 +31,7 @@ class User extends MY_Controller {
 	public function edit()
 	{
 		$data			= $this->meta();
-		$data["edit"]	= $this->M_Universal->getOne(["user_id" => dekrip(uri(3))], "user");
+		$data["edit"]	     = $this->M_Universal->getOne(["user_id" => dekrip(uri(3))], "user");
 		
 		$this->load->view('template', $data);
 	}

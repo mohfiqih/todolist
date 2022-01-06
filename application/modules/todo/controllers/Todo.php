@@ -8,7 +8,6 @@ class Todo extends MY_Controller {
         parent::__construct();
 	   $this->cek_login(1);
 	   $this->load->model('M_todo','todo');
-
     }
 
     private function meta()
@@ -29,19 +28,7 @@ class Todo extends MY_Controller {
 	{
         $this->load->view('template', $this->meta());
 	}
-
-	// public function todolist()
-	// {
-    //     $data = array(
-	// 		"judul"			=> "Halaman To-Do-List",
-	// 		"keterangan"	=> "Contoh Keterangan",
-	// 		"halaman"		=> "todolist",
-	// 		"view"			=> "todolist",
-	// 	);
-				
-	// 	$this->load->view('template', $data);
-	// }
-
+	
 	public function add()
 	{
         $data = array(
@@ -51,8 +38,7 @@ class Todo extends MY_Controller {
 			"view"		=> "tambah_list",
 			"data_user"	=> $this->M_Universal->getMulti('', "user"),
 		);
-		
-				
+					
 		$this->load->view('template', $data);
 	}
 
@@ -88,28 +74,34 @@ class Todo extends MY_Controller {
 		$tambah = $this->M_Universal->insert($data, "todo");
 		
 		if ($tambah){
-			notifikasi_redirect("success", "Tambah Pekerjaan berhasil", uri(1));
+			notifikasi_redirect("success", "Data berhasil ditambahkan", uri(1));
 		} else {
-			notifikasi_redirect("error", "Tambah Pekerjaan gagal", uri(1));
+			notifikasi_redirect("error", "Gagal menambah data", uri(1));
 		}
 	}
 
-	public function edit() 
-	{
-		$data = array(
-			"judul"			=> "Halaman Edit",
-			"halaman"			=> "edit_list",
-			"view"			=> "edit_list",
-			// "data_edit"		=> $this->todo->get_todo(dekrip(uri(3))),
-			"data_user"	=> $this->M_Universal->getMulti('', "user"),
-		);
+	// public function edit() 
+	// {
+	// 	$data = array(
+	// 		"judul"		=> "Halaman Edit",
+	// 		"halaman"		=> "edit_list",
+	// 		"view"		=> "edit_list",
+	// 		"data_edit"	=>  $this->todo->get_todo(["id_user" => dekrip(uri(3))], "todo")
+	// 	);
+	// 	$this->load->view('template', $data);
+	// }
 
+	public function edit()
+	{
+		$data			= $this->meta();
+		$data["edit"]	     = $this->todo->get_todo(["id_user" => dekrip(uri(3))], "todo");
+		
 		$this->load->view('template', $data);
 	}
 
 	public function update()
 	{
-		$id_todo	= dekrip($this->input->post("id_todo"));
+		$id_user	= dekrip($this->input->post("id_user"));
 		$data	= array(
 			"task"			=> $this->input->post("pekerjaan"),
 			"date_created"		=> $this->input->post("tanggal"),
@@ -119,7 +111,7 @@ class Todo extends MY_Controller {
 			"status"		    	=> $this->input->post("progres"),
 		);
 		
-		$update = $this->M_Universal->update($data, ["id" => $id_todo], "todo");
+		$update = $this->M_Universal->update($data, ["id_user" => $id_user], "todo");
 		
 		if ($update){
 			notifikasi_redirect("success", "Update user berhasil", redirect(base_url('todo')));
@@ -133,7 +125,7 @@ class Todo extends MY_Controller {
 		$hapus = $this->M_Universal->delete(["id_user" => dekrip(uri(3))], "todo");
 		
 		if ($hapus){
-			notifikasi_redirect("success", "Hapus data berhasil", redirect(base_url('Todo/index')));
+			notifikasi_redirect("success", "Hapus data berhasil", redirect(base_url('todo')));
 		} else {
 			notifikasi_redirect("error", "Hapus data gagal", uri(1));
 		}

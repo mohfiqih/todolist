@@ -45,9 +45,9 @@
                                         </thead>
                                         <?php
                                         $no=0+1;
-									if ($data_todo){
-									foreach ($data_todo as $d){ 
-									?>
+								if ($data_todo){
+								foreach ($data_todo as $d){ 
+								?>
                                         <tr class="fw-normal">
                                              <th class="align-middle">
                                                   <?php echo $no++; ?>
@@ -82,7 +82,7 @@
                                                        data-mdb-toggle="tooltip" title="Done"><i
                                                             class="fas fa-check text-success me-3"></i></a>
 
-                                                  <a href="<?php echo url(1) .'/edit/'. enkrip($d->id); ?>"
+                                                  <a href="<?php echo url(2) .'/edit/'. enkrip($d->id_user); ?>"
                                                        data-mdb-toggle="tooltip" title="Done"><i
                                                             class="fas fa-edit text-warning me-3"></i></a>
 

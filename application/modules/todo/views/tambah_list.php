@@ -12,9 +12,9 @@
                                         Add List</h4>
 
                                    <div class="form-floating mb-3">
-                                        <select type="option" class="form-select" name="id_user" placeholder="ID User"
+                                        <select type="option" class="form-select" name="id_user" placeholder="Nama"
                                              autocomplete="off" required>
-                                             <option value="">User</option>
+                                             <option value="">Nama</option>
                                              <?php 
                                                 foreach($data_user as $d) : ?>
                                              <option value="<?php echo enkrip($d->user_id) ?>">
@@ -22,10 +22,11 @@
                                              </option>
                                              <?php endforeach; ?>
                                         </select>
-                                        <label for="example-select-floating">ID User</label>
+                                        <label for="example-select-floating">Nama</label>
                                    </div>
                                    <div class="form-floating mb-3">
-                                        <input type="text" class="form-control" name="pekerjaan" placeholder="Pekerjaan"
+                                        <input value="<?php echo uri(2) == "edit" ? ($edit->task) : ""; ?>" type="text"
+                                             class="form-control" name="pekerjaan" placeholder="Pekerjaan"
                                              autocomplete="off" required>
                                         <label>Pekerjaan</label>
                                    </div>

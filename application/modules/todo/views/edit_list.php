@@ -3,9 +3,10 @@
 
           <!-- Start Content-->
           <div class="container-fluid">
-               <?php echo form_open(uri(2) == "edit" ? url(1, "update") : url(1, "tambah")); ?>
-               <!-- <input type="hidden" value="<?php echo enkrip($data_edit->id) ?>" name="id_todo"> -->
-
+               <?php
+			if ($data_edit){
+			foreach ($data_edit as $d){ 
+			?>
                <div class="row">
                     <div class="col-md-4">
                          <div class="card">
@@ -16,24 +17,24 @@
                                    <div class="form-floating mb-3">
                                         <select type="option" class="form-select" name="id_user" placeholder="ID User"
                                              autocomplete="off" required>
-                                             <option value="">User</option>
+                                             <option value=""><?php echo $d->user_namalengkap; ?></option>
                                              <?php 
                                                 foreach($data_edit as $d) : ?>
-                                             <option value="<?php echo uri(2) == "edit" ? enkrip($d->user_id) : ""; ?>">
+                                             <option value="<?php echo enkrip($d->id_user) ?>">
                                                   <?php echo $d->user_namalengkap; ?>
                                              </option>
                                              <?php endforeach; ?>
                                         </select>
-                                        <label for="example-select-floating">ID User</label>
+                                        <label for="example-select-floating">Nama</label>
                                    </div>
                                    <div class="form-floating mb-3">
-                                        <input value="<?php echo uri(2) == "edit" ? ($data_edit->task) : ""; ?>"
-                                             type="text" class="form-control" name="pekerjaan" placeholder="Pekerjaan"
+                                        <input value="<?php echo uri(2) == "edit" ? ($d->task) : ""; ?>" type="text"
+                                             class="form-control" name="pekerjaan" placeholder="Pekerjaan"
                                              autocomplete="off" required>
                                         <label>Pekerjaan</label>
                                    </div>
                                    <div class="form-floating mb-3">
-                                        <input value="<?php echo uri(2) == "edit" ? ($data_edit->date_created) : ""; ?>"
+                                        <input value="<?php echo uri(2) == "edit" ? ($d->date_created) : ""; ?>"
                                              type="text" id="basic-datepicker"
                                              class="form-control flatpickr-input active" name="tanggal"
                                              placeholder="Tanggal">
@@ -46,7 +47,7 @@
                                     <label>Jam Selesai</label>
                                 </div> -->
                                    <div class="text-center">
-                                        <button type="submit" class="btn btn-primary">Edit</button>
+                                        <button type="submit" class="btn btn-primary">Update</button>
                                         <a href="<?php echo base_url("todo"); ?>">
                                              <button type="button" class="btn btn-danger">Batal</button>
                                         </a>
@@ -61,15 +62,15 @@
                                    <h4 class="header-title mb-3"></h4>
 
                                    <div class="form-floating mb-3">
-                                        <input value="<?php echo uri(2) == "edit" ? ($data_edit->mulai) : ""; ?>"
-                                             type="time" class="form-control clockpicker" readonly="readonly"
-                                             name="jam_mulai" placeholder="Jam Mulai" autocomplete="off">
+                                        <input value="<?php echo uri(2) == "edit" ? ($d->mulai) : ""; ?>" type="time"
+                                             class="form-control clockpicker" readonly="readonly" name="jam_mulai"
+                                             placeholder="Jam Mulai" autocomplete="off">
                                         <label>Jam Mulai</label>
                                    </div>
                                    <div class="form-floating mb-3">
-                                        <input value="<?php echo uri(2) == "edit" ? ($data_edit->selesai) : ""; ?>"
-                                             type="time" class="form-control clockpicker" name="jam_selesai"
-                                             readonly="readonly" placeholder="Jam Selesai" autocomplete="off">
+                                        <input value="<?php echo uri(2) == "edit" ? ($d->selesai) : ""; ?>" type="time"
+                                             class="form-control clockpicker" name="jam_selesai" readonly="readonly"
+                                             placeholder="Jam Selesai" autocomplete="off">
                                         <label>Jam Selesai</label>
                                    </div>
                                    <div class="form-floating mb-3">
@@ -77,13 +78,13 @@
                                              aria-label="Floating label select example" required>
                                              <option value="">Pilih Level</option>
                                              <option value="High"
-                                                  <?php if (uri(2) == "edit") echo $data_edit->level == 'High' ? "selected" : ""; ?>>
+                                                  <?php if (uri(2) == "edit") echo $d->level == 'High' ? "selected" : ""; ?>>
                                                   High</option>
                                              <option value="Medium"
-                                                  <?php if (uri(2) == "edit") echo $data_edit->level == 'Medium' ? "selected" : ""; ?>>
+                                                  <?php if (uri(2) == "edit") echo $d->level == 'Medium' ? "selected" : ""; ?>>
                                                   Medium</option>==
                                              <option value="Low"
-                                                  <?php if (uri(2) == "edit") echo $data_edit->level == 'Low' ? "selected" : ""; ?>>
+                                                  <?php if (uri(2) == "edit") echo $d->level == 'Low' ? "selected" : ""; ?>>
                                                   Low</option>
                                         </select>
                                         <label for="example-select-floating">Level</label>
@@ -96,8 +97,7 @@
                                                   <!-- <p class="sub-header">
                                                     Example of square skin
                                                 </p> -->
-                                                  <input
-                                                       value="<?php echo uri(2) == "edit" ? ($data_edit->status) : ""; ?>"
+                                                  <input value="<?php echo uri(2) == "edit" ? ($d->status) : ""; ?>"
                                                        type="text" id="range_01" name="progres">
                                              </div>
                                         </div> <!-- end card-->
@@ -107,7 +107,9 @@
                          </div>
                     </div>
                </div>
-               <?php echo form_close(); ?>
+               <?php }} else { ?>
+               <td class="text-center" colspan="8">Tidak ada data</td>
+               <?php } ?>
           </div>
           </form>
      </div>
