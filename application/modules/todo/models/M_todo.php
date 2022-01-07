@@ -8,14 +8,30 @@ class M_todo extends CI_Model
      $this->db->select('*');
      $this->db->from('todo');
      $this->db->join('user', 'user.user_id = todo.id_user');
-    //  if($id_todo) $this->db->where('todo.id',$id_todo);
      $query = $this->db->get()->result();
      return $query;
     }
 
-    public function get_relasi()
+    public function getOne($where, $tabel)
     {
-        # code...
+        // if (!empty($where)) {
+        //     $this->db->where($where);
+        // }
+
+        // $this->db->where($where);
+        // $data = $this->db->get($tabel)->row();
+        // return (count((array)$data) > 0) ? $data : false;
+
+        $this->db->where($where);
+        $data = $this->db->get($tabel);
+        // return $data->row();
+        echo $data->row();
+
+        // $this->db->where('id_alat', $id_alat);
+        // $query = $this->db->get('tabel_alat');
+        // return $query->row();
     }
+
+    
 }
 ?>

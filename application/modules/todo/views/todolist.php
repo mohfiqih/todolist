@@ -82,7 +82,11 @@
                                                        data-mdb-toggle="tooltip" title="Done"><i
                                                             class="fas fa-check text-success me-3"></i></a>
 
+<<<<<<< HEAD
+                                                  <a href="<?php echo url(2) .'edit/'. $d->id; ?>"
+=======
                                                   <a href="<?php echo url(1) .'/edit/'. enkrip($d->id_user); ?>"
+>>>>>>> 13c20efd970889adac7d8bdfbccbe37764248e3f
                                                        data-mdb-toggle="tooltip" title="Done"><i
                                                             class="fas fa-edit text-warning me-3"></i></a>
 
