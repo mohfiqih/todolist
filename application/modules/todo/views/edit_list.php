@@ -23,9 +23,9 @@
 
                                                   <option value=""><?php echo $d->user_namalengkap; ?></option>
 
-                                                  <option value="<?php echo enkrip($d->id_user) ?>">
+                                                  <!-- <option value="<?php echo enkrip($d->id_user) ?>">
                                                        <?php echo $d->user_namalengkap; ?>
-                                                  </option>
+                                                  </option> -->
 
                                              </select>
                                              <label for="example-select-floating">Nama</label>

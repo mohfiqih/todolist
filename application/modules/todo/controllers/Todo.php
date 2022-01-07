@@ -82,32 +82,24 @@ class Todo extends MY_Controller {
 
 	public function edit() 
 	{
-		// $data = array(
-		// 	"judul"		=> "Halaman Edit",
-		// 	"halaman"	=> "edit_list",
-		// 	"view"		=> "edit_list",
-		// 	"data_edit"	=>  $this->todo->getOne(["id" => uri(3)], "todo")
-		// );
-		// $this->load->view('template', $data);
-		$this->todo->getOne(["id" => uri(3)], "todo");
+		$data = array(
+			"judul"		=> "Halaman Edit",
+			"halaman"	=> "edit_list",
+			"view"		=> "edit_list",
+			"data_edit"	=>  $this->M_Universal->getMulti(["id" => uri(3)], "todo")
+		);
+		$this->load->view('template', $data);
+		// $this->M_Universal->getMulti(["id" => uri(3)], "todo");
 	}
-
-	// public function edit()
-	// {
-	// 	$data				 = $this->add();
-	// 	$data["edit"]	     = $this->todo->getOne(["id" => dekrip(uri(3))], "todo");
-		
-	// 	$this->load->view('template', $data);
-	// }
 
 	public function update()
 	{
 		$id_user	= dekrip($this->input->post("id_user"));
 		$data	= array(
 			"task"			=> $this->input->post("pekerjaan"),
-			"date_created"		=> $this->input->post("tanggal"),
+			"date_created"	=> $this->input->post("tanggal"),
 			"mulai"	   		=> $this->input->post("jam_mulai"),
-			"selesai"			=> $this->input->post("jam_selesai"),
+			"selesai"		=> $this->input->post("jam_selesai"),
 			"level"			=> $this->input->post("user_level"),
 			"status"		    	=> $this->input->post("progres"),
 		);
