@@ -82,11 +82,11 @@
                                                        data-mdb-toggle="tooltip" title="Done"><i
                                                             class="fas fa-check text-success me-3"></i></a>
 
-                                                  <a href="<?php echo url(2) .'/edit/'. enkrip($d->id_user); ?>"
+                                                  <a href="<?php echo url(2) .'edit/'. $d->id; ?>"
                                                        data-mdb-toggle="tooltip" title="Done"><i
                                                             class="fas fa-edit text-warning me-3"></i></a>
 
-                                                  <a href="<?php echo url(1) .'/hapus/'. enkrip($d->id_user); ?>"
+                                                  <a href="<?php echo url(1) .'/hapus/'. enkrip($d->id); ?>"
                                                        data-mdb-toggle="tooltip" title="Remove"
                                                        onclick="return confirm('Yakin hapus data?')"><i
                                                             class="fas fa-trash-alt text-danger"></i></a>
