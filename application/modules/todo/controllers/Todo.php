@@ -86,12 +86,12 @@ class Todo extends MY_Controller {
 			"judul"		=> "Halaman Edit",
 			"halaman"	     => "edit_list",
 			"view"		=> "edit_list",
-			"data_edit"	=>  $this->M_Universal->getMulti(["id" => uri(3)], "todo"),
-			// "data_user"	=>  $this->M_Universal->getMulti(["user_id" => uri(3)], "user"),
+			"data_edit"	=> $this->M_Universal->getMulti(["id" => (uri(3))], "todo"),
+			"data_user"	=> $this->M_Universal->getMulti('', "user"),
+			// "data_user"	=> $this->M_Universal->getMulti(["id" => (uri(3))], "user"),
 		);
 		$this->load->view('template', $data);
 	}
-
 
 	public function update()
 	{

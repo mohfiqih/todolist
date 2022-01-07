@@ -15,11 +15,10 @@
                                         <div class="form-floating mb-3">
                                              <select type="option" class="form-select" name="id_user" placeholder="Nama"
                                                   autocomplete="off" required>
-                                                  <option
-                                                       value="<?php echo uri(2) == "edit" ? enkrip($d->id_user) : ""; ?>">
+                                                  <option value="">
                                                        Nama</option>
                                                   <?php 
-                                                foreach($data_user as $d) : ?>
+                                                  foreach($data_user as $d) : ?>
                                                   <option value="<?php echo enkrip($d->user_id) ?>">
                                                        <?php echo $d->user_namalengkap; ?>
                                                   </option>
@@ -28,8 +27,7 @@
                                              <label for="example-select-floating">Nama</label>
                                         </div>
                                         <div class="form-floating mb-3">
-                                             <input value="<?php echo uri(2) == "edit" ? ($data_todo->task) : ""; ?>"
-                                                  type="text" class="form-control" name="pekerjaan"
+                                             <input type="text" class="form-control" name="pekerjaan"
                                                   placeholder="Pekerjaan" autocomplete="off" required>
                                              <label>Pekerjaan</label>
                                         </div>
@@ -39,7 +37,11 @@
                                                   placeholder="Tanggal">
                                              <label>Tanggal</label>
                                         </div>
-
+                                        <div class="form-floating mb-3">
+                                             <input type="time" class="form-control clockpicker" readonly="readonly"
+                                                  name="jam_mulai" placeholder="Jam Mulai" autocomplete="off">
+                                             <label>Jam Mulai</label>
+                                        </div>
                                    </form>
                                    <div class="text-center">
                                         <button type="submit" class="btn btn-primary">Tambah</button>
@@ -56,11 +58,6 @@
                               <div class="card-body">
                                    <h4 class="header-title mb-3"></h4>
 
-                                   <div class="form-floating mb-3">
-                                        <input type="time" class="form-control clockpicker" readonly="readonly"
-                                             name="jam_mulai" placeholder="Jam Mulai" autocomplete="off">
-                                        <label>Jam Mulai</label>
-                                   </div>
                                    <div class="form-floating mb-3">
                                         <input type="time" class="form-control clockpicker" name="jam_selesai"
                                              readonly="readonly" placeholder="Jam Selesai" autocomplete="off">
@@ -82,25 +79,26 @@
                                         </select>
                                         <label for="example-select-floating">Level</label>
                                    </div>
-
                                    <div class="col-md-6">
                                         <div class="card">
-                                             <div class="card-body">
-                                                  <h4 class="header-title">Progres</h4>
-                                                  <!-- <p class="sub-header">
-                                                    Example of square skin
-                                                </p> -->
+                                             <p>Progres (%)
+                                             <p>
                                                   <input type="text" id="range_01" name="progres">
-                                             </div>
-                                        </div> <!-- end card-->
-                                   </div> <!-- end col -->
-                                   <!-- </form> -->
-                              </div>
+                                             <p>Catatan: <br />1.) 0-50% = Low <br />2.) 51-80% = Medium
+                                                  <br />3.)
+                                                  81-100%
+                                                  = High
+                                             </p>
+                                        </div>
+                                   </div> <!-- end card-->
+                              </div> <!-- end col -->
+                              <!-- </form> -->
                          </div>
                     </div>
                </div>
-               <?php echo form_close(); ?>
           </div>
-          </form>
+          <?php echo form_close(); ?>
      </div>
+     </form>
+</div>
 </div>

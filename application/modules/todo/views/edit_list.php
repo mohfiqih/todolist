@@ -25,13 +25,13 @@
                                              <div class="form-floating mb-3">
                                                   <select type="option" class="form-select" name="id_user"
                                                        placeholder="Nama" autocomplete="off" required>
-
-                                                       <option value=""><?php echo $d->id_user; ?></option>
-
-                                                       <option value="<?php echo enkrip($d->id_user) ?>">
-                                                            <?php echo $d->id_user; ?>
+                                                       <?php 
+                                                       foreach($data_user as $e) : ?>
+                                                       <option
+                                                            value="<?php echo uri(2) == "edit" ? ($e->user_id) : "";  ?>">
+                                                            <?php echo $e->user_namalengkap; ?>
                                                        </option>
-
+                                                       <?php endforeach; ?>
                                                   </select>
                                                   <label for="example-select-floating">Nama</label>
                                              </div>
@@ -49,15 +49,15 @@
                                                        placeholder="Tanggal">
                                                   <label>Tanggal</label>
                                              </div>
-
-                                             <!-- <div class="form-floating mb-3">
-                                    <input type="text" class="form-control" name="user_namalengkap"
-                                    autocomplete="off" required>
-                                    <label>Jam Selesai</label>
-                                </div> -->
+                                             <div class="form-floating mb-3">
+                                                  <input value="<?php echo uri(2) == "edit" ? ($d->mulai) : ""; ?>"
+                                                       type="time" class="form-control clockpicker" readonly="readonly"
+                                                       name="jam_mulai" placeholder="Jam Mulai" autocomplete="off">
+                                                  <label>Jam Mulai</label>
+                                             </div>
                                              <div class="text-center">
                                                   <button type="submit"
-                                                       class="btn btn-primary"><?php echo (uri(1) == 'update') ? 'Update' : 'Update'; ?></button>
+                                                       class="btn btn-primary"><?php echo (uri(1) == 'update') ? : 'Update'; ?></button>
                                                   <a href="<?php echo base_url("todo"); ?>">
                                                        <button type="button" class="btn btn-danger">Batal</button>
                                                   </a>
@@ -70,13 +70,6 @@
                               <div class="card">
                                    <div class="card-body">
                                         <h4 class="header-title mb-3"></h4>
-
-                                        <div class="form-floating mb-3">
-                                             <input value="<?php echo uri(2) == "edit" ? ($d->mulai) : ""; ?>"
-                                                  type="time" class="form-control clockpicker" readonly="readonly"
-                                                  name="jam_mulai" placeholder="Jam Mulai" autocomplete="off">
-                                             <label>Jam Mulai</label>
-                                        </div>
                                         <div class="form-floating mb-3">
                                              <input value="<?php echo uri(2) == "edit" ? ($d->selesai) : ""; ?>"
                                                   type="time" class="form-control clockpicker" name="jam_selesai"
@@ -102,25 +95,28 @@
 
                                         <div class="col-md-6">
                                              <div class="card">
-                                                  <div class="card-body">
-                                                       <h4 class="header-title">Progres</h4>
-                                                       <!-- <p class="sub-header">
-                                                    Example of square skin
-                                                </p> -->
+                                                  <p>Progres (%)
+                                                  <p>
                                                        <input
                                                             value="<?php echo uri(2) == "edit" ? ($d->status) : ""; ?>"
                                                             type="text" id="range_01" name="progres">
-                                                  </div>
-                                             </div> <!-- end card-->
-                                        </div> <!-- end col -->
-                                        <!-- </form> -->
-                                   </div>
-                              </div>
+                                                  <p>Catatan: <br />1.) 0-50% = Low <br />2.) 51-80% = Medium
+                                                       <br />3.)
+                                                       81-100%
+                                                       = High
+                                                  </p>
+                                             </div>
+                                        </div> <!-- end card-->
+                                   </div> <!-- end card-->
+                              </div> <!-- end col -->
+                              <!-- </form> -->
                          </div>
-                         <?php }} else { ?>
-                         <td class="text-center" colspan="8">Tidak ada data</td>
-                         <?php } ?>
                     </div>
           </div>
+          <?php }} else { ?>
+          <td class="text-center" colspan="8">Tidak ada data</td>
+          <?php } ?>
      </div>
+</div>
+</div>
 </div>

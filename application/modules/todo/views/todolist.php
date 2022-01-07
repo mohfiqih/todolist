@@ -69,7 +69,7 @@
                                              </td>
                                              <td class="align-middle">
                                                   <h6 class="align-middle mb-0">
-                                                       <span class="badge bg-success">
+                                                       <span class="badge bg-danger">
                                                             <?php echo $d->level; ?>
                                                        </span>
                                                   </h6>
