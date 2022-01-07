@@ -12,6 +12,15 @@ class M_todo extends CI_Model
      return $query;
     }
 
+    public function getMulti($where, $tabel)
+    {
+        if (!empty($where)) {
+            $this->db->where($where);
+        }
+        $data = $this->db->get($tabel)->result();
+        return $data;
+    }
+
     public function getOne($where, $tabel)
     {
         // if (!empty($where)) {
