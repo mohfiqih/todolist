@@ -80,24 +80,24 @@ class Todo extends MY_Controller {
 		}
 	}
 
-	// public function edit() 
-	// {
-	// 	$data = array(
-	// 		"judul"		=> "Halaman Edit",
-	// 		"halaman"		=> "edit_list",
-	// 		"view"		=> "edit_list",
-	// 		"data_edit"	=>  $this->todo->get_todo(["id_user" => dekrip(uri(3))], "todo")
-	// 	);
-	// 	$this->load->view('template', $data);
-	// }
-
-	public function edit()
+	public function edit() 
 	{
-		$data			= $this->meta();
-		$data["edit"]	     = $this->todo->get_todo(["id_user" => dekrip(uri(3))], "todo");
-		
+		$data = array(
+			"judul"		=> "Halaman Edit",
+			"halaman"		=> "edit_list",
+			"view"		=> "edit_list",
+			"data_edit"	=>  $this->M_Universal->getMulti(["id_user" => dekrip(uri(3))], "todo")
+		);
 		$this->load->view('template', $data);
 	}
+
+	// public function edit()
+	// {
+	// 	$data			= $this->add();
+	// 	$data["edit"]	     = $this->todo->get_todo(["id_user" => dekrip(uri(3))], "todo");
+		
+	// 	$this->load->view('template', $data);
+	// }
 
 	public function update()
 	{
@@ -122,7 +122,7 @@ class Todo extends MY_Controller {
 
 	public function hapus()
 	{
-		$hapus = $this->M_Universal->delete(["id_user" => dekrip(uri(3))], "todo");
+		$hapus = $this->M_Universal->delete(["id" => dekrip(uri(3))], "todo");
 		
 		if ($hapus){
 			notifikasi_redirect("success", "Hapus data berhasil", redirect(base_url('todo')));
