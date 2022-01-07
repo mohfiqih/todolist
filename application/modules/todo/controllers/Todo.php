@@ -82,7 +82,6 @@ class Todo extends MY_Controller {
 
 	public function edit() 
 	{
-<<<<<<< HEAD
 		// $data = array(
 		// 	"judul"		=> "Halaman Edit",
 		// 	"halaman"	=> "edit_list",
@@ -91,27 +90,12 @@ class Todo extends MY_Controller {
 		// );
 		// $this->load->view('template', $data);
 		$this->todo->getOne(["id" => uri(3)], "todo");
-=======
-		$data = array(
-			"judul"		=> "Halaman Edit",
-			"halaman"		=> "edit_list",
-			"view"		=> "edit_list",
-			// "data_user"	=>  $this->M_Universal->getMulti(["user_id" => dekrip(uri(3))], "user"),
-			"data_edit"	=>  $this->M_Universal->getMulti(["id_user" => dekrip(uri(3))], "todo")
-		);
-		$this->load->view('template', $data);
->>>>>>> 13c20efd970889adac7d8bdfbccbe37764248e3f
 	}
 
 	// public function edit()
 	// {
-<<<<<<< HEAD
 	// 	$data				 = $this->add();
 	// 	$data["edit"]	     = $this->todo->getOne(["id" => dekrip(uri(3))], "todo");
-=======
-	// 	$data			= $this->add();
-	// 	$data["edit"]	     = $this->todo->get_todo(["id_user" => dekrip(uri(3))], "todo");
->>>>>>> 13c20efd970889adac7d8bdfbccbe37764248e3f
 		
 	// 	$this->load->view('template', $data);
 	// }
