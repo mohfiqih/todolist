@@ -86,23 +86,24 @@ class Todo extends MY_Controller {
 			"judul"		=> "Halaman Edit",
 			"halaman"	     => "edit_list",
 			"view"		=> "edit_list",
-			"data_edit"	=>  $this->todo->getMulti(["id" => dekrip(uri(3))], "todo")
-			// "data_user"	=>  $this->M_Universal->getMulti(["user_id" => uri(3)], "user"),
+			"data_edit"	=> $this->M_Universal->getMulti(["id" => dekrip(uri(3))], "todo"),
+			"data_user"	=> $this->M_Universal->getMulti('', "user")
+			// "data_user"	=> $this->M_Universal->getMulti(["id" => (uri(3))], "user"),
 		);
 		$this->load->view('template', $data);
 	}
-
 
 	public function update()
 	{
 		$id	= dekrip($this->input->post("id"));
 		$data	= array(
+			"id_user"		=> dekrip($this->input->post("id_user")),
 			"task"			=> $this->input->post("pekerjaan"),
 			"date_created"	=> $this->input->post("tanggal"),
 			"mulai"	   		=> $this->input->post("jam_mulai"),
 			"selesai"		=> $this->input->post("jam_selesai"),
 			"level"			=> $this->input->post("user_level"),
-			"status"		    	=> $this->input->post("progres"),
+			"status"		=> $this->input->post("progres"),
 		);
 		
 		$update = $this->M_Universal->update($data, ["id" => $id], "todo");

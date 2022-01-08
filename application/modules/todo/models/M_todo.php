@@ -7,7 +7,7 @@ class M_todo extends CI_Model
     {
      $this->db->select('*');
      $this->db->from('todo');
-     $this->db->join('user', 'user.user_id = todo.id_user');
+     $this->db->join('user', 'user.user_id = todo.id_user', 'user.user_namalengkap');
      $query = $this->db->get()->result();
      return $query;
     }

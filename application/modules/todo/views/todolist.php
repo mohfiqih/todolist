@@ -68,11 +68,25 @@
                                                   <?php echo $d->selesai; ?>
                                              </td>
                                              <td class="align-middle">
+                                             <?php if ($d->status > 80 ): ?>
                                                   <h6 class="align-middle mb-0">
                                                        <span class="badge bg-success">
                                                             <?php echo $d->level; ?>
                                                        </span>
                                                   </h6>
+                                             <?php elseif ($d->status > 40 ): ?>
+                                                  <h6 class="align-middle mb-0">
+                                                       <span class="badge bg-warning">
+                                                            <?php echo $d->level; ?>
+                                                       </span>
+                                                  </h6>
+                                             <?php else: ?>
+                                                  <h6 class="align-middle mb-0">
+                                                       <span class="badge bg-danger">
+                                                            <?php echo $d->level; ?>
+                                                       </span>
+                                                  </h6>
+                                             <?php endif; ?>                         
                                              </td>
                                              <td class="align-middle" style="text-align: center">
                                                   <?php echo $d->status; ?> %</td>
