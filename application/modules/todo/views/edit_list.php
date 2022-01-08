@@ -28,7 +28,7 @@
                                                        <?php 
                                                        foreach($data_user as $e) : ?>
                                                        <option
-                                                            value="<?php echo uri(2) == "edit" ? ($e->user_id) : "";  ?>">
+                                                            value="<?php echo uri(2) == "edit" ? enkrip($e->user_id) : "";  ?>">
                                                             <?php echo $e->user_namalengkap; ?>
                                                        </option>
                                                        <?php endforeach; ?>

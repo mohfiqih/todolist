@@ -38,6 +38,7 @@
                                                   <th scope="col">Jam Selesai</th>
                                                   <th scope="col">Level</th>
                                                   <th scope="col">Progres</th>
+                                                  <th scope="col" style="text-align: center">Status</th>
                                                   <th scope="col" style="text-align: center">
                                                        Actions</th>
                                              </tr>
@@ -58,7 +59,7 @@
                                              <td class="align-middle">
                                                   <?php echo $d->task; ?>
                                              </td>
-                                             <td class="align-middle">
+                                             <td class="align-middle" style="text-align: center">
                                                   <?php echo $d->date_created; ?>
                                              </td>
                                              <td class="align-middle">
@@ -74,14 +75,29 @@
                                                        </span>
                                                   </h6>
                                              </td>
+
                                              <td class="align-middle" style="text-align: center">
                                                   <?php echo $d->status; ?> %</td>
+
+                                             <td></td>
+                                             <!-- <td class="align-middle" style="text-align: center">
+                                                  <select class="form-select" style="height: 35px; width: 100px;"
+                                                       name="checked">
+                                                       <option>Pilih</option>
+                                                       <option class="bg-success" style="color: white;" value="1">ACC
+                                                       </option>
+                                                       <option class="bg-warning" style="color: white;" value="2">Belum
+                                                       </option>
+                                                       <option class="bg-danger" style="color: white;" value="3">Tolak
+                                                       </option>
+                                                  </select>
+                                             </td> -->
+
                                              <td class="align-middle">
-
-                                                  <a href="<?php echo url(1) .'/check/'. enkrip($d->checked); ?>"
-                                                       data-mdb-toggle="tooltip" title="Done"><i
-                                                            class="fas fa-check text-success me-3"></i></a>
-
+                                                  <a href="<?php echo url(2) .'cek/'. $d->id; ?>"
+                                                       data-mdb-toggle="tooltip" title="Done">
+                                                       <i class="fas fa-check text-success me-3"></i>
+                                                  </a>
                                                   <a href="<?php echo url(2) .'edit/'. $d->id; ?>"
                                                        data-mdb-toggle="tooltip" title="Done"><i
                                                             class="fas fa-edit text-warning me-3"></i></a>
