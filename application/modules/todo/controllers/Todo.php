@@ -42,18 +42,18 @@ class Todo extends MY_Controller {
 		$this->load->view('template', $data);
 	}
 
-	public function cek()
-	{
-        $data = array(
-			"judul"		=> "Halaman Check",
-			"keterangan"	=> "Contoh Keterangan",
-			"halaman"		=> "check",
-			"view"		=> "check",
-			"data_edit"	=> $this->M_Universal->getMulti(["id" => (uri(3))], "todo"),
-		);
+	// public function cek()
+	// {
+     //    $data = array(
+	// 		"judul"		=> "Halaman Check",
+	// 		"keterangan"	=> "Contoh Keterangan",
+	// 		"halaman"		=> "check",
+	// 		"view"		=> "check",
+	// 		"data_edit"	=> $this->M_Universal->getMulti(["id" => (uri(3))], "todo"),
+	// 	);
 					
-		$this->load->view('template', $data);
-	}
+	// 	$this->load->view('template', $data);
+	// }
 
 	// public function check()
 	// {
