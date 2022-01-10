@@ -55,7 +55,7 @@ class MY_Controller extends MX_Controller
 			redirect('login', 'refresh');
         }
 		
-		if ($level){
+		if ($level == 1 or $level == 2){
 			if ($this->session->userdata('log_admin')['user_level'] != $level){
 				redirect('.', 'refresh');
 			}

@@ -6,7 +6,7 @@ class Todo extends MY_Controller {
     {
         // Load the constructer from MY_Controller
         parent::__construct();
-	   $this->cek_login(1);
+	   $this->cek_login(1 or 2);
 	   $this->load->model('M_todo','todo');
     }
 

@@ -6,7 +6,7 @@ class User extends MY_Controller {
     {
         parent::__construct();
 		
-		$this->cek_login(1);
+		$this->cek_login(1 or 2);
     }
 	
 	private function meta()

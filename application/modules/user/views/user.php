@@ -43,13 +43,16 @@
                                                   <option value="">Pilih Level</option>
                                                   <option value="1"
                                                        <?php if (uri(2) == "edit") echo $edit->user_level == 1 ? "selected" : ""; ?>>
-                                                       Super Admin</option>
+                                                       Kabag</option>
                                                   <option value="2"
                                                        <?php if (uri(2) == "edit") echo $edit->user_level == 2 ? "selected" : ""; ?>>
-                                                       Admin</option>
+                                                       Subbag</option>
                                                   <option value="3"
                                                        <?php if (uri(2) == "edit") echo $edit->user_level == 3 ? "selected" : ""; ?>>
-                                                       User</option>
+                                                       Staf</option>
+                                                  <option value="4"
+                                                       <?php if (uri(2) == "edit") echo $edit->user_level == 4 ? "selected" : ""; ?>>
+                                                       Magang</option>
                                              </select>
                                              <label for="example-select-floating">Level</label>
                                         </div>
