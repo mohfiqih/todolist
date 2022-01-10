@@ -4,7 +4,7 @@
           <!-- Start Content-->
           <div class="container-fluid">
                <form action="<?php echo uri(2) == "edit" ? url(1, "update") : url(1, "tambah"); ?>" method="POST">
-               
+
                     <input type="hidden" name="<?php echo $this->security->get_csrf_token_name(); ?>"
                          value="<?php echo $this->security->get_csrf_hash(); ?>">
                     <?php
@@ -29,7 +29,8 @@
                                                        <?php 
                                                        foreach($data_user as $e) : ?>
 
-                                                       <option value="<?php echo enkrip($e->user_id) ?>" <?=$d->id_user == $e->user_id ? 'selected' : null?> >
+                                                       <option value="<?php echo enkrip($e->user_id) ?>"
+                                                            <?=$d->id_user == $e->user_id ? 'selected' : null?>>
                                                             <?=$e->user_namalengkap;?>
                                                        </option>
 
@@ -51,12 +52,7 @@
                                                        placeholder="Tanggal">
                                                   <label>Tanggal</label>
                                              </div>
-                                             <div class="form-floating mb-3">
-                                                  <input value="<?php echo uri(2) == "edit" ? ($d->mulai) : ""; ?>"
-                                                       type="time" class="form-control clockpicker" readonly="readonly"
-                                                       name="jam_mulai" placeholder="Jam Mulai" autocomplete="off">
-                                                  <label>Jam Mulai</label>
-                                             </div>
+
                                              <div class="text-center">
                                                   <button type="submit"
                                                        class="btn btn-primary"><?php echo (uri(1) == 'update') ? : 'Update'; ?></button>
@@ -74,6 +70,12 @@
                                    <div class="card-body">
                                         <h4 class="header-title mb-3"></h4>
                                         <div class="form-floating mb-3">
+                                             <input value="<?php echo uri(2) == "edit" ? ($d->mulai) : ""; ?>"
+                                                  type="time" class="form-control clockpicker" readonly="readonly"
+                                                  name="jam_mulai" placeholder="Jam Mulai" autocomplete="off">
+                                             <label>Jam Mulai</label>
+                                        </div>
+                                        <div class="form-floating mb-3">
                                              <input value="<?php echo uri(2) == "edit" ? ($d->selesai) : ""; ?>"
                                                   type="time" class="form-control clockpicker" name="jam_selesai"
                                                   readonly="readonly" placeholder="Jam Selesai" autocomplete="off">
@@ -86,9 +88,9 @@
                                                   <option value="High"
                                                        <?php if (uri(2) == "edit") echo $d->level == 'High' ? "selected" : ""; ?>>
                                                        High</option>
-                                                  <option value="Medium"
-                                                       <?php if (uri(2) == "edit") echo $d->level == 'Medium' ? "selected" : ""; ?>>
-                                                       Medium</option>==
+                                                  <option value="Middle"
+                                                       <?php if (uri(2) == "edit") echo $d->level == 'Middle' ? "selected" : ""; ?>>
+                                                       Middle</option>
                                                   <option value="Low"
                                                        <?php if (uri(2) == "edit") echo $d->level == 'Low' ? "selected" : ""; ?>>
                                                        Low</option>
@@ -103,11 +105,11 @@
                                                        <input
                                                             value="<?php echo uri(2) == "edit" ? ($d->status) : ""; ?>"
                                                             type="text" id="range_01" name="progres">
-                                                  <p>Catatan: <br />1.) 0-50% = Low <br />2.) 51-80% = Medium
+                                                       <!-- <p>Catatan: <br />1.) 0-50% = Low <br />2.) 51-80% = Medium
                                                        <br />3.)
                                                        81-100%
                                                        = High
-                                                  </p>
+                                                  </p> -->
                                              </div>
                                         </div> <!-- end card-->
                                    </div> <!-- end card-->

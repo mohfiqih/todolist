@@ -37,11 +37,7 @@
                                                   placeholder="Tanggal">
                                              <label>Tanggal</label>
                                         </div>
-                                        <div class="form-floating mb-3">
-                                             <input type="time" class="form-control clockpicker" readonly="readonly"
-                                                  name="jam_mulai" placeholder="Jam Mulai" autocomplete="off">
-                                             <label>Jam Mulai</label>
-                                        </div>
+
                                    </form>
                                    <div class="text-center">
                                         <button type="submit" class="btn btn-primary">Tambah</button>
@@ -57,7 +53,11 @@
                          <div class="card">
                               <div class="card-body">
                                    <h4 class="header-title mb-3"></h4>
-
+                                   <div class="form-floating mb-3">
+                                        <input type="time" class="form-control clockpicker" readonly="readonly"
+                                             name="jam_mulai" placeholder="Jam Mulai" autocomplete="off">
+                                        <label>Jam Mulai</label>
+                                   </div>
                                    <div class="form-floating mb-3">
                                         <input type="time" class="form-control clockpicker" name="jam_selesai"
                                              readonly="readonly" placeholder="Jam Selesai" autocomplete="off">
@@ -70,9 +70,9 @@
                                              <option value="High"
                                                   <?php if (uri(1) == "tambah") echo $edit->level == 1 ? "selected" : ""; ?>>
                                                   High</option>
-                                             <option value="Medium"
+                                             <option value="Middle"
                                                   <?php if (uri(1) == "tambah") echo $edit->level == 2 ? "selected" : ""; ?>>
-                                                  Medium</option>==
+                                                  Middle</option>
                                              <option value="Low"
                                                   <?php if (uri(1) == "tambah") echo $edit->level == 3 ? "selected" : ""; ?>>
                                                   Low</option>
@@ -84,11 +84,11 @@
                                              <p>Progres (%)
                                              <p>
                                                   <input type="text" id="range_01" name="progres">
-                                             <p>Catatan: <br />1.) 0-50% = Low <br />2.) 51-80% = Medium
+                                                  <!-- <p>Catatan: <br />1.) 0-50% = Low <br />2.) 51-80% = Medium
                                                   <br />3.)
                                                   81-100%
                                                   = High
-                                             </p>
+                                             </p> -->
                                         </div>
                                    </div> <!-- end card-->
                               </div> <!-- end col -->

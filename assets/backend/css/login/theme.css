@@ -347,7 +347,6 @@
 }
 [class~="img-holder"] [class~="bg"] {
   background-image: none;
-  background-color: #fff;
 }
 [class~="form-content"] textarea:hover,
 [class~="form-content"] textarea,
