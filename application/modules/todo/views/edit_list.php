@@ -101,7 +101,7 @@
                                         <div class="col-md-6">
                                              <div class="card">
                                                   <p>Progres (%)
-                                                  <p>
+                                                       </p>
                                                        <input
                                                             value="<?php echo uri(2) == "edit" ? ($d->status) : ""; ?>"
                                                             type="text" id="range_01" name="progres">

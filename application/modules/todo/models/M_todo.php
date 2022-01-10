@@ -3,13 +3,24 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class M_todo extends CI_Model
 {
-    public function get_todo() 
+    public function get_todo($namalengkap, $level) 
     {
-     $this->db->select('*');
-     $this->db->from('todo');
-     $this->db->join('user', 'user.user_id = todo.id_user', 'user.user_namalengkap');
-     $query = $this->db->get()->result();
-     return $query;
+        if ($level) {
+            $this->db->select('*');
+            $this->db->from('todo');
+            $this->db->join('user', 'user.user_id = todo.id_user','user.user_namalengkap');
+            // $this->db->where('user.user_namalengkap', $namalengkap);
+            $query = $this->db->get()->result();
+            return $query;
+        } else {
+            $this->db->select('*');
+            $this->db->from('todo');
+            $this->db->join('user', 'user.user_id = todo.id_user');
+            $this->db->where('user.user_namalengkap', $namalengkap);
+            $query = $this->db->get()->result();
+            return $query;
+        }
+    
     }
 
     public function getMulti($where, $tabel)

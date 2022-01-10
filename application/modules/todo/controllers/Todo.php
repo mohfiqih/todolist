@@ -1,4 +1,8 @@
-<?php defined('BASEPATH') OR exit('No direct script access allowed');
+<?php
+
+use phpDocumentor\Reflection\Types\Null_;
+
+defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Todo extends MY_Controller {
 
@@ -12,16 +16,36 @@ class Todo extends MY_Controller {
 
     private function meta()
 	{
-        $data = array(
-			"judul"		=> "Data Pekerjaan",
+		if ($this->user_level == "Ka. Bag" or $this->user_level == "Sub Bag") {
+			$level = $this->user_level;
+			// $namalengkap = $this->user_namalengkap;
+        	$data = array(
+			"judul"			=> "Data Pekerjaan",
 			"keterangan"	=> "Manajemen Pengguna",
 			"halaman"		=> "data_kerjaan",
 			"breadcrumb"	=> "Master Data|User",
-			"view"		=> "todolist",
-			"data_todo"	=> $this->todo->get_todo(),
-		);
+			"view"			=> "todolist",
+			// "nama" 			=> $this->user_namalengkap, ->hasil Wirayuda
+			"data_todo"		=> $this->todo->get_todo(NULL, $level),
+			);
 		
-		return $data;
+			return $data;
+		} else {
+			// $level = $this->user_level;
+			$namalengkap = $this->user_namalengkap;
+        	$data = array(
+			"judul"			=> "Data Pekerjaan",
+			"keterangan"	=> "Manajemen Pengguna",
+			"halaman"		=> "data_kerjaan",
+			"breadcrumb"	=> "Master Data|User",
+			"view"			=> "todolist",
+			// "nama" 			=> $this->user_namalengkap, ->hasil Wirayuda
+			"data_todo"		=> $this->todo->get_todo($namalengkap,NULL),
+			);
+		
+			return $data;
+		}
+		
 	}
 
 	public function index()
@@ -64,7 +88,7 @@ class Todo extends MY_Controller {
 			"checked"			=> $this->input->post("ceked"),
 		);
 		
-		$tambah = $this->M_Universal->update($data, ["id" => $id],"todo");
+		$tambah = $this->M_Universal->update($data, ["id" => $id], "todo");
 		
 		if ($tambah){
 			notifikasi_redirect("success", "Data berhasil ditambahkan", uri(1));
@@ -120,7 +144,7 @@ class Todo extends MY_Controller {
 			"selesai"		=> $this->input->post("jam_selesai"),
 			"level"			=> $this->input->post("user_level"),
 			"status"		=> $this->input->post("progres"),
-			"ceked"			=> $this->input->post("ceked"),
+			
 		);
 		
 		$update = $this->M_Universal->update($data, ["id" => $id], "todo");
