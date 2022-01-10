@@ -6,7 +6,7 @@ class Todo extends MY_Controller {
     {
         // Load the constructer from MY_Controller
         parent::__construct();
-	   $this->cek_login(1);
+	   $this->cek_login();
 	   $this->load->model('M_todo','todo');
     }
 
@@ -45,12 +45,12 @@ class Todo extends MY_Controller {
 	public function cek()
 	{
         $data = array(
-			"judul"		=> "Halaman Check",
+			"judul"			=> "Halaman Check",
 			"keterangan"	=> "Contoh Keterangan",
 			"halaman"		=> "check",
-			"view"		=> "check",
-			"data_edit"	=> $this->M_Universal->getMulti(["id" => dekrip(uri(3))], "todo"),
-			"data_user"	=> $this->M_Universal->getMulti('', "user")
+			"view"			=> "check",
+			"data_check"	=> $this->M_Universal->getMulti(["id" => dekrip(uri(3))], "todo"),
+			"data_user"		=> $this->M_Universal->getMulti('', "user")
 		);
 					
 		$this->load->view('template', $data);
@@ -58,12 +58,13 @@ class Todo extends MY_Controller {
 
 	public function checked()
 	{
+		$id	= dekrip($this->input->post("id"));
 		$data	= array(
-			"id_user"		=> dekrip($this->input->post("id_user")),
-			"ceked"		=> $this->input->post("ceked"),
+			"id_user"			=> dekrip($this->input->post("id_user")),
+			"checked"			=> $this->input->post("ceked"),
 		);
 		
-		$tambah = $this->M_Universal->insert($data, "todo");
+		$tambah = $this->M_Universal->update($data, ["id" => $id],"todo");
 		
 		if ($tambah){
 			notifikasi_redirect("success", "Data berhasil ditambahkan", uri(1));
@@ -119,7 +120,7 @@ class Todo extends MY_Controller {
 			"selesai"		=> $this->input->post("jam_selesai"),
 			"level"			=> $this->input->post("user_level"),
 			"status"		=> $this->input->post("progres"),
-			"ceked"		=> $this->input->post("ceked"),
+			"ceked"			=> $this->input->post("ceked"),
 		);
 		
 		$update = $this->M_Universal->update($data, ["id" => $id], "todo");
