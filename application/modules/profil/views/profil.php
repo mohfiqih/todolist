@@ -15,8 +15,7 @@
                                    <div class="col-lg-4">
                                         <div class="mb-4">
                                              <label class="form-label">Nama Lengkap</label>
-                                             <input type="text" class="form-control" name="nama_lengkap" value=""
-                                                  required>
+                                             <input type="text" class="form-control" name="nama_lengkap" value="">
                                         </div>
                                         <div class="mt-5 mb-4">
                                              <label class="form-label">Password Saat Ini</label>
@@ -36,8 +35,8 @@
                                         </div>
                                         <div class="text-center">
                                              <button type="submit" class="btn btn-primary">Update</button>
-                                             <a href="<?php echo base_url('dasbor');?>">
-                                                  <button type="submit" class="btn btn-primary">Kembali</button>
+                                             <a href="<?php echo base_url('todo');?>">
+                                                  <button type="submit" class="btn btn-danger">Kembali</button>
                                              </a>
                                         </div>
                                    </div>
