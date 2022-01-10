@@ -7,21 +7,25 @@
                <div class="card">
                     <div class="card-body">
                          <div class="row">
-
                               <div class="d-flex flex-row align-items-center">
                                    <div class=" align-right" style="float: right;">
                                         <a href="<?php echo base_url('Todo/add'); ?>">
-                                             <button type="button" class="btn btn-primary" style="float: right;"><i
-                                                       class="fas fa-plus"></i>
+                                             <button type="button" class="btn btn-success"><i class=" fas fa-plus"></i>
                                                   Add List</button>
+                                        </a>
+                                        <a type="button" class="btn btn-danger" href="<?php echo base_url('#'); ?>"><i
+                                                  class="fas fa-print"></i>
+                                             Print</button>
+                                        </a>
+                                        <a type="button" class="btn btn-warning" href="<?php echo base_url('#'); ?>"><i
+                                                  class="fas fa-file-export"></i> Export PDF</button>
                                         </a>
                                    </div>
                               </div>
-                              <!-- <hr class="my-4"> -->
+                              <!-- <hr class="my-2"> -->
                               <!-- Tabel -->
                               <div class="card-body" data-mdb-perfect-scrollbar="true"
                                    style="position: relative; height: 400px; overflow-x: auto;">
-
                                    <table class="table mb-0">
                                         <thead>
 
@@ -69,17 +73,32 @@
                                                   <?php echo $d->selesai; ?>
                                              </td>
                                              <td class="align-middle">
+                                                  <?php if ($d->status > 80 ): ?>
+                                                  <h6 class="align-middle mb-0">
+                                                       <span class="badge bg-success">
+                                                            <?php echo $d->level; ?>
+                                                       </span>
+                                                  </h6>
+                                                  <?php elseif ($d->status > 50 ): ?>
+                                                  <h6 class="align-middle mb-0">
+                                                       <span class="badge bg-warning">
+                                                            <?php echo $d->level; ?>
+                                                       </span>
+                                                  </h6>
+                                                  <?php else: ?>
                                                   <h6 class="align-middle mb-0">
                                                        <span class="badge bg-danger">
                                                             <?php echo $d->level; ?>
                                                        </span>
                                                   </h6>
+                                                  <?php endif; ?>
                                              </td>
 
                                              <td class="align-middle" style="text-align: center">
                                                   <?php echo $d->status; ?> %</td>
 
-                                             <td></td>
+                                             <td class="align-middle" style="text-align: center">
+                                                  <?php echo $d->ceked; ?></td>
                                              <!-- <td class="align-middle" style="text-align: center">
                                                   <select class="form-select" style="height: 35px; width: 100px;"
                                                        name="checked">
@@ -93,12 +112,12 @@
                                                   </select>
                                              </td> -->
 
-                                             <td class="align-middle">
-                                                  <a href="<?php echo url(2) .'cek/'. $d->id; ?>"
-                                                       data-mdb-toggle="tooltip" title="Done">
-                                                       <i class="fas fa-check text-success me-3"></i>
-                                                  </a>
-                                                  <a href="<?php echo url(2) .'edit/'. $d->id; ?>"
+                                             <td class="align-middle" style="text-align: center">
+                                                  <a href="<?php echo url(2) .'cek/'. enkrip($d->id); ?>"
+                                                       data-mdb-toggle="tooltip" title="Done"><i
+                                                            class="fas fa-check text-success me-3"></i></a>
+
+                                                  <a href="<?php echo url(2) .'edit/'. enkrip($d->id); ?>"
                                                        data-mdb-toggle="tooltip" title="Done"><i
                                                             class="fas fa-edit text-warning me-3"></i></a>
 

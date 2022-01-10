@@ -42,34 +42,36 @@ class Todo extends MY_Controller {
 		$this->load->view('template', $data);
 	}
 
-	// public function cek()
-	// {
-     //    $data = array(
-	// 		"judul"		=> "Halaman Check",
-	// 		"keterangan"	=> "Contoh Keterangan",
-	// 		"halaman"		=> "check",
-	// 		"view"		=> "check",
-	// 		"data_edit"	=> $this->M_Universal->getMulti(["id" => (uri(3))], "todo"),
-	// 	);
+	public function cek()
+	{
+        $data = array(
+			"judul"		=> "Halaman Check",
+			"keterangan"	=> "Contoh Keterangan",
+			"halaman"		=> "check",
+			"view"		=> "check",
+			"data_edit"	=> $this->M_Universal->getMulti(["id" => dekrip(uri(3))], "todo"),
+			"data_user"	=> $this->M_Universal->getMulti('', "user")
+		);
 					
-	// 	$this->load->view('template', $data);
-	// }
+		$this->load->view('template', $data);
+	}
 
-	// public function check()
-	// {
-	// 	$data = array(
-	// 		"checked"		    	=> $this->input->post("cek"),
-	// 	);	
-
-	// 	$tambah = $this->M_Universal->insert($data, "todo");
+	public function checked()
+	{
+		$data	= array(
+			"id_user"		=> dekrip($this->input->post("id_user")),
+			"ceked"		=> $this->input->post("ceked"),
+		);
 		
-	// 	if ($tambah){
-	// 		notifikasi_redirect("success", "Tambah Pekerjaan berhasil", uri(1));
-	// 	} else {
-	// 		notifikasi_redirect("error", "Tambah Pekerjaan gagal", uri(1));
-	// 	}
-	// }
-
+		$tambah = $this->M_Universal->insert($data, "todo");
+		
+		if ($tambah){
+			notifikasi_redirect("success", "Data berhasil ditambahkan", uri(1));
+		} else {
+			notifikasi_redirect("error", "Gagal menambah data", uri(1));
+		}
+	}
+	
 	public function tambah()
 	{
 		$data = array(
@@ -81,7 +83,7 @@ class Todo extends MY_Controller {
 			"selesai"		=> $this->input->post("jam_selesai"),
 			"level"			=> $this->input->post("user_level"),
 			"status"		=> $this->input->post("progres"),
-			// "checked"		    	=> $this->input->post("cek"),
+			"ceked"		    	=> $this->input->post("ceked"),
 		);
 
 		$tambah = $this->M_Universal->insert($data, "todo");
@@ -99,8 +101,8 @@ class Todo extends MY_Controller {
 			"judul"		=> "Halaman Edit",
 			"halaman"	     => "edit_list",
 			"view"		=> "edit_list",
-			"data_edit"	=> $this->M_Universal->getMulti(["id" => (uri(3))], "todo"),
-			"data_user"	=> $this->M_Universal->getMulti('', "user"),
+			"data_edit"	=> $this->M_Universal->getMulti(["id" => dekrip(uri(3))], "todo"),
+			"data_user"	=> $this->M_Universal->getMulti('', "user")
 			// "data_user"	=> $this->M_Universal->getMulti(["id" => (uri(3))], "user"),
 		);
 		$this->load->view('template', $data);
@@ -110,12 +112,14 @@ class Todo extends MY_Controller {
 	{
 		$id	= dekrip($this->input->post("id"));
 		$data	= array(
+			"id_user"		=> dekrip($this->input->post("id_user")),
 			"task"			=> $this->input->post("pekerjaan"),
-			"date_created"		=> $this->input->post("tanggal"),
+			"date_created"	=> $this->input->post("tanggal"),
 			"mulai"	   		=> $this->input->post("jam_mulai"),
-			"selesai"			=> $this->input->post("jam_selesai"),
+			"selesai"		=> $this->input->post("jam_selesai"),
 			"level"			=> $this->input->post("user_level"),
-			"status"		    	=> $this->input->post("progres"),
+			"status"		=> $this->input->post("progres"),
+			"ceked"		=> $this->input->post("ceked"),
 		);
 		
 		$update = $this->M_Universal->update($data, ["id" => $id], "todo");

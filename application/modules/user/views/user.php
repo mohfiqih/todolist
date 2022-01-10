@@ -41,15 +41,18 @@
                                              <select class="form-select" name="user_level"
                                                   aria-label="Floating label select example" required>
                                                   <option value="">Pilih Level</option>
-                                                  <option value="1"
-                                                       <?php if (uri(2) == "edit") echo $edit->user_level == 1 ? "selected" : ""; ?>>
-                                                       Super Admin</option>
-                                                  <option value="2"
-                                                       <?php if (uri(2) == "edit") echo $edit->user_level == 2 ? "selected" : ""; ?>>
-                                                       Admin</option>
-                                                  <option value="3"
-                                                       <?php if (uri(2) == "edit") echo $edit->user_level == 3 ? "selected" : ""; ?>>
-                                                       User</option>
+                                                  <option value="Ka. Bag"
+                                                       <?php if (uri(2) == "edit") echo $edit->user_level == 'Ka. Bag' ? "selected" : ""; ?>>
+                                                       Ka. Bag</option>
+                                                  <option value="Sub Bag"
+                                                       <?php if (uri(2) == "edit") echo $edit->user_level == 'Sub Bag' ? "selected" : ""; ?>>
+                                                       Sub Bag</option>
+                                                  <option value="Staf"
+                                                       <?php if (uri(2) == "edit") echo $edit->user_level == 'Staf' ? "selected" : ""; ?>>
+                                                       Staf</option>
+                                                  <option value="Magang"
+                                                       <?php if (uri(2) == "edit") echo $edit->user_level == 'Magang' ? "selected" : ""; ?>>
+                                                       Magang</option>
                                              </select>
                                              <label for="example-select-floating">Level</label>
                                         </div>
