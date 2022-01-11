@@ -23,7 +23,7 @@
                                    </div>
                               </div>
                               <!-- <hr class="my-2"> -->
-                             
+
                               <?php if ($this->user_level == "Ka. Bag" or $this->user_level == "Sub Bag"):?>
 
                               <!-- Tabel -->
@@ -101,7 +101,26 @@
                                                   <?php echo $d->status; ?> %</td>
 
                                              <td class="align-middle" style="text-align: center">
-                                                  <?php echo $d->checked; ?></td>
+                                                  <?php if ($d->checked == 'ACC'): ?>
+                                                  <h6 class="align-middle mb-0">
+                                                       <span class="badge bg-success">
+                                                            <?php echo $d->checked; ?>
+                                                       </span>
+                                                  </h6>
+                                                  <?php elseif ($d->checked == 'Belum'): ?>
+                                                  <h6 class="align-middle mb-0">
+                                                       <span class="badge bg-warning">
+                                                            <?php echo $d->checked; ?>
+                                                       </span>
+                                                  </h6>
+                                                  <?php else: ?>
+                                                  <h6 class="align-middle mb-0">
+                                                       <span class="badge bg-danger">
+                                                            <?php echo $d->checked; ?>
+                                                       </span>
+                                                  </h6>
+                                                  <?php endif; ?>
+                                             </td>
                                              <!-- <td class="align-middle" style="text-align: center">
                                                   <select class="form-select" style="height: 35px; width: 100px;"
                                                        name="checked">
@@ -139,7 +158,7 @@
                               <!-- End Tabel -->
                               <?php else: ?>
 
-                                   <!-- Tabel -->
+                              <!-- Tabel -->
                               <div class="card-body" data-mdb-perfect-scrollbar="true"
                                    style="position: relative; height: 400px; overflow-x: auto;">
                                    <table class="table mb-0">
@@ -212,7 +231,27 @@
                                                   <?php echo $d->status; ?> %</td>
 
                                              <td class="align-middle" style="text-align: center">
-                                                  <?php echo $d->checked; ?></td>
+                                                  <!-- <?php echo $d->checked; ?> -->
+                                                  <?php if ($d->checked == 'ACC'): ?>
+                                                  <h6 class="align-middle mb-0">
+                                                       <span class="badge bg-success">
+                                                            <?php echo $d->checked; ?>
+                                                       </span>
+                                                  </h6>
+                                                  <?php elseif ($d->checked == 'Belum'): ?>
+                                                  <h6 class="align-middle mb-0">
+                                                       <span class="badge bg-warning">
+                                                            <?php echo $d->checked; ?>
+                                                       </span>
+                                                  </h6>
+                                                  <?php else: ?>
+                                                  <h6 class="align-middle mb-0">
+                                                       <span class="badge bg-danger">
+                                                            <?php echo $d->checked; ?>
+                                                       </span>
+                                                  </h6>
+                                                  <?php endif; ?>
+                                             </td>
                                              <!-- <td class="align-middle" style="text-align: center">
                                                   <select class="form-select" style="height: 35px; width: 100px;"
                                                        name="checked">
@@ -234,7 +273,7 @@
                               </div>
                               <!-- End Tabel -->
 
-                              <?php endif; ?> 
+                              <?php endif; ?>
                          </div>
                     </div>
                </div>

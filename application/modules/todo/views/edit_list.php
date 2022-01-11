@@ -4,9 +4,9 @@
           <!-- Start Content-->
           <div class="container-fluid">
                <form action="<?php echo uri(2) == "edit" ? url(1, "update") : url(1, "tambah"); ?>" method="POST">
-
                     <input type="hidden" name="<?php echo $this->security->get_csrf_token_name(); ?>"
                          value="<?php echo $this->security->get_csrf_hash(); ?>">
+
                     <?php
 			     if ($data_edit){
 			     foreach ($data_edit as $d){ 
@@ -123,6 +123,4 @@
           <td class="text-center" colspan="8">Tidak ada data</td>
           <?php } ?>
      </div>
-</div>
-</div>
 </div>

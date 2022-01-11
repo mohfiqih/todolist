@@ -120,7 +120,6 @@ class Todo extends MY_Controller {
 			"selesai"		=> $this->input->post("jam_selesai"),
 			"level"			=> $this->input->post("user_level"),
 			"status"		=> $this->input->post("progres"),
-			"ceked"			=> $this->input->post("ceked"),
 		);
 		
 		$update = $this->M_Universal->update($data, ["id" => $id], "todo");
