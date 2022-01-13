@@ -21,6 +21,15 @@
                                                   class="fas fa-file-export"></i> Export PDF</button>
                                         </a>
                                    </div>
+                                   <form action="<?= base_url('Todo/search/') ?>" method="get">
+                                        <div class="input-group">
+                                             <input type="text" class="form-control" name="keyword"
+                                                  placeholder="Ketik Nama">
+                                             <span class="input-group-btn">
+                                                  <button class="btn btn-success" type="submit">Cari</button>
+                                             </span>
+                                        </div>
+                                   </form>
                               </div>
                               <!-- <hr class="my-2"> -->
 
@@ -29,6 +38,10 @@
                               <!-- Tabel -->
                               <div class="card-body" data-mdb-perfect-scrollbar="true"
                                    style="position: relative; height: 400px; overflow-x: auto;">
+                                   <?php if(!empty($keyword)){ ?>
+                                   <p style="color:orange"><b>Menampilkan data dengan kata kunci :
+                                             "<?= $keyword; ?>"</b></p>
+                                   <?php } ?>
                                    <table class="table mb-0">
                                         <thead>
 
