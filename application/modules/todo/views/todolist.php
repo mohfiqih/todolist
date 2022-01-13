@@ -52,13 +52,13 @@
 
                                         </thead>
                                         <?php
-                                        $no=0+1;
+                                        
 								if ($data_todo){
 								foreach ($data_todo as $d){ 
 								?>
                                         <tr class="fw-normal">
                                              <th class="align-middle">
-                                                  <?php echo $no++; ?>
+                                                  <?= ++$start; ?>
                                              </th>
                                              <th class="align-middle">
                                                   <?php echo $d->user_namalengkap; ?>
@@ -135,6 +135,7 @@
                                         <?php } ?>
                                         </tbody>
                                    </table>
+                                   <?= $this->pagination->create_links();?>
                               </div>
                               <!-- End Tabel -->
                               <?php else: ?>
@@ -235,6 +236,7 @@
                               <!-- End Tabel -->
 
                               <?php endif; ?> 
+                              
                          </div>
                     </div>
                </div>

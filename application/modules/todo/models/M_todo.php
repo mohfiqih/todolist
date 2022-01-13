@@ -3,14 +3,14 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class M_todo extends CI_Model
 {
-    public function get_todo($namalengkap, $level) 
+    public function get_todo($namalengkap, $level, $limit, $start) 
     {
         if ($level) {
             $this->db->select('*');
             $this->db->from('todo');
             $this->db->join('user', 'user.user_id = todo.id_user','user.user_namalengkap');
             // $this->db->where('user.user_namalengkap', $namalengkap);
-            $query = $this->db->get()->result();
+            $query = $this->db->get('',$limit,$start)->result();
             return $query;
         } else {
             $this->db->select('*');
@@ -22,6 +22,13 @@ class M_todo extends CI_Model
         }
     
     }
+
+    public function countDataTodo()
+    {
+        return $this->db->get('todo')->num_rows();
+        
+    }
+
 
     public function getMulti($where, $tabel)
     {
