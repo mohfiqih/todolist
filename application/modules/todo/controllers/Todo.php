@@ -16,17 +16,49 @@ class Todo extends MY_Controller {
 
     private function meta()
 	{
+		$namalengkap = $this->user_namalengkap;
+		$config['base_url'] = 'https://localhost/todolist/todo/index';
+		$config['total_rows'] = $this->todo->countDataTodo();
+		$config['per_page'] = 10;
+		$config['uri_segment'] = 3;
+		$config['num_links'] = 6;
+		$config['full_tag_open'] = '<nav aria-label="..."><ul class="pagination">';
+		$config['full_tag_close'] = '</ul></nav>';
+		$config['first_link'] = 'First';
+		$config['first_tag_open'] = '<li class="page-item">';
+		$config['first_tag_close'] = '</li>';
+		$config['last_link'] = 'Last';
+		$config['last_tag_open'] = '<li class="page-item">';
+		$config['last_tag_close'] = '</li>';
+		$config['next_link'] = 'Next';
+		$config['next_tag_open'] = '<li class="page-item">';
+		$config['next_tag_close'] = '</li>';
+		$config['prev_link'] = 'Previous';
+		$config['prev_tag_open'] = '<li class="page-item">';
+		$config['prev_tag_close'] = '</li>';
+		$config['cur_tag_open'] = '<li class="page-item active"><a class="page-link" href="#">';
+		$config['cur_tag_close'] = '</a></li>';
+		$config['num_tag_open'] = '<li class="page-item">';
+		$config['num_tag_close'] = '</li>';
+		$config['attributes'] = array('class' => 'page-link');
+		
+		$this->pagination->initialize($config);
+		
+
+		
+		// $start = $this->uri->segment(3);
 		if ($this->user_level == "Ka. Bag" or $this->user_level == "Sub Bag") {
 			$level = $this->user_level;
-			// $namalengkap = $this->user_namalengkap;
+			// $data['start'] = $this->uri->segment(3);
         	$data = array(
 			"judul"			=> "Data Pekerjaan",
 			"keterangan"	=> "Manajemen Pengguna",
 			"halaman"		=> "data_kerjaan",
 			"breadcrumb"	=> "Master Data|User",
 			"view"			=> "todolist",
+			"start"			=> $this->uri->segment(3),
 			// "nama" 			=> $this->user_namalengkap, ->hasil Wirayuda
-			"data_todo"		=> $this->todo->get_todo(NULL, $level),
+			"data_todo"		=> $this->todo->get_todo(NULL, $level, $config['per_page'], "start"),
 			);
 		
 			return $data;
@@ -50,6 +82,11 @@ class Todo extends MY_Controller {
 
 	public function index()
 	{
+		// $config['base_url'] = 'https://localhost/todolist/todo/index';
+		// $config['total_rows'] = $this->todo->countDataTodo();
+		// $config['per_page'] = 5;
+
+		// $this->pagination->initialize($config);
         $this->load->view('template', $this->meta());
 	}
 	
