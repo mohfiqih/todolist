@@ -5,11 +5,13 @@ class M_todo extends CI_Model
 {
     public function get_todo($namalengkap, $level, $limit, $start) 
     {
+        // $limit, $start
         if ($level) {
             $this->db->select('*');
             $this->db->from('todo');
             $this->db->join('user', 'user.user_id = todo.id_user','user.user_namalengkap');
             // $this->db->where('user.user_namalengkap', $namalengkap);
+            $this->db->order_by('id', 'asc');
             $query = $this->db->get('',$limit,$start)->result();
             return $query;
         } else {
@@ -17,7 +19,7 @@ class M_todo extends CI_Model
             $this->db->from('todo');
             $this->db->join('user', 'user.user_id = todo.id_user');
             $this->db->where('user.user_namalengkap', $namalengkap);
-            $query = $this->db->get()->result();
+            $query = $this->db->get('',$limit,$start)->result();
             return $query;
         }
     
