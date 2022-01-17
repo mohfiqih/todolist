@@ -71,5 +71,10 @@ class M_todo extends CI_Model
 		}
 		return $this->db->get()->result_array();
 	}
+
+    function total_todo()
+     {
+         return $this->db->get('todo')->num_rows();
+     }
 }
 ?>

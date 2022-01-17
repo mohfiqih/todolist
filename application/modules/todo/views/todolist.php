@@ -26,7 +26,8 @@
                                              <input type="text" class="form-control" name="keyword"
                                                   placeholder="Ketik Nama">
                                              <span class="input-group-btn">
-                                                  <button class="btn btn-success" type="submit">Cari</button>
+                                                  <button class="btn btn-success" type="submit"><i
+                                                            class=" fas fa-search"></i></button>
                                              </span>
                                         </div>
                                    </form>
@@ -166,8 +167,20 @@
                                         <td class="text-center" colspan="9">Tidak ada data</td>
                                         <?php } ?>
                                         </tbody>
-                                   </table>
-                                   <?= $this->pagination->create_links();?>
+                                   </table><br />
+
+                              </div>
+
+                              <!-- <h5 style="float: right;">Jumlah : </h5> -->
+                              <div class="d-flex flex-row align-items-center">
+                                   <div class=" align-right" style="float: right;">
+                                        <h5 style="margin-left: 10px;">Jumlah : <?php echo $jml_todo; ?></h5>
+                                   </div>
+                                   <form method="get">
+                                        <div class="input-group">
+                                             <?= $this->pagination->create_links();?>
+                                        </div>
+                                   </form>
                               </div>
                               <!-- End Tabel -->
                               <?php else: ?>

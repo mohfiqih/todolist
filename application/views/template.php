@@ -4,8 +4,9 @@
 <head>
      <meta charset="utf-8" />
 
-      <!-- Bootstrap CSS -->
-      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+     <!-- Bootstrap CSS -->
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
      <title>Todo-List</title>
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -279,7 +280,7 @@
           <div class="left-side-menu">
                <div class="h-100" data-simplebar>
 
-               <?php if ($this->user_level == "Ka. Bag" or $this->user_level == "Sub Bag"):?>
+                    <?php if ($this->user_level == "Ka. Bag" or $this->user_level == "Sub Bag"):?>
 
                     <!--- Sidemenu -->
                     <div id="sidebar-menu">
@@ -374,7 +375,7 @@
                          <ul id="side-menu">
                               <li class="menu-title">Navigation</li>
                               <li>
-                                   <a href="<?php echo base_url('Dasbor/index'); ?>">
+                                   <a href="<?php echo base_url('dasbor'); ?>">
                                         <i class="mdi mdi-view-dashboard"></i>
                                         <span>Dasbor</span>
                                    </a>
@@ -385,67 +386,10 @@
                                         <span>Todo-List</span>
                                    </a>
                               </li>
-                              <li>
-                                   <a href="#sidebarMultilevel" data-bs-toggle="collapse">
-                                        <i class="mdi mdi-share-variant"></i>
-                                        <span> Multi Level </span>
-                                        <span class="menu-arrow"></span>
-                                   </a>
-                                   <div class="collapse" id="sidebarMultilevel">
-                                        <ul class="nav-second-level">
-                                             <li>
-                                                  <a href="#sidebarMultilevel2" data-bs-toggle="collapse">
-                                                       Second Level <span class="menu-arrow"></span>
-                                                  </a>
-                                                  <div class="collapse" id="sidebarMultilevel2">
-                                                       <ul class="nav-second-level">
-                                                            <li>
-                                                                 <a href="javascript: void(0);">Item 1</a>
-                                                            </li>
-                                                            <li>
-                                                                 <a href="javascript: void(0);">Item 2</a>
-                                                            </li>
-                                                       </ul>
-                                                  </div>
-                                             </li>
-
-                                             <li>
-                                                  <a href="#sidebarMultilevel3" data-bs-toggle="collapse">
-                                                       Third Level <span class="menu-arrow"></span>
-                                                  </a>
-                                                  <div class="collapse" id="sidebarMultilevel3">
-                                                       <ul class="nav-second-level">
-                                                            <li>
-                                                                 <a href="javascript: void(0);">Item 1</a>
-                                                            </li>
-                                                            <li>
-                                                                 <a href="#sidebarMultilevel4"
-                                                                      data-bs-toggle="collapse">
-                                                                      Item 2 <span class="menu-arrow"></span>
-                                                                 </a>
-                                                                 <div class="collapse" id="sidebarMultilevel4">
-                                                                      <ul class="nav-second-level">
-                                                                           <li>
-                                                                                <a href="javascript: void(0);">Item
-                                                                                     1</a>
-                                                                           </li>
-                                                                           <li>
-                                                                                <a href="javascript: void(0);">Item
-                                                                                     2</a>
-                                                                           </li>
-                                                                      </ul>
-                                                                 </div>
-                                                            </li>
-                                                       </ul>
-                                                  </div>
-                                             </li>
-                                        </ul>
-                                   </div>
-                              </li>
                          </ul>
                     </div>
 
-               <?php endif; ?> 
+                    <?php endif; ?>
                     <!-- End Sidebar -->
                     <div class="clearfix"></div>
                </div>
@@ -524,10 +468,16 @@
 
      <!-- Optional JavaScript -->
      <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-     
+     <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+          integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+     </script> -->
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+          integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous">
+     </script>
+     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+          integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous">
+     </script>
+
      <script>
      toastr.options = {
           "newestOnTop": true,

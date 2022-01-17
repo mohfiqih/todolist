@@ -19,7 +19,7 @@ class Todo extends MY_Controller {
 		$namalengkap = $this->user_namalengkap;
 		$config['base_url'] = 'https://localhost/todolist/todo/index';
 		$config['total_rows'] = $this->todo->countDataTodo();
-		$config['per_page'] = 10;
+		$config['per_page'] = 5;
 		$config['uri_segment'] = 3;
 		$config['num_links'] = 6;
 		$config['full_tag_open'] = '<nav aria-label="..."><ul class="pagination">';
@@ -43,7 +43,6 @@ class Todo extends MY_Controller {
 		$config['attributes'] = array('class' => 'page-link');
 		
 		$this->pagination->initialize($config);
-		
 
 		
 		// $start = $this->uri->segment(3);
@@ -51,14 +50,15 @@ class Todo extends MY_Controller {
 			$level = $this->user_level;
 			// $data['start'] = $this->uri->segment(3);
         	$data = array(
-			"judul"			=> "Data Pekerjaan",
+			"judul"		=> "Data Pekerjaan",
 			"keterangan"	=> "Manajemen Pengguna",
 			"halaman"		=> "data_kerjaan",
 			"breadcrumb"	=> "Master Data|User",
-			"view"			=> "todolist",
-			"start"			=> $this->uri->segment(3),
-			// "nama" 			=> $this->user_namalengkap, ->hasil Wirayuda
-			"data_todo"		=> $this->todo->get_todo(NULL, $level, $config['per_page'], "start"),
+			"view"		=> "todolist",
+			"start"		=> $this->uri->segment(3),
+			// "nama" 	=> $this->user_namalengkap, ->hasil Wirayuda
+			"data_todo"	=> $this->todo->get_todo(NULL, $level, $config['per_page'], "start"),
+			"jml_todo"	=> $this->todo->total_todo("", "todo"),
 			);
 		
 			return $data;
@@ -145,7 +145,6 @@ class Todo extends MY_Controller {
 			"selesai"		=> $this->input->post("jam_selesai"),
 			"level"			=> $this->input->post("user_level"),
 			"status"		=> $this->input->post("progres"),
-			"ceked"		    	=> $this->input->post("ceked"),
 		);
 
 		$tambah = $this->M_Universal->insert($data, "todo");
