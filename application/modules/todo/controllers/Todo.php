@@ -16,7 +16,7 @@ class Todo extends MY_Controller {
 
     private function meta()
 	{
-		$config['base_url'] = 'https://localhost/todolist/todo/index';
+		$config['base_url'] = 'https://localhost/todolist/todo/index/';
 		$config['total_rows'] = $this->todo->countDataTodo();
 		$config['per_page'] = 5;
 		// $config['uri_segment'] = 3;
