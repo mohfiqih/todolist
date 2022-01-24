@@ -149,15 +149,15 @@
                                              </td> -->
 
                                              <td class="align-middle" style="text-align: center">
-                                                  <a href="<?php echo url(2) .'cek/'. enkrip($d->id); ?>"
+                                                  <a href="<?php echo site_url('todo/cek/'.enkrip($d->id)); ?>"
                                                        data-mdb-toggle="tooltip" title="Done"><i
                                                             class="fas fa-check text-success me-3"></i></a>
 
-                                                  <a href="<?php echo url(2) .'edit/'. enkrip($d->id); ?>"
+                                                  <a href="<?php echo site_url('todo/edit/'.enkrip($d->id)); ?>"
                                                        data-mdb-toggle="tooltip" title="Done"><i
                                                             class="fas fa-edit text-warning me-3"></i></a>
 
-                                                  <a href="<?php echo url(1) .'/hapus/'. enkrip($d->id); ?>"
+                                                  <a href="<?php echo url(3) .'/hapus/'.enkrip($d->id); ?>"
                                                        data-mdb-toggle="tooltip" title="Remove"
                                                        onclick="return confirm('Yakin hapus data?')"><i
                                                             class="fas fa-trash-alt text-danger"></i></a>

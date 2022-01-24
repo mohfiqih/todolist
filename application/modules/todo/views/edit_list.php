@@ -9,8 +9,8 @@
 
                     <?php
 			     if ($data_edit){
-			     foreach ($data_edit as $d){ 
-			     ?>
+			     foreach ($data_edit as $d) { ?>
+
                     <div class="row">
                          <div class="col-md-4">
                               <div class="card">
@@ -119,8 +119,9 @@
                     </div>
                </form>
           </div>
-          <?php }} else { ?>
-          <td class="text-center" colspan="8">Tidak ada data</td>
+          <?php }} 
+          else { ?>
+               <td class="text-center" colspan="8">Tidak ada data</td>
           <?php } ?>
      </div>
 </div>
