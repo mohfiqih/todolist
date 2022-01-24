@@ -5,23 +5,23 @@
           <div class="container-fluid">
 
                <div class="card">
-                    <div class="card-body">
+                    <div class="card-body" style="height: 800px;">
                          <div class="row">
                               <div class="d-flex flex-row align-items-center">
-                                   <div class=" align-right" style="float: right;">
+                                   <div class="align-right" style="float: left;">
                                         <a href="<?php echo base_url('Todo/add'); ?>">
                                              <button type="button" class="btn btn-success"><i class=" fas fa-plus"></i>
                                                   Add List</button>
                                         </a>
-                                        <a type="button" class="btn btn-danger" href="<?php echo base_url('#'); ?>"><i
+                                        <!-- <a type="button" class="btn btn-danger" href="<?php echo base_url('#'); ?>"><i
                                                   class="fas fa-print"></i>
                                              Print</button>
                                         </a>
                                         <a type="button" class="btn btn-warning" href="<?php echo base_url('#'); ?>"><i
                                                   class="fas fa-file-export"></i> Export PDF</button>
-                                        </a>
+                                        </a> -->
                                    </div>
-                                   <form action="<?= base_url('Todo/search/') ?>" method="get">
+                                   <!-- <form action="<?= base_url('Todo/search/') ?>" method="get">
                                         <div class="input-group">
                                              <input type="text" class="form-control" name="keyword"
                                                   placeholder="Ketik Nama">
@@ -30,7 +30,7 @@
                                                             class=" fas fa-search"></i></button>
                                              </span>
                                         </div>
-                                   </form>
+                                   </form> -->
                               </div>
                               <!-- <hr class="my-2"> -->
 
@@ -38,12 +38,12 @@
 
                               <!-- Tabel -->
                               <div class="card-body" data-mdb-perfect-scrollbar="true"
-                                   style="position: relative; height: 400px; overflow-x: auto;">
+                                   style="position: relative; height: 800px; overflow-x: auto;">
                                    <?php if(!empty($keyword)){ ?>
                                    <p style="color:orange"><b>Menampilkan data dengan kata kunci :
                                              "<?= $keyword; ?>"</b></p>
                                    <?php } ?>
-                                   <table class="table mb-0">
+                                   <table id="example" class="table mb-0">
                                         <thead>
 
                                              <tr>
@@ -172,23 +172,23 @@
                               </div>
 
                               <!-- <h5 style="float: right;">Jumlah : </h5> -->
-                              <div class="d-flex flex-row align-items-center">
+                              <!-- <div class="d-flex flex-row align-items-center">
                                    <div class=" align-right" style="float: right;">
-                                        <h5 style="margin-left: 10px;">Jumlah : <?php echo $jml_todo; ?></h5>
+                                        <h5 style="margin-left: 10px;">Jumlah : </h5>
                                    </div>
                                    <form method="get">
                                         <div class="input-group">
-                                             <?= $this->pagination->create_links();?>
+                                        
                                         </div>
                                    </form>
-                              </div>
+                              </div> -->
                               <!-- End Tabel -->
                               <?php else: ?>
 
                               <!-- Tabel -->
                               <div class="card-body" data-mdb-perfect-scrollbar="true"
                                    style="position: relative; height: 400px; overflow-x: auto;">
-                                   <table class="table mb-0">
+                                   <table id="example" class="table mb-0">
                                         <thead>
 
                                              <tr>
@@ -297,7 +297,17 @@
                                         <?php } ?>
                                         </tbody>
                                    </table>
-                                   <?= $this->pagination->create_links();?>
+
+                              </div>
+                              <div class="d-flex flex-row align-items-center">
+                                   <div class=" align-right" style="float: right;">
+                                        <h5 style="margin-left: 10px;">Jumlah : <?php echo $jml_todo; ?></h5>
+                                   </div>
+                                   <form method="get">
+                                        <div class="input-group">
+                                             <?= $this->pagination->create_links();?>
+                                        </div>
+                                   </form>
                               </div>
                               <!-- End Tabel -->
 
@@ -309,3 +319,27 @@
           </div>
      </div>
 </div>
+
+<!-- <script>
+$(document).ready(function() {
+     var table = $('#example').DataTable({
+          lengthChange: false,
+          buttons: ['copy', 'excel', 'pdf', 'colvis']
+     });
+
+     table.buttons().container()
+          .appendTo('#example_wrapper .col-md-6:eq(0)');
+});
+</script>
+
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.11.4/js/dataTables.bootstrap4.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.2.2/js/dataTables.buttons.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.bootstrap4.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.html5.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.print.min.jss"></script>
+<script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.colVis.min.js"></script> -->
