@@ -16,35 +16,6 @@ class Todo extends MY_Controller {
 
     private function meta()
 	{
-		$config['base_url'] = 'https://localhost/todolist/todo/index/';
-		$config['total_rows'] = $this->todo->countDataTodo();
-		$config['per_page'] = 5;
-		// $config['uri_segment'] = 3;
-		$config['num_links'] = 3;
-		$config['full_tag_open'] = '<nav aria-label="..."><ul class="pagination">';
-		$config['full_tag_close'] = '</ul></nav>';
-		$config['first_link'] = 'First';
-		$config['first_tag_open'] = '<li class="page-item">';
-		$config['first_tag_close'] = '</li>';
-		$config['last_link'] = 'Last';
-		$config['last_tag_open'] = '<li class="page-item">';
-		$config['last_tag_close'] = '</li>';
-		$config['next_link'] = 'Next';
-		$config['next_tag_open'] = '<li class="page-item">';
-		$config['next_tag_close'] = '</li>';
-		$config['prev_link'] = 'Previous';
-		$config['prev_tag_open'] = '<li class="page-item">';
-		$config['prev_tag_close'] = '</li>';
-		$config['cur_tag_open'] = '<li class="page-item active"><a class="page-link" href="#">';
-		$config['cur_tag_close'] = '</a></li>';
-		$config['num_tag_open'] = '<li class="page-item">';
-		$config['num_tag_close'] = '</li>';
-		$config['attributes'] = array('class' => 'page-link');
-		
-		$this->pagination->initialize($config);
-		
-		$start = $this->uri->segment(3);
-
 		if ($this->user_level == "Ka. Bag" or $this->user_level == "Sub Bag") {
 			$level = $this->user_level;
 
@@ -54,9 +25,9 @@ class Todo extends MY_Controller {
 			"halaman"		=> "data_kerjaan",
 			"breadcrumb"	=> "Master Data|User",
 			"view"			=> "todolist",
-			"start"			=> $start,
 			
-			"data_todo"		=> $this->todo->get_todo(NULL, $level, $config['per_page'], $start),
+			
+			"data_todo"		=> $this->todo->get_todo(NULL, $level),
 			"jml_todo"		=> $this->todo->total_todo("", "todo"),
 			);
 		
@@ -70,10 +41,10 @@ class Todo extends MY_Controller {
 			"halaman"		=> "data_kerjaan",
 			"breadcrumb"	=> "Master Data|User",
 			"view"			=> "todolist",
-			"start"			=> $start,
+			
 			// "start"			=> $this->uri->segment(3),
 			// "nama" 			=> $this->user_namalengkap, ->hasil Wirayuda
-			"data_todo"		=> $this->todo->get_todo($namalengkap,NULL, $config['per_page'], $start),
+			"data_todo"		=> $this->todo->get_todo($namalengkap,NULL),
 			"jml_todo"		=> $this->todo->total_todo("", "todo"),
 			);
 		
