@@ -32,7 +32,7 @@
                                         </div>
 
                                         <div class="widget-detail-1 text-end">
-                                             <h2 class="fw-normal pt-2 mb-1"> </h2>
+                                             <h2 class="fw-normal pt-2 mb-1"> <?php  echo $jml_user; ?> </h2>
                                              <p class="text-muted mb-1">Users</p>
                                         </div>
                                    </div>
@@ -50,12 +50,13 @@
                                         </a>
                                         <div class="dropdown-menu dropdown-menu-end">
                                              <!-- item-->
-                                             <a href="javascript:void(0);" class="dropdown-item">More Info</a>
+                                             <a href="<?php echo base_url('todo'); ?>" class="dropdown-item">More
+                                                  Info</a>
 
                                         </div>
                                    </div>
 
-                                   <h4 class="header-title mt-0 mb-4">Total Bank Soal</h4>
+                                   <h4 class="header-title mt-0 mb-4">Total Todolist</h4>
 
                                    <div class="widget-chart-1">
                                         <div class="widget-chart-box-1 float-start" dir="ltr">
@@ -65,8 +66,8 @@
                                                   data-thickness=".15" />
                                         </div>
                                         <div class="widget-detail-1 text-end">
-                                             <h2 class="fw-normal pt-2 mb-1"> 4569 </h2>
-                                             <p class="text-muted mb-1">Bank Soal</p>
+                                             <h2 class="fw-normal pt-2 mb-1"> <?php  echo $jml_todo; ?> </h2>
+                                             <p class="text-muted mb-1">Todolist</p>
                                         </div>
                                    </div>
                               </div>

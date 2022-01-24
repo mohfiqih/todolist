@@ -70,5 +70,14 @@ class M_universal extends CI_Model
     {
         return ($this->db->insert_batch($tabel, $data)) ? true : false;
     }
+
+    function total_user()
+    {
+        return $this->db->get('user')->num_rows();
+    }
+    function total_todo()
+    {
+        return $this->db->get('todo')->num_rows();
+    }
 }
 ?>
