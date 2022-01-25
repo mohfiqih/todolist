@@ -24,7 +24,6 @@
      <meta property="og:image" content="">
 
      <!-- datatables  -->
-     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css"> -->
      <link href="<?php echo base_url('assets/backend'); ?>/datatables/css/bootstrap4.css" rel="stylesheet"
           type="text/css" />
      <link href="<?php echo base_url('assets/backend'); ?>/datatables/css/buttons.bootstrap4.css" rel="stylesheet"
@@ -58,10 +57,10 @@
           type="text/css" id="app-default-stylesheet" />
 
      <!-- slider -->
-     <link href="<?php echo base_url('assets/backend'); ?>/css/config/default/bootstrap-dark.min.css" rel="stylesheet"
+     <!-- <link href="<?php echo base_url('assets/backend'); ?>/css/config/default/bootstrap-dark.min.css" rel="stylesheet"
           type="text/css" id="bs-dark-stylesheet" disabled="disabled" />
      <link href="<?php echo base_url('assets/backend'); ?>/css/config/default/app-dark.min.css" rel="stylesheet"
-          type="text/css" id="app-dark-stylesheet" disabled="disabled" />
+          type="text/css" id="app-dark-stylesheet" disabled="disabled" /> -->
 
      <!-- datepicker -->
      <link href="<?php echo base_url('assets/backend'); ?>/libs/bootstrap-datepicker/css/bootstrap-datepicker.min.css"
@@ -461,7 +460,7 @@
      <script src="<?php echo base_url('assets/backend'); ?>/js/pages/form-pickers.init.js"></script>
 
      <!-- App js -->
-     <script src="<?php echo base_url('assets/backend'); ?>/js/app.min.js"></script>
+     <!-- <script src="<?php echo base_url('assets/backend'); ?>/js/app.min.js"></script> -->
 
 
      <!-- ION Sider JS -->
