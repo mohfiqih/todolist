@@ -68,9 +68,9 @@
                               </p>
 
                               <?php if ($this->session->flashdata('notifikasi')){ ?>
-                              <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                                   <button type="button" class="btn-close" data-bs-dismiss="alert"
-                                        aria-label="Close"></button>
+                              <div class="alert alert-danger alert-dismissible fade show" style="color: #a94442;"
+                                   role="alert">
+                                   <!-- <button type="button" class="btn-close" data-bs-dismiss="alert"></button> -->
                                    <p class="mb-0"><?php echo $this->session->flashdata('notifikasi'); ?></p>
                               </div>
                               <?php } ?>

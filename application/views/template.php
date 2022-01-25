@@ -24,14 +24,11 @@
      <meta property="og:image" content="">
 
      <!-- datatables  -->
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
-     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.4/css/dataTables.bootstrap4.min.css">
-     <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.2.2/css/buttons.bootstrap4.min.css">
-
-     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-     <link rel="stylesheet" href="/resources/demos/style.css">
-     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css"> -->
+     <link href="<?php echo base_url('assets/backend'); ?>/datatables/css/bootstrap4.css" rel="stylesheet"
+          type="text/css" />
+     <link href="<?php echo base_url('assets/backend'); ?>/datatables/css/buttons.bootstrap4.css" rel="stylesheet"
+          type="text/css" />
 
      <!-- App favicon -->
      <link rel="shortcut icon" href="<?php echo base_url('assets/backend'); ?>/images/phb.png">
@@ -497,11 +494,30 @@
      $('.clockpicker').clockpicker();
      </script>
 
+     <script type="text/javascript">
+     $('.clockpicker').clockpicker();
+     </script>
+
      <script>
      $(document).ready(function() {
           var table = $('#example').DataTable({
                lengthChange: false,
-               buttons: ['excel', 'pdf', 'colvis']
+               buttons: [{
+                         "extend": 'pdf',
+                         "text": 'PDF',
+                         "className": 'btn btn-warning btn-md'
+                    },
+                    {
+                         "extend": 'excel',
+                         "text": 'Excel',
+                         "className": 'btn btn-danger btn-md'
+                    },
+                    {
+                         "extend": 'colvis',
+                         "text": 'Sortir Print',
+                         "className": 'btn btn-secondary btn-md'
+                    },
+               ],
           });
 
           table.buttons().container()
@@ -509,17 +525,26 @@
      });
      </script>
 
+
      <!-- <script src="https://code.jquery.com/jquery-3.5.1.js"></script> -->
-     <script src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
-     <script src="https://cdn.datatables.net/1.11.4/js/dataTables.bootstrap4.min.js"></script>
-     <script src="https://cdn.datatables.net/buttons/2.2.2/js/dataTables.buttons.min.js"></script>
-     <script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.bootstrap4.min.js"></script>
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
-     <script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.html5.min.js"></script>
+     <script type="text/javascript"
+          src="<?php echo base_url('assets/backend'); ?>/datatables/js/jquery.dataTables.min.js"></script>
+     <script type="text/javascript"
+          src="<?php echo base_url('assets/backend'); ?>/datatables/js/dataTables.bootstrap4.min.js"></script>
+     <script type="text/javascript"
+          src="<?php echo base_url('assets/backend'); ?>/datatables/js/dataTables.buttons.min.js"></script>
+     <script type="text/javascript"
+          src="<?php echo base_url('assets/backend'); ?>/datatables/js/buttons.bootstrap4.min.js"></script>
+     <script type="text/javascript" src="<?php echo base_url('assets/backend'); ?>/datatables/js/jszip.min.js"></script>
+     <script type="text/javascript" src="<?php echo base_url('assets/backend'); ?>/datatables/js/pdfmake.min.js">
+     </script>
+     <script type="text/javascript" src="<?php echo base_url('assets/backend'); ?>/datatables/js/vfs_fonts.js"></script>
+     <script type="text/javascript" src="<?php echo base_url('assets/backend'); ?>/datatables/js/buttons.html5.min.js">
+     </script>
      <script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.print.min.jss"></script>
-     <script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.colVis.min.js"></script>
+     <script type="text/javascript" src="<?php echo base_url('assets/backend'); ?>/datatables/js/buttons.colVis.min.js">
+     </script>
+
 
      <!-- App js-->
      <script src="<?php echo base_url('assets/backend'); ?>/js/app.min.js"></script>

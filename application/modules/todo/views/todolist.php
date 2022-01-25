@@ -1,48 +1,18 @@
 <div class="content-page">
      <div class="content">
-
           <!-- Start Content-->
           <div class="container-fluid">
-
                <div class="card">
-                    <div class="card-body" style="height: 800px;">
+                    <div class="card-body">
                          <div class="row">
-                              <div class="d-flex flex-row align-items-center">
-                                   <div class="align-right" style="float: left;">
-                                        <a href="<?php echo base_url('Todo/add'); ?>">
-                                             <button type="button" class="btn btn-success"><i class=" fas fa-plus"></i>
-                                                  Add List</button>
-                                        </a>
-                                        <!-- <a type="button" class="btn btn-danger" href="<?php echo base_url('#'); ?>"><i
-                                                  class="fas fa-print"></i>
-                                             Print</button>
-                                        </a>
-                                        <a type="button" class="btn btn-warning" href="<?php echo base_url('#'); ?>"><i
-                                                  class="fas fa-file-export"></i> Export PDF</button>
-                                        </a> -->
-                                   </div>
-                                   <!-- <form action="<?= base_url('Todo/search/') ?>" method="get">
-                                        <div class="input-group">
-                                             <input type="text" class="form-control" name="keyword"
-                                                  placeholder="Ketik Nama">
-                                             <span class="input-group-btn">
-                                                  <button class="btn btn-success" type="submit"><i
-                                                            class=" fas fa-search"></i></button>
-                                             </span>
-                                        </div>
-                                   </form> -->
-                              </div>
-                              <!-- <hr class="my-2"> -->
-
                               <?php if ($this->user_level == "Ka. Bag" or $this->user_level == "Sub Bag"):?>
-
                               <!-- Tabel -->
                               <div class="card-body" data-mdb-perfect-scrollbar="true"
-                                   style="position: relative; height: 800px; overflow-x: auto;">
-                                   <?php if(!empty($keyword)){ ?>
-                                   <p style="color:orange"><b>Menampilkan data dengan kata kunci :
-                                             "<?= $keyword; ?>"</b></p>
-                                   <?php } ?>
+                                   style="height: 1010px; overflow-x: auto;">
+                                   <a href="<?php echo base_url('Todo/add'); ?>">
+                                        <button type="button" class="btn btn-success"><i class=" fas fa-plus"></i>
+                                             Add</button><br />
+                                   </a>
                                    <table id="example" class="table mb-0">
                                         <thead>
 
@@ -60,19 +30,19 @@
                                                   <th scope="col">Level</th>
                                                   <th scope="col">Progres</th>
                                                   <th scope="col" style="text-align: center">Status</th>
-                                                  <th scope="col" style="text-align: center">
+                                                  <th scope="col" style="width: 30px;">
                                                        Actions</th>
                                              </tr>
 
                                         </thead>
                                         <?php
-                                        
+                                        $no=0+1;
 								if ($data_todo){
 								foreach ($data_todo as $d){ 
 								?>
                                         <tr class="fw-normal">
                                              <th class="align-middle">
-                                                  <?= ++$start; ?>
+                                                  <?php echo $no++; ?>
                                              </th>
                                              <th class="align-middle">
                                                   <?php echo $d->user_namalengkap; ?>
@@ -135,19 +105,6 @@
                                                   </h6>
                                                   <?php endif; ?>
                                              </td>
-                                             <!-- <td class="align-middle" style="text-align: center">
-                                                  <select class="form-select" style="height: 35px; width: 100px;"
-                                                       name="checked">
-                                                       <option>Pilih</option>
-                                                       <option class="bg-success" style="color: white;" value="1">ACC
-                                                       </option>
-                                                       <option class="bg-warning" style="color: white;" value="2">Belum
-                                                       </option>
-                                                       <option class="bg-danger" style="color: white;" value="3">Tolak
-                                                       </option>
-                                                  </select>
-                                             </td> -->
-
                                              <td class="align-middle" style="text-align: center">
                                                   <a href="<?php echo site_url('todo/cek/'.enkrip($d->id)); ?>"
                                                        data-mdb-toggle="tooltip" title="Done"><i
@@ -170,176 +127,112 @@
                                    </table><br />
 
                               </div>
-
-                              <!-- <h5 style="float: right;">Jumlah : </h5> -->
-                              <!-- <div class="d-flex flex-row align-items-center">
-                                   <div class=" align-right" style="float: right;">
-                                        <h5 style="margin-left: 10px;">Jumlah : </h5>
-                                   </div>
-                                   <form method="get">
-                                        <div class="input-group">
-                                        
-                                        </div>
-                                   </form>
-                              </div> -->
-                              <!-- End Tabel -->
                               <?php else: ?>
+                              <table id="example" class="table mb-0">
+                                   <thead>
 
-                              <!-- Tabel -->
-                              <div class="card-body" data-mdb-perfect-scrollbar="true"
-                                   style="position: relative; height: 400px; overflow-x: auto;">
-                                   <table id="example" class="table mb-0">
-                                        <thead>
+                                        <tr>
+                                             <th scope="col">
+                                                  No
+                                             </th>
+                                             <th scope="col">
+                                                  Nama
+                                             </th>
+                                             <th scope="col">Pekerjaan</th>
+                                             <th scope="col">Tanggal</th>
+                                             <th scope="col">Jam Mulai</th>
+                                             <th scope="col">Jam Selesai</th>
+                                             <th scope="col">Level</th>
+                                             <th scope="col">Progres</th>
+                                             <th scope="col" style="text-align: center">Status</th>
+                                        </tr>
 
-                                             <tr>
-                                                  <th scope="col">
-                                                       No
-                                                  </th>
-                                                  <th scope="col">
-                                                       Nama
-                                                  </th>
-                                                  <th scope="col">Pekerjaan</th>
-                                                  <th scope="col">Tanggal</th>
-                                                  <th scope="col">Jam Mulai</th>
-                                                  <th scope="col">Jam Selesai</th>
-                                                  <th scope="col">Level</th>
-                                                  <th scope="col">Progres</th>
-                                                  <th scope="col" style="text-align: center">Status</th>
-                                             </tr>
-
-                                        </thead>
-                                        <?php
+                                   </thead>
+                                   <?php
                                         
 								if ($data_todo){
 								foreach ($data_todo as $d){ 
 								?>
-                                        <tr class="fw-normal">
-                                             <th class="align-middle">
-                                                  <?= ++$start; ?>
-                                             </th>
-                                             <th class="align-middle">
-                                                  <?php echo $d->user_namalengkap; ?>
-                                             </th>
-                                             <td class="align-middle">
-                                                  <?php echo $d->task; ?>
-                                             </td>
-                                             <td class="align-middle" style="text-align: center">
-                                                  <?php echo $d->date_created; ?>
-                                             </td>
-                                             <td class="align-middle">
-                                                  <?php echo $d->mulai; ?>
-                                             </td>
-                                             <td class="align-middle">
-                                                  <?php echo $d->selesai; ?>
-                                             </td>
-                                             <td class="align-middle">
-                                                  <?php if ($d->status > 80 ): ?>
-                                                  <h6 class="align-middle mb-0">
-                                                       <span class="badge bg-success">
-                                                            <?php echo $d->level; ?>
-                                                       </span>
-                                                  </h6>
-                                                  <?php elseif ($d->status > 50 ): ?>
-                                                  <h6 class="align-middle mb-0">
-                                                       <span class="badge bg-warning">
-                                                            <?php echo $d->level; ?>
-                                                       </span>
-                                                  </h6>
-                                                  <?php else: ?>
-                                                  <h6 class="align-middle mb-0">
-                                                       <span class="badge bg-danger">
-                                                            <?php echo $d->level; ?>
-                                                       </span>
-                                                  </h6>
-                                                  <?php endif; ?>
-                                             </td>
+                                   <tr class="fw-normal">
+                                        <th class="align-middle">
+                                             <?= ++$start; ?>
+                                        </th>
+                                        <th class="align-middle">
+                                             <?php echo $d->user_namalengkap; ?>
+                                        </th>
+                                        <td class="align-middle">
+                                             <?php echo $d->task; ?>
+                                        </td>
+                                        <td class="align-middle" style="text-align: center">
+                                             <?php echo $d->date_created; ?>
+                                        </td>
+                                        <td class="align-middle">
+                                             <?php echo $d->mulai; ?>
+                                        </td>
+                                        <td class="align-middle">
+                                             <?php echo $d->selesai; ?>
+                                        </td>
+                                        <td class="align-middle">
+                                             <?php if ($d->status > 80 ): ?>
+                                             <h6 class="align-middle mb-0">
+                                                  <span class="badge bg-success">
+                                                       <?php echo $d->level; ?>
+                                                  </span>
+                                             </h6>
+                                             <?php elseif ($d->status > 50 ): ?>
+                                             <h6 class="align-middle mb-0">
+                                                  <span class="badge bg-warning">
+                                                       <?php echo $d->level; ?>
+                                                  </span>
+                                             </h6>
+                                             <?php else: ?>
+                                             <h6 class="align-middle mb-0">
+                                                  <span class="badge bg-danger">
+                                                       <?php echo $d->level; ?>
+                                                  </span>
+                                             </h6>
+                                             <?php endif; ?>
+                                        </td>
 
-                                             <td class="align-middle" style="text-align: center">
-                                                  <?php echo $d->status; ?> %</td>
+                                        <td class="align-middle" style="text-align: center">
+                                             <?php echo $d->status; ?> %</td>
 
-                                             <td class="align-middle" style="text-align: center">
-                                                  <!-- <?php echo $d->checked; ?> -->
-                                                  <?php if ($d->checked == 'ACC'): ?>
-                                                  <h6 class="align-middle mb-0">
-                                                       <span class="badge bg-success">
-                                                            <?php echo $d->checked; ?>
-                                                       </span>
-                                                  </h6>
-                                                  <?php elseif ($d->checked == 'Belum'): ?>
-                                                  <h6 class="align-middle mb-0">
-                                                       <span class="badge bg-warning">
-                                                            <?php echo $d->checked; ?>
-                                                       </span>
-                                                  </h6>
-                                                  <?php else: ?>
-                                                  <h6 class="align-middle mb-0">
-                                                       <span class="badge bg-danger">
-                                                            <?php echo $d->checked; ?>
-                                                       </span>
-                                                  </h6>
-                                                  <?php endif; ?>
-                                             </td>
-                                             <!-- <td class="align-middle" style="text-align: center">
-                                                  <select class="form-select" style="height: 35px; width: 100px;"
-                                                       name="checked">
-                                                       <option>Pilih</option>
-                                                       <option class="bg-success" style="color: white;" value="1">ACC
-                                                       </option>
-                                                       <option class="bg-warning" style="color: white;" value="2">Belum
-                                                       </option>
-                                                       <option class="bg-danger" style="color: white;" value="3">Tolak
-                                                       </option>
-                                                  </select>
-                                             </td> -->
-                                        </tr>
-                                        <?php }} else { ?>
-                                        <td class="text-center" colspan="9">Tidak ada data</td>
-                                        <?php } ?>
-                                        </tbody>
-                                   </table>
-
-                              </div>
-                              <div class="d-flex flex-row align-items-center">
-                                   <div class=" align-right" style="float: right;">
-                                        <h5 style="margin-left: 10px;">Jumlah : <?php echo $jml_todo; ?></h5>
-                                   </div>
-                                   <form method="get">
-                                        <div class="input-group">
-                                             <?= $this->pagination->create_links();?>
-                                        </div>
-                                   </form>
-                              </div>
-                              <!-- End Tabel -->
-
-                              <?php endif; ?>
+                                        <td class="align-middle" style="text-align: center">
+                                             <!-- <?php echo $d->checked; ?> -->
+                                             <?php if ($d->checked == 'ACC'): ?>
+                                             <h6 class="align-middle mb-0">
+                                                  <span class="badge bg-success">
+                                                       <?php echo $d->checked; ?>
+                                                  </span>
+                                             </h6>
+                                             <?php elseif ($d->checked == 'Belum'): ?>
+                                             <h6 class="align-middle mb-0">
+                                                  <span class="badge bg-warning">
+                                                       <?php echo $d->checked; ?>
+                                                  </span>
+                                             </h6>
+                                             <?php else: ?>
+                                             <h6 class="align-middle mb-0">
+                                                  <span class="badge bg-danger">
+                                                       <?php echo $d->checked; ?>
+                                                  </span>
+                                             </h6>
+                                             <?php endif; ?>
+                                        </td>
+                                   </tr>
+                                   <?php }} else { ?>
+                                   <td class="text-center" colspan="9">Tidak ada data</td>
+                                   <?php } ?>
+                                   </tbody>
+                              </table>
 
                          </div>
+
+                         <?php endif; ?>
+
                     </div>
                </div>
           </div>
      </div>
 </div>
-
-<!-- <script>
-$(document).ready(function() {
-     var table = $('#example').DataTable({
-          lengthChange: false,
-          buttons: ['copy', 'excel', 'pdf', 'colvis']
-     });
-
-     table.buttons().container()
-          .appendTo('#example_wrapper .col-md-6:eq(0)');
-});
-</script>
-
-<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-<script src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
-<script src="https://cdn.datatables.net/1.11.4/js/dataTables.bootstrap4.min.js"></script>
-<script src="https://cdn.datatables.net/buttons/2.2.2/js/dataTables.buttons.min.js"></script>
-<script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.bootstrap4.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
-<script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.html5.min.js"></script>
-<script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.print.min.jss"></script>
-<script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.colVis.min.js"></script> -->
+</div>
