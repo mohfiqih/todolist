@@ -84,7 +84,7 @@
                                         </a>
                                         <div class="dropdown-menu dropdown-menu-end">
                                              <!-- item-->
-                                             <a href="<?php echo base_url('manajemen'); ?>" class="dropdown-item">More
+                                             <a href="<?php echo base_url('todo'); ?>" class="dropdown-item">More
                                                   Info</a>
 
                                         </div>
@@ -121,7 +121,7 @@
                                         </a>
                                         <div class="dropdown-menu dropdown-menu-end">
 
-                                             <a href="<?php echo base_url('banksoal'); ?>" class="dropdown-item">More
+                                             <a href="<?php echo base_url('todo'); ?>" class="dropdown-item">More
                                                   Info</a>
 
                                         </div>
