@@ -5,6 +5,7 @@
           <div class="container-fluid">
                <div class="row">
 
+                    <?php if ($this->user_level == "Ka. Bag" or $this->user_level == "Sub Bag"):?>
                     <div class="col-xl-3 col-md-6">
                          <div class="card">
                               <div class="card-body">
@@ -320,7 +321,7 @@
                                    <h4 class="header-title mt-0 mb-3">Progress</h4>
 
                                    <div class="table-responsive">
-                                        <table class="table table-hover mb-0">
+                                        <table id="example" class="table table-hover mb-0">
                                              <thead>
                                                   <tr>
                                                        <th>No</th>
@@ -331,26 +332,151 @@
                                                        <th>Status</th>
                                                   </tr>
                                              </thead>
+                                             <?php
+                                                  $no=0+1;
+                                                  if ($data_todo){
+                                                  foreach ($data_todo as $d){ 
+                                                  ?>
                                              <tbody>
                                                   <tr>
-                                                       <td>1</td>
-                                                       <td>Moh. Fiqih</td>
-                                                       <td>Todolist</td>
-                                                       <td>Middle</td>
-                                                       <td>
-                                                            <span class="badge bg-danger">
-                                                                 10%
-                                                            </span>
+                                                       <td><?php echo $no++; ?></td>
+                                                       <td><?php echo $d->user_namalengkap; ?></td>
+                                                       <td><?php echo $d->task; ?></td>
+                                                       <td class="align-middle">
+                                                            <?php if ($d->status > 80 ): ?>
+                                                            <h6 class="align-middle">
+                                                                 <span class="badge bg-success">
+                                                                      <?php echo $d->level; ?>
+                                                                 </span>
+
+                                                                 <?php elseif ($d->status > 50 ): ?>
+
+                                                                 <span class="badge bg-warning">
+                                                                      <?php echo $d->level; ?>
+                                                                 </span>
+
+                                                                 <?php else: ?>
+
+                                                                 <span class="badge bg-danger">
+                                                                      <?php echo $d->level; ?>
+                                                                 </span>
+
+                                                                 <?php endif; ?>
+                                                            </h6>
                                                        </td>
-                                                       <td>
-                                                            <span class="badge bg-danger">
-                                                                 Tolak
-                                                            </span>
+                                                       <td class="align-middle" style="text-align: center">
+                                                            <?php echo $d->status; ?> %
+                                                       </td>
+                                                       <td class="align-middle" style="text-align: center">
+                                                            <?php if ($d->checked == 'ACC'): ?>
+                                                            <h6 class="align-middle mb-0">
+                                                                 <span class="badge bg-success">
+                                                                      <?php echo $d->checked; ?>
+                                                                 </span>
+                                                            </h6>
+                                                            <?php elseif ($d->checked == 'Belum'): ?>
+                                                            <h6 class="align-middle mb-0">
+                                                                 <span class="badge bg-warning">
+                                                                      <?php echo $d->checked; ?>
+                                                                 </span>
+                                                            </h6>
+                                                            <?php else: ?>
+                                                            <h6 class="align-middle mb-0">
+                                                                 <span class="badge bg-danger">
+                                                                      <?php echo $d->checked; ?>
+                                                                 </span>
+                                                            </h6>
+                                                            <?php endif; ?>
                                                        </td>
                                                   </tr>
+                                                  <?php }} else { ?>
+                                                  <td class="text-center" colspan="9">Tidak ada data</td>
+                                                  <?php } ?>
                                              </tbody>
                                         </table>
                                    </div>
+
+                                   <?php else: ?>
+
+                                   <h4 class="header-title mt-0 mb-3">Progressku</h4>
+
+                                   <div class="table-responsive">
+                                        <table id="example" class="table table-hover mb-0">
+                                             <thead>
+                                                  <tr>
+                                                       <th>No</th>
+                                                       <th>Nama Lengkap</th>
+                                                       <th>Pekerjaan</th>
+                                                       <th>Level</th>
+                                                       <th>Progress</th>
+                                                       <th>Status</th>
+                                                  </tr>
+                                             </thead>
+                                             <?php
+                                                  $no=0+1;
+                                                  if ($data_todo){
+                                                  foreach ($data_todo as $d){ 
+                                                  ?>
+                                             <tbody>
+                                                  <tr>
+                                                       <td><?php echo $no++; ?></td>
+                                                       <td><?php echo $d->user_namalengkap; ?></td>
+                                                       <td><?php echo $d->task; ?></td>
+                                                       <td class="align-middle">
+                                                            <?php if ($d->status > 80 ): ?>
+                                                            <h6 class="align-middle">
+                                                                 <span class="badge bg-success">
+                                                                      <?php echo $d->level; ?>
+                                                                 </span>
+
+                                                                 <?php elseif ($d->status > 50 ): ?>
+
+                                                                 <span class="badge bg-warning">
+                                                                      <?php echo $d->level; ?>
+                                                                 </span>
+
+                                                                 <?php else: ?>
+
+                                                                 <span class="badge bg-danger">
+                                                                      <?php echo $d->level; ?>
+                                                                 </span>
+
+                                                                 <?php endif; ?>
+                                                            </h6>
+                                                       </td>
+                                                       <td class="align-middle" style="text-align: center">
+                                                            <?php echo $d->status; ?> %
+                                                       </td>
+                                                       <td class="align-middle" style="text-align: center">
+                                                            <?php if ($d->checked == 'ACC'): ?>
+                                                            <h6 class="align-middle mb-0">
+                                                                 <span class="badge bg-success">
+                                                                      <?php echo $d->checked; ?>
+                                                                 </span>
+                                                            </h6>
+                                                            <?php elseif ($d->checked == 'Belum'): ?>
+                                                            <h6 class="align-middle mb-0">
+                                                                 <span class="badge bg-warning">
+                                                                      <?php echo $d->checked; ?>
+                                                                 </span>
+                                                            </h6>
+                                                            <?php else: ?>
+                                                            <h6 class="align-middle mb-0">
+                                                                 <span class="badge bg-danger">
+                                                                      <?php echo $d->checked; ?>
+                                                                 </span>
+                                                            </h6>
+                                                            <?php endif; ?>
+                                                       </td>
+                                                  </tr>
+                                                  <?php }} else { ?>
+                                                  <td class="text-center" colspan="9">Tidak ada data</td>
+                                                  <?php } ?>
+                                             </tbody>
+                                        </table>
+                                   </div>
+
+                                   <?php endif; ?>
                               </div>
                          </div>
 

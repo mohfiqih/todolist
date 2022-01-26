@@ -28,6 +28,7 @@ class Dasbor extends MY_Controller {
         // Load the constructer from MY_Controller
         parent::__construct();
 		$this->cek_login();
+		$this->load->model('M_dasbor','todo');
     }
 
     /**
@@ -37,8 +38,11 @@ class Dasbor extends MY_Controller {
      *
      * @return [type] [description]
      */
-	public function index()
+	public function meta()
 	{
+		if ($this->user_level == "Ka. Bag" or $this->user_level == "Sub Bag") {
+			$level = $this->user_level;
+
         $data = array(
 			"judul"		=> "Dashboard",
 			"keterangan"	=> "Contoh Keterangan",
@@ -46,32 +50,32 @@ class Dasbor extends MY_Controller {
 			"view"			=> "dasbor",
 			"jml_user"	=> $this->M_Universal->total_user("", "user"),
 			"jml_todo"	=> $this->M_Universal->total_todo("", "todo"),
+			"data_todo"		=> $this->todo->get_todo(NULL, $level),
 		);
 				
-		$this->load->view('template', $data);
-	}
-
-	public function todolist()
-	{
-        $data = array(
-			"judul"			=> "Halaman To-Do-List",
-			"keterangan"	=> "Contoh Keterangan",
-			"halaman"		=> "todolist",
+			return $data;
+			
+		} else {
+		$namalengkap = $this->user_namalengkap;
+        	$data = array(
+			"judul"			=> "Data Pekerjaan",
+			"keterangan"	=> "Manajemen Pengguna",
+			"halaman"		=> "data_kerjaan",
+			"breadcrumb"	=> "Master Data|User",
 			"view"			=> "todolist",
-		);
-				
-		$this->load->view('template', $data);
+			
+			// "start"			=> $this->uri->segment(3),
+			// "nama" 			=> $this->user_namalengkap, ->hasil Wirayuda
+			// "data_todo"		=> $this->todo->get_todo($namalengkap,NULL),
+			
+			);
+		
+			return $data;
+		}
 	}
 
-	public function tambah_list()
+	public function index()
 	{
-        $data = array(
-			"judul"			=> "Halaman To-Do-List",
-			"keterangan"	=> "Contoh Keterangan",
-			"halaman"		=> "tambah_list",
-			"view"			=> "tambah_list",
-		);
-				
-		$this->load->view('template', $data);
+        $this->load->view('template', $this->meta());
 	}
 }
