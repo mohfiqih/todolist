@@ -119,9 +119,9 @@
                                              data-bs-toggle="dropdown" aria-expanded="false">
                                              <i class="mdi mdi-dots-vertical"></i>
                                         </a>
-                                        <div class="dropdown-menu dropdown-menu-end">
+                                        <div class="dropdown-menu">
 
-                                             <a href="<?php echo base_url('todo'); ?>" class="dropdown-item">More
+                                             <a href="<?php echo base_url('todo'); ?>">More
                                                   Info</a>
 
                                         </div>

@@ -30,7 +30,8 @@
                                    <div class="card-body">
                                         <div class="mb-2">
                                              <label class="form-label">Nama Lengkap</label>
-                                             <input type="text" class="form-control" name="nama_lengkap" value="">
+                                             <input type="text" class="form-control" name="nama_lengkap"
+                                                  value="<?php echo $this->user_nama; ?> ">
                                         </div>
                                         <div class="mb-2">
                                              <label class="form-label">Password Saat Ini</label>
