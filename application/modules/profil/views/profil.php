@@ -1,4 +1,4 @@
-<div class="content-page">
+<div class="content-page"><br />
      <div class="content">
 
           <!-- Start Content-->
@@ -7,7 +7,7 @@
                     <input type="hidden" name="<?php echo $this->security->get_csrf_token_name(); ?>"
                          value="<?php echo $this->security->get_csrf_hash(); ?>">
 
-                    <div class="row">
+                    <div class="row push">
                          <div class="col-md-4">
                               <div class="card">
                                    <div class="card-body">
@@ -50,7 +50,7 @@
                                         </div>
                                         <div class="text-center">
                                              <button type="submit" class="btn btn-primary">Update</button>
-                                             <a href="<?php echo base_url('todo');?>">
+                                             <a href="<?php echo base_url('dasbor');?>">
                                                   <button type="submit" class="btn btn-danger">Kembali</button>
                                              </a>
                                         </div>

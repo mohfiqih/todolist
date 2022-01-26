@@ -55,7 +55,6 @@ class Todo extends MY_Controller {
 
 	public function index()
 	{
-		
         $this->load->view('template', $this->meta());
 	}
 	
@@ -97,10 +96,10 @@ class Todo extends MY_Controller {
 		$tambah = $this->M_Universal->update($data, ["id" => $id], "todo");
 		
 		if ($tambah){
-			notifikasi_redirect("success", "Data berhasil ditambahkan", uri(1));
+			notifikasi_redirect("success", "Data berhasil diceklist", uri(1));
 		} else {
-			notifikasi_redirect("error", "Gagal menambah data", uri(1));
-		}
+			notifikasi_redirect("error", "Gagal ceklist data", uri(1));
+		};
 	}
 	
 	public function tambah()
@@ -122,7 +121,12 @@ class Todo extends MY_Controller {
 			notifikasi_redirect("success", "Data berhasil ditambahkan", uri(1));
 		} else {
 			notifikasi_redirect("error", "Gagal menambah data", uri(1));
-		}
+		};
+
+		// session()->setFlashdata('icon_swal', 'success');
+		// session()->setFlashdata('icon_title', 'success');
+		// session()->setFlashdata('icon_text', 'success');
+		// return $data;
 	}
 
 	public function edit() 
@@ -155,10 +159,10 @@ class Todo extends MY_Controller {
 		$update = $this->M_Universal->update($data, ["id" => $id], "todo");
 		
 		if ($update){
-			notifikasi_redirect("success", "Update data berhasil", redirect(base_url('todo')));
+			notifikasi_redirect("success", "Update data berhasil", uri(1));
 		} else {
 			notifikasi_redirect("error", "Update data gagal", uri(1));
-		}
+		};
 	}
 
 	public function hapus()
@@ -166,10 +170,10 @@ class Todo extends MY_Controller {
 		$hapus = $this->M_Universal->delete(["id" => dekrip(uri(3))], "todo");
 		
 		if ($hapus){
-			notifikasi_redirect("success", "Hapus data berhasil", redirect(base_url('todo')));
+			notifikasi_redirect("success", "Hapus data berhasil", uri(1));
 		} else {
 			notifikasi_redirect("error", "Hapus data gagal", uri(1));
-		}
+		};
 	}
 
 	public function search()

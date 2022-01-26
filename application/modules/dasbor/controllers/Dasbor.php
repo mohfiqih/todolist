@@ -40,7 +40,7 @@ class Dasbor extends MY_Controller {
 	public function index()
 	{
         $data = array(
-			"judul"			=> "Contoh Halaman",
+			"judul"		=> "Dashboard",
 			"keterangan"	=> "Contoh Keterangan",
 			"halaman"		=> "dasbor",
 			"view"			=> "dasbor",

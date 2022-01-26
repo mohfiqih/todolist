@@ -1,4 +1,4 @@
-<div class="content-page">
+<div class="content-page"><br />
      <div class="content">
 
           <!-- Start Content-->
@@ -52,7 +52,7 @@
                                         </div>
 
                                         <div class="text-center">
-                                             <button type="submit"
+                                             <button id="sweet" type="submit"
                                                   class="btn btn-primary"><?php echo (uri(1) == 'checked') ? : 'Ceklist'; ?></button>
                                              <a href="<?php echo base_url("todo"); ?>">
                                                   <button type="button" class="btn btn-danger">Batal</button>
