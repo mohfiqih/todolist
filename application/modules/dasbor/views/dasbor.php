@@ -151,25 +151,7 @@
                     <div class="col-xl-4">
                          <div class="card">
                               <div class="card-body">
-                                   <div class="dropdown float-end">
-                                        <a href="#" class="dropdown-toggle arrow-none card-drop"
-                                             data-bs-toggle="dropdown" aria-expanded="false">
-                                             <i class="mdi mdi-dots-vertical"></i>
-                                        </a>
-                                        <div class="dropdown-menu dropdown-menu-end">
-                                             <!-- item-->
-                                             <a href="javascript:void(0);" class="dropdown-item">Action</a>
-                                             <!-- item-->
-                                             <a href="javascript:void(0);" class="dropdown-item">Another
-                                                  action</a>
-                                             <!-- item-->
-                                             <a href="javascript:void(0);" class="dropdown-item">Something
-                                                  else</a>
-                                             <!-- item-->
-                                             <a href="javascript:void(0);" class="dropdown-item">Separated
-                                                  link</a>
-                                        </div>
-                                   </div>
+                                   
                                    <h4 class="header-title mt-0">Statistics</h4>
                                    <svg height="280" version="1.1" width="283" xmlns="http://www.w3.org/2000/svg"
                                         xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -247,19 +229,21 @@
                                              font-family="sans-serif" font-size="12px" stroke="none" fill="#888888"
                                              style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: sans-serif; font-size: 12px; font-weight: normal;"
                                              font-weight="normal" transform="matrix(1,0,0,1,0,7)">
-                                             <tspan dy="4" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">2012
+                                             <tspan dy="4" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Ditolak
                                              </tspan>
-                                        </text><text x="96.908203125" y="253.5" text-anchor="middle"
+                                        </text>
+                                        <text x="96.908203125" y="253.5" text-anchor="middle"
                                              font-family="sans-serif" font-size="12px" stroke="none" fill="#888888"
                                              style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: sans-serif; font-size: 12px; font-weight: normal;"
                                              font-weight="normal" transform="matrix(1,0,0,1,0,7)">
-                                             <tspan dy="4" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">2011
+                                             <tspan dy="4" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Belum
                                              </tspan>
-                                        </text><text x="61.11002604166667" y="253.5" text-anchor="middle"
+                                        </text>
+                                        <text x="61.11002604166667" y="253.5" text-anchor="middle"
                                              font-family="sans-serif" font-size="12px" stroke="none" fill="#888888"
                                              style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: sans-serif; font-size: 12px; font-weight: normal;"
                                              font-weight="normal" transform="matrix(1,0,0,1,0,7)">
-                                             <tspan dy="4" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">2010
+                                             <tspan dy="4" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">ACC
                                              </tspan>
                                         </text>
                                         <rect x="57.530208333333334" y="79" width="7.159635416666667" height="162"

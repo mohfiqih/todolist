@@ -7,6 +7,7 @@ class User extends MY_Controller {
         parent::__construct();
 		
 		$this->cek_login();
+		$this->load->library('upload');
     }
 	
 	private function meta()
@@ -39,11 +40,11 @@ class User extends MY_Controller {
 	public function tambah()
 	{
 		$data = array(
-			//"user_id"			=> date("ymdHis"),
-			"user_nama"			=> $this->input->post("user_nama"),
-			"user_password"		=> password_hash($this->input->post("user_password"), PASSWORD_BCRYPT),
-			"user_namalengkap"	=> $this->input->post("user_namalengkap"),
-			"user_level"		=> $this->input->post("user_level")
+		//"user_id"			=> date("ymdHis"),
+		"user_nama"			=> $this->input->post("user_nama"),
+		"user_password"		=> password_hash($this->input->post("user_password"), PASSWORD_BCRYPT),
+		"user_namalengkap"	=> $this->input->post("user_namalengkap"),
+		"user_level"		=> $this->input->post("user_level")
 		);
 		
 		$tambah = $this->M_Universal->insert($data, "user");
