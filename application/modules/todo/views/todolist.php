@@ -14,7 +14,7 @@
                               <br>
                          </a>
                          <!-- <div class="card-body" style="overflow: auto;height: 1010px;"> -->
-                         <table id="example" class="table mb-0">
+                         <table id="example" class="table table-hover mb-0">
                               <thead>
                                    <br />
                                    <tr>
