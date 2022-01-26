@@ -79,5 +79,21 @@ class M_universal extends CI_Model
     {
         return $this->db->get('todo')->num_rows();
     }
+    public function total_acc($Value)
+    {
+        $this->db->select('*');
+        $this->db->from('todo');
+        $this->db->where('checked', $Value);
+        $query = $this->db->get()->num_rows();
+        return $query;
+    }
+    public function total_tolak($Value)
+    {
+        $this->db->select('*');
+        $this->db->from('todo');
+        $this->db->where('checked', $Value);
+        $query = $this->db->get()->num_rows();
+        return $query;
+    }
 }
 ?>

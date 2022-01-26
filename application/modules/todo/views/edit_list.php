@@ -1,4 +1,4 @@
-<div class="content-page">
+<div class="content-page"><br />
      <div class="content">
 
           <!-- Start Content-->
@@ -101,11 +101,10 @@
                                         <div class="col-md-6">
                                              <div class="card">
                                                   <p>Progres (%)
-                                                       </p>
-                                                       <input
-                                                            value="<?php echo uri(2) == "edit" ? ($d->status) : ""; ?>"
-                                                            type="text" id="range_01" name="progres">
-                                                       <!-- <p>Catatan: <br />1.) 0-50% = Low <br />2.) 51-80% = Medium
+                                                  </p>
+                                                  <input value="<?php echo uri(2) == "edit" ? ($d->status) : ""; ?>"
+                                                       type="text" id="range_01" name="progres">
+                                                  <!-- <p>Catatan: <br />1.) 0-50% = Low <br />2.) 51-80% = Medium
                                                        <br />3.)
                                                        81-100%
                                                        = High

@@ -84,20 +84,20 @@
                                         </a>
                                         <div class="dropdown-menu dropdown-menu-end">
                                              <!-- item-->
-                                             <a href="<?php echo base_url('manajemen'); ?>" class="dropdown-item">More
+                                             <a href="<?php echo base_url('todo'); ?>" class="dropdown-item">More
                                                   Info</a>
 
                                         </div>
                                    </div>
 
-                                   <h4 class="header-title mt-0 mb-3">Total Aplikasi</h4>
+                                   <h4 class="header-title mt-0 mb-3">Total ACC</h4>
 
                                    <div class="widget-box-2">
                                         <div class="widget-detail-2 text-end">
                                              <span class="badge bg-success rounded-pill float-start mt-3">32%
                                                   <i class="mdi mdi-trending-up"></i> </span>
-                                             <h2 class="fw-normal mb-1"> 10</h2>
-                                             <p class="text-muted mb-3">Aplikasi</p>
+                                             <h2 class="fw-normal mb-1"><?php  echo $jml_acc; ?></h2>
+                                             <p class="text-muted mb-3">ACC</p>
                                         </div>
                                         <div class="progress progress-bar-alt-success progress-sm">
                                              <div class="progress-bar bg-success" role="progressbar" aria-valuenow="77"
@@ -119,22 +119,22 @@
                                              data-bs-toggle="dropdown" aria-expanded="false">
                                              <i class="mdi mdi-dots-vertical"></i>
                                         </a>
-                                        <div class="dropdown-menu dropdown-menu-end">
-                                             <!-- item-->
-                                             <a href="<?php echo base_url('banksoal'); ?>" class="dropdown-item">More
+                                        <div class="dropdown-menu">
+
+                                             <a href="<?php echo base_url('todo'); ?>">More
                                                   Info</a>
 
                                         </div>
                                    </div>
 
-                                   <h4 class="header-title mt-0 mb-3">Total Kuesioner</h4>
+                                   <h4 class="header-title mt-0 mb-3">Total Ditolak</h4>
 
                                    <div class="widget-box-2">
                                         <div class="widget-detail-2 text-end">
                                              <span class="badge bg-pink rounded-pill float-start mt-3">32% <i
                                                        class="mdi mdi-trending-up"></i> </span>
-                                             <h2 class="fw-normal mb-1">20</h2>
-                                             <p class="text-muted mb-3">Kuesioner</p>
+                                             <h2 class="fw-normal mb-1"><?php  echo $jml_tolak; ?></h2>
+                                             <p class="text-muted mb-3">Ditolak</p>
                                         </div>
                                         <div class="progress progress-bar-alt-pink progress-sm">
                                              <div class="progress-bar bg-pink" role="progressbar" aria-valuenow="77"
@@ -146,12 +146,30 @@
                               </div>
                          </div>
 
-                    </div><!-- end col -->
+                    </div>
 
                     <div class="col-xl-4">
                          <div class="card">
                               <div class="card-body">
-                                   
+                                   <div class="dropdown float-end">
+                                        <!-- <a href="#" class="dropdown-toggle arrow-none card-drop"
+                                             data-bs-toggle="dropdown" aria-expanded="false">
+                                             <i class="mdi mdi-dots-vertical"></i>
+                                        </a> -->
+                                        <div class="dropdown-menu dropdown-menu-end">
+                                             <!-- item-->
+                                             <a href="javascript:void(0);" class="dropdown-item">Action</a>
+                                             <!-- item-->
+                                             <a href="javascript:void(0);" class="dropdown-item">Another
+                                                  action</a>
+                                             <!-- item-->
+                                             <a href="javascript:void(0);" class="dropdown-item">Something
+                                                  else</a>
+                                             <!-- item-->
+                                             <a href="javascript:void(0);" class="dropdown-item">Separated
+                                                  link</a>
+                                        </div>
+                                   </div>
                                    <h4 class="header-title mt-0">Statistics</h4>
                                    <svg height="280" version="1.1" width="283" xmlns="http://www.w3.org/2000/svg"
                                         xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -282,10 +300,10 @@
                          <div class="card">
                               <div class="card-body">
                                    <div class="dropdown float-end">
-                                        <a href="#" class="dropdown-toggle arrow-none card-drop"
+                                        <!-- <a href="#" class="dropdown-toggle arrow-none card-drop"
                                              data-bs-toggle="dropdown" aria-expanded="false">
                                              <i class="mdi mdi-dots-vertical"></i>
-                                        </a>
+                                        </a> -->
                                         <div class="dropdown-menu dropdown-menu-end">
                                              <!-- item-->
                                              <a href="javascript:void(0);" class="dropdown-item">Action</a>
@@ -301,75 +319,37 @@
                                         </div>
                                    </div>
 
-                                   <h4 class="header-title mt-0 mb-3">Latest Projects</h4>
+                                   <h4 class="header-title mt-0 mb-3">Progress</h4>
 
                                    <div class="table-responsive">
                                         <table class="table table-hover mb-0">
                                              <thead>
                                                   <tr>
-                                                       <th>#</th>
-                                                       <th>Project Name</th>
-                                                       <th>Start Date</th>
-                                                       <th>Due Date</th>
+                                                       <th>No</th>
+                                                       <th>Nama Lengkap</th>
+                                                       <th>Pekerjaan</th>
+                                                       <th>Level</th>
+                                                       <th>Progress</th>
                                                        <th>Status</th>
-                                                       <th>Assign</th>
                                                   </tr>
                                              </thead>
                                              <tbody>
                                                   <tr>
                                                        <td>1</td>
-                                                       <td>Adminto Admin v1</td>
-                                                       <td>01/01/2017</td>
-                                                       <td>26/04/2017</td>
-                                                       <td><span class="badge bg-danger">Released</span></td>
-                                                       <td>Coderthemes</td>
-                                                  </tr>
-                                                  <tr>
-                                                       <td>2</td>
-                                                       <td>Adminto Frontend v1</td>
-                                                       <td>01/01/2017</td>
-                                                       <td>26/04/2017</td>
-                                                       <td><span class="badge bg-success">Released</span></td>
-                                                       <td>Adminto admin</td>
-                                                  </tr>
-                                                  <tr>
-                                                       <td>3</td>
-                                                       <td>Adminto Admin v1.1</td>
-                                                       <td>01/05/2017</td>
-                                                       <td>10/05/2017</td>
-                                                       <td><span class="badge bg-pink">Pending</span></td>
-                                                       <td>Coderthemes</td>
-                                                  </tr>
-                                                  <tr>
-                                                       <td>4</td>
-                                                       <td>Adminto Frontend v1.1</td>
-                                                       <td>01/01/2017</td>
-                                                       <td>31/05/2017</td>
-                                                       <td><span class="badge bg-purple">Work in
-                                                                 Progress</span>
+                                                       <td>Moh. Fiqih</td>
+                                                       <td>Todolist</td>
+                                                       <td>Middle</td>
+                                                       <td>
+                                                            <span class="badge bg-danger">
+                                                                 10%
+                                                            </span>
                                                        </td>
-                                                       <td>Adminto admin</td>
-                                                  </tr>
-                                                  <tr>
-                                                       <td>5</td>
-                                                       <td>Adminto Admin v1.3</td>
-                                                       <td>01/01/2017</td>
-                                                       <td>31/05/2017</td>
-                                                       <td><span class="badge bg-warning">Coming soon</span>
+                                                       <td>
+                                                            <span class="badge bg-danger">
+                                                                 Tolak
+                                                            </span>
                                                        </td>
-                                                       <td>Coderthemes</td>
                                                   </tr>
-
-                                                  <tr>
-                                                       <td>6</td>
-                                                       <td>Adminto Admin v1.3</td>
-                                                       <td>01/01/2017</td>
-                                                       <td>31/05/2017</td>
-                                                       <td><span class="badge bg-primary">Coming soon</span>
-                                                       </td>
-                                                       <td>Adminto admin</td>
-                                                  </tr>
-
                                              </tbody>
                                         </table>
                                    </div>

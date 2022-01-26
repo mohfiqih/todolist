@@ -98,7 +98,7 @@
      <div id="wrapper">
 
           <!-- Topbar Start -->
-          <div class="navbar-custom">
+          <div class="navbar-custom" style="background-color: #fff;">
                <ul class="list-unstyled topnav-menu float-end mb-0">
                     <li class="dropdown d-inline-block d-lg-none">
                          <a class="nav-link dropdown-toggle arrow-none waves-effect waves-light"
@@ -216,8 +216,9 @@
                               aria-expanded="false">
                               <img src="<?php echo base_url('assets/backend'); ?>/images/phb.png" alt="user-image"
                                    class="rounded-circle">
-                              <span class="pro-user-name ms-1">
-                                   <?php echo $this->user_nama; ?> <i class="mdi mdi-chevron-down"></i>
+                              <span class="pro-user-name ms-1" value="<?php echo $this->user_nama; ?> ">
+                                   <?php echo $this->user_nama; ?>
+                                   <i class="mdi mdi-chevron-down"></i>
                               </span>
                          </a>
                          <div class="dropdown-menu dropdown-menu-end profile-dropdown ">
@@ -245,20 +246,20 @@
                <div class="logo-box">
                     <a href="<?php echo base_url('.'); ?>" class="logo logo-light text-center">
                          <span class="logo-sm">
-                              <h3 class="d-inline">PHB</h3>
+                              <h5 class="d-inline">Todo</h5>
                          </span>
 
                          <span class="logo-lg">
-                              <h3 class="d-inline">PHB UI</h3>
+                              <h4 class="d-inline">Todo-List</h4>
                          </span>
                     </a>
 
                     <a href="<?php echo base_url('.'); ?>" class="logo logo-dark text-center">
                          <span class="logo-sm">
-                              <h3 class="d-inline">PHB</h3>
+                              <h5 class="d-inline">Todo</h5>
                          </span>
                          <span class="logo-lg">
-                              <h3 class="d-inline">PHB UI</h3>
+                              <h4 class="d-inline">Todo-List</h4>
                          </span>
                     </a>
                </div>
@@ -292,7 +293,7 @@
                          <ul id="side-menu">
                               <li class="menu-title">Navigation</li>
                               <li>
-                                   <a href="<?php echo base_url('Dasbor/index'); ?>">
+                                   <a href="<?php echo base_url('dasbor'); ?>">
                                         <i class="mdi mdi-view-dashboard"></i>
                                         <span>Dasbor</span>
                                    </a>
@@ -303,7 +304,7 @@
                                         <span>Todo-List</span>
                                    </a>
                               </li>
-                              <li>
+                              <!-- <li>
                                    <a href="#sidebarMultilevel" data-bs-toggle="collapse">
                                         <i class="mdi mdi-share-variant"></i>
                                         <span> Multi Level </span>
@@ -359,7 +360,7 @@
                                              </li>
                                         </ul>
                                    </div>
-                              </li>
+                              </li> -->
 
                               <li class="menu-title mt-2">Master Data</li>
                               <li>
@@ -497,6 +498,8 @@
      $('.clockpicker').clockpicker();
      </script>
 
+
+
      <script>
      $(document).ready(function() {
           var table = $('#example').DataTable({
@@ -513,7 +516,7 @@
                     },
                     {
                          "extend": 'colvis',
-                         "text": 'Sortir Print',
+                         "text": 'Sortir Export',
                          "className": 'btn btn-secondary btn-md'
                     },
                ],

@@ -40,12 +40,14 @@ class Dasbor extends MY_Controller {
 	public function index()
 	{
         $data = array(
-			"judul"			=> "Contoh Halaman",
+			"judul"		=> "Dashboard",
 			"keterangan"	=> "Contoh Keterangan",
 			"halaman"		=> "dasbor",
 			"view"			=> "dasbor",
 			"jml_user"	=> $this->M_Universal->total_user("", "user"),
 			"jml_todo"	=> $this->M_Universal->total_todo("", "todo"),
+			"jml_acc"	=> $this->M_Universal->total_acc("ACC"),
+			"jml_tolak"	=> $this->M_Universal->total_tolak("Tolak")
 		);
 				
 		$this->load->view('template', $data);
