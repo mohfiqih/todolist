@@ -41,10 +41,7 @@ class Todo extends MY_Controller {
 			"halaman"		=> "data_kerjaan",
 			"breadcrumb"	=> "Master Data|User",
 			"view"			=> "todolist",
-			
-			// "start"			=> $this->uri->segment(3),
-			// "nama" 			=> $this->user_namalengkap, ->hasil Wirayuda
-			"data_todo"		=> $this->todo->get_todo($namalengkap,NULL),
+			"data_todo"		=> $this->todo->get_todo($namalengkap, NULL),
 			"jml_todo"		=> $this->todo->total_todo("", "todo"),
 			);
 		
@@ -133,7 +130,7 @@ class Todo extends MY_Controller {
 	{
 		$data = array(
 			"judul"		=> "Halaman Edit",
-			"halaman"	     => "edit_list",
+			"halaman"	=> "edit_list",
 			"view"		=> "edit_list",
 			"data_edit"	=> $this->M_Universal->getMulti(["id" => dekrip(uri(3))], "todo"),
 			"data_user"	=> $this->M_Universal->getMulti('', "user")

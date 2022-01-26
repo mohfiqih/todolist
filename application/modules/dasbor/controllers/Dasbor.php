@@ -40,39 +40,38 @@ class Dasbor extends MY_Controller {
      */
 	public function meta()
 	{
-		if ($this->user_level == "Ka. Bag" or $this->user_level == "Sub Bag") {
-			$level = $this->user_level;
+		// if ($this->user_level == "Ka. Bag" or $this->user_level == "Sub Bag") {
+		// 	$level = $this->user_level;
 
         $data = array(
 			"judul"		=> "Dashboard",
 			"keterangan"	=> "Contoh Keterangan",
 			"halaman"		=> "dasbor",
-			"view"			=> "dasbor",
+			"view"		=> "dasbor",
 			"jml_user"	=> $this->M_Universal->total_user("", "user"),
 			"jml_todo"	=> $this->M_Universal->total_todo("", "todo"),
-			"data_todo"		=> $this->todo->get_todo(NULL, $level),
+			"jml_acc"		=> $this->M_Universal->total_acc("ACC"),
+			"jml_tolak"	=> $this->M_Universal->total_tolak("Tolak"),
+			"data_todo"	=> $this->todo->get_todo(NULL, "todo"),
 		);
 				
 			return $data;
 			
-		} else {
-		$namalengkap = $this->user_namalengkap;
-        	$data = array(
-			"judul"			=> "Data Pekerjaan",
-			"keterangan"	=> "Manajemen Pengguna",
-			"halaman"		=> "data_kerjaan",
-			"breadcrumb"	=> "Master Data|User",
-			"view"			=> "todolist",
+		} 
+	// 	else {
+	// 	$namalengkap = $this->user_namalengkap;
+     //    	$data = array(
+	// 		"judul"		=> "Data Pekerjaan",
+	// 		"keterangan"	=> "Manajemen Pengguna",
+	// 		"halaman"		=> "data_kerjaan",
+	// 		"breadcrumb"	=> "Master Data|User",
+	// 		"view"		=> "todolist"
 			
-			// "start"			=> $this->uri->segment(3),
-			// "nama" 			=> $this->user_namalengkap, ->hasil Wirayuda
-			// "data_todo"		=> $this->todo->get_todo($namalengkap,NULL),
-			
-			);
+	// 		);
 		
-			return $data;
-		}
-	}
+	// 		return $data;
+	// 	}
+	// }
 
 	public function index()
 	{
