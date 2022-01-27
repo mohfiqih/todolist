@@ -96,7 +96,7 @@
                                         <div class="widget-detail-2 text-end">
                                              <span class="badge bg-success rounded-pill float-start mt-3">32%
                                                   <i class="mdi mdi-trending-up"></i> </span>
-                                             <h2 class="fw-normal mb-1"> 10</h2>
+                                             <h2 class="fw-normal mb-1"> <?php  echo $jml_acc; ?> </h2>
                                              <p class="text-muted mb-3">ACC</p>
                                         </div>
                                         <div class="progress progress-bar-alt-success progress-sm">
@@ -127,14 +127,14 @@
                                         </div>
                                    </div>
 
-                                   <h4 class="header-title mt-0 mb-3">Total Kuesioner</h4>
+                                   <h4 class="header-title mt-0 mb-3">Total Ditolak</h4>
 
                                    <div class="widget-box-2">
                                         <div class="widget-detail-2 text-end">
                                              <span class="badge bg-pink rounded-pill float-start mt-3">32% <i
                                                        class="mdi mdi-trending-up"></i> </span>
-                                             <h2 class="fw-normal mb-1">20</h2>
-                                             <p class="text-muted mb-3">Kuesioner</p>
+                                             <h2 class="fw-normal mb-1"><?php  echo $jml_tolak; ?> </h2>
+                                             <p class="text-muted mb-3">Tolak</p>
                                         </div>
                                         <div class="progress progress-bar-alt-pink progress-sm">
                                              <div class="progress-bar bg-pink" role="progressbar" aria-valuenow="77"
