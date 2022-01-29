@@ -28,6 +28,7 @@ class Dasbor extends MY_Controller {
         // Load the constructer from MY_Controller
         parent::__construct();
 		$this->cek_login();
+		$this->load->model('M_dasbor','todo');
     }
 
     /**
@@ -37,7 +38,7 @@ class Dasbor extends MY_Controller {
      *
      * @return [type] [description]
      */
-	public function index()
+	public function meta()
 	{
 		if ($this->user_level == "Staf" or $this->user_level == "Magang") {
 			$level = $this->user_level;
@@ -77,27 +78,8 @@ class Dasbor extends MY_Controller {
 		}
 	}
 
-	public function todolist()
+	public function index()
 	{
-        $data = array(
-			"judul"			=> "Halaman To-Do-List",
-			"keterangan"	=> "Contoh Keterangan",
-			"halaman"		=> "todolist",
-			"view"			=> "todolist",
-		);
-				
-		$this->load->view('template', $data);
-	}
-
-	public function tambah_list()
-	{
-        $data = array(
-			"judul"			=> "Halaman To-Do-List",
-			"keterangan"	=> "Contoh Keterangan",
-			"halaman"		=> "tambah_list",
-			"view"			=> "tambah_list",
-		);
-				
-		$this->load->view('template', $data);
+        $this->load->view('template', $this->meta());
 	}
 }

@@ -51,12 +51,14 @@
                                         </div>
                                         <div class="text-center">
                                              <button type="submit" class="btn btn-primary">Update</button>
-                                             <a href="<?php echo base_url('dasbor');?>">
+                                             <a href="<?php echo base_url('dasbor'); ?>">
                                                   <button type="submit" class="btn btn-danger">Kembali</button>
                                              </a>
                                         </div>
                                    </div>
                               </div>
+                         </div>
+                    </div>
                </form>
           </div>
      </div>

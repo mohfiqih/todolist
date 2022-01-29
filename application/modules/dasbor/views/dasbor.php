@@ -96,7 +96,7 @@
                                         <div class="widget-detail-2 text-end">
                                              <span class="badge bg-success rounded-pill float-start mt-3">32%
                                                   <i class="mdi mdi-trending-up"></i> </span>
-                                             <h2 class="fw-normal mb-1"><?php  echo $jml_acc; ?></h2>
+                                             <h2 class="fw-normal mb-1"> <?php  echo $jml_acc; ?> </h2>
                                              <p class="text-muted mb-3">ACC</p>
                                         </div>
                                         <div class="progress progress-bar-alt-success progress-sm">
@@ -133,8 +133,8 @@
                                         <div class="widget-detail-2 text-end">
                                              <span class="badge bg-pink rounded-pill float-start mt-3">32% <i
                                                        class="mdi mdi-trending-up"></i> </span>
-                                             <h2 class="fw-normal mb-1"><?php  echo $jml_tolak; ?></h2>
-                                             <p class="text-muted mb-3">Ditolak</p>
+                                             <h2 class="fw-normal mb-1"><?php  echo $jml_tolak; ?> </h2>
+                                             <p class="text-muted mb-3">Tolak</p>
                                         </div>
                                         <div class="progress progress-bar-alt-pink progress-sm">
                                              <div class="progress-bar bg-pink" role="progressbar" aria-valuenow="77"
@@ -247,21 +247,19 @@
                                              font-family="sans-serif" font-size="12px" stroke="none" fill="#888888"
                                              style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: sans-serif; font-size: 12px; font-weight: normal;"
                                              font-weight="normal" transform="matrix(1,0,0,1,0,7)">
-                                             <tspan dy="4" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Ditolak
+                                             <tspan dy="4" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">2012
                                              </tspan>
-                                        </text>
-                                        <text x="96.908203125" y="253.5" text-anchor="middle"
+                                        </text><text x="96.908203125" y="253.5" text-anchor="middle"
                                              font-family="sans-serif" font-size="12px" stroke="none" fill="#888888"
                                              style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: sans-serif; font-size: 12px; font-weight: normal;"
                                              font-weight="normal" transform="matrix(1,0,0,1,0,7)">
-                                             <tspan dy="4" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Belum
+                                             <tspan dy="4" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">2011
                                              </tspan>
-                                        </text>
-                                        <text x="61.11002604166667" y="253.5" text-anchor="middle"
+                                        </text><text x="61.11002604166667" y="253.5" text-anchor="middle"
                                              font-family="sans-serif" font-size="12px" stroke="none" fill="#888888"
                                              style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: sans-serif; font-size: 12px; font-weight: normal;"
                                              font-weight="normal" transform="matrix(1,0,0,1,0,7)">
-                                             <tspan dy="4" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">ACC
+                                             <tspan dy="4" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">2010
                                              </tspan>
                                         </text>
                                         <rect x="57.530208333333334" y="79" width="7.159635416666667" height="162"
@@ -319,10 +317,11 @@
                                         </div>
                                    </div>
 
+
                                    <h4 class="header-title mt-0 mb-3">Progress</h4>
 
                                    <div class="table-responsive">
-                                        <table class="table table-hover mb-0">
+                                        <table id="example" class="table table-hover mb-0">
                                              <thead>
                                                   <tr>
                                                        <th>No</th>
@@ -333,26 +332,70 @@
                                                        <th>Status</th>
                                                   </tr>
                                              </thead>
+                                             <?php
+                                                  $no=0+1;
+                                                  if ($data_todo){
+                                                  foreach ($data_todo as $d){ 
+                                                  ?>
                                              <tbody>
                                                   <tr>
-                                                       <td>1</td>
-                                                       <td>Moh. Fiqih</td>
-                                                       <td>Todolist</td>
-                                                       <td>Middle</td>
-                                                       <td>
-                                                            <span class="badge bg-danger">
-                                                                 10%
-                                                            </span>
+                                                       <td><?php echo $no++; ?></td>
+                                                       <td><?php echo $d->user_namalengkap; ?></td>
+                                                       <td><?php echo $d->task; ?></td>
+                                                       <td class="align-middle">
+                                                            <?php if ($d->status > 80 ): ?>
+                                                            <h6 class="align-middle">
+                                                                 <span class="badge bg-success">
+                                                                      <?php echo $d->level; ?>
+                                                                 </span>
+
+                                                                 <?php elseif ($d->status > 50 ): ?>
+
+                                                                 <span class="badge bg-warning">
+                                                                      <?php echo $d->level; ?>
+                                                                 </span>
+
+                                                                 <?php else: ?>
+
+                                                                 <span class="badge bg-danger">
+                                                                      <?php echo $d->level; ?>
+                                                                 </span>
+
+                                                                 <?php endif; ?>
+                                                            </h6>
                                                        </td>
-                                                       <td>
-                                                            <span class="badge bg-danger">
-                                                                 Tolak
-                                                            </span>
+                                                       <td class="align-middle" style="text-align: center">
+                                                            <?php echo $d->status; ?> %
+                                                       </td>
+                                                       <td class="align-middle" style="text-align: center">
+                                                            <?php if ($d->checked == 'ACC'): ?>
+                                                            <h6 class="align-middle mb-0">
+                                                                 <span class="badge bg-success">
+                                                                      <?php echo $d->checked; ?>
+                                                                 </span>
+                                                            </h6>
+                                                            <?php elseif ($d->checked == 'Belum'): ?>
+                                                            <h6 class="align-middle mb-0">
+                                                                 <span class="badge bg-warning">
+                                                                      <?php echo $d->checked; ?>
+                                                                 </span>
+                                                            </h6>
+                                                            <?php else: ?>
+                                                            <h6 class="align-middle mb-0">
+                                                                 <span class="badge bg-danger">
+                                                                      <?php echo $d->checked; ?>
+                                                                 </span>
+                                                            </h6>
+                                                            <?php endif; ?>
                                                        </td>
                                                   </tr>
+                                                  <?php }} else { ?>
+                                                  <td class="text-center" colspan="9">Tidak ada data</td>
+                                                  <?php } ?>
                                              </tbody>
                                         </table>
                                    </div>
+
                               </div>
                          </div>
 
