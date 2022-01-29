@@ -39,18 +39,42 @@ class Dasbor extends MY_Controller {
      */
 	public function index()
 	{
-        $data = array(
-			"judul"		=> "Dashboard",
-			"keterangan"	=> "Contoh Keterangan",
-			"halaman"		=> "dasbor",
-			"view"			=> "dasbor",
-			"jml_user"	=> $this->M_Universal->total_user("", "user"),
-			"jml_todo"	=> $this->M_Universal->total_todo("", "todo"),
-			"jml_acc"	=> $this->M_Universal->total_acc("ACC"),
-			"jml_tolak"	=> $this->M_Universal->total_tolak("Tolak")
-		);
-				
-		$this->load->view('template', $data);
+		if ($this->user_level == "Staf" or $this->user_level == "Magang") {
+			$level = $this->user_level;
+			$namalengkap = $this->user_namalengkap;
+
+			$count_acc = $this->M_Universal->total_acc("ACC",$level,$namalengkap);
+			$count_tolak = $this->M_Universal->total_tolak("Tolak",$level,$namalengkap);
+
+        	$data = array(
+				"judul"			=> "Dashboard",
+				"keterangan"	=> "Contoh Keterangan",
+				"halaman"		=> "dasbor",
+				"view"			=> "dasbor",
+				"jml_user"	=> $this->M_Universal->total_user("", "user"),
+				"jml_todo"	=> $this->M_Universal->total_todo("", "todo"),
+				"jml_acc"	=> $count_acc->count_id,
+				"jml_tolak"	=> $count_tolak->count_id,
+			);
+
+			$this->load->view('template', $data);
+		}
+		else{
+			$level = $this->user_level;
+
+        	$data = array(
+				"judul"			=> "Dashboard",
+				"keterangan"	=> "Contoh Keterangan",
+				"halaman"		=> "dasbor",
+				"view"			=> "dasbor",
+				"jml_user"	=> $this->M_Universal->total_user("", "user"),
+				"jml_todo"	=> $this->M_Universal->total_todo("", "todo"),
+				"jml_acc"	=> $this->M_Universal->total_acc("ACC",$level,NULL),
+				"jml_tolak"	=> $this->M_Universal->total_tolak("Tolak",$level,NULL)
+			);
+
+			$this->load->view('template', $data);
+		}
 	}
 
 	public function todolist()

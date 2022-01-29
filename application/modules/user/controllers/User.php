@@ -18,7 +18,7 @@ class User extends MY_Controller {
 			"halaman"		=> "user",
 			"breadcrumb"	=> "Master Data|User",
 			"view"			=> "user",
-			"data_user"		=> $this->M_Universal->getMulti(NULL, "user"),
+			"data_user"		=> $this->M_Universal->getMulti($this->user_nama, "user"),
 		);
 		
 		return $data;
@@ -39,12 +39,15 @@ class User extends MY_Controller {
 	
 	public function tambah()
 	{
+		// $nama = $this->user_nama;
+	
 		$data = array(
 		//"user_id"			=> date("ymdHis"),
 		"user_nama"			=> $this->input->post("user_nama"),
 		"user_password"		=> password_hash($this->input->post("user_password"), PASSWORD_BCRYPT),
 		"user_namalengkap"	=> $this->input->post("user_namalengkap"),
-		"user_level"		=> $this->input->post("user_level")
+		"user_level"		=> $this->input->post("user_level"),
+		"add_by"			=> $this->user_nama
 		);
 		
 		$tambah = $this->M_Universal->insert($data, "user");

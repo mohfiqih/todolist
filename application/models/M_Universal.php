@@ -26,7 +26,7 @@ class M_universal extends CI_Model
     public function getMulti($where, $tabel)
     {
         if (!empty($where)) {
-            $this->db->where($where);
+            $this->db->where('add_by',$where);
         }
         $data = $this->db->get($tabel)->result();
         return (count((array)$data) > 0) ? $data : false;
@@ -75,25 +75,48 @@ class M_universal extends CI_Model
     {
         return $this->db->get('user')->num_rows();
     }
+
     function total_todo()
     {
         return $this->db->get('todo')->num_rows();
     }
-    public function total_acc($Value)
+
+    public function total_acc($acc,$level,$namalengkap)
     {
-        $this->db->select('*');
-        $this->db->from('todo');
-        $this->db->where('checked', $Value);
-        $query = $this->db->get()->num_rows();
-        return $query;
+
+        if ($level == "Staf" or $level == "Magang") {
+
+            $query = $this->db->query("SELECT COUNT(id) as count_id
+                               FROM todo join user on user.user_id = todo.id_user
+                               WHERE user.user_namalengkap = '$namalengkap' and checked = '$acc'");
+            return $query->row();
+ 
+        }else{
+            $this->db->select('*');
+            $this->db->from('todo');
+            $this->db->where('checked', $acc);
+            $query = $this->db->get()->num_rows();
+            return $query;
+        }
     }
-    public function total_tolak($Value)
+
+    public function total_tolak($tolak,$level,$namalengkap)
     {
-        $this->db->select('*');
-        $this->db->from('todo');
-        $this->db->where('checked', $Value);
-        $query = $this->db->get()->num_rows();
-        return $query;
+
+        if ($level == "Staf" or $level == "Magang") {
+        
+            $query = $this->db->query("SELECT COUNT(id) as count_id
+                               FROM todo join user on user.user_id = todo.id_user
+                               WHERE user.user_namalengkap = '$namalengkap' and checked = '$tolak'");
+            return $query->row();
+
+        }else{
+            $this->db->select('*');
+            $this->db->from('todo');
+            $this->db->where('checked', $tolak);
+            $query = $this->db->get()->num_rows();
+            return $query;
+        }
     }
 }
 ?>
