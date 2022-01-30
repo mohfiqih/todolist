@@ -53,7 +53,7 @@ class Dasbor extends MY_Controller {
 				"halaman"		=> "dasbor",
 				"view"		=> "dasbor",
 				"jml_user"	=> $this->M_Universal->total_user("", "user"),
-				"jml_todo"	=> $this->M_Universal->total_todo("", "todo"),
+				"jml_todo"	=> $this->M_Universal->total_todo($namalengkap,"todo"),
 				"jml_acc"		=> $count_acc->count_id,
 				"jml_tolak"	=> $count_tolak->count_id,
 			);

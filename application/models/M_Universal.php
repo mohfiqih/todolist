@@ -76,9 +76,17 @@ class M_universal extends CI_Model
         return $this->db->get('user')->num_rows();
     }
 
-    function total_todo()
+    function total_todo($namalengkap,$tabel)
     {
-        return $this->db->get('todo')->num_rows();
+        
+        $this->db->select('*');
+        $this->db->from($tabel);
+        $this->db->join('user', 'user.user_id = todo.id_user','user.user_namalengkap');
+        if (!empty($namalengkap)) {
+            $this->db->where('user.user_namalengkap',$namalengkap);
+        }
+        $data = $this->db->get()->result();
+        return count((array)$data);
     }
 
     public function total_acc($acc,$level,$namalengkap)
@@ -90,12 +98,6 @@ class M_universal extends CI_Model
                                FROM todo join user on user.user_id = todo.id_user
                                WHERE user.user_namalengkap = '$namalengkap' and checked = '$acc'");
             return $query->row();
-            // if (!empty($where)) {
-            //     $this->db->where('add_by',$where);
-            // }
-            // $data = $this->db->get($tabel)->result();
-            // return (count((array)$data) > 0) ? $data : false;
- 
         }else{
             $query = $this->db->query("SELECT COUNT(id) as count_id
                                FROM todo join user on user.user_id = todo.id_user
