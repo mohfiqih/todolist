@@ -321,7 +321,7 @@
                                    <h4 class="header-title mt-0 mb-3">Progress</h4>
 
                                    <div class="table-responsive">
-                                        <table id="example" class="table table-hover mb-0">
+                                        <table class="table table-hover mb-0">
                                              <thead>
                                                   <tr>
                                                        <th>No</th>

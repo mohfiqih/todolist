@@ -59,10 +59,10 @@
 
                                         <div class="text-center">
                                              <button type="submit"
-                                                  class="btn btn-primary"><?php echo (uri(2) == 'edit') ? 'Update' : 'Tambah'; ?></button>
+                                                  class="btn btn-success"><?php echo (uri(2) == 'edit') ? 'Update' : 'Tambah'; ?></button>
 
                                              <?php if (uri(2) == "edit"){ ?>
-                                             <button type="button" class="btn btn-outline-danger"
+                                             <button type="button" class="btn btn-danger"
                                                   onclick="window.location='<?php echo base_url(uri(1)); ?>'">Batal</button>
                                              <?php } ?>
                                         </div>

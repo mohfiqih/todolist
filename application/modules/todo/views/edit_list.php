@@ -55,7 +55,7 @@
 
                                              <div class="text-center">
                                                   <button type="submit"
-                                                       class="btn btn-primary"><?php echo (uri(1) == 'update') ? : 'Update'; ?></button>
+                                                       class="btn btn-warning"><?php echo (uri(1) == 'update') ? : 'Update'; ?></button>
                                                   <a href="<?php echo base_url("todo"); ?>">
                                                        <button type="button" class="btn btn-danger">Batal</button>
                                                   </a>
@@ -120,7 +120,7 @@
           </div>
           <?php }} 
           else { ?>
-               <td class="text-center" colspan="8">Tidak ada data</td>
+          <td class="text-center" colspan="8">Tidak ada data</td>
           <?php } ?>
      </div>
 </div>

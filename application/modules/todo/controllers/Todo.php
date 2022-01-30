@@ -24,11 +24,9 @@ class Todo extends MY_Controller {
 			"keterangan"	=> "Manajemen Pengguna",
 			"halaman"		=> "data_kerjaan",
 			"breadcrumb"	=> "Master Data|User",
-			"view"			=> "todolist",
-			
-			
-			"data_todo"		=> $this->todo->get_todo(NULL, $level),
-			"jml_todo"		=> $this->todo->total_todo("", "todo"),
+			"view"		=> "todolist",
+			"data_todo"	=> $this->todo->get_todo(NULL, $level),
+			"jml_todo"	=> $this->todo->total_todo("", "todo"),
 			);
 		
 			return $data;
@@ -36,13 +34,13 @@ class Todo extends MY_Controller {
 			
 			$namalengkap = $this->user_namalengkap;
         	$data = array(
-			"judul"			=> "Data Pekerjaan",
+			"judul"		=> "Data Pekerjaan",
 			"keterangan"	=> "Manajemen Pengguna",
 			"halaman"		=> "data_kerjaan",
 			"breadcrumb"	=> "Master Data|User",
-			"view"			=> "todolist",
-			"data_todo"		=> $this->todo->get_todo($namalengkap, NULL),
-			"jml_todo"		=> $this->todo->total_todo("", "todo"),
+			"view"		=> "todolist",
+			"data_todo"	=> $this->todo->get_todo($namalengkap, NULL),
+			"jml_todo"	=> $this->todo->total_todo("", "todo"),
 			);
 		
 			return $data;
@@ -71,12 +69,12 @@ class Todo extends MY_Controller {
 	public function cek()
 	{
         $data = array(
-			"judul"			=> "Halaman Check",
+			"judul"		=> "Halaman Check",
 			"keterangan"	=> "Contoh Keterangan",
 			"halaman"		=> "check",
-			"view"			=> "check",
+			"view"		=> "check",
 			"data_check"	=> $this->M_Universal->getMulti(["id" => dekrip(uri(3))], "todo"),
-			"data_user"		=> $this->M_Universal->getMulti('', "user")
+			"data_user"	=> $this->M_Universal->getMulti('', "user")
 		);
 					
 		$this->load->view('template', $data);
@@ -104,11 +102,11 @@ class Todo extends MY_Controller {
 		$data = array(
 			//"user_id"			=> date("ymdHis"),
 			"id_user"		=> dekrip($this->input->post("id_user")),
-			"task"			=> $this->input->post("pekerjaan"),
+			"task"		=> $this->input->post("pekerjaan"),
 			"date_created"	=> $this->input->post("tanggal"),
-			"mulai"	   		=> $this->input->post("jam_mulai"),
+			"mulai"	   	=> $this->input->post("jam_mulai"),
 			"selesai"		=> $this->input->post("jam_selesai"),
-			"level"			=> $this->input->post("user_level"),
+			"level"		=> $this->input->post("user_level"),
 			"status"		=> $this->input->post("progres"),
 		);
 
@@ -119,18 +117,13 @@ class Todo extends MY_Controller {
 		} else {
 			notifikasi_redirect("error", "Gagal menambah data", uri(1));
 		};
-
-		// session()->setFlashdata('icon_swal', 'success');
-		// session()->setFlashdata('icon_title', 'success');
-		// session()->setFlashdata('icon_text', 'success');
-		// return $data;
 	}
 
 	public function edit() 
 	{
 		$data = array(
 			"judul"		=> "Halaman Edit",
-			"halaman"	=> "edit_list",
+			"halaman"		=> "edit_list",
 			"view"		=> "edit_list",
 			"data_edit"	=> $this->M_Universal->getMulti(["id" => dekrip(uri(3))], "todo"),
 			"data_user"	=> $this->M_Universal->getMulti('', "user")
@@ -144,11 +137,11 @@ class Todo extends MY_Controller {
 		$id	= dekrip($this->input->post("id"));
 		$data	= array(
 			"id_user"		=> dekrip($this->input->post("id_user")),
-			"task"			=> $this->input->post("pekerjaan"),
+			"task"		=> $this->input->post("pekerjaan"),
 			"date_created"	=> $this->input->post("tanggal"),
-			"mulai"	   		=> $this->input->post("jam_mulai"),
+			"mulai"	   	=> $this->input->post("jam_mulai"),
 			"selesai"		=> $this->input->post("jam_selesai"),
-			"level"			=> $this->input->post("user_level"),
+			"level"		=> $this->input->post("user_level"),
 			"status"		=> $this->input->post("progres"),
 			
 		);
@@ -173,18 +166,18 @@ class Todo extends MY_Controller {
 		};
 	}
 
-	public function search()
-	{
-		// $this->load->model('M_manajemen');
-		$keyword = $this->input->get('keyword');
-		// $data = $this->M_manajemen->ambil_data($keyword);
-		$data = array(
-			"keyword"			=> $keyword,
-			"judul"			=> "Form Search",
-			"halaman"			=> "todolist",
-			"view"			=> "todolist",
-			"data_todo"		=> $this->todo->ambil_data($keyword, "user"),
-		);
-		$this->load->view('template', $data);
-	}
+	// public function search()
+	// {
+	// 	// $this->load->model('M_manajemen');
+	// 	$keyword = $this->input->get('keyword');
+	// 	// $data = $this->M_manajemen->ambil_data($keyword);
+	// 	$data = array(
+	// 		"keyword"			=> $keyword,
+	// 		"judul"			=> "Form Search",
+	// 		"halaman"			=> "todolist",
+	// 		"view"			=> "todolist",
+	// 		"data_todo"		=> $this->todo->ambil_data($keyword, "user"),
+	// 	);
+	// 	$this->load->view('template', $data);
+	// }
 }
