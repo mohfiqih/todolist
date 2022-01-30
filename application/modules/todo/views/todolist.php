@@ -7,7 +7,7 @@
                     <!-- <div class="row"> -->
                     <?php if ($this->user_level == "Ka. Bag" or $this->user_level == "Sub Bag"):?>
                     <!-- Tabel -->
-                    <div class="card-body" data-mdb-perfect-scrollbar="true" style="height: 1050px;overflow: auto;">
+                    <div class="card-body" data-mdb-perfect-scrollbar="true" style="height: 490px;overflow: auto;">
                          <a href="<?php echo base_url('Todo/add'); ?>">
                               <button type="button" class="btn btn-success"><i class=" fas fa-plus"></i>
                                    Add</button>
@@ -18,22 +18,22 @@
                               <thead>
                                    <br />
                                    <tr>
-                                        <th scope="col" style="width: 3px;">
+                                        <th class="align-middle" scope="col" style="width: 3px;">
                                              No
                                         </th>
-                                        <th scope="col">
+                                        <th class="align-middle" scope="col">
                                              Nama
                                         </th>
-                                        <th scope="col">Pekerjaan</th>
-                                        <th scope="col">Tanggal</th>
-                                        <th scope="col">Jam Mulai</th>
-                                        <th scope="col">Jam Selesai</th>
-                                        <th scope="col">Level</th>
-                                        <th scope="col">Progres</th>
-                                        <th scope="col" style="text-align: center">Status</th>
-                                        <th scope="col" style="width: 3px;">
+                                        <th class="align-middle" scope="col">Pekerjaan</th>
+                                        <th class="align-middle" scope="col">Tanggal</th>
+                                        <th class="align-middle" scope="col">Jam Mulai</th>
+                                        <th class="align-middle" scope="col">Jam Selesai</th>
+                                        <th class="align-middle" scope="col">Level</th>
+                                        <th class="align-middle" scope="col">Progres</th>
+                                        <th class="align-middle" scope="col" style="text-align: center">Status</th>
+                                        <th class="align-middle" scope="col" style="width: 3px;">
                                              Ceklist</th>
-                                        <th scope="col" style="width: 3px;">
+                                        <th class="align-middle" scope="col" style="width: 3px;">
                                              Action</th>
                                    </tr>
 
@@ -90,23 +90,23 @@
 
                                    <td class="align-middle" style="text-align: center">
                                         <?php if ($d->checked == 'ACC'): ?>
-                                        <h6 class="align-middle mb-0">
+                                        <h5 class="align-middle mb-0">
                                              <span class="badge bg-success">
                                                   <?php echo $d->checked; ?>
                                              </span>
-                                        </h6>
+                                        </h5>
                                         <?php elseif ($d->checked == 'Belum'): ?>
-                                        <h6 class="align-middle mb-0">
+                                        <h5 class="align-middle mb-0">
                                              <span class="badge bg-warning">
                                                   <?php echo $d->checked; ?>
                                              </span>
-                                        </h6>
+                                        </h5>
                                         <?php else: ?>
-                                        <h6 class="align-middle mb-0">
+                                        <h5 class="align-middle mb-0">
                                              <span class="badge bg-danger">
                                                   <?php echo $d->checked; ?>
                                              </span>
-                                        </h6>
+                                        </h5>
                                         <?php endif; ?>
                                    </td>
                                    <td class="align-middle" style="text-align: center">
@@ -126,14 +126,14 @@
                                    </td>
                               </tr>
                               <?php }} else { ?>
-                              <td class="text-center" colspan="9">Tidak ada data</td>
+                              <td class="text-center" colspan="11">Tidak ada data</td>
                               <?php } ?>
                               </tbody>
                          </table><br />
 
                     </div>
                     <?php else: ?>
-                    <div class="card-body" data-mdb-perfect-scrollbar="true" style="height: 1050px;overflow: auto;">
+                    <div class="card-body" data-mdb-perfect-scrollbar="true" style="height: 490px;overflow: auto;">
                          <a href="<?php echo base_url('Todo/add'); ?>">
                               <button type="button" class="btn btn-success"><i class=" fas fa-plus"></i>
                                    Add</button><br><br>
@@ -142,19 +142,19 @@
                               <thead>
 
                                    <tr>
-                                        <th scope="col">
+                                        <th class="align-middle" scope="col">
                                              No
                                         </th>
-                                        <th scope="col">
+                                        <th class="align-middle" scope="col">
                                              Nama
                                         </th>
-                                        <th scope="col">Pekerjaan</th>
-                                        <th scope="col">Tanggal</th>
-                                        <th scope="col">Jam Mulai</th>
-                                        <th scope="col">Jam Selesai</th>
-                                        <th scope="col">Level</th>
-                                        <th scope="col">Progres</th>
-                                        <th scope="col" style="text-align: center">Status</th>
+                                        <th class="align-middle" scope="col">Pekerjaan</th>
+                                        <th class="align-middle" scope="col">Tanggal</th>
+                                        <th class="align-middle" scope="col">Jam Mulai</th>
+                                        <th class="align-middle" scope="col">Jam Selesai</th>
+                                        <th class="align-middle" scope="col">Level</th>
+                                        <th class="align-middle" scope="col">Progres</th>
+                                        <th class="align-middle" scope="col" style="text-align: center">Status</th>
                                    </tr>
 
                               </thead>
@@ -231,7 +231,7 @@
                                    </td>
                               </tr>
                               <?php }} else { ?>
-                              <td class="text-center" colspan="9">Tidak ada data</td>
+                              <td class="text-center" colspan="11">Tidak ada data</td>
                               <?php } ?>
                               </tbody>
                          </table>

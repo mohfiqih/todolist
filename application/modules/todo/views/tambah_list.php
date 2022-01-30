@@ -20,7 +20,7 @@
                                                   <?php 
                                                   foreach($data_user as $d) : ?>
                                                   <option value="<?php echo enkrip($d->user_id) ?>">
-                                                       <?php echo $d->user_namalengkap; ?>
+                                                       <?=$d->user_namalengkap;?>
                                                   </option>
                                                   <?php endforeach; ?>
                                              </select>
@@ -40,7 +40,7 @@
 
                                    </form>
                                    <div class="text-center">
-                                        <button type="submit" class="btn btn-primary">Tambah</button>
+                                        <button type="submit" class="btn btn-success">Tambah</button>
                                         <a href="<?php echo base_url("todo"); ?>">
                                              <button type="button" class="btn btn-danger">Batal</button>
                                         </a>
@@ -68,13 +68,13 @@
                                              aria-label="Floating label select example" required>
                                              <option value="">Pilih Level</option>
                                              <option value="High"
-                                                  <?php if (uri(1) == "tambah") echo $edit->level == 1 ? "selected" : ""; ?>>
+                                                  <?php if (uri(1) == "tambah") echo $edit->level == "High" ? "selected" : ""; ?>>
                                                   High</option>
                                              <option value="Middle"
-                                                  <?php if (uri(1) == "tambah") echo $edit->level == 2 ? "selected" : ""; ?>>
+                                                  <?php if (uri(1) == "tambah") echo $edit->level == "Midlle" ? "selected" : ""; ?>>
                                                   Middle</option>
                                              <option value="Low"
-                                                  <?php if (uri(1) == "tambah") echo $edit->level == 3 ? "selected" : ""; ?>>
+                                                  <?php if (uri(1) == "tambah") echo $edit->level == "Low" ? "selected" : ""; ?>>
                                                   Low</option>
                                         </select>
                                         <label for="example-select-floating">Level</label>

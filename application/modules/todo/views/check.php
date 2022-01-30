@@ -53,7 +53,7 @@
 
                                         <div class="text-center">
                                              <button id="sweet" type="submit"
-                                                  class="btn btn-primary"><?php echo (uri(1) == 'checked') ? : 'Ceklist'; ?></button>
+                                                  class="btn btn-success"><?php echo (uri(1) == 'checked') ? : 'Ceklist'; ?></button>
                                              <a href="<?php echo base_url("todo"); ?>">
                                                   <button type="button" class="btn btn-danger">Batal</button>
                                              </a>
