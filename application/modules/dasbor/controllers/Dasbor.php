@@ -55,13 +55,16 @@ class Dasbor extends MY_Controller {
 				"jml_user"	=> $this->M_Universal->total_user("", "user"),
 				"jml_todo"	=> $this->M_Universal->total_todo("", "todo"),
 				"jml_acc"	=> $count_acc->count_id,
-				"jml_tolak"	=> $count_tolak->count_id,
+				"jml_tolak"	=> $count_tolak->count_id
 			);
 
 			$this->load->view('template', $data);
 		}
 		else{
 			$level = $this->user_level;
+
+			$count_acc = $this->M_Universal->total_acc("ACC",$level,NULL);
+			$count_tolak = $this->M_Universal->total_tolak("Tolak",$level,NULL);
 
         	$data = array(
 				"judul"			=> "Dashboard",
@@ -70,8 +73,8 @@ class Dasbor extends MY_Controller {
 				"view"			=> "dasbor",
 				"jml_user"	=> $this->M_Universal->total_user("", "user"),
 				"jml_todo"	=> $this->M_Universal->total_todo("", "todo"),
-				"jml_acc"	=> $this->M_Universal->total_acc("ACC",$level,NULL),
-				"jml_tolak"	=> $this->M_Universal->total_tolak("Tolak",$level,NULL)
+				"jml_acc"	=> $count_acc->count_id,
+				"jml_tolak"	=> $count_tolak->count_id
 			);
 
 			$this->load->view('template', $data);

@@ -90,13 +90,17 @@ class M_universal extends CI_Model
                                FROM todo join user on user.user_id = todo.id_user
                                WHERE user.user_namalengkap = '$namalengkap' and checked = '$acc'");
             return $query->row();
+            // if (!empty($where)) {
+            //     $this->db->where('add_by',$where);
+            // }
+            // $data = $this->db->get($tabel)->result();
+            // return (count((array)$data) > 0) ? $data : false;
  
         }else{
-            $this->db->select('*');
-            $this->db->from('todo');
-            $this->db->where('checked', $acc);
-            $query = $this->db->get()->num_rows();
-            return $query;
+            $query = $this->db->query("SELECT COUNT(id) as count_id
+                               FROM todo join user on user.user_id = todo.id_user
+                               WHERE checked = '$acc'");
+            return $query->row();
         }
     }
 
@@ -111,11 +115,10 @@ class M_universal extends CI_Model
             return $query->row();
 
         }else{
-            $this->db->select('*');
-            $this->db->from('todo');
-            $this->db->where('checked', $tolak);
-            $query = $this->db->get()->num_rows();
-            return $query;
+            $query = $this->db->query("SELECT COUNT(id) as count_id
+                               FROM todo join user on user.user_id = todo.id_user
+                               WHERE checked = '$tolak'");
+            return $query->row();
         }
     }
 }
