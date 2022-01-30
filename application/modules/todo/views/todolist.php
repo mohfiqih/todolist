@@ -7,7 +7,7 @@
                     <!-- <div class="row"> -->
                     <?php if ($this->user_level == "Ka. Bag" or $this->user_level == "Sub Bag"):?>
                     <!-- Tabel -->
-                    <div class="card-body" data-mdb-perfect-scrollbar="true" style="height: 1050px;overflow: auto;">
+                    <div class="card-body" data-mdb-perfect-scrollbar="true" style="height: 490px;overflow: auto;">
                          <a href="<?php echo base_url('Todo/add'); ?>">
                               <button type="button" class="btn btn-success"><i class=" fas fa-plus"></i>
                                    Add</button>
@@ -90,23 +90,23 @@
 
                                    <td class="align-middle" style="text-align: center">
                                         <?php if ($d->checked == 'ACC'): ?>
-                                        <h6 class="align-middle mb-0">
+                                        <h5 class="align-middle mb-0">
                                              <span class="badge bg-success">
                                                   <?php echo $d->checked; ?>
                                              </span>
-                                        </h6>
+                                        </h5>
                                         <?php elseif ($d->checked == 'Belum'): ?>
-                                        <h6 class="align-middle mb-0">
+                                        <h5 class="align-middle mb-0">
                                              <span class="badge bg-warning">
                                                   <?php echo $d->checked; ?>
                                              </span>
-                                        </h6>
+                                        </h5>
                                         <?php else: ?>
-                                        <h6 class="align-middle mb-0">
+                                        <h5 class="align-middle mb-0">
                                              <span class="badge bg-danger">
                                                   <?php echo $d->checked; ?>
                                              </span>
-                                        </h6>
+                                        </h5>
                                         <?php endif; ?>
                                    </td>
                                    <td class="align-middle" style="text-align: center">
@@ -133,7 +133,7 @@
 
                     </div>
                     <?php else: ?>
-                    <div class="card-body" data-mdb-perfect-scrollbar="true" style="height: 1050px;overflow: auto;">
+                    <div class="card-body" data-mdb-perfect-scrollbar="true" style="height: 490px;overflow: auto;">
                          <a href="<?php echo base_url('Todo/add'); ?>">
                               <button type="button" class="btn btn-success"><i class=" fas fa-plus"></i>
                                    Add</button><br><br>

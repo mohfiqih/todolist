@@ -48,19 +48,18 @@ class Dasbor extends MY_Controller {
 			$count_tolak = $this->M_Universal->total_tolak("Tolak",$level,$namalengkap);
 
         	$data = array(
-				"judul"			=> "Dashboard",
+				"judul"		=> "Dashboard",
 				"keterangan"	=> "Contoh Keterangan",
 				"halaman"		=> "dasbor",
-				"view"			=> "dasbor",
+				"view"		=> "dasbor",
 				"jml_user"	=> $this->M_Universal->total_user("", "user"),
 				"jml_todo"	=> $this->M_Universal->total_todo("", "todo"),
-				"jml_acc"	=> $count_acc->count_id,
+				"jml_acc"		=> $count_acc->count_id,
 				"jml_tolak"	=> $count_tolak->count_id,
 			);
 
-			$this->load->view('template', $data);
-		}
-		else{
+			return $data;
+		} else{
 			$level = $this->user_level;
 
         	$data = array(
@@ -74,7 +73,7 @@ class Dasbor extends MY_Controller {
 				"jml_tolak"	=> $this->M_Universal->total_tolak("Tolak",$level,NULL)
 			);
 
-			$this->load->view('template', $data);
+			return $data;
 		}
 	}
 
