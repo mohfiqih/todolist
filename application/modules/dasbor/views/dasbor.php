@@ -1,3 +1,5 @@
+<?php if ($this->user_level == "Ka. Bag" or $this->user_level == "Sub Bag"):?>
+
 <div class="content-page"><br />
      <div class="content">
 
@@ -26,9 +28,9 @@
                                    <div class="widget-chart-1">
                                         <div class="widget-chart-box-1 float-start" dir="ltr">
                                              <input data-plugin="knob" data-width="70" data-height="70"
-                                                  data-fgColor="#f05050 " data-bgColor="#F9B9B9" value="58"
-                                                  data-skin="tron" data-angleOffset="180" data-readOnly=true
-                                                  data-thickness=".15" />
+                                                  data-fgColor="#f05050 " data-bgColor="#F9B9B9"
+                                                  value="<?php  echo $jml_user; ?>" data-skin="tron"
+                                                  data-angleOffset="180" data-readOnly=true data-thickness=".15" />
                                         </div>
 
                                         <div class="widget-detail-1 text-end">
@@ -61,9 +63,9 @@
                                    <div class="widget-chart-1">
                                         <div class="widget-chart-box-1 float-start" dir="ltr">
                                              <input data-plugin="knob" data-width="70" data-height="70"
-                                                  data-fgColor="#ffbd4a" data-bgColor="#FFE6BA" value="80"
-                                                  data-skin="tron" data-angleOffset="180" data-readOnly=true
-                                                  data-thickness=".15" />
+                                                  data-fgColor="#ffbd4a" data-bgColor="#FFE6BA"
+                                                  value="<?php  echo $jml_todo; ?>" data-skin="tron"
+                                                  data-angleOffset="180" data-readOnly=true data-thickness=".15" />
                                         </div>
                                         <div class="widget-detail-1 text-end">
                                              <h2 class="fw-normal pt-2 mb-1"> <?php  echo $jml_todo; ?> </h2>
@@ -94,7 +96,7 @@
 
                                    <div class="widget-box-2">
                                         <div class="widget-detail-2 text-end">
-                                             <span class="badge bg-success rounded-pill float-start mt-3">32%
+                                             <span class="badge bg-success rounded-pill float-start mt-3"><?php  echo $jml_acc; ?>
                                                   <i class="mdi mdi-trending-up"></i> </span>
                                              <h2 class="fw-normal mb-1"> <?php  echo $jml_acc; ?> </h2>
                                              <p class="text-muted mb-3">ACC</p>
@@ -102,7 +104,7 @@
                                         <div class="progress progress-bar-alt-success progress-sm">
                                              <div class="progress-bar bg-success" role="progressbar" aria-valuenow="77"
                                                   aria-valuemin="0" aria-valuemax="100" style="width: 77%;">
-                                                  <span class="visually-hidden">77% Complete</span>
+                                                  <span class="visually-hidden"><?php  echo $jml_acc; ?></span>
                                              </div>
                                         </div>
                                    </div>
@@ -131,15 +133,15 @@
 
                                    <div class="widget-box-2">
                                         <div class="widget-detail-2 text-end">
-                                             <span class="badge bg-pink rounded-pill float-start mt-3">32% <i
-                                                       class="mdi mdi-trending-up"></i> </span>
+                                             <span class="badge bg-pink rounded-pill float-start mt-3"><?php  echo $jml_tolak; ?>
+                                                  <i class="mdi mdi-trending-up"></i> </span>
                                              <h2 class="fw-normal mb-1"><?php  echo $jml_tolak; ?> </h2>
                                              <p class="text-muted mb-3">Tolak</p>
                                         </div>
                                         <div class="progress progress-bar-alt-pink progress-sm">
                                              <div class="progress-bar bg-pink" role="progressbar" aria-valuenow="77"
                                                   aria-valuemin="0" aria-valuemax="100" style="width: 77%;">
-                                                  <span class="visually-hidden">77% Complete</span>
+                                                  <span class="visually-hidden"><?php  echo $jml_tolak; ?></span>
                                              </div>
                                         </div>
                                    </div>
@@ -408,3 +410,127 @@
      </div><!-- end col -->
 </div>
 <!-- end row -->
+<?php else: ?>
+<div class="content-page"><br />
+     <div class="content">
+
+          <!-- Start Content-->
+          <div class="container-fluid">
+               <div class="row">
+
+                    <div class="col-xl-3 col-md-6">
+                         <div class="card">
+                              <div class="card-body">
+                                   <div class="dropdown float-end">
+                                        <a href="#" class="dropdown-toggle arrow-none card-drop"
+                                             data-bs-toggle="dropdown" aria-expanded="false">
+                                             <i class="mdi mdi-dots-vertical"></i>
+                                        </a>
+                                        <div class="dropdown-menu dropdown-menu-end">
+                                             <!-- item-->
+                                             <a href="<?php echo base_url('todo'); ?>" class="dropdown-item">More
+                                                  Info</a>
+
+                                        </div>
+                                   </div>
+
+                                   <h4 class="header-title mt-0 mb-4">Total Todolist</h4>
+
+                                   <div class="widget-chart-1">
+                                        <div class="widget-chart-box-1 float-start" dir="ltr">
+                                             <input data-plugin="knob" data-width="70" data-height="70"
+                                                  data-fgColor="#ffbd4a" data-bgColor="#FFE6BA"
+                                                  value="<?php  echo $jml_todo; ?>" data-skin="tron"
+                                                  data-angleOffset="180" data-readOnly=true data-thickness=".15" />
+                                        </div>
+                                        <div class="widget-detail-1 text-end">
+                                             <h2 class="fw-normal pt-2 mb-1"> <?php  echo $jml_todo; ?> </h2>
+                                             <p class="text-muted mb-1">Todolist</p>
+                                        </div>
+                                   </div>
+                              </div>
+                         </div>
+                    </div><!-- end col -->
+
+                    <div class="col-xl-3 col-md-6">
+                         <div class="card">
+                              <div class="card-body">
+                                   <div class="dropdown float-end">
+                                        <a href="#" class="dropdown-toggle arrow-none card-drop"
+                                             data-bs-toggle="dropdown" aria-expanded="false">
+                                             <i class="mdi mdi-dots-vertical"></i>
+                                        </a>
+                                        <div class="dropdown-menu dropdown-menu-end">
+                                             <!-- item-->
+                                             <a href="<?php echo base_url('todo'); ?>" class="dropdown-item">More
+                                                  Info</a>
+
+                                        </div>
+                                   </div>
+
+                                   <h4 class="header-title mt-0 mb-3">Total ACC</h4>
+
+                                   <div class="widget-box-2">
+                                        <div class="widget-detail-2 text-end">
+                                             <span class="badge bg-success rounded-pill float-start mt-3"><?php  echo $jml_acc; ?>
+                                                  <i class="mdi mdi-trending-up"></i> </span>
+                                             <h2 class="fw-normal mb-1"> <?php  echo $jml_acc; ?> </h2>
+                                             <p class="text-muted mb-3">ACC</p>
+                                        </div>
+                                        <div class="progress progress-bar-alt-success progress-sm">
+                                             <div class="progress-bar bg-success" role="progressbar" aria-valuenow="77"
+                                                  aria-valuemin="0" aria-valuemax="100" style="width: 77%;">
+                                                  <span class="visually-hidden"><?php  echo $jml_acc; ?></span>
+                                             </div>
+                                        </div>
+                                   </div>
+                              </div>
+                         </div>
+                    </div><!-- end col -->
+
+
+                    <div class="col-xl-3 col-md-6">
+                         <div class="card">
+                              <div class="card-body">
+                                   <div class="dropdown float-end">
+                                        <a href="#" class="dropdown-toggle arrow-none card-drop"
+                                             data-bs-toggle="dropdown" aria-expanded="false">
+                                             <i class="mdi mdi-dots-vertical"></i>
+                                        </a>
+                                        <div class="dropdown-menu">
+
+                                             <a href="<?php echo base_url('todo'); ?>">More
+                                                  Info</a>
+
+                                        </div>
+                                   </div>
+
+                                   <h4 class="header-title mt-0 mb-3">Total Ditolak</h4>
+
+                                   <div class="widget-box-2">
+                                        <div class="widget-detail-2 text-end">
+                                             <span class="badge bg-pink rounded-pill float-start mt-3"><?php  echo $jml_tolak; ?>
+                                                  <i class="mdi mdi-trending-up"></i> </span>
+                                             <h2 class="fw-normal mb-1"><?php  echo $jml_tolak; ?> </h2>
+                                             <p class="text-muted mb-3">Tolak</p>
+                                        </div>
+                                        <div class="progress progress-bar-alt-pink progress-sm">
+                                             <div class="progress-bar bg-pink" role="progressbar" aria-valuenow="77"
+                                                  aria-valuemin="0" aria-valuemax="100" style="width: 77%;">
+                                                  <span class="visually-hidden"><?php  echo $jml_tolak; ?></span>
+                                             </div>
+                                        </div>
+                                   </div>
+                              </div>
+                         </div>
+
+                    </div>
+
+
+               </div>
+          </div>
+
+     </div> <!-- end card -->
+</div><!-- end col -->
+</div>
+<?php endif; ?>
