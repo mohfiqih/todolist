@@ -73,7 +73,7 @@ class Todo extends MY_Controller {
 			"keterangan"	=> "Contoh Keterangan",
 			"halaman"		=> "check",
 			"view"		=> "check",
-			"data_check"	=> $this->todo->get_todo(["id" => dekrip(uri(3))], "todo"),
+			"data_check"	=> $this->todo->getMulti(["id" => dekrip(uri(3))], "todo"),
 			"data_user"	=> $this->M_Universal->getMulti('', "user")
 		);
 					
@@ -125,7 +125,7 @@ class Todo extends MY_Controller {
 			"judul"		=> "Halaman Edit",
 			"halaman"		=> "edit_list",
 			"view"		=> "edit_list",
-			"data_edit"	=> $this->todo->get_todo(["id" => dekrip(uri(3))], "todo"),
+			"data_edit"	=> $this->todo->getMulti(["id" => dekrip(uri(3))], "todo"),
 			"data_user"	=> $this->M_Universal->getMulti('', "user")
 			// "data_user"	=> $this->M_Universal->getMulti(["id" => (uri(3))], "user"),
 		);

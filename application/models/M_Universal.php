@@ -26,11 +26,22 @@ class M_universal extends CI_Model
     public function getMulti($where, $tabel)
     {
         if (!empty($where)) {
+            $this->db->where($where);
+        }
+        $data = $this->db->get($tabel)->result();
+        return (count((array)$data) > 0) ? $data : false;
+    }
+
+    public function getDashboard($where, $tabel)
+    {
+        if (!empty($where)) {
             $this->db->where('add_by',$where);
         }
         $data = $this->db->get($tabel)->result();
         return (count((array)$data) > 0) ? $data : false;
     }
+
+
 
     public function update($data, $where, $tabel)
     {
