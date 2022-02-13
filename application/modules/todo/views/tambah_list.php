@@ -27,8 +27,10 @@
                                              <label for="example-select-floating">Nama</label>
                                         </div>
                                         <div class="form-floating mb-3">
-                                             <input type="text" class="form-control" name="pekerjaan"
-                                                  placeholder="Pekerjaan" autocomplete="off" required>
+                                             <textarea type="text" class="form-control" name="pekerjaan"
+                                                  placeholder="Pekerjaan" autocomplete="off" required rows="0" cols="38"
+                                                  style="height: 116px;">
+                                                  </textarea>
                                              <label>Pekerjaan</label>
                                         </div>
                                         <div class="form-floating mb-3">
@@ -84,11 +86,11 @@
                                              <p>Progres (%)
                                              <p>
                                                   <input type="text" id="range_01" name="progres">
-                                                  <!-- <p>Catatan: <br />1.) 0-50% = Low <br />2.) 51-80% = Medium
+                                             <p>Catatan: <br />1.) 0-50% = Low <br />2.) 51-80% = Medium
                                                   <br />3.)
                                                   81-100%
                                                   = High
-                                             </p> -->
+                                             </p>
                                         </div>
                                    </div> <!-- end card-->
                               </div> <!-- end col -->
