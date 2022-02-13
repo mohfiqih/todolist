@@ -55,12 +55,13 @@ class Todo extends MY_Controller {
 	
 	public function add()
 	{
+		$where = $this->user_nama;
         $data = array(
 			"judul"		=> "Halaman To-Do-List",
 			"keterangan"	=> "Contoh Keterangan",
 			"halaman"		=> "tambah_list",
 			"view"		=> "tambah_list",
-			"data_user"	=> $this->M_Universal->getMulti('', "user"),
+			"data_user"	=> $this->M_Universal->getMulti($where, "user"),
 		);
 					
 		$this->load->view('template', $data);
@@ -88,7 +89,7 @@ class Todo extends MY_Controller {
 			"checked"			=> $this->input->post("ceked"),
 		);
 		
-		$tambah = $this->todo->update($data, ["id" => $id], "todo");
+		$tambah = $this->M_Universal->update($data, ["id" => $id], "todo");
 		
 		if ($tambah){
 			notifikasi_redirect("success", "Data berhasil diceklist", uri(1));

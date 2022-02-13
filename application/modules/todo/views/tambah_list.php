@@ -15,8 +15,8 @@
                                         <div class="form-floating mb-3">
                                              <select type="option" class="form-select" name="id_user" placeholder="Nama"
                                                   autocomplete="off" required>
-                                                  <option value="">
-                                                       Nama</option>
+                                                  <!-- <option value="">
+                                                       Nama</option> -->
                                                   <?php 
                                                   foreach($data_user as $d) : ?>
                                                   <option value="<?php echo enkrip($d->user_id) ?>">

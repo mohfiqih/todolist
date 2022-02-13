@@ -26,7 +26,7 @@ class M_universal extends CI_Model
     public function getMulti($where, $tabel)
     {
         if (!empty($where)) {
-            $this->db->where($where);
+            $this->db->where("user_nama",$where);
         }
         $data = $this->db->get($tabel)->result();
         return (count((array)$data) > 0) ? $data : false;
