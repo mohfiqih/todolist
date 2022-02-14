@@ -16,8 +16,9 @@ class Profil extends MY_Controller {
 			"keterangan"	=> "Sunting Data Diri",
 			"halaman"		=> "profil",
 			"breadcrumb"	=> "User|Profil",
-			"view"			=> "profil",
-			"edit"			=> $this->M_Universal->getOne(["user_id" => $this->user_id], "user"),
+			"view"		=> "profil",
+			"edit"		=> $this->M_Universal->getOne(["user_id" => $this->user_id], "user"),
+			"data_join"	=> $this->M_Universal->getMulti(NULL, "user"),
 		);
 		
 		$this->load->view('template', $data);
@@ -30,6 +31,21 @@ class Profil extends MY_Controller {
 		$username		= $this->input->post('username');
 		
 		if ($this->input->post('password_sekarang')){
+			$foto = $_FILES['foto'];
+			if ($foto = '') {
+			} else {
+				$config['upload_path'] = './assets/foto';
+				$config['allowed_types'] = 'jpg|png';
+	
+				$this->load->library('upload', $config);
+				if (!$this->upload->do_upload('foto')) {
+					echo "Uploade Gagal";
+					die();
+				} else {
+					$foto = $this->upload->data('file_name');
+				}
+			}
+			
 			$passlama		= addslashes($this->input->post('password_sekarang'));
 			$passbaru1		= addslashes($this->input->post('password_baru_1'));
 			$passbaru2		= password_hash(addslashes($this->input->post('password_baru_2')), PASSWORD_DEFAULT);
@@ -39,7 +55,8 @@ class Profil extends MY_Controller {
 				if (password_verify($passbaru1, $passbaru2)){
 					
 					$data = array(
-						"user_namalengkap"	=> $namalengkap,
+						"foto"				=> $foto,
+						"user_namalengkap"		=> $namalengkap,
 						"user_nama"			=> $username,
 						"user_password"		=> $passbaru2,
 					);
