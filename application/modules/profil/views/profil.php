@@ -31,6 +31,11 @@
                                         <div class="mb-2">
                                              <label class="form-label">Nama Lengkap</label>
                                              <input type="text" class="form-control" name="nama_lengkap"
+                                                  value="<?php echo $this->user_namalengkap; ?> ">
+                                        </div>
+                                        <div class="mb-2">
+                                             <label class="form-label">Username</label>
+                                             <input type="text" class="form-control" name="username"
                                                   value="<?php echo $this->user_nama; ?> ">
                                         </div>
                                         <div class="mb-2">

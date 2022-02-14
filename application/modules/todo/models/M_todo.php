@@ -43,18 +43,18 @@ class M_todo extends CI_Model
 
     public function getOne($where, $tabel)
     {
-        // if (!empty($where)) {
-        //     $this->db->where($where);
-        // }
+        if (!empty($where)) {
+            $this->db->where($where);
+        }
+        $this->db->where($where);
+        $data = $this->db->get($tabel)->row();
+        return (count((array)$data) > 0) ? $data : false;
 
         // $this->db->where($where);
-        // $data = $this->db->get($tabel)->row();
-        // return (count((array)$data) > 0) ? $data : false;
-
-        $this->db->where($where);
-        $data = $this->db->get($tabel);
+        // $data = $this->db->get($tabel);
         // return $data->row();
-        echo $data->row();
+
+        // echo $data->row();
 
         // $this->db->where('id_alat', $id_alat);
         // $query = $this->db->get('tabel_alat');

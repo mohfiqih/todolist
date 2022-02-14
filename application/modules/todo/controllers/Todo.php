@@ -55,12 +55,13 @@ class Todo extends MY_Controller {
 	
 	public function add()
 	{
+		$where = $this->user_nama;
         $data = array(
 			"judul"		=> "Halaman To-Do-List",
 			"keterangan"	=> "Contoh Keterangan",
 			"halaman"		=> "tambah_list",
 			"view"		=> "tambah_list",
-			"data_user"	=> $this->M_Universal->getMulti('', "user"),
+			"data_user"	=> $this->M_Universal->getMulti($where, "user"),
 		);
 					
 		$this->load->view('template', $data);
@@ -73,7 +74,7 @@ class Todo extends MY_Controller {
 			"keterangan"	=> "Contoh Keterangan",
 			"halaman"		=> "check",
 			"view"		=> "check",
-			"data_check"	=> $this->todo->get_todo(["id" => dekrip(uri(3))], "todo"),
+			"data_check"	=> $this->todo->getMulti(["id" => dekrip(uri(3))], "todo"),
 			"data_user"	=> $this->M_Universal->getMulti('', "user")
 		);
 					
@@ -88,7 +89,7 @@ class Todo extends MY_Controller {
 			"checked"			=> $this->input->post("ceked"),
 		);
 		
-		$tambah = $this->todo->update($data, ["id" => $id], "todo");
+		$tambah = $this->M_Universal->update($data, ["id" => $id], "todo");
 		
 		if ($tambah){
 			notifikasi_redirect("success", "Data berhasil diceklist", uri(1));
@@ -125,7 +126,7 @@ class Todo extends MY_Controller {
 			"judul"		=> "Halaman Edit",
 			"halaman"		=> "edit_list",
 			"view"		=> "edit_list",
-			"data_edit"	=> $this->todo->get_todo(["id" => dekrip(uri(3))], "todo"),
+			"data_edit"	=> $this->todo->getMulti(["id" => dekrip(uri(3))], "todo"),
 			"data_user"	=> $this->M_Universal->getMulti('', "user")
 			// "data_user"	=> $this->M_Universal->getMulti(["id" => (uri(3))], "user"),
 		);

@@ -18,7 +18,7 @@ class User extends MY_Controller {
 			"halaman"		=> "user",
 			"breadcrumb"	=> "Master Data|User",
 			"view"			=> "user",
-			"data_user"		=> $this->M_Universal->getMulti($this->user_nama, "user"),
+			"data_user"		=> $this->M_Universal->getDashboard($this->user_nama, "user"),
 		);
 		
 		return $data;

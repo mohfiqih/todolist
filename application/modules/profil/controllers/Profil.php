@@ -27,6 +27,7 @@ class Profil extends MY_Controller {
 	{
 		$user_id		= $this->user_id;
 		$namalengkap	= $this->input->post('nama_lengkap');
+		$username		= $this->input->post('username');
 		
 		if ($this->input->post('password_sekarang')){
 			$passlama		= addslashes($this->input->post('password_sekarang'));
@@ -39,6 +40,7 @@ class Profil extends MY_Controller {
 					
 					$data = array(
 						"user_namalengkap"	=> $namalengkap,
+						"user_nama"			=> $username,
 						"user_password"		=> $passbaru2,
 					);
 					
@@ -52,7 +54,11 @@ class Profil extends MY_Controller {
 				notifikasi_redirect("error", "Password saat ini yang Anda masukkan salah", $_SERVER['HTTP_REFERER']);
 			}
 		} else {
-			$update = $this->M_Universal->update(["user_namalengkap" => $namalengkap], ["user_id" => $user_id], "user");
+			$data = array(
+				"user_namalengkap"	=> $namalengkap,
+				"user_nama"			=> $username,
+			);
+			$update = $this->M_Universal->update($data, ["user_id" => $user_id], "user");
 		}
 		
 		if ($update){
