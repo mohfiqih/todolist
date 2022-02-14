@@ -65,6 +65,7 @@
                               </div>
                          </div>
 
+
                          <div class="col-md-8">
                               <div class="card">
                                    <div class="card-body">
@@ -116,11 +117,12 @@
                               <!-- </form> -->
                          </div>
                     </div>
+                    <?php }} 
+                    else { ?>
+                    <td class="text-center" colspan="8">Tidak ada data</td>
+                    <?php } ?>
                </form>
           </div>
-          <?php }} 
-          else { ?>
-          <td class="text-center" colspan="8">Tidak ada data</td>
-          <?php } ?>
+          
      </div>
 </div>
