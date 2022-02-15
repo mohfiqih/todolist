@@ -14,14 +14,13 @@
 
                                         <center>
                                              <img width="210" height="210"
-                                                  src="<?php echo base_url().'assets/images/'.$this->user_foto; ?>" /><br />
+                                                  src="<?php echo base_url().'assets/images/'.$edit->user_foto; ?>" /><br />
                                         </center>
 
                                         <br />
                                         <div class="mb-2"><br />
                                              <label class="form-label">Foto Profil</label>
-                                             <input type="file" class="form-control" name="foto"
-                                                  value="<?php echo base_url().'assets/images/'.$this->user_foto;?>"><br />
+                                             <input type="file" class="form-control" name="file_foto" value=""><br />
                                         </div>
 
                                    </div>
@@ -34,13 +33,13 @@
                                         <div class="mb-2">
                                              <label class="form-label">Nama Lengkap</label>
                                              <input type="text" class="form-control" name="nama_lengkap"
-                                                  value="<?php echo $this->user_namalengkap; ?> ">
+                                                  value="<?php echo $this->user_namalengkap;?> ">
                                         </div>
-                                        <div class="mb-2">
+                                        <!-- <div class="mb-2">
                                              <label class="form-label">Username</label>
                                              <input type="text" class="form-control" name="username"
                                                   value="<?php echo $this->user_nama; ?> ">
-                                        </div>
+                                        </div> -->
                                         <div class="mb-2">
                                              <label class="form-label">Password Saat Ini</label>
                                              <input type="password" class="form-control" name="password_sekarang">
