@@ -58,7 +58,7 @@
                                         </div>
                                         <div class="form-floating mb-3">
                                              <input type="file" class="form-control" name="file_foto"
-                                                  value="<?php echo uri(2) == "edit" ? $edit->user_nama : ""; ?>"
+                                                  value="<?php echo uri(2) == "edit" ? $edit->user_foto : ""; ?>"
                                                   placeholder="Foto" autocomplete="off" required>
                                              <label>Foto</label>
                                         </div>

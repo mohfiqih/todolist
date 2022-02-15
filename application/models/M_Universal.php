@@ -41,8 +41,6 @@ class M_universal extends CI_Model
         return (count((array)$data) > 0) ? $data : false;
     }
 
-
-
     public function update($data, $where, $tabel)
     {
         $this->db->where($where);

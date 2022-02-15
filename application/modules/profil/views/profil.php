@@ -11,17 +11,19 @@
                          <div class="col-md-4">
                               <div class="card">
                                    <div class="card-body">
-                                        
+
                                         <center>
                                              <img width="210" height="210"
-                                                  src="<?php echo base_url().'assets/images/'.$this->user_foto;?>" /><br />
+                                                  src="<?php echo base_url().'assets/images/'.$this->user_foto; ?>" /><br />
                                         </center>
-                                        
+
                                         <br />
                                         <div class="mb-2"><br />
                                              <label class="form-label">Foto Profil</label>
-                                             <input type="file" class="form-control" name="foto" value=""><br />
+                                             <input type="file" class="form-control" name="foto"
+                                                  value="<?php echo base_url().'assets/images/'.$this->user_foto;?>"><br />
                                         </div>
+
                                    </div>
                               </div>
                          </div>

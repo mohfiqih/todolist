@@ -18,7 +18,7 @@ class Profil extends MY_Controller {
 			"breadcrumb"	=> "User|Profil",
 			"view"		=> "profil",
 			"edit"		=> $this->M_Universal->getOne(["user_id" => $this->user_id], "user"),
-			"data_join"	=> $this->M_Universal->getMulti(NULL, "user"),
+			// "data_join"	=> $this->M_Universal->getMulti(NULL, "user"),
 		);
 		
 		$this->load->view('template', $data);
@@ -35,22 +35,23 @@ class Profil extends MY_Controller {
 	    // $config['encrypt_name'] = TRUE; //nama yang terupload nantinya
 
 		// $this->upload->initialize($config);
+		if ($_FILES['name']['foto'] = '') {
+			$user_foto = NULL;
+		} else {
+			$config['upload_path'] = 'upload/images/';
+			$config['allowed_types'] = 'jpg|png';
+			$config['encrypt_name'] = TRUE;
 
+			$this->load->library('upload', $config);
+			if (!$this->upload->do_upload('foto')) {
+				var_dump ($this->upload->display_errors());
+				die();
+			} else {
+				$user_foto = $this->upload->data('file_name');
+			}
+		}
 		if ($this->input->post('password_sekarang')){
-			// $foto = $_FILES['foto'];
-			// if ($foto = '') {
-			// } else {
-			// 	$config['upload_path'] = './assets/foto';
-			// 	$config['allowed_types'] = 'jpg|png';
-	
-			// 	$this->load->library('upload', $config);
-			// 	if (!$this->upload->do_upload('foto')) {
-			// 		echo "Uploade Gagal";
-			// 		die();
-			// 	} else {
-			// 		$foto = $this->upload->data('file_name');
-			// 	}
-			// }
+			
 			
 			$passlama		= addslashes($this->input->post('password_sekarang'));
 			$passbaru1		= addslashes($this->input->post('password_baru_1'));
@@ -61,10 +62,11 @@ class Profil extends MY_Controller {
 				if (password_verify($passbaru1, $passbaru2)){
 					
 					$data = array(
-						// "foto"				=> $foto,
+						"user_foto"			=> $user_foto,
 						"user_namalengkap"		=> $namalengkap,
 						"user_nama"			=> $username,
 						"user_password"		=> $passbaru2,
+						"add_by"				=> $user_nama
 					);
 					
 					$update = $this->M_Universal->update($data, ["user_id" => $user_id], "user");
@@ -79,7 +81,9 @@ class Profil extends MY_Controller {
 		} else {
 			$data = array(
 				"user_namalengkap"	=> $namalengkap,
-				"user_nama"			=> $username,
+				"user_nama"		=> $username,
+				"user_foto"		=> $user_foto,
+				"add_by"			=> $user_nama
 			);
 			$update = $this->M_Universal->update($data, ["user_id" => $user_id], "user");
 		}
@@ -87,10 +91,12 @@ class Profil extends MY_Controller {
 		if ($update){
 			$session = array(
 				'is_logged_in'		=> $this->login,
-				'user_nama'			=> $this->user_nama,
+				'user_nama'		=> $this->user_nama,
 				'user_level'		=> $this->user_level,
 				'user_id'			=> $this->user_id,
-				'user_namalengkap'	=> $namalengkap
+				'user_foto'		=> $user_foto,
+				'user_namalengkap'	=> $namalengkap,
+				"add_by"			=> $user_nama
 			);
 			
 			$this->session->set_userdata("log_admin", $session);
