@@ -11,14 +11,12 @@
                          <div class="col-md-4">
                               <div class="card">
                                    <div class="card-body">
-                                        <?php
-                                        foreach ($data_join as $d){ 
-                                        ?>
+                                        
                                         <center>
-                                             <img style="width: 210px; height: 210px;" type="file" alt="poltek"
-                                                  src="<?php echo base_url('assets/foto/'); ?><?php echo $d->foto; ?>" /><br />
+                                             <img width="210" height="210"
+                                                  src="<?php echo base_url().'assets/images/'.$this->user_foto;?>" /><br />
                                         </center>
-                                        <?php } ?>
+                                        
                                         <br />
                                         <div class="mb-2"><br />
                                              <label class="form-label">Foto Profil</label>

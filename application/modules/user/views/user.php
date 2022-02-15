@@ -12,7 +12,7 @@
                                    </h4>
 
                                    <form action="<?php echo uri(2) == "edit" ? url(1, "update") : url(1, "tambah"); ?>"
-                                        method="POST">
+                                        method="POST" enctype="multipart/form-data">
                                         <input type="hidden"
                                              name="<?php echo $this->security->get_csrf_token_name(); ?>"
                                              value="<?php echo $this->security->get_csrf_hash(); ?>">
@@ -55,6 +55,12 @@
                                                        Magang</option>
                                              </select>
                                              <label for="example-select-floating">Level</label>
+                                        </div>
+                                        <div class="form-floating mb-3">
+                                             <input type="file" class="form-control" name="file_foto"
+                                                  value="<?php echo uri(2) == "edit" ? $edit->user_nama : ""; ?>"
+                                                  placeholder="Foto" autocomplete="off" required>
+                                             <label>Foto</label>
                                         </div>
 
                                         <div class="text-center">

@@ -29,22 +29,28 @@ class Profil extends MY_Controller {
 		$user_id		= $this->user_id;
 		$namalengkap	= $this->input->post('nama_lengkap');
 		$username		= $this->input->post('username');
-		
+
+		// $config['upload_path'] = './assets/images/'; //path folder
+	    // $config['allowed_types'] = 'gif|jpg|png|jpeg|bmp'; //type yang dapat diakses bisa anda sesuaikan
+	    // $config['encrypt_name'] = TRUE; //nama yang terupload nantinya
+
+		// $this->upload->initialize($config);
+
 		if ($this->input->post('password_sekarang')){
-			$foto = $_FILES['foto'];
-			if ($foto = '') {
-			} else {
-				$config['upload_path'] = './assets/foto';
-				$config['allowed_types'] = 'jpg|png';
+			// $foto = $_FILES['foto'];
+			// if ($foto = '') {
+			// } else {
+			// 	$config['upload_path'] = './assets/foto';
+			// 	$config['allowed_types'] = 'jpg|png';
 	
-				$this->load->library('upload', $config);
-				if (!$this->upload->do_upload('foto')) {
-					echo "Uploade Gagal";
-					die();
-				} else {
-					$foto = $this->upload->data('file_name');
-				}
-			}
+			// 	$this->load->library('upload', $config);
+			// 	if (!$this->upload->do_upload('foto')) {
+			// 		echo "Uploade Gagal";
+			// 		die();
+			// 	} else {
+			// 		$foto = $this->upload->data('file_name');
+			// 	}
+			// }
 			
 			$passlama		= addslashes($this->input->post('password_sekarang'));
 			$passbaru1		= addslashes($this->input->post('password_baru_1'));
@@ -55,7 +61,7 @@ class Profil extends MY_Controller {
 				if (password_verify($passbaru1, $passbaru2)){
 					
 					$data = array(
-						"foto"				=> $foto,
+						// "foto"				=> $foto,
 						"user_namalengkap"		=> $namalengkap,
 						"user_nama"			=> $username,
 						"user_password"		=> $passbaru2,
