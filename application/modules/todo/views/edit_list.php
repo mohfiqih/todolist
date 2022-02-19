@@ -39,9 +39,9 @@
                                                   <label for="example-select-floating">Nama</label>
                                              </div>
                                              <div class="form-floating mb-3">
-                                                  <input value="<?php echo uri(2) == "edit" ? ($d->task) : ""; ?>"
-                                                       type="text" class="form-control" name="pekerjaan"
-                                                       placeholder="Pekerjaan" autocomplete="off" required>
+                                                  <textarea value="" type="text" class="form-control" name="pekerjaan"
+                                                       placeholder="Pekerjaan" required style="height: 116px;"><?php echo uri(2) == "edit" ? ($d->task) : ""; ?>
+                                                  </textarea>
                                                   <label>Pekerjaan</label>
                                              </div>
                                              <div class="form-floating mb-3">
@@ -123,6 +123,6 @@
                     <?php } ?>
                </form>
           </div>
-          
+
      </div>
 </div>

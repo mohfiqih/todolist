@@ -55,15 +55,6 @@ class Profil extends MY_Controller {
 	                        $this->image_lib->resize();
 
 	                        $gambar=$gbr['file_name'];
-	                        // $kode=$this->input->post('kode');
-	                        // $nama=$this->input->post('xnama');
-	                		// $jenkel=$this->input->post('xjenkel');
-	                		// $username=$this->input->post('xusername');
-	                		// $password=$this->input->post('xpassword');
-                    		// $konfirm_password=$this->input->post('xpassword2');
-                    		// $email=$this->input->post('xemail');
-                    		// $nohp=$this->input->post('xkontak');
-							// $level=$this->input->post('xlevel');
 
 							//update username, pass, dan gambar
 							if ($this->input->post('password_sekarang')){	

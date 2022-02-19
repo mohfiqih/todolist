@@ -84,4 +84,18 @@ class Dasbor extends MY_Controller {
 	{
         $this->load->view('template', $this->meta());
 	}
+
+	public function acc() 
+	{
+		$data = array(
+			"judul"		=> "Halaman Check",
+			"keterangan"	=> "Contoh Keterangan",
+			"halaman"		=> "acc",
+			"view"		=> "acc",
+			// "data_check"	=> $this->todo->getMulti(["id" => dekrip(uri(3))], "todo"),
+			// "data_user"	=> $this->M_Universal->getMulti('', "user")
+		);
+					
+		$this->load->view('template', $data);
+	}
 }

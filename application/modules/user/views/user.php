@@ -56,12 +56,12 @@
                                              </select>
                                              <label for="example-select-floating">Level</label>
                                         </div>
-                                        <div class="form-floating mb-3">
+                                        <!-- <div class="form-floating mb-3">
                                              <input type="file" class="form-control" name="file_foto"
                                                   value="<?php echo uri(2) == "edit" ? $edit->user_foto : ""; ?>"
                                                   placeholder="Foto" autocomplete="off" required>
                                              <label>Foto</label>
-                                        </div>
+                                        </div> -->
 
                                         <div class="text-center">
                                              <button type="submit"
