@@ -27,9 +27,8 @@
                                              <label for="example-select-floating">Nama</label>
                                         </div>
                                         <div class="form-floating mb-3">
-                                             <textarea type="text" class="form-control" name="pekerjaan"
-                                                  placeholder="Pekerjaan" autocomplete="off" required rows="0" cols="38"
-                                                  style="height: 116px;">
+                                             <textarea class="form-control" name="pekerjaan"
+                                                  placeholder="Pekerjaan" autocomplete="off" rows="15">
                                                   </textarea>
                                              <label>Pekerjaan</label>
                                         </div>

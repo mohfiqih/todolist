@@ -16,7 +16,7 @@ class Todo extends MY_Controller {
 
     private function meta()
 	{
-		if ($this->user_level == "Ka. Bag" or $this->user_level == "Sub Bag") {
+		if ($this->user_level == "Ka. Bag") {
 			$level = $this->user_level;
 
         	$data = array(
@@ -30,16 +30,33 @@ class Todo extends MY_Controller {
 			);
 		
 			return $data;
-		} else {
-			
-			$namalengkap = $this->user_namalengkap;
+		}
+		if($this->user_level == "Sub Bag"){
+			$level = $this->user_level;
+			$where = $this->user_nama;
+
         	$data = array(
 			"judul"		=> "Data Pekerjaan",
 			"keterangan"	=> "Manajemen Pengguna",
 			"halaman"		=> "data_kerjaan",
 			"breadcrumb"	=> "Master Data|User",
 			"view"		=> "todolist",
-			"data_todo"	=> $this->todo->get_todo($namalengkap, NULL),
+			"data_todo"	=> $this->todo->get_todo($where, $level),
+			"jml_todo"	=> $this->todo->total_todo("", "todo"),
+			);
+
+			return $data;
+		}
+		else {
+			
+			$where = $this->user_nama;
+        	$data = array(
+			"judul"		=> "Data Pekerjaan",
+			"keterangan"	=> "Manajemen Pengguna",
+			"halaman"		=> "data_kerjaan",
+			"breadcrumb"	=> "Master Data|User",
+			"view"		=> "todolist",
+			"data_todo"	=> $this->todo->get_todo($where, NULL),
 			"jml_todo"	=> $this->todo->total_todo("", "todo"),
 			);
 		
@@ -69,13 +86,14 @@ class Todo extends MY_Controller {
 
 	public function cek()
 	{
+		$where = $this->user_nama;
         $data = array(
 			"judul"		=> "Halaman Check",
 			"keterangan"	=> "Contoh Keterangan",
 			"halaman"		=> "check",
 			"view"		=> "check",
 			"data_check"	=> $this->todo->getMulti(["id" => dekrip(uri(3))], "todo"),
-			"data_user"	=> $this->M_Universal->getMulti('', "user")
+			"data_user"	=> $this->M_Universal->getMulti($where, "user")
 		);
 					
 		$this->load->view('template', $data);
@@ -122,12 +140,13 @@ class Todo extends MY_Controller {
 
 	public function edit() 
 	{
+		$where = $this->user_nama;
 		$data = array(
 			"judul"		=> "Halaman Edit",
 			"halaman"		=> "edit_list",
 			"view"		=> "edit_list",
 			"data_edit"	=> $this->todo->getMulti(["id" => dekrip(uri(3))], "todo"),
-			"data_user"	=> $this->M_Universal->getMulti('', "user")
+			"data_user"	=> $this->M_Universal->getMulti($where, "user")
 			// "data_user"	=> $this->M_Universal->getMulti(["id" => (uri(3))], "user"),
 		);
 		$this->load->view('template', $data);
