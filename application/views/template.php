@@ -219,7 +219,7 @@
                                    class="rounded-circle">
                               <span class="pro-user-name ms-1" value="<?php echo $this->user_nama; ?> ">
                                    <?php echo $this->user_nama; ?>
-                                   <i class="mdi mdi-chevron-down"></i>
+                                   <!-- <i class="mdi mdi-chevron-down"></i> -->
                               </span>
                          </a>
                          <div class="dropdown-menu dropdown-menu-end profile-dropdown ">

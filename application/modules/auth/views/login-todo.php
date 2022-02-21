@@ -16,6 +16,8 @@
      <meta property="og:url" content="https://oase.poltektegal.ac.id" />
      <meta property="og:image" content="https://oase.poltektegal.ac.id/assets/poltek.png" />
 
+     <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.min.css'>
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
      <link rel="stylesheet" type="text/css" href="assets/backend/css/login/bootstrap.min.css" />
      <link rel="stylesheet" type="text/css" href="assets/backend/css/login/fontawesome-all.min.css" />
      <link rel="stylesheet" type="text/css" href="assets/backend/css/login/style.css" />
@@ -68,9 +70,9 @@
                               </p>
 
                               <?php if ($this->session->flashdata('notifikasi')){ ?>
-                              <div class="alert alert-danger alert-dismissible fade show" style="color: #a94442;"
-                                   role="alert">
-                                   <!-- <button type="button" class="btn-close" data-bs-dismiss="alert"></button> -->
+                              <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                   <!-- <button type="button" class="btn-close" data-dismiss="alert"
+                                aria-label="close">&times;</button> -->
                                    <p class="mb-0"><?php echo $this->session->flashdata('notifikasi'); ?></p>
                               </div>
                               <?php } ?>

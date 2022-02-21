@@ -54,8 +54,8 @@
                                         </div>
                                         <div class="text-center">
                                              <button type="submit" class="btn btn-success">Update</button>
-                                             <a href="<?php echo base_url('dasbor'); ?>">
-                                                  <button type="submit" class="btn btn-danger">Kembali</button>
+                                             <a href="<?php echo base_url("dasbor"); ?>">
+                                                  <button type="button" class="btn btn-danger">Kembali</button>
                                              </a>
                                         </div>
                                    </div>
