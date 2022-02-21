@@ -7,6 +7,7 @@ class M_todo extends CI_Model
     {
         // $limit, $start
         if ($level == "Ka. Bag") {
+            
             $this->db->select('*');
             $this->db->from('todo');
             $this->db->join('user', 'user.user_id = todo.id_user','user.user_namalengkap');
@@ -16,12 +17,12 @@ class M_todo extends CI_Model
             return $query;
         }
         if($level == "Sub Bag"){
-            $this->db->select('*');
-            $this->db->from('todo');
-            $this->db->join('user', 'user.user_id = todo.id_user');
-            $this->db->where('user.add_by', $where);
-            $query = $this->db->get()->result();
-            return $query;
+            
+            $query = $this->db->query("SELECT *
+                               FROM todo join user on user.user_id = todo.id_user
+                               WHERE user.user_nama = '$where' or user.add_by = '$where'
+                               ORDER BY id ASC");
+            return $query->result();
         }
          else {
             $this->db->select('*');

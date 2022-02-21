@@ -41,8 +41,6 @@ class M_universal extends CI_Model
         return (count((array)$data) > 0) ? $data : false;
     }
 
-
-
     public function update($data, $where, $tabel)
     {
         $this->db->where($where);
@@ -87,17 +85,37 @@ class M_universal extends CI_Model
         return $this->db->get('user')->num_rows();
     }
 
-    function total_todo($username,$tabel)
+    function total_todo($level,$username)
     {
         
-        $this->db->select('*');
-        $this->db->from($tabel);
-        $this->db->join('user', 'user.user_id = todo.id_user','user.user_namalengkap');
-        if (!empty($username)) {
-            $this->db->where('user.user_nama',$username);
+        // $this->db->select('*');
+        // $this->db->from($tabel);
+        // $this->db->join('user', 'user.user_id = todo.id_user','user.user_namalengkap');
+        // if (!empty($username)) {
+        //     $this->db->where('user.user_nama',$username);
+        // }
+        // $data = $this->db->get()->result();
+        // return count((array)$data);
+
+        if($level == "Staf" or $level == "Magang"){
+            $query = $this->db->query("SELECT COUNT(id) as count_id
+                               FROM todo join user on user.user_id = todo.id_user
+                               WHERE user.user_nama = '$username' ");
+            return $query->row();
         }
-        $data = $this->db->get()->result();
-        return count((array)$data);
+        if($level == "Sub Bag"){
+            $query = $this->db->query("SELECT COUNT(id) as count_id
+                               FROM todo join user on user.user_id = todo.id_user
+                               WHERE user.user_nama = '$username' or user.add_by = '$username'");
+            return $query->row();
+        }
+        else{
+            $query = $this->db->query("SELECT COUNT(id) as count_id
+                               FROM todo");
+            return $query->row();
+        }
+
+        
     }
 
     public function total_acc($acc,$level,$username)
@@ -110,12 +128,12 @@ class M_universal extends CI_Model
                                WHERE user.user_nama = '$username' and checked = '$acc'");
             return $query->row();
         }
-        // if ($level == "Magang"){
-        //     $query = $this->db->query("SELECT COUNT(id) as count_id
-        //                        FROM todo join user on user.user_id = todo.id_user
-        //                        WHERE checked = '$acc'");
-        //     return $query->row();
-        // }
+        if ($level == "Sub Bag"){
+            $query = $this->db->query("SELECT COUNT(id) as count_id
+                               FROM todo join user on user.user_id = todo.id_user
+                               WHERE (user.user_nama = '$username' or user.add_by = '$username') and checked = '$acc' ");
+            return $query->row();
+        }
         else{
             $query = $this->db->query("SELECT COUNT(id) as count_id
                                FROM todo join user on user.user_id = todo.id_user
@@ -134,7 +152,14 @@ class M_universal extends CI_Model
                                WHERE user.user_nama = '$username' and checked = '$tolak'");
             return $query->row();
 
-        }else{
+        }
+        if ($level == "Sub Bag"){
+            $query = $this->db->query("SELECT COUNT(id) as count_id
+                               FROM todo join user on user.user_id = todo.id_user
+                               WHERE (user.user_nama = '$username' or user.add_by = '$username') and checked = '$tolak' ");
+            return $query->row();
+        }
+        else{
             $query = $this->db->query("SELECT COUNT(id) as count_id
                                FROM todo join user on user.user_id = todo.id_user
                                WHERE checked = '$tolak'");

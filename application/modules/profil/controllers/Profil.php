@@ -4,9 +4,10 @@ class Profil extends MY_Controller {
 	
     public function __construct()
     {
-        parent::__construct();
-		
+        	parent::__construct();
+	
 		$this->cek_login();
+
     }
 	
 	public function index()
@@ -18,7 +19,7 @@ class Profil extends MY_Controller {
 			"breadcrumb"	=> "User|Profil",
 			"view"		=> "profil",
 			"edit"		=> $this->M_Universal->getOne(["user_id" => $this->user_id], "user"),
-			
+			// "data_join"	=> $this->M_Universal->getMulti(NULL, "user"),
 		);
 		
 		$this->load->view('template', $data);
@@ -28,6 +29,7 @@ class Profil extends MY_Controller {
 	{
 		$user_id		= $this->user_id;
 		$namalengkap	= $this->input->post('nama_lengkap');
+		// $username		= $this->input->post('username');
 
 		$config['upload_path'] = './assets/images/'; //path folder
 		$config['allowed_types'] = 'gif|jpg|png|jpeg|bmp'; //type yang dapat diakses bisa anda sesuaikan
@@ -67,8 +69,10 @@ class Profil extends MY_Controller {
 										$data = array(
 											// "foto"				=> $foto,
 											"user_namalengkap"	=> $namalengkap,
+											// "user_nama"			=> $username,
 											"user_password"		=> $passbaru2,
 											"user_foto"			=> $gambar,
+											
 										);
 										
 										$update = $this->M_Universal->update($data, ["user_id" => $user_id], "user");
@@ -85,6 +89,7 @@ class Profil extends MY_Controller {
 							else {
 								$data = array(
 									"user_namalengkap"	=> $namalengkap,
+									// "user_nama"			=> $username,
 									"user_foto"			=> $gambar,
 								);
 								$update = $this->M_Universal->update($data, ["user_id" => $user_id], "user");
@@ -113,7 +118,8 @@ class Profil extends MY_Controller {
 	                }
 	                
 	            }else{
-	            	
+
+
 					   if ($this->input->post('password_sekarang')){	
 						$passlama		= addslashes($this->input->post('password_sekarang'));
 						$passbaru1		= addslashes($this->input->post('password_baru_1'));
@@ -126,6 +132,7 @@ class Profil extends MY_Controller {
 								$data = array(
 									// "foto"				=> $foto,
 									"user_namalengkap"	=> $namalengkap,
+									// "user_nama"			=> $username,
 									"user_password"		=> $passbaru2,
 								);
 								
@@ -143,6 +150,7 @@ class Profil extends MY_Controller {
 					else {
 						$data = array(
 							"user_namalengkap"	=> $namalengkap,
+							// "user_nama"			=> $username,
 						);
 						$update = $this->M_Universal->update($data, ["user_id" => $user_id], "user");
 					}

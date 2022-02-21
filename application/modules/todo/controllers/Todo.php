@@ -34,6 +34,7 @@ class Todo extends MY_Controller {
 		if($this->user_level == "Sub Bag"){
 			$level = $this->user_level;
 			$where = $this->user_nama;
+			$add_by = $this->user_nama;
 
         	$data = array(
 			"judul"		=> "Data Pekerjaan",
@@ -97,6 +98,89 @@ class Todo extends MY_Controller {
 		);
 					
 		$this->load->view('template', $data);
+	}
+
+	public function acc() 
+	{
+		if ($this->user_level == "Ka. Bag") {
+			$level = $this->user_level;
+
+        	$data = array(
+			"judul"		=> "Project Selesai",
+			// "keterangan"	=> "Manajemen Pengguna",
+			// "halaman"		=> "data_kerjaan",
+			// "breadcrumb"	=> "Master Data|User",
+			"view"		=> "acc",
+			"data_todo"	=> $this->todo->get_todo("ACC",NULL, $level),
+			// "jml_todo"	=> $this->todo->total_todo("", "todo"),
+			);
+		
+			$this->load->view('template', $data);
+		}
+		if($this->user_level == "Sub Bag"){
+			$username = $this->user_nama;
+			$level = $this->user_level;
+        	$data = array(
+			"judul"		=> "Project Selesai",
+			"keterangan"	=> "Manajemen Pengguna",
+			"halaman"		=> "data_kerjaan",
+			"breadcrumb"	=> "Master Data|User",
+			"view"		=> "acc",
+			"data_todo"	=> $this->todo->get_todo("ACC",$username, $level),
+			// "jml_todo"	=> $this->todo->total_todo("", "todo"),
+			);
+		
+			$this->load->view('template', $data);
+		} 
+		else {
+			
+			$username = $this->user_nama;
+			$level = $this->user_level;
+        	$data = array(
+			"judul"		=> "Project Selesai",
+			"keterangan"	=> "Manajemen Pengguna",
+			"halaman"		=> "data_kerjaan",
+			"breadcrumb"	=> "Master Data|User",
+			"view"		=> "acc",
+			"data_todo"	=> $this->todo->get_todo("ACC",$username,$level),
+			// "jml_todo"	=> $this->todo->total_todo("", "todo"),
+			);
+		
+			$this->load->view('template', $data);
+		}
+	}
+
+	public function belum() 
+	{
+		if ($this->user_level == "Ka. Bag" or $this->user_level == "Sub Bag") {
+			$level = $this->user_level;
+
+        	$data = array(
+			"judul"		=> "Project Pending",
+			// "keterangan"	=> "Manajemen Pengguna",
+			// "halaman"		=> "data_kerjaan",
+			// "breadcrumb"	=> "Master Data|User",
+			"view"		=> "acc",
+			"data_todo"	=> $this->todo->get_todo(NULL, $level),
+			// "jml_todo"	=> $this->todo->total_todo("", "todo"),
+			);
+		
+			$this->load->view('template', $data);
+		} else {
+			
+			$namalengkap = $this->user_namalengkap;
+        	$data = array(
+			"judul"		=> "Project Pending",
+			"keterangan"	=> "Manajemen Pengguna",
+			"halaman"		=> "data_kerjaan",
+			"breadcrumb"	=> "Master Data|User",
+			"view"		=> "acc",
+			"data_todo"	=> $this->todo->get_todo($namalengkap, NULL),
+			// "jml_todo"	=> $this->todo->total_todo("", "todo"),
+			);
+		
+			$this->load->view('template', $data);
+		}
 	}
 
 	public function checked()

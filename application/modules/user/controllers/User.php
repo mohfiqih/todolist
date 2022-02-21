@@ -40,70 +40,73 @@ class User extends MY_Controller {
 	public function tambah()
 	{
 		// $nama = $this->user_nama;
-		$config['upload_path'] = './assets/images/'; //path folder
-	    $config['allowed_types'] = 'gif|jpg|png|jpeg|bmp'; //type yang dapat diakses bisa anda sesuaikan
-	    $config['encrypt_name'] = TRUE; //nama yang terupload nantinya
+
+		$data = array(
+			//"user_id"			=> date("ymdHis"),
+			"user_nama"			=> $this->input->post("user_nama"),
+			"user_password"		=> password_hash($this->input->post("user_password"), PASSWORD_BCRYPT),
+			"user_namalengkap"	=> $this->input->post("user_namalengkap"),
+			"user_level"		=> $this->input->post("user_level"),
+			"add_by"			=> $this->user_nama
+			);
+				
+			$tambah = $this->M_Universal->insert($data, "user");
+				
+			if ($tambah){
+				notifikasi_redirect("success", "Tambah user berhasil", uri(1));
+			} else {
+				notifikasi_redirect("error", "Tambah user gagal", uri(1));
+			}
+
+
+	// 	$config['upload_path'] = './assets/images/'; //path folder
+	//     $config['allowed_types'] = 'gif|jpg|png|jpeg|bmp'; //type yang dapat diakses bisa anda sesuaikan
+	//     $config['encrypt_name'] = TRUE; //nama yang terupload nantinya
 	
-		$this->upload->initialize($config);
-		if(!empty($_FILES['file_foto']['name'])){
-			if($this->upload->do_upload('file_foto')){
+	// 	$this->upload->initialize($config);
+	// 	if(!empty($_FILES['file_foto']['name'])){
+	// 		if($this->upload->do_upload('file_foto')){
 
-				$gbr = $this->upload->data();
-	            //Compress Image
-	            $config['image_library']='gd2';
-	            $config['source_image']='./assets/images/'.$gbr['file_name'];
-	            $config['create_thumb']= FALSE;
-	            $config['maintain_ratio']= FALSE;
-	            $config['quality']= '60%';
-	            $config['width']= 300;
-	            $config['height']= 300;
-	            $config['new_image']= './assets/images/'.$gbr['file_name'];
-	            $this->load->library('image_lib', $config);
-	            $this->image_lib->resize();
+	// 			$gbr = $this->upload->data();
+	//             //Compress Image
+	//             $config['image_library']='gd2';
+	//             $config['source_image']='./assets/images/'.$gbr['file_name'];
+	//             $config['create_thumb']= FALSE;
+	//             $config['maintain_ratio']= FALSE;
+	//             $config['quality']= '60%';
+	//             $config['width']= 300;
+	//             $config['height']= 300;
+	//             $config['new_image']= './assets/images/'.$gbr['file_name'];
+	//             $this->load->library('image_lib', $config);
+	//             $this->image_lib->resize();
 
-				$gambar=$gbr['file_name'];
+	// 			$gambar=$gbr['file_name'];
 
-				$data = array(
-				//"user_id"			=> date("ymdHis"),
-				"user_nama"			=> $this->input->post("user_nama"),
-				"user_password"		=> password_hash($this->input->post("user_password"), PASSWORD_BCRYPT),
-				"user_namalengkap"	=> $this->input->post("user_namalengkap"),
-				"user_level"		=> $this->input->post("user_level"),
-				"user_foto"			=> $gambar,
-				"add_by"			=> $this->user_nama
-				);
-					
-				$tambah = $this->M_Universal->insert($data, "user");
-					
-				if ($tambah){
-					notifikasi_redirect("success", "Tambah user berhasil", uri(1));
-				} else {
-					notifikasi_redirect("error", "Tambah user gagal", uri(1));
-				}
-			}
-			else{
-				echo "error";
-			}
+				
+	// 		}
+	// 		else{
+	// 			echo "error";
+	// 		}
 			
-		}else{
-			// $data = array(
-			// 	//"user_id"			=> date("ymdHis"),
-			// 	"user_nama"			=> $this->input->post("user_nama"),
-			// 	"user_password"		=> password_hash($this->input->post("user_password"), PASSWORD_BCRYPT),
-			// 	"user_namalengkap"	=> $this->input->post("user_namalengkap"),
-			// 	"user_level"		=> $this->input->post("user_level"),
-			// 	"add_by"			=> $this->user_nama
-			// 	);
+	// 	}else{
+	// 		// $data = array(
+	// 		// 	//"user_id"			=> date("ymdHis"),
+	// 		// 	"user_nama"			=> $this->input->post("user_nama"),
+	// 		// 	"user_password"		=> password_hash($this->input->post("user_password"), PASSWORD_BCRYPT),
+	// 		// 	"user_namalengkap"	=> $this->input->post("user_namalengkap"),
+	// 		// 	"user_level"		=> $this->input->post("user_level"),
+	// 		// 	"add_by"			=> $this->user_nama
+	// 		// 	);
 				
-			// 	$tambah = $this->M_Universal->insert($data, "user");
+	// 		// 	$tambah = $this->M_Universal->insert($data, "user");
 				
-			// 	if ($tambah){
-			// 		notifikasi_redirect("success", "Tambah user berhasil", uri(1));
-			// 	} else {
-			// 		notifikasi_redirect("error", "Tambah user gagal", uri(1));
-			// 	}
-			echo "eror tanpa foto";
-		}
+	// 		// 	if ($tambah){
+	// 		// 		notifikasi_redirect("success", "Tambah user berhasil", uri(1));
+	// 		// 	} else {
+	// 		// 		notifikasi_redirect("error", "Tambah user gagal", uri(1));
+	// 		// 	}
+	// 		echo "eror tanpa foto";
+	// 	}
 
 
 		// $data = array(
