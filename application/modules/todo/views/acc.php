@@ -3,9 +3,9 @@
           <!-- Start Content-->
           <div class="container-fluid">
                <div class="card">
-                    <?php if ($this->user_level == "Ka. Bag"):?>
+                    <?php if ($this->user_level == "Ka. Bag" or $this->user_level == "Sub Bag"):?>
                     <div class="card-body" data-mdb-perfect-scrollbar="true" style="height: 490px;overflow: auto;">
-                         <table class="table table-hover mb-0">
+                         <table id="example" class="table table-hover mb-0">
                               <thead>
                                    <br />
                                    <tr>

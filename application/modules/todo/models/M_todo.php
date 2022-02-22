@@ -92,9 +92,7 @@ class M_todo extends CI_Model
     public function acc($checked,$username,$level)
     {
         if ($level == "Ka. Bag") {
-            // if (!empty($checked)) {
-            //     $this->db->where('checked',$checked);
-            // }
+            
             $this->db->select('*');
             $this->db->from('todo');
             $this->db->join('user', 'user.user_id = todo.id_user','user.user_namalengkap');
@@ -103,7 +101,39 @@ class M_todo extends CI_Model
             $query = $this->db->get()->result();
             return $query;
         }
-        if($level == "Sub Bag"){
+        else if($level == "Sub Bag"){
+            $query = $this->db->query("SELECT *
+                               FROM todo join user on user.user_id = todo.id_user
+                               WHERE (user.user_nama = '$username' or user.add_by = '$username') and checked = '$checked' 
+                               ORDER BY id ASC");
+            return $query->result();
+
+        }
+        else {
+            
+                // $this->db->where('checked',$checked);
+                $query = $this->db->query("SELECT *
+                               FROM todo join user on user.user_id = todo.id_user
+                               WHERE user.user_nama = '$username' and checked = '$checked' ORDER BY id ASC");
+             return $query->result();
+            
+                       
+        }
+    }
+
+    public function belum($checked,$username,$level)
+    {
+        if ($level == "Ka. Bag") {
+            
+            $this->db->select('*');
+            $this->db->from('todo');
+            $this->db->join('user', 'user.user_id = todo.id_user','user.user_namalengkap');
+            $this->db->where('checked', $checked);
+            $this->db->order_by('id', 'asc');
+            $query = $this->db->get()->result();
+            return $query;
+        }
+        else if($level == "Sub Bag"){
             $query = $this->db->query("SELECT *
                                FROM todo join user on user.user_id = todo.id_user
                                WHERE (user.user_nama = '$username' or user.add_by = '$username') and checked = '$checked' 
