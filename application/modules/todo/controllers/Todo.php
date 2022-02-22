@@ -232,19 +232,4 @@ class Todo extends MY_Controller {
 			notifikasi_redirect("error", "Hapus data gagal", uri(1));
 		};
 	}
-
-	// public function search()
-	// {
-	// 	// $this->load->model('M_manajemen');
-	// 	$keyword = $this->input->get('keyword');
-	// 	// $data = $this->M_manajemen->ambil_data($keyword);
-	// 	$data = array(
-	// 		"keyword"			=> $keyword,
-	// 		"judul"			=> "Form Search",
-	// 		"halaman"			=> "todolist",
-	// 		"view"			=> "todolist",
-	// 		"data_todo"		=> $this->todo->ambil_data($keyword, "user"),
-	// 	);
-	// 	$this->load->view('template', $data);
-	// }
 }
