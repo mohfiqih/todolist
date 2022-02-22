@@ -85,29 +85,56 @@ class M_universal extends CI_Model
         return $this->db->get('user')->num_rows();
     }
 
-    function total_todo($namalengkap,$tabel)
+    function total_todo($level,$username)
     {
         
-        $this->db->select('*');
-        $this->db->from($tabel);
-        $this->db->join('user', 'user.user_id = todo.id_user','user.user_namalengkap');
-        if (!empty($namalengkap)) {
-            $this->db->where('user.user_namalengkap',$namalengkap);
+        // $this->db->select('*');
+        // $this->db->from($tabel);
+        // $this->db->join('user', 'user.user_id = todo.id_user','user.user_namalengkap');
+        // if (!empty($username)) {
+        //     $this->db->where('user.user_nama',$username);
+        // }
+        // $data = $this->db->get()->result();
+        // return count((array)$data);
+
+        if($level == "Staf" or $level == "Magang"){
+            $query = $this->db->query("SELECT COUNT(id) as count_id
+                               FROM todo join user on user.user_id = todo.id_user
+                               WHERE user.user_nama = '$username' ");
+            return $query->row();
         }
-        $data = $this->db->get()->result();
-        return count((array)$data);
+        if($level == "Sub Bag"){
+            $query = $this->db->query("SELECT COUNT(id) as count_id
+                               FROM todo join user on user.user_id = todo.id_user
+                               WHERE user.user_nama = '$username' or user.add_by = '$username'");
+            return $query->row();
+        }
+        else{
+            $query = $this->db->query("SELECT COUNT(id) as count_id
+                               FROM todo");
+            return $query->row();
+        }
+
+        
     }
 
-    public function total_acc($acc,$level,$namalengkap)
+    public function total_acc($acc,$level,$username)
     {
 
         if ($level == "Staf" or $level == "Magang") {
 
             $query = $this->db->query("SELECT COUNT(id) as count_id
                                FROM todo join user on user.user_id = todo.id_user
-                               WHERE user.user_namalengkap = '$namalengkap' and checked = '$acc'");
+                               WHERE user.user_nama = '$username' and checked = '$acc'");
             return $query->row();
-        }else{
+        }
+        if ($level == "Sub Bag"){
+            $query = $this->db->query("SELECT COUNT(id) as count_id
+                               FROM todo join user on user.user_id = todo.id_user
+                               WHERE (user.user_nama = '$username' or user.add_by = '$username') and checked = '$acc' ");
+            return $query->row();
+        }
+        else{
             $query = $this->db->query("SELECT COUNT(id) as count_id
                                FROM todo join user on user.user_id = todo.id_user
                                WHERE checked = '$acc'");
@@ -115,17 +142,24 @@ class M_universal extends CI_Model
         }
     }
 
-    public function total_tolak($tolak,$level,$namalengkap)
+    public function total_tolak($tolak,$level,$username)
     {
 
         if ($level == "Staf" or $level == "Magang") {
         
             $query = $this->db->query("SELECT COUNT(id) as count_id
                                FROM todo join user on user.user_id = todo.id_user
-                               WHERE user.user_namalengkap = '$namalengkap' and checked = '$tolak'");
+                               WHERE user.user_nama = '$username' and checked = '$tolak'");
             return $query->row();
 
-        }else{
+        }
+        if ($level == "Sub Bag"){
+            $query = $this->db->query("SELECT COUNT(id) as count_id
+                               FROM todo join user on user.user_id = todo.id_user
+                               WHERE (user.user_nama = '$username' or user.add_by = '$username') and checked = '$tolak' ");
+            return $query->row();
+        }
+        else{
             $query = $this->db->query("SELECT COUNT(id) as count_id
                                FROM todo join user on user.user_id = todo.id_user
                                WHERE checked = '$tolak'");

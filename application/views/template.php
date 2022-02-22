@@ -87,6 +87,7 @@
 
      <!-- icons -->
      <link href="<?php echo base_url('assets/backend'); ?>/css/icons.min.css" rel="stylesheet" type="text/css" />
+
 </head>
 
 
@@ -214,7 +215,7 @@
                          <a class="nav-link dropdown-toggle nav-user me-0 waves-effect waves-light"
                               data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false"
                               aria-expanded="false">
-                              <img src="<?php echo base_url('assets/backend'); ?>/images/phb.png" alt="user-image"
+                              <img src="<?php echo base_url().'assets/images/'.$this->user_foto;?>" alt="user-image"
                                    class="rounded-circle">
                               <span class="pro-user-name ms-1" value="<?php echo $this->user_nama; ?> ">
                                    <?php echo $this->user_nama; ?>
@@ -437,6 +438,13 @@
           <!-- end Footer -->
      </div>
      <!-- END wrapper -->
+
+     <!-- tinymce
+     <script src="<?php echo base_url('assets/tinymce'); ?>/js/tinymce/tinymce.min.js"></script>
+
+     <script type='text/javascript'> 
+     tinymce.init({ selector:'textarea', menubar:'', theme: 'modern'});
+     </script> -->
 
      <!-- Vendor js -->
      <script src="<?php echo base_url('assets/backend'); ?>/js/vendor.min.js"></script>

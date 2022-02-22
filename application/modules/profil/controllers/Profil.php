@@ -60,7 +60,7 @@ class Profil extends MY_Controller {
 							if ($this->input->post('password_sekarang')){	
 								$passlama		= addslashes($this->input->post('password_sekarang'));
 								$passbaru1		= addslashes($this->input->post('password_baru_1'));
-								$passbaru2		= password_hash(addslashes($this->input->post('password_baru_2')), PASSWORD_DEFAULT);
+								$passbaru2 		= password_hash(addslashes($this->input->post('password_baru_2')), PASSWORD_DEFAULT);
 								
 								$cek = $this->db->query("SELECT user_password FROM user WHERE user_id='$user_id'");
 								if (password_verify($passlama, $cek->row('user_password'))){
@@ -111,7 +111,6 @@ class Profil extends MY_Controller {
 							} else {
 								notifikasi_redirect("error", "Update profil gagal", $_SERVER['HTTP_REFERER']);
 							}
-
 	                    
 	                }else{
 	                    echo $this->session->set_flashdata('msg','warning');

@@ -42,28 +42,54 @@ class Dasbor extends MY_Controller {
 	{
 		if ($this->user_level == "Staf" or $this->user_level == "Magang") {
 			$level = $this->user_level;
-			$namalengkap = $this->user_namalengkap;
+			$username = $this->user_nama;
 
-			$count_acc = $this->M_Universal->total_acc("ACC",$level,$namalengkap);
-			$count_tolak = $this->M_Universal->total_tolak("Tolak",$level,$namalengkap);
+			$count_acc = $this->M_Universal->total_acc("ACC",$level,$username);
+			$count_tolak = $this->M_Universal->total_tolak("Tolak",$level,$username);
+			$count_todo = $this->M_Universal->total_todo($level,$username);
 
         	$data = array(
-				"judul"		=> "Dashboard",
+				"judul"			=> "Dashboard",
 				"keterangan"	=> "Contoh Keterangan",
 				"halaman"		=> "dasbor",
-				"view"		=> "dasbor",
-				"jml_user"	=> $this->M_Universal->total_user("", "user"),
-				"jml_todo"	=> $this->M_Universal->total_todo($namalengkap,"todo"),
+				"view"			=> "dasbor",
+				"jml_user"		=> $this->M_Universal->total_user("", "user"),
+				"jml_todo"		=> $count_todo->count_id,
 				"jml_acc"		=> $count_acc->count_id,
-				"jml_tolak"	=> $count_tolak->count_id,
+				"jml_tolak"		=> $count_tolak->count_id,
 			);
 
 			return $data;
-		} else{
+		}  
+		if($this->user_level == "Sub Bag"){
 			$level = $this->user_level;
+			$username = $this->user_nama;
+
+			$count_acc = $this->M_Universal->total_acc("ACC",$level,$username);
+			$count_tolak = $this->M_Universal->total_tolak("Tolak",$level,$username);
+			$count_todo = $this->M_Universal->total_todo($level,$username);
+
+        	$data = array(
+				"judul"			=> "Dashboard",
+				"keterangan"	=> "Contoh Keterangan",
+				"halaman"		=> "dasbor",
+				"view"			=> "dasbor",
+				"jml_user"		=> $this->M_Universal->total_user("", "user"),
+				"jml_todo"		=> $count_todo->count_id,
+				"jml_acc"		=> $count_acc->count_id,
+				"jml_tolak"		=> $count_tolak->count_id,
+			);
+
+			return $data;
+		}
+		else{
+			$level = $this->user_level;
+
+			$username = $this->user_nama;
 
 			$count_acc = $this->M_Universal->total_acc("ACC",$level,NULL);
 			$count_tolak = $this->M_Universal->total_tolak("Tolak",$level,NULL);
+			$count_todo = $this->M_Universal->total_todo($level,NULL);
 
         	$data = array(
 				"judul"			=> "Dashboard",
@@ -71,7 +97,7 @@ class Dasbor extends MY_Controller {
 				"halaman"		=> "dasbor",
 				"view"			=> "dasbor",
 				"jml_user"	=> $this->M_Universal->total_user("", "user"),
-				"jml_todo"	=> $this->M_Universal->total_todo("", "todo"),
+				"jml_todo"	=> $count_todo->count_id,
 				"jml_acc"	=> $count_acc->count_id,
 				"jml_tolak"	=> $count_tolak->count_id
 			);
@@ -85,17 +111,6 @@ class Dasbor extends MY_Controller {
         $this->load->view('template', $this->meta());
 	}
 
-	public function acc() 
-	{
-		$data = array(
-			"judul"		=> "Halaman Check",
-			"keterangan"	=> "Contoh Keterangan",
-			"halaman"		=> "acc",
-			"view"		=> "acc",
-			// "data_check"	=> $this->todo->getMulti(["id" => dekrip(uri(3))], "todo"),
-			// "data_user"	=> $this->M_Universal->getMulti('', "user")
-		);
-					
-		$this->load->view('template', $data);
-	}
+	
+
 }
