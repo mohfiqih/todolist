@@ -107,11 +107,11 @@ class Todo extends MY_Controller {
 
         	$data = array(
 			"judul"		=> "Project Selesai",
-			// "keterangan"	=> "Manajemen Pengguna",
-			// "halaman"		=> "data_kerjaan",
-			// "breadcrumb"	=> "Master Data|User",
+			"keterangan"	=> "Manajemen Pengguna",
+			"halaman"		=> "data_kerjaan",
+			"breadcrumb"	=> "Master Data|User",
 			"view"		=> "acc",
-			"data_todo"	=> $this->todo->get_todo("ACC",NULL, $level),
+			"data_todo"	=> $this->todo->acc("ACC",NULL, $level),
 			// "jml_todo"	=> $this->todo->total_todo("", "todo"),
 			);
 		
@@ -126,7 +126,7 @@ class Todo extends MY_Controller {
 			"halaman"		=> "data_kerjaan",
 			"breadcrumb"	=> "Master Data|User",
 			"view"		=> "acc",
-			"data_todo"	=> $this->todo->get_todo("ACC",$username, $level),
+			"data_todo"	=> $this->todo->acc("ACC",$username, $level),
 			// "jml_todo"	=> $this->todo->total_todo("", "todo"),
 			);
 		
@@ -142,7 +142,7 @@ class Todo extends MY_Controller {
 			"halaman"		=> "data_kerjaan",
 			"breadcrumb"	=> "Master Data|User",
 			"view"		=> "acc",
-			"data_todo"	=> $this->todo->get_todo("ACC",$username,$level),
+			"data_todo"	=> $this->todo->acc("ACC",$username,$level),
 			// "jml_todo"	=> $this->todo->total_todo("", "todo"),
 			);
 		
