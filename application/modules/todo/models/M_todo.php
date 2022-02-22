@@ -16,7 +16,7 @@ class M_todo extends CI_Model
             $query = $this->db->get()->result();
             return $query;
         }
-        if($level == "Sub Bag"){
+        elseif($level == "Sub Bag"){
             
             $query = $this->db->query("SELECT *
                                FROM todo join user on user.user_id = todo.id_user

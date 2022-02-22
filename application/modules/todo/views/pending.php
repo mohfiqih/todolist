@@ -98,7 +98,7 @@
                                         </h5>
                                         <?php endif; ?>
                                    </td>
-                                   <td class="align-middle" style="text-align: center; width: 50px;">
+                                   <td class="align-middle" style="text-align: center, width: 50px;">
                                         <a href="<?php echo url(2) .'cek/'. enkrip($d->id); ?>"
                                              data-mdb-toggle="tooltip" title="Done"><i
                                                   class="fas fa-check text-success me-3"></i></a>
@@ -119,9 +119,8 @@
                               </tbody>
                          </table><br />
                     </div>
-
-
                     <?php else: ?>
+
                     <!-- Level 3 dan 4 -->
                     <div class="card-body" data-mdb-perfect-scrollbar="true" style="height: 490px;overflow: auto;">
                          <table id="example" class="table table-hover mb-0">
@@ -217,7 +216,7 @@
                                         </h5>
                                         <?php endif; ?>
                                    </td>
-                                   <td class="align-middle" style="text-align: center; width: 50px;">
+                                   <td class="align-middle" style="text-align: center, width: 50px;">
                                         <a href="<?php echo url(2) .'cek/'. enkrip($d->id); ?>"
                                              data-mdb-toggle="tooltip" title="Done"><i
                                                   class="fas fa-check text-success me-3"></i></a>

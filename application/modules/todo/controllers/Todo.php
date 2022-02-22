@@ -103,47 +103,46 @@ class Todo extends MY_Controller {
 	public function acc() 
 	{
 		if ($this->user_level == "Ka. Bag") {
+			$username = $this->user_nama;
 			$level = $this->user_level;
 
-        	$data = array(
-			"judul"		=> "Project Selesai",
-			"keterangan"	=> "Manajemen Pengguna",
-			"halaman"		=> "data_kerjaan",
-			"breadcrumb"	=> "Master Data|User",
-			"view"		=> "acc",
-			"data_todo"	=> $this->todo->acc("ACC",NULL, $level),
-			// "jml_todo"	=> $this->todo->total_todo("", "todo"),
+        		$data = array(
+				"judul"		=> "Project Selesai",
+				"keterangan"	=> "Manajemen Pengguna",
+				"halaman"		=> "data_kerjaan",
+				"breadcrumb"	=> "Master Data|User",
+				"view"		=> "acc",
+				"data_todo"	=> $this->todo->acc("ACC",NULL, $level),
+				// "jml_todo"	=> $this->todo->total_todo("", "todo"),
 			);
 		
 			$this->load->view('template', $data);
-		}
-		if($this->user_level == "Sub Bag"){
+		} else if($this->user_level == "Sub Bag"){
 			$username = $this->user_nama;
 			$level = $this->user_level;
-        	$data = array(
-			"judul"		=> "Project Selesai",
-			"keterangan"	=> "Manajemen Pengguna",
-			"halaman"		=> "data_kerjaan",
-			"breadcrumb"	=> "Master Data|User",
-			"view"		=> "acc",
-			"data_todo"	=> $this->todo->acc("ACC",$username, $level),
-			// "jml_todo"	=> $this->todo->total_todo("", "todo"),
+			$data = array(
+				"judul"		=> "Project Selesai",
+				"keterangan"	=> "Manajemen Pengguna",
+				"halaman"		=> "data_kerjaan",
+				"breadcrumb"	=> "Master Data|User",
+				"view"		=> "acc",
+				"data_todo"	=> $this->todo->acc("ACC",$username, $level),
+				// "jml_todo"	=> $this->todo->total_todo("", "todo"),
 			);
 		
 			$this->load->view('template', $data);
 		} 
 		else {
-			
 			$username = $this->user_nama;
 			$level = $this->user_level;
-        	$data = array(
-			"judul"		=> "Project Selesai",
-			"keterangan"	=> "Manajemen Pengguna",
-			"halaman"		=> "data_kerjaan",
-			"breadcrumb"	=> "Master Data|User",
-			"view"		=> "acc",
-			"data_todo"	=> $this->todo->acc("ACC",$username,$level),
-			// "jml_todo"	=> $this->todo->total_todo("", "todo"),
+			$data = array(
+				"judul"		=> "Project Selesai",
+				"keterangan"	=> "Manajemen Pengguna",
+				"halaman"		=> "data_kerjaan",
+				"breadcrumb"	=> "Master Data|User",
+				"view"		=> "acc",
+				"data_todo"	=> $this->todo->acc("ACC",$username,$level),
+				// "jml_todo"	=> $this->todo->total_todo("", "todo"),
 			);
 		
 			$this->load->view('template', $data);
@@ -156,7 +155,7 @@ class Todo extends MY_Controller {
 			$level = $this->user_level;
 
         	$data = array(
-			"judul"		=> "Project Pending",
+			"judul"		=> "Project Belum",
 			// "keterangan"	=> "Manajemen Pengguna",
 			// "halaman"		=> "data_kerjaan",
 			// "breadcrumb"	=> "Master Data|User",
@@ -170,7 +169,40 @@ class Todo extends MY_Controller {
 			
 			$namalengkap = $this->user_namalengkap;
         	$data = array(
-			"judul"		=> "Project Pending",
+			"judul"		=> "Project Belum",
+			"keterangan"	=> "Manajemen Pengguna",
+			"halaman"		=> "data_kerjaan",
+			"breadcrumb"	=> "Master Data|User",
+			"view"		=> "acc",
+			"data_todo"	=> $this->todo->get_todo($namalengkap, NULL),
+			// "jml_todo"	=> $this->todo->total_todo("", "todo"),
+			);
+		
+			$this->load->view('template', $data);
+		}
+	}
+
+	public function pending() 
+	{
+		if ($this->user_level == "Ka. Bag" or $this->user_level == "Sub Bag") {
+			$level = $this->user_level;
+
+        	$data = array(
+			"judul"		=> "Project Belum",
+			// "keterangan"	=> "Manajemen Pengguna",
+			// "halaman"		=> "data_kerjaan",
+			// "breadcrumb"	=> "Master Data|User",
+			"view"		=> "acc",
+			"data_todo"	=> $this->todo->get_todo(NULL, $level),
+			// "jml_todo"	=> $this->todo->total_todo("", "todo"),
+			);
+		
+			$this->load->view('template', $data);
+		} else {
+			
+			$namalengkap = $this->user_namalengkap;
+        	$data = array(
+			"judul"		=> "Project Belum",
 			"keterangan"	=> "Manajemen Pengguna",
 			"halaman"		=> "data_kerjaan",
 			"breadcrumb"	=> "Master Data|User",

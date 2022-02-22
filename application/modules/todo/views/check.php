@@ -44,8 +44,8 @@
                                                   <option value="Belum"
                                                        <?php if (uri(1) == "checked") echo $d->ceked == "Belum" ? "selected" : ""; ?>>
                                                        Belum</option>
-                                                  <option value="Tolak"
-                                                       <?php if (uri(1) == "checked") echo $d->ceked == "Tolak" ? "selected" : ""; ?>>
+                                                  <option value="Pending"
+                                                       <?php if (uri(1) == "checked") echo $d->ceked == "Pending" ? "selected" : ""; ?>>
                                                        Tolak</option>
                                              </select>
                                              <label for="example-select-floating">Check</label>
