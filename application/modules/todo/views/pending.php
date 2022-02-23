@@ -119,9 +119,8 @@
                               </tbody>
                          </table><br />
                     </div>
-
-
                     <?php else: ?>
+
                     <!-- Level 3 dan 4 -->
                     <div class="card-body" data-mdb-perfect-scrollbar="true" style="height: 490px;overflow: auto;">
                          <table id="example" class="table table-hover mb-0">

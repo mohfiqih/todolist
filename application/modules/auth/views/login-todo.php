@@ -16,8 +16,9 @@
      <meta property="og:url" content="https://oase.poltektegal.ac.id" />
      <meta property="og:image" content="https://oase.poltektegal.ac.id/assets/poltek.png" />
 
-     <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.min.css'>
-     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
+     <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"> -->
+
      <link rel="stylesheet" type="text/css" href="assets/backend/css/login/bootstrap.min.css" />
      <link rel="stylesheet" type="text/css" href="assets/backend/css/login/fontawesome-all.min.css" />
      <link rel="stylesheet" type="text/css" href="assets/backend/css/login/style.css" />
@@ -72,7 +73,7 @@
                               <?php if ($this->session->flashdata('notifikasi')){ ?>
                               <div class="alert alert-danger alert-dismissible fade show" role="alert">
                                    <!-- <button type="button" class="btn-close" data-dismiss="alert"
-                                aria-label="close">&times;</button> -->
+                                        aria-label="close">&times;</button> -->
                                    <p class="mb-0"><?php echo $this->session->flashdata('notifikasi'); ?></p>
                               </div>
                               <?php } ?>

@@ -103,47 +103,46 @@ class Todo extends MY_Controller {
 	public function acc() 
 	{
 		if ($this->user_level == "Ka. Bag") {
+			$username = $this->user_nama;
 			$level = $this->user_level;
 
         	$data = array(
-			"judul"		=> "Project Selesai",
-			"keterangan"	=> "Manajemen Pengguna",
-			"halaman"		=> "data_kerjaan",
-			"breadcrumb"	=> "Master Data|User",
-			"view"		=> "acc",
-			"data_todo"	=> $this->todo->acc("ACC",NULL, $level),
-			// "jml_todo"	=> $this->todo->total_todo("", "todo"),
+				"judul"		=> "Project Selesai",
+				"keterangan"	=> "Manajemen Pengguna",
+				"halaman"		=> "data_kerjaan",
+				"breadcrumb"	=> "Master Data|User",
+				"view"		=> "acc",
+				"data_todo"	=> $this->todo->lihat_status("ACC",NULL, $level),
+				// "jml_todo"	=> $this->todo->total_todo("", "todo"),
 			);
 		
 			$this->load->view('template', $data);
-		}
-		else if($this->user_level == "Sub Bag"){
+		} else if($this->user_level == "Sub Bag"){
 			$username = $this->user_nama;
 			$level = $this->user_level;
-        	$data = array(
-			"judul"		=> "Project Selesai",
-			"keterangan"	=> "Manajemen Pengguna",
-			"halaman"		=> "data_kerjaan",
-			"breadcrumb"	=> "Master Data|User",
-			"view"		=> "acc",
-			"data_todo"	=> $this->todo->acc("ACC",$username, $level),
-			// "jml_todo"	=> $this->todo->total_todo("", "todo"),
+			$data = array(
+				"judul"		=> "Project Selesai",
+				"keterangan"	=> "Manajemen Pengguna",
+				"halaman"		=> "data_kerjaan",
+				"breadcrumb"	=> "Master Data|User",
+				"view"		=> "acc",
+				"data_todo"	=> $this->todo->lihat_status("ACC",$username, $level),
+				// "jml_todo"	=> $this->todo->total_todo("", "todo"),
 			);
 		
 			$this->load->view('template', $data);
 		} 
 		else {
-			
 			$username = $this->user_nama;
 			$level = $this->user_level;
-        	$data = array(
-			"judul"		=> "Project Selesai",
-			"keterangan"	=> "Manajemen Pengguna",
-			"halaman"		=> "data_kerjaan",
-			"breadcrumb"	=> "Master Data|User",
-			"view"		=> "acc",
-			"data_todo"	=> $this->todo->acc("ACC",$username,$level),
-			// "jml_todo"	=> $this->todo->total_todo("", "todo"),
+			$data = array(
+				"judul"		=> "Project Selesai",
+				"keterangan"	=> "Manajemen Pengguna",
+				"halaman"		=> "data_kerjaan",
+				"breadcrumb"	=> "Master Data|User",
+				"view"		=> "acc",
+				"data_todo"	=> $this->todo->lihat_status("ACC",$username,$level),
+				// "jml_todo"	=> $this->todo->total_todo("", "todo"),
 			);
 		
 			$this->load->view('template', $data);
@@ -153,15 +152,64 @@ class Todo extends MY_Controller {
 	public function belum() 
 	{
 		if ($this->user_level == "Ka. Bag") {
+			$username = $this->user_nama;
 			$level = $this->user_level;
 
         	$data = array(
-			"judul"		=> "Project Selesai",
-			"keterangan"	=> "Manajemen Pengguna",
-			"halaman"		=> "data_kerjaan",
-			"breadcrumb"	=> "Master Data|User",
+				"judul"			=> "Project Belum Selesai",
+				"keterangan"	=> "Manajemen Pengguna",
+				"halaman"		=> "data_kerjaan",
+				"breadcrumb"	=> "Master Data|User",
+				"view"			=> "acc",
+				"data_todo"		=> $this->todo->lihat_status("Belum",NULL, $level),
+				// "jml_todo"	=> $this->todo->total_todo("", "todo"),
+			);
+		
+			$this->load->view('template', $data);
+		} else if($this->user_level == "Sub Bag"){
+			$username = $this->user_nama;
+			$level = $this->user_level;
+			$data = array(
+				"judul"			=> "Project Belum Selesai",
+				"keterangan"	=> "Manajemen Pengguna",
+				"halaman"		=> "data_kerjaan",
+				"breadcrumb"	=> "Master Data|User",
+				"view"			=> "acc",
+				"data_todo"		=> $this->todo->lihat_status("Belum",$username, $level),
+				// "jml_todo"	=> $this->todo->total_todo("", "todo"),
+			);
+		
+			$this->load->view('template', $data);
+		} 
+		else {
+			$username = $this->user_nama;
+			$level = $this->user_level;
+			$data = array(
+				"judul"			=> "Project Belum Selesai",
+				"keterangan"	=> "Manajemen Pengguna",
+				"halaman"		=> "data_kerjaan",
+				"breadcrumb"	=> "Master Data|User",
+				"view"			=> "acc",
+				"data_todo"		=> $this->todo->lihat_status("Belum",$username,$level),
+				// "jml_todo"	=> $this->todo->total_todo("", "todo"),
+			);
+		
+			$this->load->view('template', $data);
+		}
+	}
+
+	public function pending() 
+	{
+		if ($this->user_level == "Ka. Bag") {
+			$level = $this->user_level;
+
+        	$data = array(
+			"judul"		=> "Project Belum",
+			// "keterangan"	=> "Manajemen Pengguna",
+			// "halaman"		=> "data_kerjaan",
+			// "breadcrumb"	=> "Master Data|User",
 			"view"		=> "acc",
-			"data_todo"	=> $this->todo->belum("Tolak",NULL, $level),
+			"data_todo"	=> $this->todo->lihat_status("Tolak",NULL, $level),
 			// "jml_todo"	=> $this->todo->total_todo("", "todo"),
 			);
 		
@@ -176,7 +224,7 @@ class Todo extends MY_Controller {
 			"halaman"		=> "data_kerjaan",
 			"breadcrumb"	=> "Master Data|User",
 			"view"		=> "acc",
-			"data_todo"	=> $this->todo->belum("Tolak",$username, $level),
+			"data_todo"	=> $this->todo->lihat_status("Tolak",$username, $level),
 			// "jml_todo"	=> $this->todo->total_todo("", "todo"),
 			);
 		
@@ -187,12 +235,12 @@ class Todo extends MY_Controller {
 			$username = $this->user_nama;
 			$level = $this->user_level;
         	$data = array(
-			"judul"		=> "Project Selesai",
+			"judul"		=> "Project Belum",
 			"keterangan"	=> "Manajemen Pengguna",
 			"halaman"		=> "data_kerjaan",
 			"breadcrumb"	=> "Master Data|User",
 			"view"		=> "acc",
-			"data_todo"	=> $this->todo->belum("Tolak",$username,$level),
+			"data_todo"	=> $this->todo->lihat_status("Tolak",$username,$level),
 			// "jml_todo"	=> $this->todo->total_todo("", "todo"),
 			);
 		
@@ -258,11 +306,11 @@ class Todo extends MY_Controller {
 		$id	= dekrip($this->input->post("id"));
 		$data	= array(
 			"id_user"		=> dekrip($this->input->post("id_user")),
-			"task"		=> $this->input->post("pekerjaan"),
+			"task"			=> $this->input->post("pekerjaan"),
 			"date_created"	=> $this->input->post("tanggal"),
-			"mulai"	   	=> $this->input->post("jam_mulai"),
+			"mulai"	   		=> $this->input->post("jam_mulai"),
 			"selesai"		=> $this->input->post("jam_selesai"),
-			"level"		=> $this->input->post("user_level"),
+			"level"			=> $this->input->post("user_level"),
 			"status"		=> $this->input->post("progres"),
 			
 		);
@@ -286,19 +334,4 @@ class Todo extends MY_Controller {
 			notifikasi_redirect("error", "Hapus data gagal", uri(1));
 		};
 	}
-
-	// public function search()
-	// {
-	// 	// $this->load->model('M_manajemen');
-	// 	$keyword = $this->input->get('keyword');
-	// 	// $data = $this->M_manajemen->ambil_data($keyword);
-	// 	$data = array(
-	// 		"keyword"			=> $keyword,
-	// 		"judul"			=> "Form Search",
-	// 		"halaman"			=> "todolist",
-	// 		"view"			=> "todolist",
-	// 		"data_todo"		=> $this->todo->ambil_data($keyword, "user"),
-	// 	);
-	// 	$this->load->view('template', $data);
-	// }
 }

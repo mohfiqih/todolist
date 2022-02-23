@@ -31,6 +31,7 @@
                                         <th class="align-middle" scope="col">Level</th>
                                         <th class="align-middle" scope="col">Progres</th>
                                         <th class="align-middle" scope="col" style="text-align: center">Status</th>
+                                        <th class="align-middle" scope="col" style="text-align: center">Unit</th>
                                         <th class="align-middle" scope="col" style="width: 50px;">
                                              Action</th>
                                    </tr>
@@ -106,6 +107,8 @@
                                              </span>
                                         </h5>
                                         <?php endif; ?>
+                                   </td>
+                                   <td class="align-middle" style="text-align: center">
                                    </td>
                                    <td class="align-middle" style="text-align: center, width: 50px;">
                                         <a href="<?php echo url(2) .'cek/'. enkrip($d->id); ?>"

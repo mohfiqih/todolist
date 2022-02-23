@@ -16,7 +16,7 @@ class M_todo extends CI_Model
             $query = $this->db->get()->result();
             return $query;
         }
-        if($level == "Sub Bag"){
+        elseif($level == "Sub Bag"){
             
             $query = $this->db->query("SELECT *
                                FROM todo join user on user.user_id = todo.id_user
@@ -89,7 +89,7 @@ class M_todo extends CI_Model
          return $this->db->get('todo')->num_rows();
     }
 
-    public function acc($checked,$username,$level)
+    public function lihat_status($checked,$username,$level)
     {
         if ($level == "Ka. Bag") {
             
@@ -144,10 +144,10 @@ class M_todo extends CI_Model
         else {
             
                 // $this->db->where('checked',$checked);
-                $query = $this->db->query("SELECT *
+            $query = $this->db->query("SELECT *
                                FROM todo join user on user.user_id = todo.id_user
                                WHERE user.user_nama = '$username' and checked = '$checked' ORDER BY id ASC");
-             return $query->result();
+            return $query->result();
             
                        
         }
