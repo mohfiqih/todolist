@@ -48,7 +48,22 @@ class Dasbor extends MY_Controller {
 		$count_pending = $this->M_Universal->total_pending("Tolak",$level,$username);
 		$count_todo = $this->M_Universal->total_todo($level,$username);
 		
-		if ($this->user_level == "Staf" or $this->user_level == "Magang") {
+		if($this->user_level == "Super Admin"){
+			$data = array(
+				"judul"			=> "Unit Bagian",
+				"keterangan"	=> "Contoh Keterangan",
+				"halaman"		=> "dasbor",
+				"view"			=> "dasbor",
+				// "jml_user"		=> $this->M_Universal->total_user("", "user"),
+				// "jml_todo"		=> $count_todo->count_id,
+				// "jml_acc"		=> $count_acc->count_id,
+				// "jml_pending"	=> $count_pending->count_id,
+				// "jml_belum"		=> $count_belum->count_id,
+			);
+
+			return $data;
+		}
+		else if ($this->user_level == "Staf" or $this->user_level == "Magang") {
 		
         	$data = array(
 				"judul"			=> "Dashboard",
