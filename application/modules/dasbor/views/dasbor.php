@@ -1,4 +1,230 @@
-<?php if ($this->user_level == "Ka. Bag" or $this->user_level == "Sub Bag"):?>
+<?php if ($this->user_level == "Super Admin"){ ?>
+<div class="content-page"><br />
+     <div class="content">
+
+          <!-- Start Content-->
+          <div class="container-fluid">
+               <div class="row">
+
+                    <div class="col-xl-3 col-md-6">
+                         <div class="card">
+                              <a href="<?php echo base_url('todo'); ?>" class="dropdown-item">
+                                   <div class="card-body">
+
+                                        <h4 class="header-title mt-0 mb-4">Total Todolist</h4>
+
+                                        <div class="widget-chart-1">
+                                             <div class="widget-chart-box-1 float-start" dir="ltr">
+                                                  <input data-plugin="knob" data-width="70" data-height="70"
+                                                       data-fgColor="#ffbd4a" data-bgColor="#FFE6BA"
+                                                       value="<?php  echo $jml_todo; ?>" data-skin="tron"
+                                                       data-angleOffset="180" data-readOnly=true data-thickness=".15" />
+                                             </div>
+                                             <div class="widget-detail-1 text-end">
+                                                  <h2 class="fw-normal pt-2 mb-1"> <?php  echo $jml_todo; ?> </h2>
+                                                  <p class="text-muted mb-1">Todolist</p>
+                                             </div>
+                                        </div>
+                                   </div>
+                              </a>
+                         </div>
+                    </div><!-- end col -->
+
+                    <div class="col-xl-3 col-md-6">
+                         <div class="card">
+                              <a href="<?php echo base_url('todo/acc'); ?>" class="dropdown-item">
+                                   <div class="card-body">
+
+                                        <h4 class="header-title mt-0 mb-3">Total Selesai</h4>
+
+                                        <div class="widget-box-2">
+                                             <div class="widget-detail-2 text-end">
+                                                  <span class="badge bg-success rounded-pill float-start mt-3"><?php  echo $jml_acc; ?>
+                                                       <i class="mdi mdi-trending-up"></i> </span>
+                                                  <h2 class="fw-normal mb-1"> <?php  echo $jml_acc; ?> </h2>
+                                                  <p class="text-muted mb-3">ACC</p>
+                                             </div>
+                                             <div class="progress progress-bar-alt-success progress-sm">
+                                                  <div class="progress-bar bg-success" role="progressbar"
+                                                       aria-valuenow="77" aria-valuemin="0" aria-valuemax="100"
+                                                       style="width: 77%;">
+                                                       <span class="visually-hidden"><?php  echo $jml_acc; ?></span>
+                                                  </div>
+                                             </div>
+                                        </div>
+                                   </div>
+                              </a>
+                         </div>
+                    </div><!-- end col -->
+
+
+                    <div class="col-xl-3 col-md-6">
+                         <div class="card">
+                              <a href="<?php echo base_url('todo/belum'); ?>" class="dropdown-item">
+                                   <div class="card-body">
+
+                                        <h4 class="header-title mt-0 mb-3">Total Belum Selesai</h4>
+
+                                        <div class="widget-box-2">
+                                             <div class="widget-detail-2 text-end">
+                                                  <span class="badge bg-warning rounded-pill float-start mt-3"><?php  echo $jml_belum; ?>
+                                                       <i class="mdi mdi-trending-up"></i></span>
+                                                  <h2 class="fw-normal mb-1"><?php  echo $jml_belum; ?></h2>
+                                                  <p class="text-muted mb-3">Belum</p>
+                                             </div>
+                                             <div class="progress progress-bar-alt-success progress-sm">
+                                                  <div class="progress-bar bg-warning" role="progressbar"
+                                                       aria-valuenow="77" aria-valuemin="0" aria-valuemax="100"
+                                                       style="width: 77%;">
+                                                       <span class="visually-hidden"><?php  echo $jml_belum; ?></span>
+                                                  </div>
+                                             </div>
+                                        </div>
+                                   </div>
+                              </a>
+                         </div>
+                    </div><!-- end col -->
+
+
+                    <div class="col-xl-3 col-md-6">
+                         <div class="card">
+                              <a href="<?php echo base_url('todo/pending'); ?>" class="dropdown-item">
+                                   <div class="card-body">
+
+                                        <h4 class="header-title mt-0 mb-3">Total Pending</h4>
+
+                                        <div class="widget-box-2">
+                                             <div class="widget-detail-2 text-end">
+                                                  <span class="badge bg-danger rounded-pill float-start mt-3"><?php  echo $jml_pending; ?>
+                                                       <i class="mdi mdi-trending-up"></i> </span>
+                                                  <h2 class="fw-normal mb-1"> <?php  echo $jml_pending; ?> </h2>
+                                                  <p class="text-muted mb-3">Pending</p>
+                                             </div>
+                                             <div class="progress progress-bar-alt-success progress-sm">
+                                                  <div class="progress-bar bg-danger" role="progressbar"
+                                                       aria-valuenow="77" aria-valuemin="0" aria-valuemax="100"
+                                                       style="width: 77%;">
+                                                       <span class="visually-hidden"><?php  echo $jml_pending; ?></span>
+                                                  </div>
+                                             </div>
+                                        </div>
+                                   </div>
+                              </a>
+                         </div>
+                    </div><!-- end col -->
+
+                    <div class="col-xl-8">
+                         <div class="card">
+                              <div class="card-body">
+                                   <div class="dropdown float-end">
+                                        <!-- <a href="#" class="dropdown-toggle arrow-none card-drop"
+                                             data-bs-toggle="dropdown" aria-expanded="false">
+                                             <i class="mdi mdi-dots-vertical"></i>
+                                        </a> -->
+                                        <div class="dropdown-menu dropdown-menu-end">
+                                             <!-- item-->
+                                             <a href="javascript:void(0);" class="dropdown-item">Action</a>
+                                             <!-- item-->
+                                             <a href="javascript:void(0);" class="dropdown-item">Another
+                                                  action</a>
+                                             <!-- item-->
+                                             <a href="javascript:void(0);" class="dropdown-item">Something
+                                                  else</a>
+                                             <!-- item-->
+                                             <a href="javascript:void(0);" class="dropdown-item">Separated
+                                                  link</a>
+                                        </div>
+                                   </div>
+
+
+                                   <h4 class="header-title mt-0 mb-3">Project Selesai</h4>
+
+                                   <div class="table-responsive">
+                                        <table class="table table-hover mb-0">
+                                             <thead>
+                                                  <tr>
+                                                       <th>No</th>
+                                                       <th>Nama Lengkap</th>
+                                                       <th>Pekerjaan</th>
+                                                       <th>Level</th>
+                                                       <th>Progress</th>
+                                                       <th>Status</th>
+                                                  </tr>
+                                             </thead>
+                                             <!-- <?php
+                                                  $no=0+1;
+                                                  if ($data_todo){
+                                                  foreach ($data_todo as $d){ 
+                                                  ?> -->
+                                             <tbody>
+                                                  <tr>
+                                                       <!-- <td><?php echo $no++; ?></td> -->
+                                                       <!-- <td><?php echo $d->user_namalengkap; ?></td> -->
+                                                       <!-- <td><?php echo $d->task; ?></td> -->
+                                                       <td class="align-middle">
+                                                            <!-- <?php if ($d->status > 80 ): ?> -->
+                                                            <h6 class="align-middle">
+                                                                 <span class="badge bg-success">
+                                                                      <!-- <?php echo $d->level; ?> -->
+                                                                 </span>
+
+                                                                 <!-- <?php elseif ($d->status > 50 ): ?> -->
+
+                                                                 <span class="badge bg-warning">
+                                                                      <!-- <?php echo $d->level; ?> -->
+                                                                 </span>
+
+                                                                 <!-- <?php else: ?> -->
+
+                                                                 <span class="badge bg-danger">
+                                                                      <!-- <?php echo $d->level; ?> -->
+                                                                 </span>
+
+                                                                 <!-- <?php endif; ?> -->
+                                                            </h6>
+                                                       </td>
+                                                       <td class="align-middle" style="text-align: center">
+                                                            <!-- <?php echo $d->status; ?> % -->
+                                                       </td>
+                                                       <td class="align-middle" style="text-align: center">
+                                                            <!-- <?php if ($d->checked == 'ACC'): ?> -->
+                                                            <h6 class="align-middle mb-0">
+                                                                 <span class="badge bg-success">
+                                                                      <!-- <?php echo $d->checked; ?> -->
+                                                                 </span>
+                                                            </h6>
+                                                            <!-- <?php elseif ($d->checked == 'Belum'): ?> -->
+                                                            <h6 class="align-middle mb-0">
+                                                                 <span class="badge bg-warning">
+                                                                      <!-- <?php echo $d->checked; ?> -->
+                                                                 </span>
+                                                            </h6>
+                                                            <!-- <?php else: ?> -->
+                                                            <h6 class="align-middle mb-0">
+                                                                 <span class="badge bg-danger">
+                                                                      <!-- <?php echo $d->checked; ?> -->
+                                                                 </span>
+                                                            </h6>
+                                                            <!-- <?php endif; ?> -->
+                                                       </td>
+                                                  </tr>
+                                                  <!-- <?php }} else { ?>
+                                                  <td class="text-center" colspan="9">Tidak ada data</td>
+                                                  <?php } ?> -->
+                                             </tbody>
+                                        </table>
+                                   </div>
+
+                              </div>
+                         </div>
+
+                    </div><!-- end col -->
+               </div>
+          </div>
+     </div> <!-- end card -->
+</div>
+
+<?php } else if ($this->user_level == "Ka. Bag" or $this->user_level == "Sub Bag") {?>
 
 <div class="content-page"><br />
      <div class="content">
@@ -95,14 +321,14 @@
                                              <div class="widget-detail-2 text-end">
                                                   <span class="badge bg-warning rounded-pill float-start mt-3">
                                                        <i class="mdi mdi-trending-up"></i> </span>
-                                                  <h2 class="fw-normal mb-1"> </h2>
+                                                  <h2 class="fw-normal mb-1"><?php echo $jml_belum; ?></h2>
                                                   <p class="text-muted mb-3">Belum</p>
                                              </div>
                                              <div class="progress progress-bar-alt-success progress-sm">
                                                   <div class="progress-bar bg-warning" role="progressbar"
                                                        aria-valuenow="77" aria-valuemin="0" aria-valuemax="100"
                                                        style="width: 77%;">
-                                                       <span class="visually-hidden"></span>
+                                                       <span class="visually-hidden"><?php echo $jml_belum; ?></span>
                                                   </div>
                                              </div>
                                         </div>
@@ -120,16 +346,16 @@
 
                                         <div class="widget-box-2">
                                              <div class="widget-detail-2 text-end">
-                                                  <span class="badge bg-danger rounded-pill float-start mt-3"><?php  echo $jml_tolak; ?>
+                                                  <span class="badge bg-danger rounded-pill float-start mt-3"><?php  echo $jml_pending; ?>
                                                        <i class="mdi mdi-trending-up"></i> </span>
-                                                  <h2 class="fw-normal mb-1"> <?php  echo $jml_tolak; ?></h2>
+                                                  <h2 class="fw-normal mb-1"><?php  echo $jml_pending; ?></h2>
                                                   <p class="text-muted mb-3">Pending</p>
                                              </div>
                                              <div class="progress progress-bar-alt-success progress-sm">
                                                   <div class="progress-bar bg-danger" role="progressbar"
                                                        aria-valuenow="77" aria-valuemin="0" aria-valuemax="100"
                                                        style="width: 77%;">
-                                                       <span class="visually-hidden"><?php  echo $jml_tolak; ?></span>
+                                                       <span class="visually-hidden"><?php  echo $jml_pending; ?></span>
                                                   </div>
                                              </div>
                                         </div>
@@ -350,7 +576,7 @@
      </div><!-- end col -->
 </div>
 <!-- end row -->
-<?php else: ?>
+<?php } else { ?>
 <div class="content-page"><br />
      <div class="content">
 
@@ -419,16 +645,16 @@
 
                                         <div class="widget-box-2">
                                              <div class="widget-detail-2 text-end">
-                                                  <span class="badge bg-warning rounded-pill float-start mt-3">
+                                                  <span class="badge bg-warning rounded-pill float-start mt-3"><?php  echo $jml_belum; ?>
                                                        <i class="mdi mdi-trending-up"></i></span>
-                                                  <h2 class="fw-normal mb-1">0</h2>
+                                                  <h2 class="fw-normal mb-1"><?php  echo $jml_belum; ?></h2>
                                                   <p class="text-muted mb-3">Belum</p>
                                              </div>
                                              <div class="progress progress-bar-alt-success progress-sm">
                                                   <div class="progress-bar bg-warning" role="progressbar"
                                                        aria-valuenow="77" aria-valuemin="0" aria-valuemax="100"
                                                        style="width: 77%;">
-                                                       <span class="visually-hidden"></span>
+                                                       <span class="visually-hidden"><?php  echo $jml_belum; ?></span>
                                                   </div>
                                              </div>
                                         </div>
@@ -447,16 +673,16 @@
 
                                         <div class="widget-box-2">
                                              <div class="widget-detail-2 text-end">
-                                                  <span class="badge bg-danger rounded-pill float-start mt-3"><?php  echo $jml_tolak; ?>
+                                                  <span class="badge bg-danger rounded-pill float-start mt-3"><?php  echo $jml_pending; ?>
                                                        <i class="mdi mdi-trending-up"></i> </span>
-                                                  <h2 class="fw-normal mb-1"> <?php  echo $jml_tolak; ?> </h2>
+                                                  <h2 class="fw-normal mb-1"> <?php  echo $jml_pending; ?> </h2>
                                                   <p class="text-muted mb-3">Pending</p>
                                              </div>
                                              <div class="progress progress-bar-alt-success progress-sm">
                                                   <div class="progress-bar bg-danger" role="progressbar"
                                                        aria-valuenow="77" aria-valuemin="0" aria-valuemax="100"
                                                        style="width: 77%;">
-                                                       <span class="visually-hidden"><?php  echo $jml_tolak; ?></span>
+                                                       <span class="visually-hidden"><?php  echo $jml_pending; ?></span>
                                                   </div>
                                              </div>
                                         </div>
@@ -576,4 +802,4 @@
      </div> <!-- end card -->
 </div><!-- end col -->
 </div>
-<?php endif; ?>
+<?php } ?>

@@ -142,27 +142,51 @@ class M_universal extends CI_Model
         }
     }
 
-    public function total_tolak($tolak,$level,$username)
+    public function total_pending($pending,$level,$username)
     {
 
         if ($level == "Staf" or $level == "Magang") {
         
             $query = $this->db->query("SELECT COUNT(id) as count_id
                                FROM todo join user on user.user_id = todo.id_user
-                               WHERE user.user_nama = '$username' and checked = '$tolak'");
+                               WHERE user.user_nama = '$username' and checked = '$pending'");
             return $query->row();
 
         }
         if ($level == "Sub Bag"){
             $query = $this->db->query("SELECT COUNT(id) as count_id
                                FROM todo join user on user.user_id = todo.id_user
-                               WHERE (user.user_nama = '$username' or user.add_by = '$username') and checked = '$tolak' ");
+                               WHERE (user.user_nama = '$username' or user.add_by = '$username') and checked = '$pending' ");
             return $query->row();
         }
         else{
             $query = $this->db->query("SELECT COUNT(id) as count_id
                                FROM todo join user on user.user_id = todo.id_user
-                               WHERE checked = '$tolak'");
+                               WHERE checked = '$pending'");
+            return $query->row();
+        }
+    }
+
+    public function total_belum($belum,$level,$username)
+    {
+        if ($level == "Staf" or $level == "Magang") {
+        
+            $query = $this->db->query("SELECT COUNT(id) as count_id
+                               FROM todo join user on user.user_id = todo.id_user
+                               WHERE user.user_nama = '$username' and checked = '$belum'");
+            return $query->row();
+
+        }
+        if ($level == "Sub Bag"){
+            $query = $this->db->query("SELECT COUNT(id) as count_id
+                               FROM todo join user on user.user_id = todo.id_user
+                               WHERE (user.user_nama = '$username' or user.add_by = '$username') and checked = '$belum' ");
+            return $query->row();
+        }
+        else{
+            $query = $this->db->query("SELECT COUNT(id) as count_id
+                               FROM todo join user on user.user_id = todo.id_user
+                               WHERE checked = '$belum'");
             return $query->row();
         }
     }

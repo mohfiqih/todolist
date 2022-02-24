@@ -98,7 +98,7 @@
                                         </h5>
                                         <?php endif; ?>
                                    </td>
-                                   <td class="align-middle" style="text-align: center, width: 50px;">
+                                   <td class="align-middle" style="text-align: center; width: 50px;">
                                         <a href="<?php echo url(2) .'cek/'. enkrip($d->id); ?>"
                                              data-mdb-toggle="tooltip" title="Done"><i
                                                   class="fas fa-check text-success me-3"></i></a>
@@ -216,7 +216,7 @@
                                         </h5>
                                         <?php endif; ?>
                                    </td>
-                                   <td class="align-middle" style="text-align: center, width: 50px;">
+                                   <td class="align-middle" style="text-align: center; width: 50px;">
                                         <a href="<?php echo url(2) .'cek/'. enkrip($d->id); ?>"
                                              data-mdb-toggle="tooltip" title="Done"><i
                                                   class="fas fa-check text-success me-3"></i></a>

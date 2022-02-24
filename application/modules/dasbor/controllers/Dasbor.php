@@ -40,14 +40,16 @@ class Dasbor extends MY_Controller {
      */
 	public function meta()
 	{
+		$level = $this->user_level;
+		$username = $this->user_nama;
+
+		$count_acc = $this->M_Universal->total_acc("ACC",$level,$username);
+		$count_belum = $this->M_Universal->total_belum("Belum",$level,$username);
+		$count_pending = $this->M_Universal->total_pending("Tolak",$level,$username);
+		$count_todo = $this->M_Universal->total_todo($level,$username);
+		
 		if ($this->user_level == "Staf" or $this->user_level == "Magang") {
-			$level = $this->user_level;
-			$username = $this->user_nama;
-
-			$count_acc = $this->M_Universal->total_acc("ACC",$level,$username);
-			$count_tolak = $this->M_Universal->total_tolak("Tolak",$level,$username);
-			$count_todo = $this->M_Universal->total_todo($level,$username);
-
+		
         	$data = array(
 				"judul"			=> "Dashboard",
 				"keterangan"	=> "Contoh Keterangan",
@@ -56,19 +58,14 @@ class Dasbor extends MY_Controller {
 				"jml_user"		=> $this->M_Universal->total_user("", "user"),
 				"jml_todo"		=> $count_todo->count_id,
 				"jml_acc"		=> $count_acc->count_id,
-				"jml_tolak"		=> $count_tolak->count_id,
+				"jml_pending"	=> $count_pending->count_id,
+				"jml_belum"		=> $count_belum->count_id,
 			);
 
 			return $data;
 		}  
-		if($this->user_level == "Sub Bag"){
-			$level = $this->user_level;
-			$username = $this->user_nama;
-
-			$count_acc = $this->M_Universal->total_acc("ACC",$level,$username);
-			$count_tolak = $this->M_Universal->total_tolak("Tolak",$level,$username);
-			$count_todo = $this->M_Universal->total_todo($level,$username);
-
+		else if($this->user_level == "Sub Bag"){
+			
         	$data = array(
 				"judul"			=> "Dashboard",
 				"keterangan"	=> "Contoh Keterangan",
@@ -77,29 +74,24 @@ class Dasbor extends MY_Controller {
 				"jml_user"		=> $this->M_Universal->total_user("", "user"),
 				"jml_todo"		=> $count_todo->count_id,
 				"jml_acc"		=> $count_acc->count_id,
-				"jml_tolak"		=> $count_tolak->count_id,
+				"jml_pending"	=> $count_pending->count_id,
+				"jml_belum"		=> $count_belum->count_id,
 			);
 
 			return $data;
 		}
 		else{
-			$level = $this->user_level;
-
-			$username = $this->user_nama;
-
-			$count_acc = $this->M_Universal->total_acc("ACC",$level,NULL);
-			$count_tolak = $this->M_Universal->total_tolak("Tolak",$level,NULL);
-			$count_todo = $this->M_Universal->total_todo($level,NULL);
 
         	$data = array(
 				"judul"			=> "Dashboard",
 				"keterangan"	=> "Contoh Keterangan",
 				"halaman"		=> "dasbor",
 				"view"			=> "dasbor",
-				"jml_user"	=> $this->M_Universal->total_user("", "user"),
-				"jml_todo"	=> $count_todo->count_id,
-				"jml_acc"	=> $count_acc->count_id,
-				"jml_tolak"	=> $count_tolak->count_id
+				"jml_user"		=> $this->M_Universal->total_user("", "user"),
+				"jml_todo"		=> $count_todo->count_id,
+				"jml_acc"		=> $count_acc->count_id,
+				"jml_pending"	=> $count_pending->count_id,
+				"jml_belum"		=> $count_belum->count_id,
 			);
 
 			return $data;
