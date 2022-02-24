@@ -26,8 +26,7 @@
                                         </th>
                                         <th class="align-middle" scope="col">Pekerjaan</th>
                                         <th class="align-middle" scope="col">Tanggal</th>
-                                        <th class="align-middle" scope="col">Jam Mulai</th>
-                                        <th class="align-middle" scope="col">Jam Selesai</th>
+                                        <th class="align-middle" scope="col">Jam</th>
                                         <th class="align-middle" scope="col">Level</th>
                                         <th class="align-middle" scope="col">Progres</th>
                                         <th class="align-middle" scope="col" style="text-align: center">Status</th>
@@ -56,10 +55,7 @@
                                         <?php echo $d->date_created; ?>
                                    </td>
                                    <td class="align-middle">
-                                        <?php echo $d->mulai; ?>
-                                   </td>
-                                   <td class="align-middle">
-                                        <?php echo $d->selesai; ?>
+                                        <?php echo $d->mulai; ?>-<?php echo $d->selesai; ?>
                                    </td>
                                    <td class="align-middle">
                                         <?php if ($d->status > 80 ): ?>

@@ -15,7 +15,7 @@
 
                                         <div class="widget-box-2">
                                              <div class="widget-detail-2 text-end">
-                                                  <span class="badge bg-success rounded-pill float-start mt-3"><?php  echo $jml_acc; ?>
+                                                  <span class="badge bg-success rounded-pill float-start mt-3">
                                                        <i class="mdi mdi-trending-up"></i> </span>
                                                   <h2 class="fw-normal mb-1"> TIK </h2>
                                                   <p class="text-muted mb-3"></p>
