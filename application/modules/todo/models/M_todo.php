@@ -7,7 +7,6 @@ class M_todo extends CI_Model
     {
         // $limit, $start
         if ($level == "Ka. Bag") {
-            
             $this->db->select('*');
             $this->db->from('todo');
             $this->db->join('user', 'user.user_id = todo.id_user','user.user_namalengkap');

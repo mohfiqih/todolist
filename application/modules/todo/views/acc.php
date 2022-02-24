@@ -22,8 +22,8 @@
                                         <th class="align-middle" scope="col">Level</th>
                                         <th class="align-middle" scope="col">Progres</th>
                                         <th class="align-middle" scope="col" style="text-align: center">Status</th>
-                                        <th class="align-middle" scope="col" style="width: 50px;">
-                                             Action</th>
+                                        <!-- <th class="align-middle" scope="col" style="width: 50px;">
+                                             Action</th> -->
                                    </tr>
 
                               </thead>
@@ -217,7 +217,7 @@
                                         </h5>
                                         <?php endif; ?>
                                    </td>
-                                   <td class="align-middle" style="text-align: center; width: 50px;">
+                                   <!-- <td class="align-middle" style="text-align: center; width: 50px;">
                                         <a href="<?php echo url(2) .'cek/'. enkrip($d->id); ?>"
                                              data-mdb-toggle="tooltip" title="Done"><i
                                                   class="fas fa-check text-success me-3"></i></a>
@@ -230,7 +230,7 @@
                                              data-mdb-toggle="tooltip" title="Remove"
                                              onclick="return confirm('Yakin hapus data?')"><i
                                                   class="fas fa-trash-alt text-danger"></i></a>
-                                   </td>
+                                   </td> -->
                               </tr>
                               <?php }} else { ?>
                               <td class="text-center" colspan="11">Tidak ada data</td>

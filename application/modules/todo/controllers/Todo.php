@@ -188,7 +188,7 @@ class Todo extends MY_Controller {
 			$level = $this->user_level;
 
         	$data = array(
-			"judul"		=> "Project Belum",
+			"judul"		=> "Project Pending",
 			// "keterangan"	=> "Manajemen Pengguna",
 			// "halaman"		=> "data_kerjaan",
 			// "breadcrumb"	=> "Master Data|User",
