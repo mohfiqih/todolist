@@ -287,7 +287,29 @@
           <div class="left-side-menu">
                <div class="h-100" data-simplebar>
 
-                    <?php if ($this->user_level == "Ka. Bag" or $this->user_level == "Sub Bag"):?>
+                    <?php if ($this->user_level == "Staf" or $this->user_level == "Magang"):?>
+
+                    <!--- Sidemenu -->
+                    <div id="sidebar-menu">
+                         <ul id="side-menu">
+                              <li class="menu-title">Navigation</li>
+                              <li>
+                                   <a href="<?php echo base_url('dasbor'); ?>">
+                                        <i class="mdi mdi-view-dashboard"></i>
+                                        <span>Dasbor</span>
+                                   </a>
+                              </li>
+                              <li>
+                                   <a href="<?php echo base_url('todo'); ?>">
+                                        <i class="mdi mdi-clipboard-list"></i>
+                                        <span>Todo-List</span>
+                                   </a>
+                              </li>
+                         </ul>
+                    </div>
+                    <!-- End Sidebar -->
+
+                    <?php else: ?>
 
                     <!--- Sidemenu -->
                     <div id="sidebar-menu">
@@ -373,28 +395,7 @@
                          </ul>
 
                     </div>
-                    <!-- End Sidebar -->
-
-                    <?php else: ?>
-
-                    <!--- Sidemenu -->
-                    <div id="sidebar-menu">
-                         <ul id="side-menu">
-                              <li class="menu-title">Navigation</li>
-                              <li>
-                                   <a href="<?php echo base_url('dasbor'); ?>">
-                                        <i class="mdi mdi-view-dashboard"></i>
-                                        <span>Dasbor</span>
-                                   </a>
-                              </li>
-                              <li>
-                                   <a href="<?php echo base_url('todo'); ?>">
-                                        <i class="mdi mdi-clipboard-list"></i>
-                                        <span>Todo-List</span>
-                                   </a>
-                              </li>
-                         </ul>
-                    </div>
+                    
 
                     <?php endif; ?>
                     <!-- End Sidebar -->
