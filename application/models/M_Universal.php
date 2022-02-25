@@ -190,5 +190,14 @@ class M_universal extends CI_Model
             return $query->row();
         }
     }
+
+    // public function get_unit($tabel)
+    // {
+    //     if (!empty($where)) {
+    //         $this->db->where("user_nama",$where);
+    //     }
+    //     $data = $this->db->get($tabel)->result(); 
+    //     return (count((array)$data) > 0) ? $data : false;
+    // }
 }
 ?>

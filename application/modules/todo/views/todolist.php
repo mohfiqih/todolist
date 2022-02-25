@@ -5,6 +5,8 @@
                <div class="card">
                     <!-- <div class="card-body"> -->
                     <!-- <div class="row"> -->
+
+
                     <?php if ($this->user_level == "Ka. Bag" or $this->user_level == "Sub Bag"):?>
                     <!-- Tabel -->
                     <div class="card-body" data-mdb-perfect-scrollbar="true" style="height: 490px;overflow: auto;">
@@ -106,7 +108,7 @@
                                    </td>
                                    <td class="align-middle" style="text-align: center">
                                    </td>
-                                   <td class="align-middle" style="text-align: center, width: 50px;">
+                                   <td class="align-middle" style="text-align: center; width: 50px;">
                                         <a href="<?php echo url(2) .'cek/'. enkrip($d->id); ?>"
                                              data-mdb-toggle="tooltip" title="Done"><i
                                                   class="fas fa-check text-success me-3"></i></a>
@@ -126,9 +128,12 @@
                               <?php } ?>
                               </tbody>
                          </table><br />
-
                     </div>
+                    <!-- end table -->
+
                     <?php else: ?>
+
+                    <!-- start table -->
                     <div class="card-body" data-mdb-perfect-scrollbar="true" style="height: 490px;overflow: auto;">
                          <a href="<?php echo base_url('Todo/add'); ?>">
                               <button type="button" class="btn btn-success"><i class=" fas fa-plus"></i>
