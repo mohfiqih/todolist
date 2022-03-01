@@ -30,7 +30,7 @@
                                                        foreach($data_user as $e) : ?>
 
                                                        <option value="<?php echo enkrip($e->user_id) ?>"
-                                                            <?=$d->id_user == $e->user_id ? 'selected' : null?>>
+                                                            <?=$d->id_user == $e->user_id ? 'selected' : null ?>>
                                                             <?=$e->user_namalengkap;?>
                                                        </option>
 

@@ -41,12 +41,16 @@
                                              <select class="form-select" name="user_level"
                                                   aria-label="Floating label select example" required>
                                                   <option value="">Pilih Level</option>
-                                                  <option value="Ka. Bag"
+                                                  <?php if ($this->user_level == "Super Admin"){ ?>
+                                                       <option value="Ka. Bag"
                                                        <?php if (uri(2) == "edit") echo $edit->user_level == 'Ka. Bag' ? "selected" : ""; ?>>
                                                        Ka. Bag</option>
+                                                  <?php } ?>
+                                                  <?php if ($this->user_level == "Ka. Bag"){ ?>
                                                   <option value="Sub Bag"
                                                        <?php if (uri(2) == "edit") echo $edit->user_level == 'Sub Bag' ? "selected" : ""; ?>>
                                                        Sub Bag</option>
+                                                  <?php } ?>
                                                   <option value="Staf"
                                                        <?php if (uri(2) == "edit") echo $edit->user_level == 'Staf' ? "selected" : ""; ?>>
                                                        Staf</option>
@@ -56,12 +60,37 @@
                                              </select>
                                              <label for="example-select-floating">Level</label>
                                         </div>
-                                        <!-- <div class="form-floating mb-3">
-                                             <input type="file" class="form-control" name="file_foto"
-                                                  value="<?php echo uri(2) == "edit" ? $edit->user_foto : ""; ?>"
-                                                  placeholder="Foto" autocomplete="off" required>
-                                             <label>Foto</label>
-                                        </div> -->
+
+                                        <?php if ($this->user_level == "Super Admin"){ ?>
+
+                                        <div class="form-floating mb-3">
+                                             <select class="form-select" name="unit_id"
+                                                  aria-label="Floating label select example" required>
+                                                  <option value="">Pilih Unit</option>
+
+                                                  <?php
+                                                  if ($data_user){
+                                                  foreach ($data_user as $u) { ?>
+
+                                                       <?php 
+                                                       foreach($data_unit as $e) : ?>
+
+                                                       
+                                                       <option value="<?php echo enkrip($e->unit_id) ?>"
+                                                            <?php if (uri(2) == "edit") echo $u->unit_id == $e->unit_id ? "selected" : ""; ?>>
+                                                            <?=$e->unit_inisial;?></option>
+                                                       <?php endforeach; ?>
+                                                  
+                                                  <?php }} 
+                                                  else { ?>
+                                                  <option value="">Tidak ada data</option>
+                                                  <?php } ?>
+                                                  
+                                             </select>
+                                             <label for="example-select-floating">Level</label>
+                                        </div>
+
+                                        <?php } ?>
 
                                         <div class="text-center">
                                              <button type="submit"
@@ -89,6 +118,9 @@
                                                   <th style="width:200px">Username</th>
                                                   <th>Nama</th>
                                                   <th style="width:140px">Level</th>
+                                             <?php if($this->user_level == "Super Admin") {?>
+                                                  <th style="width:140px">Unit</th>
+                                             <?php } ?>
                                                   <th style="width:100px"></th>
                                              </tr>
                                         </thead>
@@ -101,6 +133,9 @@
                                                   <td><?php echo $d->user_nama; ?></td>
                                                   <td><?php echo $d->user_namalengkap; ?></td>
                                                   <td><?php echo level_user($d->user_level); ?></td>
+                                             <?php if($this->user_level == "Super Admin") {?>
+                                                  <td><?php echo ($d->unit_inisial); ?></td>
+                                             <?php } ?>
                                                   <td>
                                                        <div class="btn-group">
                                                             <a href="<?php echo url(1) .'/edit/'. enkrip($d->user_id); ?>"

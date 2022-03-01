@@ -9,7 +9,7 @@
                <?php foreach($data_unit as $u){ ?>
                     <div class="col-xl-3 col-md-6">
                          <div class="card">
-                              <a href="<?php echo base_url('todo/belum'); ?>" class="dropdown-item">
+                              <a href="<?php echo url(2) .'cek/'. enkrip($u->id); ?>" class="dropdown-item">
                                    <div class="card-body">
 
                                         <div class="widget-box-2">
