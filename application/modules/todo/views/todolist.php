@@ -7,9 +7,9 @@
                     <!-- <div class="row"> -->
 
                     <?php if ($this->user_level == "Super Admin") {?>
-                         <!-- Tabel -->
+                    <!-- Tabel -->
                     <div class="card-body" data-mdb-perfect-scrollbar="true" style="height: 490px;overflow: auto;">
-                         
+
                          <!-- <div class="card-body" style="overflow: auto;height: 1010px;"> -->
                          <table id="example" class="table table-hover mb-0">
                               <thead>
@@ -19,15 +19,8 @@
                                              No
                                         </th>
                                         <th class="align-middle" scope="col">
-                                             Nama
+                                             Nama Unit
                                         </th>
-                                        <th class="align-middle" scope="col">Pekerjaan</th>
-                                        <th class="align-middle" scope="col">Tanggal</th>
-                                        <th class="align-middle" scope="col">Jam</th>
-                                        <th class="align-middle" scope="col">Level</th>
-                                        <th class="align-middle" scope="col">Progres</th>
-                                        <th class="align-middle" scope="col" style="text-align: center">Status</th>
-                                        <th class="align-middle" scope="col" style="text-align: center">Unit</th>
                                         <th class="align-middle" scope="col" style="width: 50px;">
                                              Action</th>
                                    </tr>
@@ -35,87 +28,30 @@
                               </thead>
                               <?php
                                         $no=0+1;
-								if ($data_todo){
-								foreach ($data_todo as $d){ 
+								if ($data_unit){
+								foreach ($data_unit as $d){ 
 								?>
                               <tr class="fw-normal">
                                    <th class="align-middle">
                                         <?php echo $no++; ?>
                                    </th>
                                    <th class="align-middle">
-                                        <?php echo $d->user_namalengkap; ?>
+                                        <?php echo $d->unit_nama; ?>
                                    </th>
-                                   <td class="align-middle">
-                                        <?php echo $d->task; ?>
-                                   </td>
-                                   <td class="align-middle" style="text-align: center">
-                                        <?php echo $d->date_created; ?>
-                                   </td>
-                                   <td class="align-middle">
-                                        <?php echo $d->mulai; ?>-<?php echo $d->selesai; ?>
-                                   </td>
-                                   <td class="align-middle">
-                                        <?php if ($d->status > 80 ): ?>
-                                        <h6 class="align-middle">
-                                             <span class="badge bg-success">
-                                                  <?php echo $d->level; ?>
-                                             </span>
 
-                                             <?php elseif ($d->status > 50 ): ?>
-
-                                             <span class="badge bg-warning">
-                                                  <?php echo $d->level; ?>
-                                             </span>
-
-                                             <?php else: ?>
-
-                                             <span class="badge bg-danger">
-                                                  <?php echo $d->level; ?>
-                                             </span>
-
-                                             <?php endif; ?>
-                                        </h6>
-                                   </td>
-
-                                   <td class="align-middle" style="text-align: center">
-                                        <?php echo $d->status; ?> %</td>
-
-                                   <td class="align-middle" style="text-align: center">
-                                        <?php if ($d->checked == 'ACC'): ?>
-                                        <h5 class="align-middle mb-0">
-                                             <span class="badge bg-success">
-                                                  <?php echo $d->checked; ?>
-                                             </span>
-                                        </h5>
-                                        <?php elseif ($d->checked == 'Belum'): ?>
-                                        <h5 class="align-middle mb-0">
-                                             <span class="badge bg-warning">
-                                                  <?php echo $d->checked; ?>
-                                             </span>
-                                        </h5>
-                                        <?php else: ?>
-                                        <h5 class="align-middle mb-0">
-                                             <span class="badge bg-danger">
-                                                  <?php echo $d->checked; ?>
-                                             </span>
-                                        </h5>
-                                        <?php endif; ?>
-                                   </td>
-                                   <td class="align-middle" style="text-align: center">
-                                   </td>
                                    <td class="align-middle" style="text-align: center; width: 50px;">
-                                        <a href="<?php echo url(2) .'cek/'. enkrip($d->id); ?>"
+                                        <a href="<?php echo url(1) .'/lihat_unit/'. enkrip($d->unit_id); ?>"
                                              data-mdb-toggle="tooltip" title="Done"><i
-                                                  class="fas fa-check text-success me-3"></i></a>
+                                                  class="fas fa-eye text-success me-3"></i></a>
 
-                                        <a href="<?php echo url(2) .'edit/'. enkrip($d->id); ?>"
+                                        <!-- <a href="<?php echo url(2) .'edit/'. enkrip($d->unit_id); ?>"
                                              data-mdb-toggle="tooltip" title="Done"><i
                                                   class="fas fa-edit text-warning me-3"></i></a>
 
-                                        <a href="<?php echo url(1) .'/hapus/'. enkrip($d->id); ?>"
+                                        <a href="<?php echo url(1) .'/hapus/'. enkrip($d->unit_id); ?>"
                                              data-mdb-toggle="tooltip" title="Remove"
                                              onclick="return confirm('Yakin hapus data?')"><i
-                                                  class="fas fa-trash-alt text-danger"></i></a>
+                                                  class="fas fa-trash-alt text-danger"></i></a> -->
                                    </td>
                               </tr>
                               <?php }} else { ?>

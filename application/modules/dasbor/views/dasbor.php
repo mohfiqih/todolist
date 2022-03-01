@@ -7,7 +7,7 @@
                <div class="row">
 
                     <?php foreach($data_unit as $u){ ?>
-                    <div class="col-xl-4 col-md-6">
+                    <div class="col-xl-3 col-md-6">
                          <div class="card">
                               <a href="" class="dropdown-item">
                                    <div class="card-body">
