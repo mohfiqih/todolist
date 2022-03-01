@@ -68,6 +68,7 @@ class MY_Controller extends MX_Controller
         $this->user_namalengkap	= $this->session->userdata('log_admin')['user_namalengkap'];
         $this->add_by	        = $this->session->userdata('log_admin')['add_by'];
         $this->user_foto	    = $this->session->userdata('log_admin')['user_foto'];
+        $this->unit_id          = $this->session->userdata('log_admin')['unit_id'];
     }
 }
 

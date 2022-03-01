@@ -6,32 +6,23 @@
           <div class="container-fluid">
                <div class="row">
 
-                    <div class="col-xl-3 col-md-6">
+                    <?php foreach($data_unit as $u){ ?>
+                    <div class="col-xl-4 col-md-6">
                          <div class="card">
-                              <a href="<?php echo base_url('todo'); ?>" class="dropdown-item">
+                              <a href="" class="dropdown-item">
                                    <div class="card-body">
-
-                                        <h4 class="header-title mt-0 mb-3">Divisi</h4>
-
-                                        <div class="widget-box-2">
-                                             <div class="widget-detail-2 text-end">
-                                                  <span class="badge bg-success rounded-pill float-start mt-3">
-                                                       <i class="mdi mdi-trending-up"></i> </span>
-                                                  <h2 class="fw-normal mb-1"> TIK </h2>
-                                                  <p class="text-muted mb-3"></p>
-                                             </div>
-                                             <div class="progress progress-bar-alt-success progress-sm">
-                                                  <div class="progress-bar bg-success" role="progressbar"
-                                                       aria-valuenow="77" aria-valuemin="0" aria-valuemax="100"
-                                                       style="width: 77%;">
-                                                       <span class="visually-hidden"></span>
-                                                  </div>
+                                        <div class="widget-box-4">
+                                             <div class="widget-detail-2">
+                                                  <h2 class="fw-normal mb-1"><?php echo $u->unit_inisial;?></h2>
+                                                  <p class="text-muted mb-3"><?php echo $u->unit_nama;?></p>
                                              </div>
                                         </div>
                                    </div>
                               </a>
                          </div>
                     </div><!-- end col -->
+                    <?php }?>
+
                </div>
           </div>
      </div> <!-- end card -->

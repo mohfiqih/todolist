@@ -17,7 +17,8 @@ class M_auth extends CI_Model
 					'user_namalengkap'	=> $data[0]->user_namalengkap,
 					'user_id'			=> $data[0]->user_id,
 					'add_by'			=> $data[0]->add_by,
-					'user_foto'			=> $data[0]->user_foto
+					'user_foto'			=> $data[0]->user_foto,
+					'unit_id'			=> $data[0]->unit_id
 				);
 			} else {
 				return 0;

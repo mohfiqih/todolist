@@ -42,6 +42,8 @@ class Dasbor extends MY_Controller {
 	{
 		$level = $this->user_level;
 		$username = $this->user_nama;
+		$unit = $this->unit_id;
+
 
 		$count_acc = $this->M_Universal->total_acc("ACC",$level,$username);
 		$count_belum = $this->M_Universal->total_belum("Belum",$level,$username);
@@ -54,7 +56,7 @@ class Dasbor extends MY_Controller {
 				"keterangan"	=> "Contoh Keterangan",
 				"halaman"		=> "dasbor",
 				"view"			=> "dasbor",
-				// "jml_user"		=> $this->M_Universal->total_user("", "user"),
+				"data_unit"		=> $this->M_Universal->getMulti("", "hd_unit"),
 				// "jml_todo"		=> $count_todo->count_id,
 				// "jml_acc"		=> $count_acc->count_id,
 				// "jml_pending"	=> $count_pending->count_id,

@@ -37,6 +37,11 @@ class M_universal extends CI_Model
         if (!empty($where)) {
             $this->db->where('add_by',$where);
         }
+
+        // $this->db->select('*');
+        // $this->db->from($tabel);
+        $this->db->join('hd_unit', 'hd_unit.unit_id = user.unit_id', 'left');
+        // $query = $this->db->get();
         $data = $this->db->get($tabel)->result();
         return (count((array)$data) > 0) ? $data : false;
     }
@@ -190,5 +195,14 @@ class M_universal extends CI_Model
             return $query->row();
         }
     }
+
+    // public function get_unit($tabel)
+    // {
+    //     if (!empty($where)) {
+    //         $this->db->where("user_nama",$where);
+    //     }
+    //     $data = $this->db->get($tabel)->result(); 
+    //     return (count((array)$data) > 0) ? $data : false;
+    // }
 }
 ?>

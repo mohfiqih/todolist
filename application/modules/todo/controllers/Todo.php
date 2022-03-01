@@ -31,7 +31,7 @@ class Todo extends MY_Controller {
 		
 			return $data;
 		}
-		if($this->user_level == "Sub Bag"){
+		else if($this->user_level == "Sub Bag"){
 			$level = $this->user_level;
 			$where = $this->user_nama;
 			$add_by = $this->user_nama;
