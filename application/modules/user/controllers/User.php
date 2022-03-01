@@ -118,7 +118,7 @@ class User extends MY_Controller {
 			);
 			
 			$update = $this->M_Universal->update($data, ["user_id" => $user_id], "user");
-			$update = $this->M_Universal->update($data, ["user_id" => $user_id], "hd_unit");
+			$update = $this->M_Universal->update(["unit_id" => $this->input->post($unit_id)], ["user_id" => $user_id], "hd_unit");
 			
 			if ($update){
 				notifikasi_redirect("success", "Update user berhasil", uri(1));
