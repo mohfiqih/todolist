@@ -21,6 +21,9 @@
                                         <th class="align-middle" scope="col">
                                              Nama Unit
                                         </th>
+                                        <th class="align-middle" scope="col">
+                                             Unit Inisial
+                                        </th>
                                         <th class="align-middle" scope="col" style="width: 50px;">
                                              Action</th>
                                    </tr>
@@ -38,7 +41,9 @@
                                    <th class="align-middle">
                                         <?php echo $d->unit_nama; ?>
                                    </th>
-
+                                   <th class="align-middle">
+                                        <?php echo $d->unit_inisial; ?>
+                                   </th>
                                    <td class="align-middle" style="text-align: center; width: 50px;">
                                         <a href="<?php echo url(1) .'/lihat_unit/'. enkrip($d->unit_id); ?>"
                                              data-mdb-toggle="tooltip" title="Done"><i
