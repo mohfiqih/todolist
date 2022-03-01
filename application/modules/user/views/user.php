@@ -42,7 +42,7 @@
                                                   aria-label="Floating label select example" required>
                                                   <option value="">Pilih Level</option>
                                                   <?php if ($this->user_level == "Super Admin"){ ?>
-                                                       <option value="Ka. Bag"
+                                                  <option value="Ka. Bag"
                                                        <?php if (uri(2) == "edit") echo $edit->user_level == 'Ka. Bag' ? "selected" : ""; ?>>
                                                        Ka. Bag</option>
                                                   <?php } ?>
@@ -72,20 +72,20 @@
                                                   if ($data_user){
                                                   foreach ($data_user as $u) { ?>
 
-                                                       <?php 
+                                                  <?php 
                                                        foreach($data_unit as $e) : ?>
 
-                                                       
-                                                       <option value="<?php echo enkrip($e->unit_id) ?>"
-                                                            <?php if (uri(2) == "edit") echo $u->unit_id == $e->unit_id ? "selected" : ""; ?>>
-                                                            <?=$e->unit_inisial;?></option>
-                                                       <?php endforeach; ?>
-                                                  
+
+                                                  <option value="<?php echo enkrip($e->unit_id) ?>"
+                                                       <?php if (uri(2) == "edit") echo $u->unit_id == $e->unit_id ? "selected" : ""; ?>>
+                                                       <?=$e->unit_inisial;?></option>
+                                                  <?php endforeach; ?>
+
                                                   <?php }} 
                                                   else { ?>
                                                   <option value="">Tidak ada data</option>
                                                   <?php } ?>
-                                                  
+
                                              </select>
                                              <label for="example-select-floating">Level</label>
                                         </div>
@@ -118,9 +118,9 @@
                                                   <th style="width:200px">Username</th>
                                                   <th>Nama</th>
                                                   <th style="width:140px">Level</th>
-                                             <?php if($this->user_level == "Super Admin") {?>
+                                                  <?php if($this->user_level == "Super Admin") {?>
                                                   <th style="width:140px">Unit</th>
-                                             <?php } ?>
+                                                  <?php } ?>
                                                   <th style="width:100px"></th>
                                              </tr>
                                         </thead>
@@ -133,9 +133,9 @@
                                                   <td><?php echo $d->user_nama; ?></td>
                                                   <td><?php echo $d->user_namalengkap; ?></td>
                                                   <td><?php echo level_user($d->user_level); ?></td>
-                                             <?php if($this->user_level == "Super Admin") {?>
+                                                  <?php if($this->user_level == "Super Admin") {?>
                                                   <td><?php echo ($d->unit_inisial); ?></td>
-                                             <?php } ?>
+                                                  <?php } ?>
                                                   <td>
                                                        <div class="btn-group">
                                                             <a href="<?php echo url(1) .'/edit/'. enkrip($d->user_id); ?>"

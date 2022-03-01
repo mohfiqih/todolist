@@ -55,9 +55,9 @@ class User extends MY_Controller {
 				);
 					
 			$tambah = $this->M_Universal->insert($data, "user");
-			$tambah_join = $this->M_Universal->insert($data, "hd_unit");
+			// $tambah_join = $this->M_Universal->insert($data, "hd_unit");
 					
-			if ($tambah && $tambah_join){
+			if ($tambah){
 				notifikasi_redirect("success", "Tambah user berhasil", uri(1));
 			} else {
 				notifikasi_redirect("error", "Tambah user gagal", uri(1));
@@ -71,8 +71,10 @@ class User extends MY_Controller {
 				"user_namalengkap"	=> $this->input->post("user_namalengkap"),
 				"user_level"		=> $this->input->post("user_level"),
 				"add_by"			=> $this->user_nama,
-				"unit_id"			=> $this->input->post(dekrip("unit_id"))
+				"unit_id"			=> dekrip($this->input->post("unit_id"))
 				);
+
+				// echo json_encode($data); die;
 					
 			$tambah = $this->M_Universal->insert($data, "user");
 					
@@ -114,11 +116,11 @@ class User extends MY_Controller {
 				"user_password"		=> $user_password != $cek->user_password ? password_hash($user_password, PASSWORD_BCRYPT) : $user_password,
 				"user_namalengkap"	=> $this->input->post("user_namalengkap"),
 				"user_level"		=> $this->input->post("user_level"),
-				"unit_id"			=> $this->input->post($unit_id)
+				"unit_id"			=> $unit_id
 			);
 			
 			$update = $this->M_Universal->update($data, ["user_id" => $user_id], "user");
-			$update = $this->M_Universal->update(["unit_id" => $this->input->post($unit_id)], ["user_id" => $user_id], "hd_unit");
+			// $update = $this->M_Universal->update($data, ["user_id" => $user_id], "hd_unit");
 			
 			if ($update){
 				notifikasi_redirect("success", "Update user berhasil", uri(1));

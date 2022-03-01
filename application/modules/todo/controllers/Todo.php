@@ -16,49 +16,64 @@ class Todo extends MY_Controller {
 
     private function meta()
 	{
-		if ($this->user_level == "Ka. Bag") {
-			$level = $this->user_level;
+		$level = $this->user_level;
+		$where = $this->user_nama;
+		$unit = $this->unit_id;
+
+		if($this->user_level == "Super Admin"){
+			
+			$data = array(
+				"judul"			=> "Data Pekerjaan",
+				"keterangan"	=> "Manajemen Pengguna",
+				"halaman"		=> "data_kerjaan",
+				"breadcrumb"	=> "Master Data|User",
+				"view"			=> "todolist",
+				"data_todo"		=> $this->todo->get_todo(NULL, $level,NULL),
+				"jml_todo"		=> $this->todo->total_todo("", "todo"),
+				"data_unit"		=> $this->M_Universal->getMulti("", "hd_unit"),
+			);
+
+			return $data;
+		}
+		else if ($this->user_level == "Ka. Bag") {
+			
 
         	$data = array(
-			"judul"		=> "Data Pekerjaan",
-			"keterangan"	=> "Manajemen Pengguna",
-			"halaman"		=> "data_kerjaan",
-			"breadcrumb"	=> "Master Data|User",
-			"view"		=> "todolist",
-			"data_todo"	=> $this->todo->get_todo(NULL, $level),
-			"jml_todo"	=> $this->todo->total_todo("", "todo"),
+				"judul"			=> "Data Pekerjaan",
+				"keterangan"	=> "Manajemen Pengguna",
+				"halaman"		=> "data_kerjaan",
+				"breadcrumb"	=> "Master Data|User",
+				"view"			=> "todolist",
+				"data_todo"		=> $this->todo->get_todo(NULL, $level,$unit),
+				"jml_todo"		=> $this->todo->total_todo("", "todo"),
 			);
 		
 			return $data;
 		}
 		else if($this->user_level == "Sub Bag"){
-			$level = $this->user_level;
-			$where = $this->user_nama;
-			$add_by = $this->user_nama;
 
         	$data = array(
-			"judul"		=> "Data Pekerjaan",
-			"keterangan"	=> "Manajemen Pengguna",
-			"halaman"		=> "data_kerjaan",
-			"breadcrumb"	=> "Master Data|User",
-			"view"		=> "todolist",
-			"data_todo"	=> $this->todo->get_todo($where, $level),
-			"jml_todo"	=> $this->todo->total_todo("", "todo"),
+				"judul"		=> "Data Pekerjaan",
+				"keterangan"	=> "Manajemen Pengguna",
+				"halaman"		=> "data_kerjaan",
+				"breadcrumb"	=> "Master Data|User",
+				"view"		=> "todolist",
+				"data_todo"	=> $this->todo->get_todo($where, $level,$unit),
+				"jml_todo"	=> $this->todo->total_todo("", "todo"),
 			);
 
 			return $data;
 		}
 		else {
 			
-			$where = $this->user_nama;
         	$data = array(
-			"judul"		=> "Data Pekerjaan",
-			"keterangan"	=> "Manajemen Pengguna",
-			"halaman"		=> "data_kerjaan",
-			"breadcrumb"	=> "Master Data|User",
-			"view"		=> "todolist",
-			"data_todo"	=> $this->todo->get_todo($where, NULL),
-			"jml_todo"	=> $this->todo->total_todo("", "todo"),
+				"judul"		=> "Data Pekerjaan",
+				"keterangan"	=> "Manajemen Pengguna",
+				"halaman"		=> "data_kerjaan",
+				"breadcrumb"	=> "Master Data|User",
+				"view"		=> "todolist",
+				"data_todo"	=> $this->todo->get_todo($where, NULL, NULL),
+				"jml_todo"	=> $this->todo->total_todo("", "todo"),
 			);
 		
 			return $data;

@@ -6,15 +6,13 @@
           <div class="container-fluid">
                <div class="row">
 
-               <?php foreach($data_unit as $u){ ?>
-                    <div class="col-xl-3 col-md-6">
+                    <?php foreach($data_unit as $u){ ?>
+                    <div class="col-xl-4 col-md-6">
                          <div class="card">
-                              <a href="<?php echo url(2) .'cek/'. enkrip($u->id); ?>" class="dropdown-item">
+                              <a href="<?php echo url(0) .'todo/'. enkrip($u->unit_id); ?>" class="dropdown-item">
                                    <div class="card-body">
-
-                                        <div class="widget-box-2">
-                                             <div class="widget-detail-2 text-end">
-                                                  
+                                        <div class="widget-box-4">
+                                             <div class="widget-detail-2">
                                                   <h2 class="fw-normal mb-1"><?php echo $u->unit_inisial;?></h2>
                                                   <p class="text-muted mb-3"><?php echo $u->unit_nama;?></p>
                                              </div>

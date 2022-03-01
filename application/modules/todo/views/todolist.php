@@ -101,8 +101,17 @@
                                         </h5>
                                         <?php endif; ?>
                                    </td>
+                                   
+                                   <?php foreach ($data_unit as $u) : ?>
+       
                                    <td class="align-middle" style="text-align: center">
+                                   
+                                   <?= $d->unit_id == $u->unit_id ? $u->unit_inisial : "abc"?>
+                                        
                                    </td>
+                                     
+                                   <?php endforeach; ?>   
+
                                    <td class="align-middle" style="text-align: center; width: 50px;">
                                         <a href="<?php echo url(2) .'cek/'. enkrip($d->id); ?>"
                                              data-mdb-toggle="tooltip" title="Done"><i
@@ -363,3 +372,4 @@
                </div>
           </div>
      </div>
+</div>

@@ -3,10 +3,10 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class M_todo extends CI_Model
 {
-    public function get_todo($where, $level) 
+    public function get_todo($where, $level, $unit) 
     {
         // $limit, $start
-        if ($level == "Ka. Bag") {
+        if($level == "Super Admin"){
             $this->db->select('*');
             $this->db->from('todo');
             $this->db->join('user', 'user.user_id = todo.id_user','user.user_namalengkap');
@@ -15,11 +15,20 @@ class M_todo extends CI_Model
             $query = $this->db->get()->result();
             return $query;
         }
-        elseif($level == "Sub Bag"){
+        else if ($level == "Ka. Bag") {
+            $this->db->select('*');
+            $this->db->from('todo');
+            $this->db->join('user', 'user.user_id = todo.id_user','user.user_namalengkap');
+            $this->db->where('user.unit_id', $unit);
+            $this->db->order_by('id', 'asc');
+            $query = $this->db->get()->result();
+            return $query;
+        }
+        else if($level == "Sub Bag"){
             
             $query = $this->db->query("SELECT *
                                FROM todo join user on user.user_id = todo.id_user
-                               WHERE user.user_nama = '$where' or user.add_by = '$where'
+                               WHERE (user.user_nama = '$where' or user.add_by = '$where') and user.unit_id ='$unit'
                                ORDER BY id ASC");
             return $query->result();
         }
