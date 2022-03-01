@@ -10,7 +10,7 @@
                                    </a>
                               </li>
                               <li class="breadcrumb-item" aria-current="page">
-                                   <a href="<?php echo base_url('manajemen'); ?>">Todolist
+                                   <a href="<?php echo base_url('todo'); ?>">Todolist
                                    </a>
                               </li>
                               <li class="breadcrumb-item active" aria-current="page">Detail
