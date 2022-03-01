@@ -20,7 +20,7 @@ class Todo extends MY_Controller {
 			$level = $this->user_level;
 
         	$data = array(
-			"judul"		=> "Data Pekerjaan",
+			"judul"		=> "Data Unit",
 			"keterangan"	=> "Manajemen Pengguna",
 			"halaman"		=> "data_kerjaan",
 			"breadcrumb"	=> "Master Data|User",
