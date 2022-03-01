@@ -41,6 +41,9 @@
                                              <select class="form-select" name="user_level"
                                                   aria-label="Floating label select example" required>
                                                   <option value="">Pilih Level</option>
+                                                  <option value="Super Admin"
+                                                       <?php if (uri(2) == "edit") echo $edit->user_level == 'Super Admin' ? "selected" : ""; ?>>
+                                                       Super Admin</option>
                                                   <option value="Ka. Bag"
                                                        <?php if (uri(2) == "edit") echo $edit->user_level == 'Ka. Bag' ? "selected" : ""; ?>>
                                                        Ka. Bag</option>
