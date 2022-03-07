@@ -7,7 +7,7 @@
                <div class="row">
 
                     <?php foreach($data_unit as $u){ ?>
-                    <div class="col-xl-4 col-md-6">
+                    <div class="col-xl-3 col-md-6">
                          <div class="card">
                               <a href="<?php echo url(0) .'todo/'. enkrip($u->unit_id); ?>" class="dropdown-item">
                                    <div class="card-body">
@@ -308,7 +308,7 @@
                                              font-size="12px" stroke="none" fill="#888888"
                                              style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: end; font-family: sans-serif; font-size: 12px; font-weight: normal;"
                                              font-weight="normal">
-                                             <tspan dy="4" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">100
+                                             <tspan dy="4" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">400
                                              </tspan>
                                         </text>
                                         <path fill="none" stroke="#adb5bd" d="M43.2109375,25.5H258" stroke-opacity="0.1"

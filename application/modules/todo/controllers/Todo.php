@@ -19,33 +19,33 @@ class Todo extends MY_Controller {
 		$level = $this->user_level;
 		$where = $this->user_nama;
 		$unit = $this->unit_id;
+		if ($this->user_level == "Super Admin") {
+			$level = $this->user_level;
 
-		if($this->user_level == "Super Admin"){
-			
-			$data = array(
-				"judul"			=> "Data Pekerjaan",
+        	$data = array(
+				"judul"		=> "Data Unit",
 				"keterangan"	=> "Manajemen Pengguna",
 				"halaman"		=> "data_kerjaan",
 				"breadcrumb"	=> "Master Data|User",
-				"view"			=> "todolist",
-				"data_todo"		=> $this->todo->get_todo(NULL, $level,NULL),
-				"jml_todo"		=> $this->todo->total_todo("", "todo"),
-				"data_unit"		=> $this->M_Universal->getMulti("", "hd_unit"),
+				"view"		=> "todolist",
+				"data_unit"	=> $this->M_Universal->getMulti("", "hd_unit"),
+				// "lihat_unit"	=> $this->M_Universal->getMulti(["unit_id" => dekrip(uri(3))], "hd_unit"),
 			);
-
+		
 			return $data;
 		}
 		else if ($this->user_level == "Ka. Bag") {
-			
+			$level = $this->user_level;
 
         	$data = array(
-				"judul"			=> "Data Pekerjaan",
+				"judul"		=> "Data Pekerjaan",
 				"keterangan"	=> "Manajemen Pengguna",
 				"halaman"		=> "data_kerjaan",
 				"breadcrumb"	=> "Master Data|User",
-				"view"			=> "todolist",
-				"data_todo"		=> $this->todo->get_todo(NULL, $level,$unit),
-				"jml_todo"		=> $this->todo->total_todo("", "todo"),
+				"view"		=> "todolist",
+				"data_todo"	=> $this->todo->get_todo($unit, $level),
+				"jml_todo"	=> $this->todo->total_todo("", "todo"),
+				"data_unit"	=> $this->M_Universal->getMulti("", "hd_unit"),
 			);
 		
 			return $data;
@@ -58,7 +58,7 @@ class Todo extends MY_Controller {
 				"halaman"		=> "data_kerjaan",
 				"breadcrumb"	=> "Master Data|User",
 				"view"		=> "todolist",
-				"data_todo"	=> $this->todo->get_todo($where, $level,$unit),
+				"data_todo"	=> $this->todo->get_todo($where, $level),
 				"jml_todo"	=> $this->todo->total_todo("", "todo"),
 			);
 
@@ -72,7 +72,7 @@ class Todo extends MY_Controller {
 				"halaman"		=> "data_kerjaan",
 				"breadcrumb"	=> "Master Data|User",
 				"view"		=> "todolist",
-				"data_todo"	=> $this->todo->get_todo($where, NULL, NULL),
+				"data_todo"	=> $this->todo->get_todo($where, NULL),
 				"jml_todo"	=> $this->todo->total_todo("", "todo"),
 			);
 		
@@ -260,6 +260,39 @@ class Todo extends MY_Controller {
 			);
 		
 			$this->load->view('template', $data);
+		}
+	}
+	
+	public function lihat_unit()
+	{
+		
+		$count_acc = $this->M_Universal->infoUnit("ACC",dekrip(uri(3)));
+		$count_belum = $this->M_Universal->infoUnit("Belum",dekrip(uri(3)));
+		$count_pending = $this->M_Universal->infoUnit("Tolak",dekrip(uri(3)));
+		$count_todo = $this->M_Universal->infoUnit(NULL,dekrip(uri(3)));
+
+		if ($this->user_level == "Super Admin") {
+			$level = $this->user_level;
+
+        	$data = array(
+				"judul"		=> "Data Unit",
+				"keterangan"	=> "Manajemen Pengguna",
+				"halaman"		=> "data_kerjaan",
+				"breadcrumb"	=> "Master Data|User",
+				"view"			=> "lihat_unit",
+				"lihat_unit"	=> $this->M_Universal->getUnit(["unit_id" => dekrip(uri(3))], "hd_unit"),
+				"todo_unit"		=> $this->todo->get_todo(["user.unit_id" => dekrip(uri(3))], $level),
+				"count_acc" 	=> $count_acc->count_id,
+				"count_belum" 	=> $count_belum->count_id,
+				"count_pending" => $count_pending->count_id,
+				"count_todo" 	=> $count_todo->count_id,
+			);
+		
+			$this->load->view('template', $data);
+
+			// $todo_unit = $this->todo->get_todo(NULL, $level ,["user.unit_id" => dekrip(uri(3))]);
+			// var_dump($todo_unit); die; 
+
 		}
 	}
 

@@ -113,8 +113,10 @@ class Profil extends MY_Controller {
 							}
 	                    
 	                }else{
-	                    echo $this->session->set_flashdata('msg','warning');
-	                    redirect('admin/pengguna');
+	                    // echo $this->session->set_flashdata('msg','warning');
+	                    // redirect('admin/pengguna');
+
+						echo "error";
 	                }
 	                
 	            }else{
