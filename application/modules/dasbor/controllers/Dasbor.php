@@ -51,13 +51,16 @@ class Dasbor extends MY_Controller {
 		$count_todo = $this->M_Universal->total_todo($level,$username);
 		
 		if($this->user_level == "Super Admin"){
+
+			$count_todo = $this->M_Universal->total_todo($level,$username);
+
 			$data = array(
 				"judul"			=> "Unit Bagian",
 				"keterangan"	=> "Contoh Keterangan",
 				"halaman"		=> "dasbor",
 				"view"			=> "dasbor",
 				"data_unit"		=> $this->M_Universal->getMulti("", "hd_unit"),
-				// "jml_todo"		=> $count_todo->count_id,
+				"jml_todo"		=> $count_todo->count_id,
 				// "jml_acc"		=> $count_acc->count_id,
 				// "jml_pending"	=> $count_pending->count_id,
 				// "jml_belum"		=> $count_belum->count_id,
