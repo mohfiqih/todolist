@@ -103,7 +103,9 @@ class Profil extends MY_Controller {
 									'user_id'			=> $this->user_id,
 									'user_namalengkap'	=> $this->user_namalengkap,
 									'user_foto'			=> $this->user_foto,
-									'add_by'			=> $this->add_by
+									'add_by'			=> $this->add_by,
+									'unit_id'			=> $this->unit_id
+
 								);
 								
 								$this->session->set_userdata("log_admin", $session);
@@ -163,7 +165,8 @@ class Profil extends MY_Controller {
 							'user_id'			=> $this->user_id,
 							'user_namalengkap'	=> $this->user_namalengkap,
 							'user_foto'			=> $this->user_foto,
-							'add_by'			=> $this->add_by
+							'add_by'			=> $this->add_by,
+							'unit_id'			=> $this->unit_id
 						);
 						
 						$this->session->set_userdata("log_admin", $session);

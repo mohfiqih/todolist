@@ -115,7 +115,7 @@
                          </div>
                     </li>
 
-                    <li class="dropdown notification-list topbar-dropdown">
+                    <!-- <li class="dropdown notification-list topbar-dropdown">
                          <a class="nav-link dropdown-toggle waves-effect waves-light" data-bs-toggle="dropdown" href="#"
                               role="button" aria-haspopup="false" aria-expanded="false">
                               <i class="fe-bell noti-icon"></i>
@@ -123,7 +123,7 @@
                          </a>
                          <div class="dropdown-menu dropdown-menu-end dropdown-lg">
 
-                              <!-- item-->
+                             
                               <div class="dropdown-item noti-title">
                                    <h5 class="m-0">
                                         <span class="float-end">
@@ -136,7 +136,7 @@
 
                               <div class="noti-scroll" data-simplebar>
 
-                                   <!-- item-->
+                                   
                                    <a href="javascript:void(0);" class="dropdown-item notify-item active">
                                         <div class="notify-icon">
                                              <img src="<?php echo base_url('assets/backend'); ?>/images/phb.png"
@@ -148,7 +148,7 @@
                                         </p>
                                    </a>
 
-                                   <!-- item-->
+                                   
                                    <a href="javascript:void(0);" class="dropdown-item notify-item">
                                         <div class="notify-icon bg-primary">
                                              <i class="mdi mdi-comment-account-outline"></i>
@@ -158,7 +158,7 @@
                                         </p>
                                    </a>
 
-                                   <!-- item-->
+                                   
                                    <a href="javascript:void(0);" class="dropdown-item notify-item">
                                         <div class="notify-icon">
                                              <img src="<?php echo base_url('assets/backend'); ?>/images/users/user-4.jpg"
@@ -170,7 +170,7 @@
                                         </p>
                                    </a>
 
-                                   <!-- item-->
+                                  
                                    <a href="javascript:void(0);" class="dropdown-item notify-item">
                                         <div class="notify-icon bg-warning">
                                              <i class="mdi mdi-account-plus"></i>
@@ -180,7 +180,7 @@
                                         </p>
                                    </a>
 
-                                   <!-- item-->
+                                  
                                    <a href="javascript:void(0);" class="dropdown-item notify-item">
                                         <div class="notify-icon bg-info">
                                              <i class="mdi mdi-comment-account-outline"></i>
@@ -190,7 +190,7 @@
                                         </p>
                                    </a>
 
-                                   <!-- item-->
+                                  
                                    <a href="javascript:void(0);" class="dropdown-item notify-item">
                                         <div class="notify-icon bg-secondary">
                                              <i class="mdi mdi-heart"></i>
@@ -202,14 +202,14 @@
                                    </a>
                               </div>
 
-                              <!-- All-->
+                              
                               <a href="javascript:void(0);"
                                    class="dropdown-item text-center text-primary notify-item notify-all">
                                    View all
                                    <i class="fe-arrow-right"></i>
                               </a>
                          </div>
-                    </li>
+                    </li> -->
 
                     <li class="dropdown notification-list topbar-dropdown">
                          <a class="nav-link dropdown-toggle nav-user me-0 waves-effect waves-light"
@@ -217,8 +217,8 @@
                               aria-expanded="false">
                               <img src="<?php echo base_url().'assets/images/'.$this->user_foto;?>" alt="user-image"
                                    class="rounded-circle">
-                              <span class="pro-user-name ms-1" value="<?php echo $this->user_nama; ?> ">
-                                   <?php echo $this->user_nama; ?>
+                              <span class="pro-user-name ms-1" value="<?php echo $this->user_namalengkap; ?> ">
+                                   <?php echo $this->user_namalengkap; ?>
                                    <!-- <i class="mdi mdi-chevron-down"></i> -->
                               </span>
                          </a>
