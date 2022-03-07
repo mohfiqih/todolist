@@ -32,6 +32,15 @@ class M_universal extends CI_Model
         return (count((array)$data) > 0) ? $data : false;
     }
 
+    public function getUnit($where, $tabel)
+    {
+        if (!empty($where)) {
+            $this->db->where($where);
+        }
+        $data = $this->db->get($tabel)->result(); 
+        return (count((array)$data) > 0) ? $data : false;
+    }
+
     public function getDashboard($where, $tabel)
     {
         if (!empty($where)) {
@@ -93,15 +102,6 @@ class M_universal extends CI_Model
     function total_todo($level,$username)
     {
         
-        // $this->db->select('*');
-        // $this->db->from($tabel);
-        // $this->db->join('user', 'user.user_id = todo.id_user','user.user_namalengkap');
-        // if (!empty($username)) {
-        //     $this->db->where('user.user_nama',$username);
-        // }
-        // $data = $this->db->get()->result();
-        // return count((array)$data);
-
         if($level == "Staf" or $level == "Magang"){
             $query = $this->db->query("SELECT COUNT(id) as count_id
                                FROM todo join user on user.user_id = todo.id_user
@@ -196,13 +196,21 @@ class M_universal extends CI_Model
         }
     }
 
-    // public function get_unit($tabel)
-    // {
-    //     if (!empty($where)) {
-    //         $this->db->where("user_nama",$where);
-    //     }
-    //     $data = $this->db->get($tabel)->result(); 
-    //     return (count((array)$data) > 0) ? $data : false;
-    // }
+    public function infoUnit($where,$unit)
+    {
+        if (!empty($where)) {
+            $query = $this->db->query("SELECT COUNT(id) as count_id
+                               FROM todo join user on user.user_id = todo.id_user
+                               WHERE checked = '$where' and user.unit_id = '$unit'");
+            return $query->row();
+        }
+        else{
+            $query = $this->db->query("SELECT COUNT(id) as count_id
+                               FROM todo join user on user.user_id = todo.id_user
+                               WHERE user.unit_id = '$unit'");
+            return $query->row();            
+        }
+    }
+
 }
 ?>

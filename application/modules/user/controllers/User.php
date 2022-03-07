@@ -57,7 +57,7 @@ class User extends MY_Controller {
 			$tambah = $this->M_Universal->insert($data, "user");
 			// $tambah_join = $this->M_Universal->insert($data, "hd_unit");
 					
-			if ($tambah && $tambah_join){
+			if ($tambah){
 				notifikasi_redirect("success", "Tambah user berhasil", uri(1));
 			} else {
 				notifikasi_redirect("error", "Tambah user gagal", uri(1));

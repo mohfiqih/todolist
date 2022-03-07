@@ -29,29 +29,29 @@
                                         <div class="box-header with-border">
                                              <h4 class="box-title" style="margin-left: 10px;">Data Unit</h4>
                                         </div>
+                                        <?php if($lihat_unit) {
+                                             foreach($lihat_unit as $lu){
+                                        ?>
                                         <table class="table table-hover mb-0">
                                              <tbody>
-                                                  <tr>
-                                                       <td width="150">Id Unit</td>
-                                                       <td width="20">:</td>
-                                                       <td>
-                                                       </td>
-                                                  </tr>
                                                   <tr>
                                                        <td>Nama Unit</td>
                                                        <td>:</td>
                                                        <td>
+                                                            <?php echo $lu->unit_nama; ?>
                                                        </td>
                                                   </tr>
                                                   <tr>
                                                        <td>Inisial Unit</td>
                                                        <td>:</td>
                                                        <td>
+                                                            <?php echo $lu->unit_inisial; ?>
                                                        </td>
                                                   </tr>
                                              </tbody>
 
                                         </table>
+                                        <?php }} ?>
                                    </div>
                          </form>
                          <div class="col-md-6">
@@ -64,22 +64,22 @@
                                         <tr>
                                              <td width="150">Total Todo</td>
                                              <td width="20">:</td>
-                                             <td></td>
+                                             <td><?php echo $count_todo ?></td>
                                         </tr>
                                         <tr>
                                              <td>Total ACC</td>
                                              <td>:</td>
-                                             <td></td>
+                                             <td><?php echo $count_acc ?></td>
                                         </tr>
                                         <tr>
                                              <td>Total Pending</td>
                                              <td>:</td>
-                                             <td></td>
+                                             <td><?php echo $count_pending ?></td>
                                         </tr>
                                         <tr>
                                              <td>Total Belum</td>
                                              <td>:</td>
-                                             <td></td>
+                                             <td><?php echo $count_belum ?></td>
                                         </tr>
                                    </tbody>
                               </table>
@@ -124,41 +124,77 @@
                                                   <th class="align-middle" scope="col">Progres</th>
                                                   <th class="align-middle" scope="col" style="text-align: center">Status
                                                   </th>
-                                                  <th class="align-middle" scope="col" style="text-align: center">Unit
-                                                  </th>
                                                   <th class="align-middle" scope="col" style="width: 50px;">
                                                        Action</th>
                                              </tr>
                                         </thead>
 
                                         <tbody>
+                                             <?php
+                                                  $no=0+1;
+                                                  if ($todo_unit){
+                                                  foreach ($todo_unit as $d){ 
+                                             ?>
                                              <tr class="fw-normal">
                                                   <th class="align-middle">
-
+                                                       <?php echo $no++; ?>
                                                   </th>
                                                   <th class="align-middle">
-
+                                                       <?php echo $d->user_namalengkap; ?>
                                                   </th>
                                                   <th class="align-middle">
-
+                                                       <?php echo $d->task; ?>
                                                   </th>
                                                   <th class="align-middle">
-
+                                                       <?php echo $d->date_created; ?>
                                                   </th>
                                                   <th class="align-middle">
-
+                                                       <?php echo $d->mulai; ?>-<?php echo $d->selesai; ?>
                                                   </th>
                                                   <th class="align-middle">
+                                                       <?php if ($d->status > 80 ): ?>
+                                                            <h6 class="align-middle">
+                                                                 <span class="badge bg-success">
+                                                                      <?php echo $d->level; ?>
+                                                                 </span>
 
+                                                       <?php elseif ($d->status > 50 ): ?>
+
+                                                                 <span class="badge bg-warning">
+                                                                      <?php echo $d->level; ?>
+                                                                 </span>
+
+                                                       <?php else: ?>
+
+                                                                 <span class="badge bg-danger">
+                                                                      <?php echo $d->level; ?>
+                                                                 </span>
+                                                            </h6>
+                                                       <?php endif; ?>
                                                   </th>
                                                   <th class="align-middle">
-
+                                                       <?php echo $d->status; ?> %</td>
                                                   </th>
                                                   <th class="align-middle">
-
-                                                  </th>
-                                                  <th class="align-middle">
-
+                                                       <?php if ($d->checked == 'ACC'): ?>
+                                                            <h5 class="align-middle mb-0">
+                                                                 <span class="badge bg-success">
+                                                                      <?php echo $d->checked; ?>
+                                                                 </span>
+                                                            </h5>
+                                                       <?php elseif ($d->checked == 'Belum'): ?>
+                                                            <h5 class="align-middle mb-0">
+                                                                 <span class="badge bg-warning">
+                                                                      <?php echo $d->checked; ?>
+                                                                 </span>
+                                                            </h5>
+                                                       <?php else: ?>
+                                                            <h5 class="align-middle mb-0">
+                                                                 <span class="badge bg-danger">
+                                                                      <?php echo $d->checked; ?>
+                                                                 </span>
+                                                            </h5>
+                                                       <?php endif; ?>
                                                   </th>
                                                   <td class="align-middle">
 
@@ -172,8 +208,10 @@
                                                             </h5>
                                                        </a>
                                                   </td>
-
                                              </tr>
+                                             <?php }} else { ?>
+                                                  <td class="text-center" colspan="11">Tidak ada data</td>
+                                             <?php } ?>
                                         </tbody>
                                    </table>
                               </div>
