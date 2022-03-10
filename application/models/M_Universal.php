@@ -102,13 +102,19 @@ class M_universal extends CI_Model
     function total_todo($level,$username)
     {
         
-        if($level == "Staf" or $level == "Magang"){
+        if($level == "Super Admin"){
+            $query = $this->db->query("SELECT COUNT(id) as count_id
+                               FROM todo join user on user.user_id = todo.id_user
+                               ");
+            return $query->row();
+        }
+        else if($level == "Staf" or $level == "Magang"){
             $query = $this->db->query("SELECT COUNT(id) as count_id
                                FROM todo join user on user.user_id = todo.id_user
                                WHERE user.user_nama = '$username' ");
             return $query->row();
         }
-        if($level == "Sub Bag"){
+        else if($level == "Sub Bag"){
             $query = $this->db->query("SELECT COUNT(id) as count_id
                                FROM todo join user on user.user_id = todo.id_user
                                WHERE user.user_nama = '$username' or user.add_by = '$username'");
@@ -116,7 +122,8 @@ class M_universal extends CI_Model
         }
         else{
             $query = $this->db->query("SELECT COUNT(id) as count_id
-                               FROM todo");
+                               FROM todo join user on user.user_id = todo.id_user
+                               WHERE user.unit_id = '$username'");
             return $query->row();
         }
 

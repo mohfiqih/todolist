@@ -14,7 +14,15 @@
                                         <div class="widget-box-4">
                                              <div class="widget-detail-2">
                                                   <h2 class="fw-normal mb-1"><?php echo $u->unit_inisial;?></h2>
-                                                  <p class="text-muted mb-3"><?php echo $u->unit_nama;?></p>
+                                                  <?php if ($jml_todo) { ?>
+                                                       <p class="text-muted mb-3" <?=$u->unit_id == $jml_todo ? 'selected' : null ?>><?php echo $u->unit_nama;?></p>
+                                                  <?php } else { ?>
+                                                       # code...
+                                                  <?php
+                                                  }
+                                                  ?>
+                                                  
+                                                  
                                              </div>
                                         </div>
                                    </div>

@@ -17,8 +17,8 @@ class Profil extends MY_Controller {
 			"keterangan"	=> "Sunting Data Diri",
 			"halaman"		=> "profil",
 			"breadcrumb"	=> "User|Profil",
-			"view"		=> "profil",
-			"edit"		=> $this->M_Universal->getOne(["user_id" => $this->user_id], "user"),
+			"view"			=> "profil",
+			"user"			=> $this->M_Universal->getOne(["user_id" => $this->user_id], "user"),
 			// "data_join"	=> $this->M_Universal->getMulti(NULL, "user"),
 		);
 		

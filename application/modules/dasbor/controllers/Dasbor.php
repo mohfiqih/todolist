@@ -42,15 +42,29 @@ class Dasbor extends MY_Controller {
 	{
 		$level = $this->user_level;
 		$username = $this->user_nama;
-		$unit = $this->unit_id;
+		// $unit = $this->unit_id;
 
 
 		$count_acc = $this->M_Universal->total_acc("ACC",$level,$username);
 		$count_belum = $this->M_Universal->total_belum("Belum",$level,$username);
 		$count_pending = $this->M_Universal->total_pending("Tolak",$level,$username);
 		$count_todo = $this->M_Universal->total_todo($level,$username);
+
+		$data_user	= $this->M_Universal->getOne(["user_id" => $this->user_id], "user");
+	
 		
 		if($this->user_level == "Super Admin"){
+
+			// $data_unit	= $this->M_Universal->getMulti("", "hd_unit");
+			
+			// var_dump($data_unit -> unit_id); die; 
+
+
+			// // $count_todo = $this->M_Universal->total_todo($level,$username);
+			
+
+
+
 			$data = array(
 				"judul"			=> "Unit Bagian",
 				"keterangan"	=> "Contoh Keterangan",
@@ -61,6 +75,7 @@ class Dasbor extends MY_Controller {
 				// "jml_acc"		=> $count_acc->count_id,
 				// "jml_pending"	=> $count_pending->count_id,
 				// "jml_belum"		=> $count_belum->count_id,
+				"user"			=> $data_user
 			);
 
 			return $data;
@@ -77,6 +92,7 @@ class Dasbor extends MY_Controller {
 				"jml_acc"		=> $count_acc->count_id,
 				"jml_pending"	=> $count_pending->count_id,
 				"jml_belum"		=> $count_belum->count_id,
+				"user"			=> $data_user
 			);
 
 			return $data;
@@ -93,11 +109,15 @@ class Dasbor extends MY_Controller {
 				"jml_acc"		=> $count_acc->count_id,
 				"jml_pending"	=> $count_pending->count_id,
 				"jml_belum"		=> $count_belum->count_id,
+				"user"			=> $data_user
+				
 			);
 
 			return $data;
 		}
 		else{
+			$unit = $this->unit_id;
+			$count_todo_kabag = $this->M_Universal->total_todo($level,$unit);
 
         	$data = array(
 				"judul"			=> "Dashboard",
@@ -105,10 +125,11 @@ class Dasbor extends MY_Controller {
 				"halaman"		=> "dasbor",
 				"view"			=> "dasbor",
 				"jml_user"		=> $this->M_Universal->total_user("", "user"),
-				"jml_todo"		=> $count_todo->count_id,
+				"jml_todo"		=> $count_todo_kabag->count_id,
 				"jml_acc"		=> $count_acc->count_id,
 				"jml_pending"	=> $count_pending->count_id,
 				"jml_belum"		=> $count_belum->count_id,
+				"user"			=> $data_user
 			);
 
 			return $data;

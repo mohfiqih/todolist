@@ -14,7 +14,7 @@
 
                                         <center>
                                              <img width="210" height="210"
-                                                  src="<?php echo base_url().'assets/images/'.$edit->user_foto; ?>" /><br />
+                                                  src="<?php echo base_url().'assets/images/'.$user->user_foto; ?>" /><br />
                                         </center>
 
                                         <br />
@@ -33,7 +33,7 @@
                                         <div class="mb-2">
                                              <label class="form-label">Nama Lengkap</label>
                                              <input type="text" class="form-control" name="nama_lengkap"
-                                                  value="<?php echo $edit->user_namalengkap;?> ">
+                                                  value="<?php echo $user->user_namalengkap;?> ">
                                         </div>
 
                                         <div class="mb-2">

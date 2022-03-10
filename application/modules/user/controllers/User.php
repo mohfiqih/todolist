@@ -12,6 +12,7 @@ class User extends MY_Controller {
 	
 	private function meta()
 	{
+		$data_user	= $this->M_Universal->getOne(["user_id" => $this->user_id], "user");
         $data = array(
 			"judul"			=> "User",
 			"keterangan"	=> "Manajemen Pengguna",
@@ -20,6 +21,7 @@ class User extends MY_Controller {
 			"view"			=> "user",
 			"data_user"		=> $this->M_Universal->getDashboard($this->user_nama, "user"),
 			"data_unit"		=> $this->M_Universal->getMulti("", "hd_unit"),
+			"user"			=> $data_user
 		);
 		
 		return $data;
@@ -34,7 +36,7 @@ class User extends MY_Controller {
 	public function edit()
 	{
 		$data			= $this->meta();
-		$data["edit"]	     = $this->M_Universal->getOne(["user_id" => dekrip(uri(3))], "user");
+		$data["edit"]	= $this->M_Universal->getOne(["user_id" => dekrip(uri(3))], "user");
 		
 		$this->load->view('template', $data);
 	}

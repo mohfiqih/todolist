@@ -215,17 +215,17 @@
                          <a class="nav-link dropdown-toggle nav-user me-0 waves-effect waves-light"
                               data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false"
                               aria-expanded="false">
-                              <img src="<?php echo base_url().'assets/images/'.$this->user_foto;?>" alt="user-image"
+                              <img src="<?php echo base_url().'assets/images/'.$user->user_foto;?>" alt="user-image"
                                    class="rounded-circle">
-                              <span class="pro-user-name ms-1" value="<?php echo $this->user_nama; ?> ">
-                                   <?php echo $this->user_nama; ?>
+                              <span class="pro-user-name ms-1" value="<?php echo $user->user_nama; ?> ">
+                                   <?php echo $user->user_nama; ?>
                                    <!-- <i class="mdi mdi-chevron-down"></i> -->
                               </span>
                          </a>
                          <div class="dropdown-menu dropdown-menu-end profile-dropdown ">
                               <!-- item-->
                               <div class="dropdown-header noti-title">
-                                   <h6 class="text-overflow m-0 text-center"><?php echo $this->user_namalengkap; ?></h6>
+                                   <h6 class="text-overflow m-0 text-center"><?php echo $user->user_namalengkap; ?></h6>
                               </div>
 
                               <!-- item-->

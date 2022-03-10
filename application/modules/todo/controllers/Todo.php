@@ -9,9 +9,9 @@ class Todo extends MY_Controller {
     public function __construct()
     {
         // Load the constructer from MY_Controller
-        parent::__construct();
-	   $this->cek_login();
-	   $this->load->model('M_todo','todo');
+    	parent::__construct();
+	   	$this->cek_login();
+	   	$this->load->model('M_todo','todo');
     }
 
     private function meta()
@@ -19,6 +19,8 @@ class Todo extends MY_Controller {
 		$level = $this->user_level;
 		$where = $this->user_nama;
 		$unit = $this->unit_id;
+
+		$data_user	= $this->M_Universal->getOne(["user_id" => $this->user_id], "user");
 		if ($this->user_level == "Super Admin") {
 			$level = $this->user_level;
 
@@ -27,8 +29,9 @@ class Todo extends MY_Controller {
 				"keterangan"	=> "Manajemen Pengguna",
 				"halaman"		=> "data_kerjaan",
 				"breadcrumb"	=> "Master Data|User",
-				"view"		=> "todolist",
-				"data_unit"	=> $this->M_Universal->getMulti("", "hd_unit"),
+				"view"			=> "todolist",
+				"data_unit"		=> $this->M_Universal->getMulti("", "hd_unit"),
+				"user"			=> $data_user
 				// "lihat_unit"	=> $this->M_Universal->getMulti(["unit_id" => dekrip(uri(3))], "hd_unit"),
 			);
 		
@@ -42,10 +45,11 @@ class Todo extends MY_Controller {
 				"keterangan"	=> "Manajemen Pengguna",
 				"halaman"		=> "data_kerjaan",
 				"breadcrumb"	=> "Master Data|User",
-				"view"		=> "todolist",
-				"data_todo"	=> $this->todo->get_todo($unit, $level),
-				"jml_todo"	=> $this->todo->total_todo("", "todo"),
-				"data_unit"	=> $this->M_Universal->getMulti("", "hd_unit"),
+				"view"			=> "todolist",
+				"data_todo"		=> $this->todo->get_todo($unit, $level),
+				"jml_todo"		=> $this->todo->total_todo("", "todo"),
+				"data_unit"		=> $this->M_Universal->getMulti("", "hd_unit"),
+				"user"			=> $data_user
 			);
 		
 			return $data;
@@ -53,13 +57,14 @@ class Todo extends MY_Controller {
 		else if($this->user_level == "Sub Bag"){
 
         	$data = array(
-				"judul"		=> "Data Pekerjaan",
+				"judul"			=> "Data Pekerjaan",
 				"keterangan"	=> "Manajemen Pengguna",
 				"halaman"		=> "data_kerjaan",
 				"breadcrumb"	=> "Master Data|User",
-				"view"		=> "todolist",
-				"data_todo"	=> $this->todo->get_todo($where, $level),
-				"jml_todo"	=> $this->todo->total_todo("", "todo"),
+				"view"			=> "todolist",
+				"data_todo"		=> $this->todo->get_todo($where, $level),
+				"jml_todo"		=> $this->todo->total_todo("", "todo"),
+				"user"			=> $data_user
 			);
 
 			return $data;
@@ -67,13 +72,14 @@ class Todo extends MY_Controller {
 		else {
 			
         	$data = array(
-				"judul"		=> "Data Pekerjaan",
+				"judul"			=> "Data Pekerjaan",
 				"keterangan"	=> "Manajemen Pengguna",
 				"halaman"		=> "data_kerjaan",
 				"breadcrumb"	=> "Master Data|User",
-				"view"		=> "todolist",
-				"data_todo"	=> $this->todo->get_todo($where, NULL),
-				"jml_todo"	=> $this->todo->total_todo("", "todo"),
+				"view"			=> "todolist",
+				"data_todo"		=> $this->todo->get_todo($where, NULL),
+				"jml_todo"		=> $this->todo->total_todo("", "todo"),
+				"user"			=> $data_user
 			);
 		
 			return $data;
@@ -88,13 +94,15 @@ class Todo extends MY_Controller {
 	
 	public function add()
 	{
+		$data_user	= $this->M_Universal->getOne(["user_id" => $this->user_id], "user");
 		$where = $this->user_nama;
         $data = array(
-			"judul"		=> "Halaman To-Do-List",
+			"judul"			=> "Halaman To-Do-List",
 			"keterangan"	=> "Contoh Keterangan",
 			"halaman"		=> "tambah_list",
-			"view"		=> "tambah_list",
-			"data_user"	=> $this->M_Universal->getMulti($where, "user"),
+			"view"			=> "tambah_list",
+			"data_user"		=> $this->M_Universal->getMulti($where, "user"),
+			"user"			=> $data_user
 		);
 					
 		$this->load->view('template', $data);
@@ -103,13 +111,15 @@ class Todo extends MY_Controller {
 	public function cek()
 	{
 		$where = $this->user_nama;
+		$data_user	= $this->M_Universal->getOne(["user_id" => $this->user_id], "user");
         $data = array(
-			"judul"		=> "Halaman Check",
+			"judul"			=> "Halaman Check",
 			"keterangan"	=> "Contoh Keterangan",
 			"halaman"		=> "check",
-			"view"		=> "check",
+			"view"			=> "check",
 			"data_check"	=> $this->todo->getMulti(["id" => dekrip(uri(3))], "todo"),
-			"data_user"	=> $this->M_Universal->getMulti($where, "user")
+			"data_user"		=> $this->M_Universal->getMulti($where, "user"),
+			"user"		=> $data_user
 		);
 					
 		$this->load->view('template', $data);
@@ -117,6 +127,7 @@ class Todo extends MY_Controller {
 
 	public function acc() 
 	{
+		$data_user	= $this->M_Universal->getOne(["user_id" => $this->user_id], "user");
 		if ($this->user_level == "Ka. Bag") {
 			$username = $this->user_nama;
 			$level = $this->user_level;
@@ -126,8 +137,9 @@ class Todo extends MY_Controller {
 				"keterangan"	=> "Manajemen Pengguna",
 				"halaman"		=> "data_kerjaan",
 				"breadcrumb"	=> "Master Data|User",
-				"view"		=> "acc",
-				"data_todo"	=> $this->todo->lihat_status("ACC",NULL, $level),
+				"view"			=> "acc",
+				"data_todo"		=> $this->todo->lihat_status("ACC",NULL, $level),
+				"user"			=> $data_user
 				// "jml_todo"	=> $this->todo->total_todo("", "todo"),
 			);
 		
@@ -136,12 +148,13 @@ class Todo extends MY_Controller {
 			$username = $this->user_nama;
 			$level = $this->user_level;
 			$data = array(
-				"judul"		=> "Project Selesai",
+				"judul"			=> "Project Selesai",
 				"keterangan"	=> "Manajemen Pengguna",
 				"halaman"		=> "data_kerjaan",
 				"breadcrumb"	=> "Master Data|User",
-				"view"		=> "acc",
-				"data_todo"	=> $this->todo->lihat_status("ACC",$username, $level),
+				"view"			=> "acc",
+				"data_todo"		=> $this->todo->lihat_status("ACC",$username, $level),
+				"user"			=> $data_user
 				// "jml_todo"	=> $this->todo->total_todo("", "todo"),
 			);
 		
@@ -151,12 +164,13 @@ class Todo extends MY_Controller {
 			$username = $this->user_nama;
 			$level = $this->user_level;
 			$data = array(
-				"judul"		=> "Project Selesai",
+				"judul"			=> "Project Selesai",
 				"keterangan"	=> "Manajemen Pengguna",
 				"halaman"		=> "data_kerjaan",
 				"breadcrumb"	=> "Master Data|User",
-				"view"		=> "acc",
-				"data_todo"	=> $this->todo->lihat_status("ACC",$username,$level),
+				"view"			=> "acc",
+				"data_todo"		=> $this->todo->lihat_status("ACC",$username,$level),
+				"user"			=> $data_user
 				// "jml_todo"	=> $this->todo->total_todo("", "todo"),
 			);
 		
@@ -166,6 +180,7 @@ class Todo extends MY_Controller {
 
 	public function belum() 
 	{
+		$data_user	= $this->M_Universal->getOne(["user_id" => $this->user_id], "user");
 		if ($this->user_level == "Ka. Bag") {
 			$username = $this->user_nama;
 			$level = $this->user_level;
@@ -177,6 +192,7 @@ class Todo extends MY_Controller {
 				"breadcrumb"	=> "Master Data|User",
 				"view"			=> "acc",
 				"data_todo"		=> $this->todo->lihat_status("Belum",NULL, $level),
+				"user"		=> $data_user
 				// "jml_todo"	=> $this->todo->total_todo("", "todo"),
 			);
 		
@@ -191,6 +207,7 @@ class Todo extends MY_Controller {
 				"breadcrumb"	=> "Master Data|User",
 				"view"			=> "acc",
 				"data_todo"		=> $this->todo->lihat_status("Belum",$username, $level),
+				"user"		=> $data_user
 				// "jml_todo"	=> $this->todo->total_todo("", "todo"),
 			);
 		
@@ -206,6 +223,7 @@ class Todo extends MY_Controller {
 				"breadcrumb"	=> "Master Data|User",
 				"view"			=> "acc",
 				"data_todo"		=> $this->todo->lihat_status("Belum",$username,$level),
+				"user"		=> $data_user
 				// "jml_todo"	=> $this->todo->total_todo("", "todo"),
 			);
 		
@@ -215,6 +233,7 @@ class Todo extends MY_Controller {
 
 	public function pending() 
 	{
+		$data_user	= $this->M_Universal->getOne(["user_id" => $this->user_id], "user");
 		if ($this->user_level == "Ka. Bag") {
 			$level = $this->user_level;
 
@@ -225,6 +244,7 @@ class Todo extends MY_Controller {
 			// "breadcrumb"	=> "Master Data|User",
 			"view"		=> "acc",
 			"data_todo"	=> $this->todo->lihat_status("Tolak",NULL, $level),
+			"user"		=> $data_user
 			// "jml_todo"	=> $this->todo->total_todo("", "todo"),
 			);
 		
@@ -238,8 +258,9 @@ class Todo extends MY_Controller {
 			"keterangan"	=> "Manajemen Pengguna",
 			"halaman"		=> "data_kerjaan",
 			"breadcrumb"	=> "Master Data|User",
-			"view"		=> "acc",
-			"data_todo"	=> $this->todo->lihat_status("Tolak",$username, $level),
+			"view"			=> "acc",
+			"data_todo"		=> $this->todo->lihat_status("Tolak",$username, $level),
+			"user"			=> $data_user
 			// "jml_todo"	=> $this->todo->total_todo("", "todo"),
 			);
 		
@@ -254,8 +275,9 @@ class Todo extends MY_Controller {
 			"keterangan"	=> "Manajemen Pengguna",
 			"halaman"		=> "data_kerjaan",
 			"breadcrumb"	=> "Master Data|User",
-			"view"		=> "acc",
-			"data_todo"	=> $this->todo->lihat_status("Tolak",$username,$level),
+			"view"			=> "acc",
+			"data_todo"		=> $this->todo->lihat_status("Tolak",$username,$level),
+			"user"			=> $data_user
 			// "jml_todo"	=> $this->todo->total_todo("", "todo"),
 			);
 		
@@ -270,6 +292,7 @@ class Todo extends MY_Controller {
 		$count_belum = $this->M_Universal->infoUnit("Belum",dekrip(uri(3)));
 		$count_pending = $this->M_Universal->infoUnit("Tolak",dekrip(uri(3)));
 		$count_todo = $this->M_Universal->infoUnit(NULL,dekrip(uri(3)));
+		$data_user = $this->M_Universal->getOne(["user_id" => $this->user_id], "user");
 
 		if ($this->user_level == "Super Admin") {
 			$level = $this->user_level;
@@ -286,6 +309,7 @@ class Todo extends MY_Controller {
 				"count_belum" 	=> $count_belum->count_id,
 				"count_pending" => $count_pending->count_id,
 				"count_todo" 	=> $count_todo->count_id,
+				"user"			=> $data_user
 			);
 		
 			$this->load->view('template', $data);
@@ -318,11 +342,11 @@ class Todo extends MY_Controller {
 		$data = array(
 			//"user_id"			=> date("ymdHis"),
 			"id_user"		=> dekrip($this->input->post("id_user")),
-			"task"		=> $this->input->post("pekerjaan"),
+			"task"			=> $this->input->post("pekerjaan"),
 			"date_created"	=> $this->input->post("tanggal"),
-			"mulai"	   	=> $this->input->post("jam_mulai"),
+			"mulai"	   		=> $this->input->post("jam_mulai"),
 			"selesai"		=> $this->input->post("jam_selesai"),
-			"level"		=> $this->input->post("user_level"),
+			"level"			=> $this->input->post("user_level"),
 			"status"		=> $this->input->post("progres"),
 		);
 
@@ -337,13 +361,15 @@ class Todo extends MY_Controller {
 
 	public function edit() 
 	{
+		$data_user = $this->M_Universal->getOne(["user_id" => $this->user_id], "user");;
 		$where = $this->user_nama;
 		$data = array(
-			"judul"		=> "Halaman Edit",
+			"judul"			=> "Halaman Edit",
 			"halaman"		=> "edit_list",
-			"view"		=> "edit_list",
-			"data_edit"	=> $this->todo->getMulti(["id" => dekrip(uri(3))], "todo"),
-			"data_user"	=> $this->M_Universal->getMulti($where, "user")
+			"view"			=> "edit_list",
+			"data_edit"		=> $this->todo->getMulti(["id" => dekrip(uri(3))], "todo"),
+			"data_user"		=> $this->M_Universal->getMulti($where, "user"),
+			"user"			=> $data_user
 			// "data_user"	=> $this->M_Universal->getMulti(["id" => (uri(3))], "user"),
 		);
 		$this->load->view('template', $data);
