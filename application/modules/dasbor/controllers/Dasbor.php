@@ -71,7 +71,7 @@ class Dasbor extends MY_Controller {
 				"halaman"		=> "dasbor",
 				"view"			=> "dasbor",
 				"data_unit"		=> $this->M_Universal->getMulti("", "hd_unit"),
-				// "jml_todo"		=> $count_todo->count_id,
+				"jml_todo"		=> $count_todo->count_id,
 				// "jml_acc"		=> $count_acc->count_id,
 				// "jml_pending"	=> $count_pending->count_id,
 				// "jml_belum"		=> $count_belum->count_id,

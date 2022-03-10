@@ -21,6 +21,8 @@
                                         <div class="mb-2"><br />
                                              <label class="form-label">Foto Profil</label>
                                              <input type="file" class="form-control" name="file_foto" value=""><br />
+                                             <p>File Foto harus jpg, png dan jpeg dan ukuran file
+                                                  harus di bawah 2MB</p>
                                         </div>
 
                                    </div>
@@ -30,6 +32,12 @@
                          <div class="col-md-8">
                               <div class="card">
                                    <div class="card-body">
+                                        <div class="mb-2">
+                                             <label class="form-label">Username</label>
+                                             <input type="text" class="form-control" name=""
+                                                  value="<?php echo $this->user_nama;?> " readonly>
+                                        </div>
+
                                         <div class="mb-2">
                                              <label class="form-label">Nama Lengkap</label>
                                              <input type="text" class="form-control" name="nama_lengkap"

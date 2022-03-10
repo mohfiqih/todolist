@@ -85,9 +85,9 @@
                               </table>
                          </div>
                          <div class=""><br />
-                              <a href="" data-mdb-toggle="tooltip" title="Done"><button style="margin-left: 10px;"
+                              <!-- <a href="" data-mdb-toggle="tooltip" title="Done"><button style="margin-left: 10px;"
                                         type="button" class="btn btn-warning">Edit
-                                        Data</button></a>
+                                        Data</button></a> -->
 
                               <a href="<?php echo base_url("todo"); ?>">
                                    <button style="margin-left: 10px;" type="button"
@@ -108,7 +108,7 @@
                                         </h4>
                                    </div>
 
-                                   <table class="table table-hover mb-0" style="overflow-x: auto;">
+                                   <table id="example" class="table table-hover mb-0" style="overflow-x: auto;">
                                         <thead>
                                              <tr>
                                                   <th class="align-middle" scope="col" style="width: 3px;">
@@ -153,23 +153,23 @@
                                                   </th>
                                                   <th class="align-middle">
                                                        <?php if ($d->status > 80 ): ?>
-                                                            <h6 class="align-middle">
-                                                                 <span class="badge bg-success">
-                                                                      <?php echo $d->level; ?>
-                                                                 </span>
+                                                       <h6 class="align-middle">
+                                                            <span class="badge bg-success">
+                                                                 <?php echo $d->level; ?>
+                                                            </span>
 
-                                                       <?php elseif ($d->status > 50 ): ?>
+                                                            <?php elseif ($d->status > 50 ): ?>
 
-                                                                 <span class="badge bg-warning">
-                                                                      <?php echo $d->level; ?>
-                                                                 </span>
+                                                            <span class="badge bg-warning">
+                                                                 <?php echo $d->level; ?>
+                                                            </span>
 
-                                                       <?php else: ?>
+                                                            <?php else: ?>
 
-                                                                 <span class="badge bg-danger">
-                                                                      <?php echo $d->level; ?>
-                                                                 </span>
-                                                            </h6>
+                                                            <span class="badge bg-danger">
+                                                                 <?php echo $d->level; ?>
+                                                            </span>
+                                                       </h6>
                                                        <?php endif; ?>
                                                   </th>
                                                   <th class="align-middle">
@@ -177,23 +177,23 @@
                                                   </th>
                                                   <th class="align-middle">
                                                        <?php if ($d->checked == 'ACC'): ?>
-                                                            <h5 class="align-middle mb-0">
-                                                                 <span class="badge bg-success">
-                                                                      <?php echo $d->checked; ?>
-                                                                 </span>
-                                                            </h5>
+                                                       <h5 class="align-middle mb-0">
+                                                            <span class="badge bg-success">
+                                                                 <?php echo $d->checked; ?>
+                                                            </span>
+                                                       </h5>
                                                        <?php elseif ($d->checked == 'Belum'): ?>
-                                                            <h5 class="align-middle mb-0">
-                                                                 <span class="badge bg-warning">
-                                                                      <?php echo $d->checked; ?>
-                                                                 </span>
-                                                            </h5>
+                                                       <h5 class="align-middle mb-0">
+                                                            <span class="badge bg-warning">
+                                                                 <?php echo $d->checked; ?>
+                                                            </span>
+                                                       </h5>
                                                        <?php else: ?>
-                                                            <h5 class="align-middle mb-0">
-                                                                 <span class="badge bg-danger">
-                                                                      <?php echo $d->checked; ?>
-                                                                 </span>
-                                                            </h5>
+                                                       <h5 class="align-middle mb-0">
+                                                            <span class="badge bg-danger">
+                                                                 <?php echo $d->checked; ?>
+                                                            </span>
+                                                       </h5>
                                                        <?php endif; ?>
                                                   </th>
                                                   <td class="align-middle">
@@ -210,7 +210,7 @@
                                                   </td>
                                              </tr>
                                              <?php }} else { ?>
-                                                  <td class="text-center" colspan="11">Tidak ada data</td>
+                                             <td class="text-center" colspan="11">Tidak ada data</td>
                                              <?php } ?>
                                         </tbody>
                                    </table>
